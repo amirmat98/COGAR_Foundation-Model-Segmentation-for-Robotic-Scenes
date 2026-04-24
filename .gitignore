@@ -1,0 +1,22 @@
+# Large datasets should stay outside the repo
+datasets/
+data/
+external_data/
+Raw_Dataset/
+OCID/
+*.tar.gz
+*.zip
+
+# Generated results
+outputs/
+results/
+runs/
+
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Python cache files
+__pycache__/
+*.py[cod]

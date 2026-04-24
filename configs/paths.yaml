@@ -1,0 +1,18 @@
+# configs/paths.yaml
+
+project_root: "."
+
+# Full OCID dataset stored outside the GitHub repo
+ocid_root: "/mnt/Info/COGAR_DATASETs/OCID/OCID-dataset"
+
+# First sequence we are using for debugging
+ocid_debug_sequence: "YCB10/table/top/mixed/seq21"
+
+# These are resolved by code as:
+# ocid_root / ocid_debug_sequence / rgb
+# ocid_root / ocid_debug_sequence / label
+rgb_folder_name: "rgb"
+label_folder_name: "label"
+
+# Local outputs inside the repo, but ignored by Git
+outputs_dir: "outputs"
