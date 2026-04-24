@@ -3,26 +3,26 @@ from pathlib import Path
 
 from cogar_seg.visualization import (
     read_csv_rows,
-    visualize_object_prompt_from_row,
+    visualize_binary_mask_from_row,
 )
 
 
-OBJECT_INDEX_CSV = Path("outputs/indexes/ocid_debug_seq21_objects_filtered.csv")
+INDEX_CSV = Path("outputs/indexes/ocid_debug_seq21_objects_filtered_with_masks.csv")
 
 
 def main():
-    rows = read_csv_rows(OBJECT_INDEX_CSV)
+    rows = read_csv_rows(INDEX_CSV)
 
     if not rows:
-        raise RuntimeError("Object index is empty.")
+        raise RuntimeError("Index CSV is empty.")
 
-    row_index = int(sys.argv[1]) if len(sys.argv) > 1 else 0
+    row_index = int(sys.argv[1]) if len(sys.argv) > 1 else 5
 
     if row_index < 0 or row_index >= len(rows):
         raise IndexError(f"Row index {row_index} is outside valid range 0-{len(rows)-1}")
 
     row = rows[row_index]
-    visualize_object_prompt_from_row(row, row_index)
+    visualize_binary_mask_from_row(row, row_index)
 
 
 if __name__ == "__main__":
