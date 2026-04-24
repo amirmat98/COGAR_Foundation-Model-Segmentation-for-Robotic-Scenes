@@ -6,7 +6,7 @@ project_root: "."
 ocid_root: "/mnt/Info/COGAR_DATASETs/OCID/OCID-dataset"
 
 # First sequence we are using for debugging
-ocid_debug_sequence: "YCB10/table/top/mixed/seq21"
+ocid_debug_sequence: "./datasets/OCID-dataset/table/top/mixed/seq21"
 
 # These are resolved by code as:
 # ocid_root / ocid_debug_sequence / rgb
