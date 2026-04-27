@@ -17,6 +17,8 @@ What to do: Conduct a systematic benchmark of SAM, SAM2, FastSAM, MobileSAM, and
 9) Test whether lightweight SAM variants such as MobileSAM and EfficientSAM can provide a good trade-off for edge deployment.
 
 Software needed: PyTorch, SAM / SAM2 / FastSAM / MobileSAM / EfficientSAM, Detectron2, Ultralytics YOLOv8, OpenCV, COCO evaluation tools, Isaac Sim, Gazebo, Rviz2, Python
+
 Research needed: SAM architecture and prompting strategies, zero-shot segmentation literature, robotic perception benchmarks, synthetic data generation in simulation, domain gap analysis, model distillation for edge AI
+
 Deliverables: Simulated annotated robotic scene dataset, full benchmark results with tables and plots, failure mode analysis report, recommendation guide for which segmentation model to use in different robotic scenarios
 
