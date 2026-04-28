@@ -22,3 +22,43 @@ Research needed: SAM architecture and prompting strategies, zero-shot segmentati
 
 Deliverables: Simulated annotated robotic scene dataset, full benchmark results with tables and plots, failure mode analysis report, recommendation guide for which segmentation model to use in different robotic scenarios
 
+
+<hr style="height:4px; border:none; background-color:white;">
+
+This repository is part of the COGAR project on zero-shot segmentation for robotic perception.  
+The original assignment targets benchmarking SAM, SAM2, FastSAM, MobileSAM, and EfficientSAM on robotic scenes with challenges such as occlusion, clutter, reflective/transparent objects, and small parts.
+
+## Work Completed So Far
+
+Instead of starting directly from simulation, I first built a reproducible benchmark pipeline using the **OCID Object Clutter Indoor Dataset**, which provides cluttered RGB-D robotic scenes with object annotations.
+
+### Block 1 — Dataset Setup
+- Selected OCID as the first dataset for debugging and benchmarking.
+- Configured dataset paths through `configs/paths.yaml`.
+- Used the debug sequence: `YCB10/table/top/mixed/seq21`.
+- Created an image-level RGB/label index with 11 image-label pairs.
+
+### Block 2 — Object-Level Ground Truth
+- Extracted object instances from OCID label images.
+- Created an object-level index with 77 initial object instances.
+- Filtered the index to 52 usable object instances.
+- Exported one binary ground-truth mask per object.
+- Final CSV: `outputs/indexes/ocid_debug_seq21_objects_filtered_with_masks.csv`.
+
+### Block 3 — Single-Object SAM Inference
+- Implemented `scripts/run_sam_box_prompt.py`.
+- Ran SAM ViT-B on selected OCID objects using bounding-box prompts.
+- Added CUDA/GPU support for the local GTX 1050 setup.
+- Example result for row 0: SAM score = 0.9687, IoU = 0.8818.
+
+### Block 4 — Batch SAM Evaluation
+- Implemented `scripts/run_sam_box_prompt_batch.py`.
+- Ran SAM ViT-B with box prompts on all 52 filtered OCID objects.
+- Saved predicted masks, visualizations, and a result CSV.
+- Final results: mean IoU = 0.8495, median IoU = 0.8784, min IoU = 0.7087, max IoU = 0.9126, mean SAM score = 0.9629.
+
+## Current Status
+
+The project now has a working OCID-to-SAM evaluation pipeline: dataset indexing, object-level mask extraction, SAM box-prompt inference, CUDA execution, mask visualization, and IoU-based evaluation.
+
+Next step: analyze failure cases and extend the benchmark to more prompts, more sequences, and additional models such as SAM2, FastSAM, MobileSAM, and EfficientSAM.
