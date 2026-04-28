@@ -4,8 +4,13 @@ data/
 external_data/
 Raw_Dataset/
 OCID/
+checkpoints/
 *.tar.gz
 *.zip
+
+# Model weights / checkpoints
+*.pth
+*.pt
 
 # Generated results
 outputs/

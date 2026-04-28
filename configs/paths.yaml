@@ -3,10 +3,10 @@
 project_root: "."
 
 # Full OCID dataset stored outside the GitHub repo
-ocid_root: "/mnt/Info/COGAR_DATASETs/OCID/OCID-dataset"
+ocid_root: "/mnt/Info/COGAR_DATASETs/OCID-dataset"
 
 # First sequence we are using for debugging
-ocid_debug_sequence: "YCB10/table/top/mixed/seq21"
+ocid_debug_sequence: "/mnt/Info/COGAR_DATASETs/OCID-dataset/YCB10/table/top/mixed/seq21"
 
 # These are resolved by code as:
 # ocid_root / ocid_debug_sequence / rgb
@@ -16,3 +16,6 @@ label_folder_name: "label"
 
 # Local outputs inside the repo, but ignored by Git
 outputs_dir: "outputs"
+indexes_dir: "outputs/indexes"
+gt_binary_masks_dir: "outputs/gt_binary_masks"
+sam_outputs_dir: "outputs/sam_box_prompt"
