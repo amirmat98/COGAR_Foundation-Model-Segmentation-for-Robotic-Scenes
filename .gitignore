@@ -38,3 +38,5 @@ htmlcov/
 *.egg-info/
 build/
 dist/
+
+outputs/analysis/
