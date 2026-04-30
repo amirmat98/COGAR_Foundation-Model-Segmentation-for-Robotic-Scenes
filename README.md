@@ -1,64 +1,155 @@
-# COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes
+# COGAR Foundation-Model Segmentation for Robotic Scenes
 
-## Subgroup I2: Foundation Model Segmentation for Robotic Scenes
+This repository contains a reproducible Python benchmark pipeline for
+foundation-model segmentation in robotic scenes. The current implemented
+pipeline uses the OCID Object Clutter Indoor Dataset and SAM ViT-B with
+single-object bounding-box prompts.
 
-## Assignment 2: Zero‑Shot Segmentation Benchmark for Robotic Perception (SIMULATION)
-### Student id: 5884715
+The larger COGAR assignment targets zero-shot segmentation benchmarks for SAM,
+SAM2, FastSAM, MobileSAM, EfficientSAM, and classical baselines on robotic
+scenes with clutter, occlusion, reflective or transparent objects, small parts,
+and dynamic scene changes.
 
-What to do: Conduct a systematic benchmark of SAM, SAM2, FastSAM, MobileSAM, and EfficientSAM as zero-shot segmentation models for robotic scene understanding, evaluating their robustness against challenges specific to robotics such as reflective surfaces, transparent objects, partial occlusions, small parts, and dynamic scenes. 
-1) Create or curate a robotic scene dataset in simulation with diverse challenges, including reflective metal, transparent glass, partial occlusions, small screws/connectors, and moving objects (about 500 annotated images).
-2) Use simulation environments such as Isaac Sim (better), Gazebo, and/or Rviz2 to generate and organize the robotic scenes.
-3) Use simulated robotic platforms such as Unitree As2 EDU or Unitree G1 EDU to produce meaningful benchmark scenes for segmentation.
-4) Run SAM (ViT-H, ViT-B), SAM2, and FastSAM in zero-shot mode on the dataset using point prompts, box prompts, and automatic mask generation.
-5) Run classical baseline models such as Mask R-CNN, DeepLabV3+, and YOLOv8-seg fine-tuned on a small subset for comparison.
-6) Evaluate the models using standard metrics including mIoU, boundary F1, mask AP, and per-category IoU.
-7) Measure inference speed (FPS) on GPU and CPU to assess real-time feasibility for robotic applications.
-8) Analyze failure modes qualitatively, identifying where and why the segmentation models fail in robotic scenarios.
-9) Test whether lightweight SAM variants such as MobileSAM and EfficientSAM can provide a good trade-off for edge deployment.
+## Current Pipeline
 
-Software needed: PyTorch, SAM / SAM2 / FastSAM / MobileSAM / EfficientSAM, Detectron2, Ultralytics YOLOv8, OpenCV, COCO evaluation tools, Isaac Sim, Gazebo, Rviz2, Python
+- OCID path configuration through `configs/paths.yaml`
+- Image-level indexing for `YCB10/table/top/mixed/seq21`
+- Object-level indexing and filtering
+- Binary ground-truth mask export
+- Single-object SAM box-prompt inference
+- Batch SAM box-prompt inference over the filtered OCID objects
+- Saved predicted masks, visualizations, and IoU results
+- CUDA support with CPU fallback for local execution
 
-Research needed: SAM architecture and prompting strategies, zero-shot segmentation literature, robotic perception benchmarks, synthetic data generation in simulation, domain gap analysis, model distillation for edge AI
+## Repository Structure
 
-Deliverables: Simulated annotated robotic scene dataset, full benchmark results with tables and plots, failure mode analysis report, recommendation guide for which segmentation model to use in different robotic scenarios
+```text
+configs/
+  paths.yaml
+scripts/
+  prepare_ocid_debug_dataset.py
+  visualize_object_prompt.py
+  visualize_binary_gt_mask.py
+  run_sam_box_prompt.py
+  run_sam_box_prompt_batch.py
+  analyze_sam_results.py
+src/cogar_seg/
+  config.py
+  paths.py
+  io.py
+  datasets/ocid.py
+  prompts/boxes.py
+  models/sam.py
+  metrics/segmentation.py
+  visualization/masks.py
+  evaluation/sam_box_eval.py
+tests/
+  test_paths.py
+  test_metrics.py
+  test_ocid_index.py
+```
 
+`scripts/` contains command-line entry points. Reusable code lives under
+`src/cogar_seg/`, which makes it easier to add more datasets, prompt types,
+models, metrics, plots, and evaluation workflows.
 
-<hr style="height:4px; border:none; background-color:white;">
+## Ignored Local Assets
 
-This repository is part of the COGAR project on zero-shot segmentation for robotic perception.  
-The original assignment targets benchmarking SAM, SAM2, FastSAM, MobileSAM, and EfficientSAM on robotic scenes with challenges such as occlusion, clutter, reflective/transparent objects, and small parts.
+Large or generated assets are intentionally ignored by Git:
 
-## Work Completed So Far
+- `datasets/`, `data/`, `external_data/`, `Raw_Dataset/`, `OCID/`
+- `checkpoints/`
+- `outputs/`, `results/`, `runs/`
+- `*.pth`, `*.pt`
+- `.venv/`
 
-Instead of starting directly from simulation, I first built a reproducible benchmark pipeline using the **OCID Object Clutter Indoor Dataset**, which provides cluttered RGB-D robotic scenes with object annotations.
+Keep OCID data, SAM checkpoints, and generated masks/results in those local
+folders or in external storage.
 
-### Block 1 — Dataset Setup
-- Selected OCID as the first dataset for debugging and benchmarking.
-- Configured dataset paths through `configs/paths.yaml`.
-- Used the debug sequence: `YCB10/table/top/mixed/seq21`.
-- Created an image-level RGB/label index with 11 image-label pairs.
+## Setup
 
-### Block 2 — Object-Level Ground Truth
-- Extracted object instances from OCID label images.
-- Created an object-level index with 77 initial object instances.
-- Filtered the index to 52 usable object instances.
-- Exported one binary ground-truth mask per object.
-- Final CSV: `outputs/indexes/ocid_debug_seq21_objects_filtered_with_masks.csv`.
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pip install -e .
+```
 
-### Block 3 — Single-Object SAM Inference
-- Implemented `scripts/run_sam_box_prompt.py`.
-- Ran SAM ViT-B on selected OCID objects using bounding-box prompts.
-- Added CUDA/GPU support for the local GTX 1050 setup.
-- Example result for row 0: SAM score = 0.9687, IoU = 0.8818.
+If you do not install the package in editable mode, run commands with
+`PYTHONPATH=src`.
 
-### Block 4 — Batch SAM Evaluation
-- Implemented `scripts/run_sam_box_prompt_batch.py`.
-- Ran SAM ViT-B with box prompts on all 52 filtered OCID objects.
-- Saved predicted masks, visualizations, and a result CSV.
-- Final results: mean IoU = 0.8495, median IoU = 0.8784, min IoU = 0.7087, max IoU = 0.9126, mean SAM score = 0.9629.
+## Configuration
 
-## Current Status
+Edit `configs/paths.yaml` for local paths:
 
-The project now has a working OCID-to-SAM evaluation pipeline: dataset indexing, object-level mask extraction, SAM box-prompt inference, CUDA execution, mask visualization, and IoU-based evaluation.
+```yaml
+ocid_root: "/path/to/OCID-dataset"
+ocid_debug_sequence: "/path/to/OCID-dataset/YCB10/table/top/mixed/seq21"
+outputs_dir: "outputs"
+sam_outputs_dir: "outputs/sam_box_prompt"
+```
 
-Next step: analyze failure cases and extend the benchmark to more prompts, more sequences, and additional models such as SAM2, FastSAM, MobileSAM, and EfficientSAM.
+The code preserves compatibility with existing CSVs that contain older absolute
+OCID paths by remapping paths below the `OCID-dataset/` component to the current
+configured `ocid_root`.
+
+## Commands
+
+Prepare the OCID debug indexes and binary ground-truth masks:
+
+```bash
+PYTHONPATH=src python scripts/prepare_ocid_debug_dataset.py
+```
+
+Visualize prompts and binary masks:
+
+```bash
+PYTHONPATH=src python scripts/visualize_object_prompt.py 0
+PYTHONPATH=src python scripts/visualize_binary_gt_mask.py 5
+```
+
+Run SAM on one object:
+
+```bash
+PYTHONPATH=src python scripts/run_sam_box_prompt.py \
+  --row 0 \
+  --checkpoint checkpoints/sam_vit_b_01ec64.pth \
+  --model-type vit_b \
+  --device auto \
+  --allow-cpu-fallback
+```
+
+Run SAM over the filtered OCID object index:
+
+```bash
+PYTHONPATH=src python scripts/run_sam_box_prompt_batch.py \
+  --checkpoint checkpoints/sam_vit_b_01ec64.pth \
+  --model-type vit_b \
+  --device auto \
+  --allow-cpu-fallback
+```
+
+Summarize the results CSV and print the worst IoU rows:
+
+```bash
+PYTHONPATH=src python scripts/analyze_sam_results.py
+```
+
+## Tests
+
+The default tests avoid dataset and checkpoint dependencies:
+
+```bash
+PYTHONPATH=src pytest -q
+```
+
+SAM smoke tests require local OCID data and a SAM checkpoint.
+
+## Extension Points
+
+- Add datasets under `src/cogar_seg/datasets/`.
+- Add prompt builders under `src/cogar_seg/prompts/`.
+- Add model adapters under `src/cogar_seg/models/`.
+- Add metrics under `src/cogar_seg/metrics/`.
+- Add plots and visual reports under `src/cogar_seg/visualization/`.
+- Add benchmark workflows under `src/cogar_seg/evaluation/`.

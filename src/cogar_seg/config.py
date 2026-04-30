@@ -1,31 +1,35 @@
-from pathlib import Path
 import yaml
+from pathlib import Path
+from typing import Any
 
 
-def load_config(config_path: str | Path = "configs/paths.yaml") -> dict:
-    """
-    Load project configuration from a YAML file.
-    """
+def load_config(config_path: str | Path = "configs/paths.yaml") -> dict[str, Any]:
+    """Load project configuration from a YAML file."""
     config_path = Path(config_path)
 
     if not config_path.exists():
         raise FileNotFoundError(f"Config file not found: {config_path}")
 
-    with open(config_path, "r") as f:
-        return yaml.safe_load(f)
+    with config_path.open("r") as f:
+        config = yaml.safe_load(f)
+
+    if not isinstance(config, dict):
+        raise ValueError(f"Config file must contain a mapping: {config_path}")
+
+    return config
 
 
-def get_ocid_sequence_path(config: dict) -> Path:
-    """
-    Build the full OCID debug sequence path from the config.
-    """
+def get_ocid_sequence_path(config: dict[str, Any]) -> Path:
+    """Return the configured OCID debug sequence path."""
     ocid_root = Path(config["ocid_root"])
     sequence = Path(config["ocid_debug_sequence"])
+
+    if sequence.is_absolute():
+        return sequence
+
     return ocid_root / sequence
 
 
-def get_outputs_dir(config: dict) -> Path:
-    """
-    Return the output directory path.
-    """
+def get_outputs_dir(config: dict[str, Any]) -> Path:
+    """Return the output directory path."""
     return Path(config.get("outputs_dir", "outputs"))

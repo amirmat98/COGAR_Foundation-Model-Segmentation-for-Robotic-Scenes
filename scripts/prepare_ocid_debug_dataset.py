@@ -1,10 +1,29 @@
-from cogar_seg.config import load_config, get_outputs_dir
-from cogar_seg.dataset_ocid import create_image_index, create_object_index
-from cogar_seg.masks import filter_object_index, export_binary_gt_masks
+import argparse
+
+from cogar_seg.config import get_outputs_dir, load_config
+from cogar_seg.datasets.ocid import (
+    create_image_index,
+    create_object_index,
+    export_binary_gt_masks,
+    filter_object_index,
+)
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Prepare the OCID debug image/object indexes and binary GT masks."
+    )
+    parser.add_argument(
+        "--config",
+        default="configs/paths.yaml",
+        help="Path to project paths YAML file.",
+    )
+    return parser.parse_args()
 
 
 def main():
-    config = load_config()
+    args = parse_args()
+    config = load_config(args.config)
 
     outputs_dir = get_outputs_dir(config)
     index_dir = outputs_dir / "indexes"
