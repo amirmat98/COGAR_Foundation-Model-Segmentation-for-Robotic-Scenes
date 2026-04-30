@@ -197,3 +197,67 @@ def save_sam_box_visualization(
     output_path.parent.mkdir(parents=True, exist_ok=True)
     plt.savefig(output_path, dpi=150)
     plt.close()
+
+
+def save_sam_point_visualization(
+    image_rgb: np.ndarray,
+    gt_mask: np.ndarray,
+    pred_mask: np.ndarray,
+    point_coords: np.ndarray,
+    output_path: str | Path,
+    iou: float,
+    model_score: float,
+    row_index: int | None = None,
+    object_id: int | None = None,
+    model_name: str = "SAM",
+) -> None:
+    """Save a four-panel point-prompt segmentation comparison."""
+    plt = _pyplot()
+
+    output_path = Path(output_path)
+    point_x, point_y = point_coords[0].astype(int)
+
+    overlay = image_rgb.copy()
+    green_mask = np.zeros_like(image_rgb)
+    green_mask[:, :, 1] = 255
+
+    overlay = np.where(
+        pred_mask[:, :, None],
+        (0.6 * overlay + 0.4 * green_mask).astype(np.uint8),
+        overlay,
+    )
+
+    fig, axes = plt.subplots(1, 4, figsize=(18, 5))
+
+    title = "RGB + point prompt"
+    if row_index is not None and object_id is not None:
+        title = f"RGB + point | row={row_index}, obj={object_id}"
+
+    axes[0].imshow(image_rgb)
+    axes[0].set_title(title)
+    axes[0].scatter(
+        [point_x],
+        [point_y],
+        c="red",
+        s=80,
+        marker="*",
+        edgecolors="white",
+        linewidths=1.5,
+    )
+
+    axes[1].imshow(gt_mask, cmap="gray")
+    axes[1].set_title("Ground-truth mask")
+
+    axes[2].imshow(pred_mask, cmap="gray")
+    axes[2].set_title(f"{model_name} predicted mask")
+
+    axes[3].imshow(overlay)
+    axes[3].set_title(f"Overlay | IoU={iou:.3f}, score={model_score:.3f}")
+
+    for ax in axes:
+        ax.axis("off")
+
+    plt.tight_layout()
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    plt.savefig(output_path, dpi=150)
+    plt.close()

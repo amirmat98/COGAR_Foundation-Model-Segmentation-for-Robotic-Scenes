@@ -76,6 +76,39 @@ def run_sam_for_box(predictor: Any, box_xyxy: np.ndarray) -> tuple[np.ndarray, f
     return masks[0], float(scores[0])
 
 
+def run_sam_for_point(
+    predictor: Any,
+    point_coords: np.ndarray,
+    point_labels: np.ndarray,
+) -> tuple[np.ndarray, float]:
+    """Run prediction for the current predictor image and one point prompt.
+
+    Args:
+        predictor:
+            A SAM predictor with an image already set by predictor.set_image(...).
+
+        point_coords:
+            NumPy array with shape (N, 2), containing point prompts in XY pixel format.
+
+        point_labels:
+            NumPy array with shape (N,), where 1 means foreground and 0 means background.
+
+    Returns:
+        A tuple containing:
+            - the selected SAM binary mask
+            - the SAM predicted mask-quality score
+    """
+    import torch
+
+    with torch.inference_mode():
+        masks, scores, _ = predictor.predict(
+            point_coords=point_coords,
+            point_labels=point_labels,
+            multimask_output=False,
+        )
+
+    return masks[0], float(scores[0])
+
 def run_sam_box_prompt(
     image_rgb: np.ndarray,
     box_xyxy: np.ndarray,
