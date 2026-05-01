@@ -65,6 +65,14 @@ to around `0.11`, while box-prompt IoU stayed around `0.89`.
 ```text
 configs/
   paths.yaml
+  paths.example.yaml
+  sim_dataset.yaml
+
+data/
+  README.md
+
+outputs/
+  README.md
 
 scripts/
   prepare_ocid_debug_dataset.py
@@ -79,6 +87,7 @@ scripts/
   analyze_sam_results.py
   analyze_prompt_results.py
   compare_prompt_results.py
+  generate_sim_dataset_pilot.py
 
 src/cogar_seg/
   config.py
@@ -87,6 +96,7 @@ src/cogar_seg/
 
   datasets/
     ocid.py
+    sim_robotic.py
 
   prompts/
     boxes.py
@@ -109,6 +119,13 @@ tests/
   test_paths.py
   test_metrics.py
   test_ocid_index.py
+  test_sim_robotic_dataset.py
+
+docs/
+  roadmap.md
+  dataset_plan.md
+  ocid_sam_box_prompt_failure_analysis.md
+  templates/
 ```
 
 `scripts/` contains command-line entry points. Reusable code lives under
@@ -119,9 +136,11 @@ models, metrics, plots, and evaluation workflows.
 
 Large or generated assets are intentionally ignored by Git:
 
-- `datasets/`, `data/`, `external_data/`, `Raw_Dataset/`, `OCID/`
+- `datasets/`, `external_data/`, `Raw_Dataset/`, `OCID/`
+- `data/*` except `data/README.md`
 - `checkpoints/`
-- `outputs/`, `results/`, `runs/`
+- `outputs/*` except `outputs/README.md`
+- `results/`, `runs/`
 - `*.pth`, `*.pt`
 - `.venv/`
 
@@ -152,7 +171,8 @@ PYTHONPATH=src
 
 ## Configuration
 
-Edit `configs/paths.yaml` for local paths:
+Copy `configs/paths.example.yaml` to `configs/paths.yaml` for a new checkout,
+then edit `configs/paths.yaml` for local paths:
 
 ```yaml
 ocid_root: "/path/to/OCID-dataset"
@@ -165,7 +185,20 @@ The code preserves compatibility with CSV files that contain older absolute OCID
 paths by remapping paths below the `OCID-dataset/` component to the currently
 configured `ocid_root`.
 
+The simulated dataset plan is documented in `docs/dataset_plan.md`, with the
+current target configuration in `configs/sim_dataset.yaml`.
+
 ## Commands
+
+### Generate a small simulated dataset pilot
+
+```bash
+PYTHONPATH=src python scripts/generate_sim_dataset_pilot.py --num-images 5
+```
+
+This writes a deterministic schema-check dataset under `data/cogar_sim_500/`.
+It is intended only as a local smoke test before real Isaac/Gazebo data
+generation.
 
 ### Prepare OCID indexes and binary ground-truth masks
 
@@ -320,7 +353,7 @@ PYTHONPATH=src pytest -q
 Current expected result:
 
 ```text
-9 passed
+13 passed
 ```
 
 SAM smoke tests require local OCID data and a SAM checkpoint.

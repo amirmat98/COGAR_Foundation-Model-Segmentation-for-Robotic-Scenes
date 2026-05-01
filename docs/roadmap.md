@@ -120,22 +120,23 @@ Recommended distribution:
 The final simulated dataset should follow this structure:
 
 ```text
-sim_dataset/
-  images/
+data/cogar_sim_500/
+  rgb/
     train/
     val/
     test/
-
-  masks/
-    instance/
-      train/
-      val/
-      test/
-
-    semantic/
-      train/
-      val/
-      test/
+  instance_masks/
+    train/
+    val/
+    test/
+  semantic_masks/
+    train/
+    val/
+    test/
+  depth/
+    train/
+    val/
+    test/
 
   annotations/
     categories.json
@@ -150,7 +151,7 @@ sim_dataset/
 The most important file is:
 
 ```text
-sim_dataset/annotations/sim_robotic_scenes_index.csv
+data/cogar_sim_500/annotations/sim_robotic_scenes_index.csv
 ```
 
 It should contain one row per object instance.
@@ -272,7 +273,7 @@ Success condition:
 
 ### A3 — Convert Isaac Export to Benchmark Format
 
-**Goal:** Convert raw Isaac Sim outputs into `sim_dataset/`.
+**Goal:** Convert raw Isaac Sim outputs into `data/cogar_sim_500/`.
 
 Tasks:
 
@@ -316,9 +317,9 @@ Recommended split:
 
 | Split | Images | Purpose |
 |---|---:|---|
-| train | 100 | Classical baseline training |
-| val | 100 | Validation and prompt checks |
-| test | 300 | Main benchmark |
+| train | 350 | Classical baseline training |
+| val | 75 | Validation and prompt checks |
+| test | 75 | Final benchmark reporting |
 
 Success condition:
 
@@ -328,7 +329,7 @@ Success condition:
 
 ### B1 — Run SAM ViT-B on Simulated Dataset
 
-**Goal:** Port the existing OCID SAM ViT-B box/point workflow to `sim_dataset`.
+**Goal:** Port the existing OCID SAM ViT-B box/point workflow to `data/cogar_sim_500/`.
 
 Prompt modes:
 
@@ -566,14 +567,14 @@ Example recommendation table:
 
 The next practical steps are:
 
-1. Stop adding extra repo scripts temporarily.
+1. Keep repository scripts minimal and focused on reusable benchmark steps.
 2. Confirm whether Isaac Sim is installed.
 3. If Isaac Sim works, generate a 25-image sanity dataset.
 4. If Isaac Sim is not available, choose a fallback:
    - install Isaac Sim
    - use Gazebo/Rviz2
    - use a simplified synthetic generator as temporary fallback
-5. Convert the sanity dataset into `sim_dataset/`.
+5. Convert the sanity dataset into `data/cogar_sim_500/`.
 6. Run SAM ViT-B on the sanity dataset.
 7. Only then scale toward 500 images.
 

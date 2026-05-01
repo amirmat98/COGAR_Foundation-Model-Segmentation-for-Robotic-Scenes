@@ -1,10 +1,11 @@
 # Large datasets should stay outside the repo
-datasets/
-data/
-external_data/
-Raw_Dataset/
-OCID/
-checkpoints/
+/datasets/
+/data/*
+!/data/README.md
+/external_data/
+/Raw_Dataset/
+/OCID/
+/checkpoints/
 *.tar.gz
 *.zip
 
@@ -13,17 +14,19 @@ checkpoints/
 *.pt
 
 # Generated results
-outputs/
-results/
-runs/
+/outputs/*
+!/outputs/README.md
+/results/
+/runs/
 
 # Python virtual environment
-.venv/
-venv/
-env/
+/.venv/
+/venv/
+/env/
 
 # Local workspace/tooling markers
 .codex
+.vscode/settings.json
 
 # Python cache files
 __pycache__/
@@ -39,6 +42,5 @@ htmlcov/
 build/
 dist/
 
-outputs/analysis/
-sim_dataset/
-raw_isaac_exports/
+/sim_dataset/
+/raw_isaac_exports/
