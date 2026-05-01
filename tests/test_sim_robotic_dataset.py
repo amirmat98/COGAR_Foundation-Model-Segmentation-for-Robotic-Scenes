@@ -140,3 +140,9 @@ def test_summarize_sim_index_returns_expected_counts():
     assert summary["num_scenes"] == 2
     assert summary["splits"] == {"test": 1, "train": 1}
     assert summary["categories"] == {"glass_cup": 1, "metal_tool": 1}
+
+
+def test_validate_sim_index_allows_empty_placeholder_index():
+    df = pd.DataFrame(columns=REQUIRED_SIM_INDEX_COLUMNS)
+
+    validate_sim_index(df, image_width=640, image_height=480)
