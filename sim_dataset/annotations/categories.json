@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "name": "metal_tool",
+    "supercategory": "foreground",
+    "challenge_tags": [
+      "reflective"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "metal_part",
+    "supercategory": "foreground",
+    "challenge_tags": [
+      "reflective",
+      "small_part"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "glass_cup",
+    "supercategory": "foreground",
+    "challenge_tags": [
+      "transparent"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "transparent_box",
+    "supercategory": "foreground",
+    "challenge_tags": [
+      "transparent"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "plastic_container",
+    "supercategory": "foreground",
+    "challenge_tags": [
+      "transparent",
+      "reflective"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "screw",
+    "supercategory": "foreground",
+    "challenge_tags": [
+      "small_part"
+    ]
+  },
+  {
+    "id": 7,
+    "name": "connector",
+    "supercategory": "foreground",
+    "challenge_tags": [
+      "small_part"
+    ]
+  },
+  {
+    "id": 8,
+    "name": "washer",
+    "supercategory": "foreground",
+    "challenge_tags": [
+      "small_part"
+    ]
+  },
+  {
+    "id": 9,
+    "name": "cable",
+    "supercategory": "foreground",
+    "challenge_tags": [
+      "occlusion",
+      "small_part"
+    ]
+  },
+  {
+    "id": 10,
+    "name": "robot_gripper_or_hand",
+    "supercategory": "context",
+    "challenge_tags": [
+      "robot_context",
+      "occlusion"
+    ]
+  },
+  {
+    "id": 11,
+    "name": "table",
+    "supercategory": "context",
+    "challenge_tags": [
+      "background"
+    ]
+  },
+  {
+    "id": 12,
+    "name": "distractor_object",
+    "supercategory": "context",
+    "challenge_tags": [
+      "clutter"
+    ]
+  }
+]

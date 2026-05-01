@@ -1,0 +1,14 @@
+{
+  "dataset_name": "sim_robotic_scenes_v1",
+  "target_num_images": 500,
+  "preferred_simulator": "isaac_sim",
+  "splits": {
+    "train": 100,
+    "val": 100,
+    "test": 300
+  },
+  "foreground_categories": 9,
+  "context_categories": 3,
+  "required_index_columns": 24,
+  "random_seed": 5884715
+}
