@@ -5,6 +5,7 @@ import csv
 import json
 import math
 import random
+import shutil
 from pathlib import Path
 
 import bpy
@@ -569,7 +570,10 @@ def main():
     raw_output_dir = output_root / "raw_blenderproc" / "pilot_v2_ocid_like"
     coco_output_dir = raw_output_dir / "coco_data"
 
-    output_root.mkdir(parents=True, exist_ok=True)
+    # Always start Pilot v2 from a clean output folder.
+    if raw_output_dir.exists():
+        shutil.rmtree(raw_output_dir)
+
     raw_output_dir.mkdir(parents=True, exist_ok=True)
     coco_output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -579,11 +583,7 @@ def main():
     bproc.init()
     ensure_world_background()
 
-    all_colors = []
-    all_instance_segmaps = []
-    all_instance_attribute_maps = []
     metadata_rows = []
-
     render_samples = int(gen_cfg.get("render_samples", 32))
 
     for image_id in range(args.num_images):
@@ -601,19 +601,17 @@ def main():
         print("[INFO] Rendering segmentation...")
         seg_data = bproc.renderer.render_segmap(map_by=["instance", "class", "name"])
 
-        all_colors.append(data["colors"][0])
-        all_instance_segmaps.append(seg_data["instance_segmaps"][0])
-        all_instance_attribute_maps.append(seg_data["instance_attribute_maps"][0])
-        metadata_rows.append(metadata)
+        print(f"[INFO] Writing COCO frame {image_id + 1}/{args.num_images}...")
+        bproc.writer.write_coco_annotations(
+            str(coco_output_dir),
+            instance_segmaps=seg_data["instance_segmaps"],
+            instance_attribute_maps=seg_data["instance_attribute_maps"],
+            colors=data["colors"],
+            color_file_format="PNG",
+            append_to_existing_output=(image_id != 0),
+        )
 
-    print("[INFO] Writing COCO annotations...")
-    bproc.writer.write_coco_annotations(
-        str(coco_output_dir),
-        instance_segmaps=all_instance_segmaps,
-        instance_attribute_maps=all_instance_attribute_maps,
-        colors=all_colors,
-        color_file_format="PNG",
-    )
+        metadata_rows.append(metadata)
 
     write_metadata(
         output_root=output_root,
