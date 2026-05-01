@@ -1,0 +1,181 @@
+# Isaac Sim / Replicator generation plan for the COGAR simulated dataset.
+
+generation:
+  name: "isaac_sim_robotic_scenes_v1"
+  simulator: "isaac_sim"
+  output_root_raw: "raw_isaac_exports"
+  output_root_converted: "sim_dataset"
+  image_width: 640
+  image_height: 480
+  image_format: "png"
+  random_seed: 5884715
+
+stages:
+  sanity:
+    enabled: true
+    images_per_challenge: 5
+    total_images: 25
+
+  full:
+    enabled: false
+    images_per_challenge: 100
+    total_images: 500
+
+challenge_categories:
+  reflective_metal:
+    target_images_sanity: 5
+    target_images_full: 100
+    foreground_categories:
+      - "metal_tool"
+      - "metal_part"
+    material_requirements:
+      metallic: true
+      reflective: true
+      transparent: false
+    randomization:
+      lighting: true
+      material_roughness: true
+      object_pose: true
+      camera_pose: true
+
+  transparent_objects:
+    target_images_sanity: 5
+    target_images_full: 100
+    foreground_categories:
+      - "glass_cup"
+      - "transparent_box"
+      - "plastic_container"
+    material_requirements:
+      metallic: false
+      reflective: true
+      transparent: true
+    randomization:
+      lighting: true
+      transparency: true
+      background: true
+      camera_pose: true
+
+  partial_occlusion:
+    target_images_sanity: 5
+    target_images_full: 100
+    foreground_categories:
+      - "metal_tool"
+      - "glass_cup"
+      - "plastic_container"
+      - "connector"
+    occlusion:
+      use_robot_occluder: true
+      use_object_occluder: true
+      min_occlusion_fraction: 0.15
+      max_occlusion_fraction: 0.60
+    randomization:
+      object_overlap: true
+      robot_pose: true
+      clutter_density: true
+      camera_pose: true
+
+  small_parts:
+    target_images_sanity: 5
+    target_images_full: 100
+    foreground_categories:
+      - "screw"
+      - "connector"
+      - "washer"
+    scale:
+      small_object_pixel_area: true
+    randomization:
+      object_count: true
+      object_pose: true
+      camera_distance: true
+      distractors: true
+
+  dynamic_scenes:
+    target_images_sanity: 5
+    target_images_full: 100
+    foreground_categories:
+      - "metal_part"
+      - "cable"
+    dynamic:
+      use_changed_object_pose: true
+      use_changed_robot_pose: true
+      sequence_length: 5
+    randomization:
+      object_pose: true
+      robot_pose: true
+      camera_pose: true
+
+scene_types:
+  - "manipulation_table"
+  - "assembly_workspace"
+  - "inspection_scene"
+  - "cluttered_bin_or_table"
+  - "dynamic_interaction"
+
+camera:
+  names:
+    - "front_table"
+    - "top_down"
+    - "left_oblique"
+    - "right_oblique"
+    - "robot_view"
+  randomize_pose: true
+  randomize_focal_length: false
+
+lighting:
+  conditions:
+    - "soft_indoor"
+    - "strong_directional"
+    - "low_light"
+    - "specular_highlight"
+    - "mixed_light"
+  randomize_lighting: true
+
+semantic_labels:
+  foreground:
+    metal_tool: 1
+    metal_part: 2
+    glass_cup: 3
+    transparent_box: 4
+    plastic_container: 5
+    screw: 6
+    connector: 7
+    washer: 8
+    cable: 9
+
+  context:
+    robot_gripper_or_hand: 10
+    table: 11
+    distractor_object: 12
+
+replicator_outputs:
+  rgb: true
+  instance_segmentation: true
+  semantic_segmentation: true
+  bounding_box_2d_tight: true
+  bounding_box_3d: false
+  depth: false
+  camera_pose: true
+
+conversion:
+  converted_index_path: "sim_dataset/annotations/sim_robotic_scenes_index.csv"
+  categories_path: "sim_dataset/annotations/categories.json"
+  scene_metadata_path: "sim_dataset/annotations/scene_metadata.csv"
+
+  required_output_dirs:
+    - "sim_dataset/images/train"
+    - "sim_dataset/images/val"
+    - "sim_dataset/images/test"
+    - "sim_dataset/masks/instance/train"
+    - "sim_dataset/masks/instance/val"
+    - "sim_dataset/masks/instance/test"
+    - "sim_dataset/masks/semantic/train"
+    - "sim_dataset/masks/semantic/val"
+    - "sim_dataset/masks/semantic/test"
+
+validation:
+  require_rgb: true
+  require_instance_mask: true
+  require_semantic_mask: true
+  require_bbox: true
+  require_prompt_point: true
+  validate_with: "cogar_seg.datasets.sim_robotic.validate_sim_index"
