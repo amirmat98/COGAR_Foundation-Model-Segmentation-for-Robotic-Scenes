@@ -1,0 +1,313 @@
+# Simulation dataset configuration for:
+# Subgroup I2 — Foundation Model Segmentation for Robotic Scenes
+# Assignment 2 — Zero-Shot Segmentation Benchmark for Robotic Perception
+
+project:
+  name: "COGAR Foundation-Model Segmentation for Robotic Scenes"
+  assignment: "Zero-Shot Segmentation Benchmark for Robotic Perception"
+  subgroup: "I2"
+  student_id: "5884715"
+
+dataset:
+  name: "sim_robotic_scenes_v1"
+  target_num_images: 500
+  preferred_simulator: "isaac_sim"
+  fallback_simulators:
+    - "gazebo"
+    - "rviz2"
+
+  root_dir: "sim_dataset"
+
+  splits:
+    train:
+      num_images: 100
+      percentage: 20
+      purpose: "Small supervised subset for classical baselines"
+    val:
+      num_images: 100
+      percentage: 20
+      purpose: "Validation and prompt strategy development"
+    test:
+      num_images: 300
+      percentage: 60
+      purpose: "Main zero-shot benchmark split"
+
+simulation:
+  isaac_sim:
+    use_replicator: true
+    use_semantic_labels: true
+    export_rgb: true
+    export_instance_segmentation: true
+    export_semantic_segmentation: true
+    export_2d_bounding_boxes: true
+    export_3d_bounding_boxes: false
+    export_depth: false
+    export_camera_pose: true
+
+  robot_context:
+    preferred_platform: "Unitree G1 EDU-inspired humanoid workspace"
+    fallback_platform: "generic robotic arm workspace"
+    include_robot_in_scene: true
+    use_robot_as_occluder: true
+    use_robot_as_camera_reference: true
+
+  image:
+    width: 640
+    height: 480
+    format: "png"
+
+  camera:
+    viewpoints:
+      - "front_table"
+      - "top_down"
+      - "left_oblique"
+      - "right_oblique"
+      - "robot_view"
+    randomize_pose: true
+    randomize_focal_length: false
+
+  lighting:
+    randomize_lighting: true
+    lighting_conditions:
+      - "soft_indoor"
+      - "strong_directional"
+      - "low_light"
+      - "specular_highlight"
+      - "mixed_light"
+
+  materials:
+    include_reflective_materials: true
+    include_transparent_materials: true
+    include_matte_materials: true
+    randomize_material_color: true
+    randomize_roughness: true
+    randomize_metallic: true
+    randomize_transparency: true
+
+  scene_randomization:
+    randomize_object_pose: true
+    randomize_object_scale: true
+    randomize_object_count: true
+    randomize_distractors: true
+    randomize_occluders: true
+    min_foreground_objects_per_image: 1
+    max_foreground_objects_per_image: 8
+    max_distractor_objects_per_image: 6
+
+challenge_plan:
+  reflective_metal:
+    target_images: 100
+    primary_objects:
+      - "metal_tool"
+      - "metal_part"
+    notes: "Use shiny metal surfaces and specular highlights."
+
+  transparent_objects:
+    target_images: 100
+    primary_objects:
+      - "glass_cup"
+      - "transparent_box"
+      - "plastic_container"
+    notes: "Use glass-like or transparent materials."
+
+  partial_occlusion:
+    target_images: 100
+    primary_objects:
+      - "metal_tool"
+      - "glass_cup"
+      - "plastic_container"
+      - "connector"
+    notes: "Use overlapping objects, cables, robot hand, or gripper as occluders."
+
+  small_parts:
+    target_images: 100
+    primary_objects:
+      - "screw"
+      - "connector"
+      - "washer"
+    notes: "Small objects should occupy limited pixel area."
+
+  dynamic_scenes:
+    target_images: 100
+    primary_objects:
+      - "moving_object"
+      - "cable"
+      - "metal_part"
+    notes: "Use changed object poses or simulated motion between frames."
+
+scene_types:
+  - name: "manipulation_table"
+    description: "Objects placed on a table near a robot."
+  - name: "assembly_workspace"
+    description: "Small parts, screws, connectors, and tools."
+  - name: "inspection_scene"
+    description: "Reflective and transparent objects under varied lighting."
+  - name: "cluttered_bin_or_table"
+    description: "Overlapping objects and partial occlusions."
+  - name: "dynamic_interaction"
+    description: "Moving object or robot motion between frames."
+
+categories:
+  foreground:
+    - id: 1
+      name: "metal_tool"
+      challenge_tags: ["reflective"]
+    - id: 2
+      name: "metal_part"
+      challenge_tags: ["reflective", "small_part"]
+    - id: 3
+      name: "glass_cup"
+      challenge_tags: ["transparent"]
+    - id: 4
+      name: "transparent_box"
+      challenge_tags: ["transparent"]
+    - id: 5
+      name: "plastic_container"
+      challenge_tags: ["transparent", "reflective"]
+    - id: 6
+      name: "screw"
+      challenge_tags: ["small_part"]
+    - id: 7
+      name: "connector"
+      challenge_tags: ["small_part"]
+    - id: 8
+      name: "washer"
+      challenge_tags: ["small_part"]
+    - id: 9
+      name: "cable"
+      challenge_tags: ["occlusion", "small_part"]
+
+  context:
+    - id: 10
+      name: "robot_gripper_or_hand"
+      challenge_tags: ["robot_context", "occlusion"]
+    - id: 11
+      name: "table"
+      challenge_tags: ["background"]
+    - id: 12
+      name: "distractor_object"
+      challenge_tags: ["clutter"]
+
+annotations:
+  target_format: "coco_like"
+  export_instance_masks: true
+  export_semantic_masks: true
+  export_bounding_boxes: true
+  export_polygons_if_available: true
+  export_rle_if_available: true
+
+  required_index_columns:
+    - "image_id"
+    - "scene_id"
+    - "frame_id"
+    - "split"
+    - "image_path"
+    - "instance_mask_path"
+    - "semantic_mask_path"
+    - "category_id"
+    - "category_name"
+    - "object_id"
+    - "bbox_xmin"
+    - "bbox_ymin"
+    - "bbox_xmax"
+    - "bbox_ymax"
+    - "point_x"
+    - "point_y"
+    - "challenge_primary"
+    - "challenge_secondary"
+    - "is_reflective"
+    - "is_transparent"
+    - "is_occluded"
+    - "is_small_part"
+    - "is_dynamic"
+    - "camera_name"
+
+prompt_generation:
+  box:
+    enabled: true
+    source: "ground_truth_bbox"
+    coordinate_format: "xyxy"
+
+  point:
+    enabled: true
+    source: "mask_center"
+
+  multi_point:
+    enabled: false
+    source: "multiple_mask_pixels"
+
+  point_with_negative:
+    enabled: false
+    source: "positive_mask_point_plus_background_points"
+
+  box_plus_point:
+    enabled: false
+    source: "ground_truth_bbox_plus_mask_center"
+
+  automatic:
+    enabled: false
+    source: "automatic_mask_generation"
+
+benchmark_models:
+  foundation_models:
+    - name: "sam_vit_b"
+      enabled: true
+      status: "implemented_on_ocid"
+    - name: "sam_vit_h"
+      enabled: false
+      status: "planned"
+    - name: "sam2"
+      enabled: false
+      status: "planned"
+    - name: "fastsam"
+      enabled: false
+      status: "planned"
+    - name: "mobilesam"
+      enabled: false
+      status: "planned"
+    - name: "efficientsam"
+      enabled: false
+      status: "planned"
+
+  classical_baselines:
+    - name: "yolov8_seg"
+      enabled: false
+      status: "planned"
+    - name: "mask_rcnn"
+      enabled: false
+      status: "planned"
+    - name: "deeplabv3_plus"
+      enabled: false
+      status: "planned"
+
+metrics:
+  accuracy:
+    - "iou"
+    - "miou"
+    - "per_category_iou"
+    - "boundary_f1"
+    - "mask_ap"
+
+  speed:
+    - "gpu_fps"
+    - "cpu_fps"
+    - "inference_time_ms"
+    - "model_load_time_s"
+    - "gpu_memory_mb"
+
+outputs:
+  images_dir: "sim_dataset/images"
+  instance_masks_dir: "sim_dataset/masks/instance"
+  semantic_masks_dir: "sim_dataset/masks/semantic"
+  annotations_dir: "sim_dataset/annotations"
+  metadata_dir: "sim_dataset/metadata"
+
+  benchmark_results_dir: "outputs/sim_benchmark"
+  analysis_dir: "outputs/analysis/sim_benchmark"
+  failure_analysis_dir: "outputs/failure_analysis"
+
+reproducibility:
+  random_seed: 5884715
+  save_generation_config: true
+  save_scene_metadata: true
+  save_software_versions: true
