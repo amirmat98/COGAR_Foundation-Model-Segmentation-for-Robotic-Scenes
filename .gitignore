@@ -40,3 +40,5 @@ build/
 dist/
 
 outputs/analysis/
+sim_dataset/
+raw_isaac_exports/
