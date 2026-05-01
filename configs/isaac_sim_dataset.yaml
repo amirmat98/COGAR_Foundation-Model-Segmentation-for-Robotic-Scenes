@@ -1,0 +1,66 @@
+dataset:
+  name: COGAR-SimRobotics-500
+  output_dir: data/cogar_sim_500
+  raw_output_dir: data/cogar_sim_500/raw_isaac
+  pilot_images: 20
+  final_images: 500
+  image_width: 640
+  image_height: 480
+
+replicator:
+  writer: BasicWriter
+  renderer: RayTracedLighting
+  headless: true
+  rt_subframes: 16
+  seed: 42
+
+categories:
+  - id: 1
+    name: table
+    supercategory: scene
+  - id: 2
+    name: robot_gripper
+    supercategory: robot
+  - id: 3
+    name: metal_part
+    supercategory: object
+  - id: 4
+    name: glass_object
+    supercategory: object
+  - id: 5
+    name: plastic_object
+    supercategory: object
+  - id: 6
+    name: screw
+    supercategory: small_part
+  - id: 7
+    name: connector
+    supercategory: small_part
+  - id: 8
+    name: cable
+    supercategory: object
+  - id: 9
+    name: tool
+    supercategory: object
+  - id: 10
+    name: box
+    supercategory: object
+
+pilot_plan:
+  - challenge: reflective_metal
+    count: 4
+  - challenge: transparent_glass
+    count: 4
+  - challenge: partial_occlusion
+    count: 4
+  - challenge: small_parts
+    count: 4
+  - challenge: dynamic_scene
+    count: 4
+
+final_plan:
+  reflective_metal: 100
+  transparent_glass: 100
+  partial_occlusion: 100
+  small_parts: 100
+  dynamic_scene: 100
