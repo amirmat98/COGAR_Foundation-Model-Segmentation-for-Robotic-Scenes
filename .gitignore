@@ -1,6 +1,6 @@
 # Large datasets should stay outside the repo
 /datasets/
-/data/*
+# /data/*
 !/data/README.md
 /external_data/
 /Raw_Dataset/
@@ -47,15 +47,15 @@ dist/
 
 
 # Generated synthetic dataset
-data/cogar_sim_500/raw_blenderproc/
-data/cogar_sim_500/rgb/
-data/cogar_sim_500/depth/
-data/cogar_sim_500/semantic_masks/
-data/cogar_sim_500/instance_masks/
-data/cogar_sim_500/annotations/
-data/cogar_sim_500/metadata/
-data/cogar_sim_500/splits/
-data/cogar_sim_500/debug_visualizations/
+# data/cogar_sim_500/raw_blenderproc/
+# data/cogar_sim_500/rgb/
+# data/cogar_sim_500/depth/
+# data/cogar_sim_500/semantic_masks/
+# data/cogar_sim_500/instance_masks/
+# data/cogar_sim_500/annotations/
+# data/cogar_sim_500/metadata/
+# data/cogar_sim_500/splits/
+# data/cogar_sim_500/debug_visualizations/
 
 # Blender / BlenderProc cache and backups
 *.blend1
