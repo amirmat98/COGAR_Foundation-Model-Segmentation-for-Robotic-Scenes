@@ -1,5 +1,6 @@
 """Reusable SAM point-prompt evaluation workflows."""
 
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -27,6 +28,8 @@ POINT_REQUIRED_COLUMNS = [
     "point_x",
     "point_y",
 ]
+
+ProgressCallback = Callable[[dict[str, Any], int, int], None]
 
 
 @dataclass(frozen=True)
@@ -196,6 +199,7 @@ class BatchSamPointRun:
     mean_iou: float
     median_iou: float
     mean_sam_score: float
+    results: pd.DataFrame
     device: str
     model_type: str
 
@@ -208,8 +212,13 @@ def run_batch_sam_point(
     device: DeviceMode,
     allow_cpu_fallback: bool,
     output_dir: str | Path | None = None,
+    results_csv: str | Path | None = None,
     max_rows: int | None = None,
+    start_row: int = 0,
+    split: str = "all",
+    save_visualizations: bool = True,
     project_root: str | Path | None = None,
+    progress_callback: ProgressCallback | None = None,
 ) -> BatchSamPointRun:
     """Run SAM point-prompt inference for many object-index rows."""
     root = Path.cwd() if project_root is None else Path(project_root)
@@ -228,15 +237,32 @@ def run_batch_sam_point(
 
     mask_dir = resolved_output_dir / "masks"
     vis_dir = resolved_output_dir / "visualizations"
-    results_csv_path = resolved_output_dir / "sam_point_prompt_results.csv"
+    if results_csv is None:
+        results_csv_path = resolved_output_dir / "sam_point_prompt_results.csv"
+    else:
+        results_csv_path = resolve_project_path(results_csv, root)
 
     df = pd.read_csv(index_path)
     validate_point_required_columns(df)
 
+    df_to_run = df
+    if split != "all":
+        if "split" not in df_to_run.columns:
+            raise ValueError("--split requires an index CSV with a 'split' column")
+        df_to_run = df_to_run[df_to_run["split"].astype(str) == split]
+
+    if df_to_run.empty:
+        raise ValueError("No rows matched the requested batch selection")
+
+    if start_row < 0 or start_row >= len(df_to_run):
+        raise IndexError(
+            f"start-row {start_row} is outside valid range 0 to {len(df_to_run) - 1}"
+        )
+
+    df_to_run = df_to_run.iloc[start_row:].copy()
+
     if max_rows is not None:
-        df_to_run = df.head(max_rows)
-    else:
-        df_to_run = df
+        df_to_run = df_to_run.head(max_rows)
 
     selected_device = select_device(
         requested_device=device,
@@ -256,6 +282,9 @@ def run_batch_sam_point(
 
     total = len(df_to_run)
 
+    current_image_path: Path | None = None
+    current_image_rgb = None
+
     for count, (row_index, row) in enumerate(df_to_run.iterrows(), start=1):
         object_id = int(row["object_id"])
 
@@ -268,12 +297,14 @@ def run_batch_sam_point(
         if not gt_mask_path.exists():
             raise FileNotFoundError(f"GT mask path does not exist: {gt_mask_path}")
 
-        image_rgb = load_rgb_image(image_path)
+        if current_image_path != image_path:
+            current_image_rgb = load_rgb_image(image_path)
+            predictor.set_image(current_image_rgb)
+            current_image_path = image_path
+
         gt_mask = load_binary_mask(gt_mask_path)
 
         point_coords, point_labels = make_positive_point_prompt(row)
-
-        predictor.set_image(image_rgb)
 
         sam_mask, sam_score = run_sam_for_point(
             predictor=predictor,
@@ -286,46 +317,48 @@ def run_batch_sam_point(
         mask_output_path = (
             mask_dir / f"row_{row_index:04d}_object_{object_id}_sam_point_mask.png"
         )
-        vis_output_path = (
-            vis_dir / f"row_{row_index:04d}_object_{object_id}_sam_point_visualization.png"
-        )
+        if save_visualizations:
+            vis_output_path = (
+                vis_dir
+                / f"row_{row_index:04d}_object_{object_id}_sam_point_visualization.png"
+            )
+        else:
+            vis_output_path = ""
 
         save_binary_mask(sam_mask, mask_output_path)
 
-        save_sam_point_visualization(
-            image_rgb=image_rgb,
-            gt_mask=gt_mask,
-            pred_mask=sam_mask,
-            point_coords=point_coords,
-            output_path=vis_output_path,
-            iou=iou,
-            model_score=sam_score,
-            row_index=int(row_index),
-            object_id=object_id,
-        )
+        if save_visualizations:
+            save_sam_point_visualization(
+                image_rgb=current_image_rgb,
+                gt_mask=gt_mask,
+                pred_mask=sam_mask,
+                point_coords=point_coords,
+                output_path=vis_output_path,
+                iou=iou,
+                model_score=sam_score,
+                row_index=int(row_index),
+                object_id=object_id,
+            )
 
-        records.append(
-            {
-                "row_index": int(row_index),
-                "object_id": object_id,
-                "image_path": str(image_path),
-                "gt_mask_path": str(gt_mask_path),
-                "point_x": float(point_coords[0, 0]),
-                "point_y": float(point_coords[0, 1]),
-                "sam_score": float(sam_score),
-                "iou": float(iou),
-                "mask_output_path": str(mask_output_path),
-                "visualization_output_path": str(vis_output_path),
-                "device": selected_device,
-                "model_type": model_type,
-            }
-        )
+        record = {
+            "row_index": int(row_index),
+            "file_name": row.get("file_name", ""),
+            "object_id": object_id,
+            "image_path": str(image_path),
+            "gt_mask_path": str(gt_mask_path),
+            "point_x": float(point_coords[0, 0]),
+            "point_y": float(point_coords[0, 1]),
+            "sam_score": float(sam_score),
+            "iou": float(iou),
+            "mask_output_path": str(mask_output_path),
+            "visualization_output_path": str(vis_output_path),
+            "device": selected_device,
+            "model_type": model_type,
+        }
+        records.append(record)
 
-        print(
-            f"[{count:03d}/{total:03d}] "
-            f"row={row_index}, obj={object_id}, "
-            f"score={sam_score:.4f}, IoU={iou:.4f}"
-        )
+        if progress_callback is not None:
+            progress_callback(record, count, total)
 
     results_df = pd.DataFrame(records)
     results_csv_path.parent.mkdir(parents=True, exist_ok=True)
@@ -347,6 +380,7 @@ def run_batch_sam_point(
         mean_iou=mean_iou,
         median_iou=median_iou,
         mean_sam_score=mean_sam_score,
+        results=results_df,
         device=selected_device,
         model_type=model_type,
     )

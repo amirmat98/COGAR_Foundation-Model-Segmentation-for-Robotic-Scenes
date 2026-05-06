@@ -63,6 +63,33 @@ def load_sam_predictor(checkpoint_path: str | Path, model_type: str, device: str
     return SamPredictor(sam)
 
 
+def load_sam_model(checkpoint_path: str | Path, model_type: str, device: str) -> Any:
+    """Load a raw SAM model for APIs that do not use ``SamPredictor``."""
+    from segment_anything import sam_model_registry
+
+    sam = sam_model_registry[model_type](checkpoint=str(checkpoint_path))
+    sam.to(device=device)
+    sam.eval()
+    return sam
+
+
+def load_sam_automatic_mask_generator(
+    checkpoint_path: str | Path,
+    model_type: str,
+    device: str,
+    **generator_kwargs: Any,
+) -> Any:
+    """Load SAM's automatic mask generator."""
+    from segment_anything import SamAutomaticMaskGenerator
+
+    sam = load_sam_model(
+        checkpoint_path=checkpoint_path,
+        model_type=model_type,
+        device=device,
+    )
+    return SamAutomaticMaskGenerator(sam, **generator_kwargs)
+
+
 def run_sam_for_box(predictor: Any, box_xyxy: np.ndarray) -> tuple[np.ndarray, float]:
     """Run prediction for the current predictor image and one XYXY box."""
     import torch
@@ -108,6 +135,7 @@ def run_sam_for_point(
         )
 
     return masks[0], float(scores[0])
+
 
 def run_sam_box_prompt(
     image_rgb: np.ndarray,

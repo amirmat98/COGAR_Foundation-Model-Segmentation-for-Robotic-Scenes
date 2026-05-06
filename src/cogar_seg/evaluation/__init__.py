@@ -1,5 +1,9 @@
 """Evaluation workflows."""
 
+from cogar_seg.evaluation.automatic_mask_eval import (
+    BatchAutomaticMaskRun,
+    run_batch_sam_automatic_masks,
+)
 from cogar_seg.evaluation.sam_box_eval import (
     BatchSamBoxRun,
     SingleSamBoxResult,
@@ -14,10 +18,12 @@ from cogar_seg.evaluation.sam_point_eval import (
 )
 
 __all__ = [
+    "BatchAutomaticMaskRun",
     "BatchSamBoxRun",
     "BatchSamPointRun",
     "SingleSamBoxResult",
     "SingleSamPointResult",
+    "run_batch_sam_automatic_masks",
     "run_batch_sam_box",
     "run_batch_sam_point",
     "run_single_sam_box",

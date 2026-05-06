@@ -303,6 +303,7 @@ def run_batch_sam_box(
     results_csv: str | Path | None = None,
     max_rows: int | None = None,
     start_row: int = 0,
+    split: str = "all",
     save_visualizations: bool = True,
     project_root: str | Path | None = None,
     progress_callback: ProgressCallback | None = None,
@@ -326,10 +327,21 @@ def run_batch_sam_box(
     df = pd.read_csv(batch_cfg.index_path)
     validate_required_columns(df, BATCH_REQUIRED_COLUMNS)
 
-    if start_row < 0 or start_row >= len(df):
-        raise IndexError(f"start-row {start_row} is outside valid range 0 to {len(df) - 1}")
+    process_df = df
+    if split != "all":
+        if "split" not in process_df.columns:
+            raise ValueError("--split requires an index CSV with a 'split' column")
+        process_df = process_df[process_df["split"].astype(str) == split]
 
-    process_df = df.iloc[start_row:].copy()
+    if process_df.empty:
+        raise ValueError("No rows matched the requested batch selection")
+
+    if start_row < 0 or start_row >= len(process_df):
+        raise IndexError(
+            f"start-row {start_row} is outside valid range 0 to {len(process_df) - 1}"
+        )
+
+    process_df = process_df.iloc[start_row:].copy()
 
     if max_rows is not None:
         process_df = process_df.head(max_rows)

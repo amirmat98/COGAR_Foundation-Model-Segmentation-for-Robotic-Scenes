@@ -75,19 +75,21 @@ outputs/
   README.md
 
 scripts/
-  prepare_ocid_debug_dataset.py
-  visualize_object_prompt.py
-  visualize_binary_gt_mask.py
-
-  run_sam_box_prompt.py
-  run_sam_box_prompt_batch.py
-  run_sam_point_prompt.py
-  run_sam_point_prompt_batch.py
-
-  analyze_sam_results.py
-  analyze_prompt_results.py
-  compare_prompt_results.py
-  generate_sim_dataset_pilot.py
+  blenderproc/
+    generate_cogar_sim_500.py
+    generate_pilot_dataset.py
+  dataset/
+    normalize_cogar_sim_500.py
+    create_object_index.py
+    export_binary_masks.py
+  eval/
+    run_sam_box_prompt.py
+    run_sam_point_prompt.py
+    run_sam_auto_masks.py
+  analysis/
+    analyze_results.py
+    compare_models.py
+    plot_metrics.py
 
 src/cogar_seg/
   config.py
@@ -95,15 +97,20 @@ src/cogar_seg/
   io.py
 
   datasets/
+    cogar_sim.py
+    coco_utils.py
     ocid.py
-    sim_robotic.py
+    sim_robotic.py  # compatibility import
 
   prompts/
     boxes.py
     points.py
 
   models/
+    registry.py
     sam.py
+    sam2.py
+    fastsam.py
 
   metrics/
     segmentation.py
@@ -114,6 +121,21 @@ src/cogar_seg/
   evaluation/
     sam_box_eval.py
     sam_point_eval.py
+    automatic_mask_eval.py
+
+  analysis/
+    results.py
+    comparison.py
+
+  generation/
+    blenderproc_scene.py
+    blenderproc_materials.py
+    blenderproc_objects.py
+    blenderproc_metadata.py
+
+  indexing/
+    object_index.py
+    mask_export.py
 
 tests/
   test_paths.py
@@ -193,17 +215,23 @@ current target configuration in `configs/sim_dataset.yaml`.
 ### Generate a small simulated dataset pilot
 
 ```bash
-PYTHONPATH=src python scripts/generate_sim_dataset_pilot.py --num-images 5
+PYTHONPATH=src python scripts/blenderproc/generate_pilot_dataset.py
 ```
 
-This writes a deterministic schema-check dataset under `data/cogar_sim_500/`.
-It is intended only as a local smoke test before real Isaac/Gazebo data
-generation.
+This writes the fixed-camera BlenderProc pilot dataset under `data/cogar_sim_500/`.
+
+### Generate and normalize COGAR-SimRobotics-500
+
+```bash
+PYTHONPATH=src python scripts/blenderproc/generate_cogar_sim_500.py --num-images 500
+PYTHONPATH=src python scripts/dataset/normalize_cogar_sim_500.py
+```
 
 ### Prepare OCID indexes and binary ground-truth masks
 
 ```bash
-PYTHONPATH=src python scripts/prepare_ocid_debug_dataset.py
+PYTHONPATH=src python scripts/dataset/create_object_index.py
+PYTHONPATH=src python scripts/dataset/export_binary_masks.py
 ```
 
 This creates the image-level index, object-level index, filtered object-level
@@ -219,17 +247,10 @@ outputs/indexes/ocid_debug_seq21_objects_filtered_with_masks.csv
 outputs/gt_binary_masks/
 ```
 
-### Visualize object prompts and binary masks
-
-```bash
-PYTHONPATH=src python scripts/visualize_object_prompt.py 0
-PYTHONPATH=src python scripts/visualize_binary_gt_mask.py 5
-```
-
 ### Run SAM box prompt on one object
 
 ```bash
-PYTHONPATH=src python scripts/run_sam_box_prompt.py \
+PYTHONPATH=src python scripts/eval/run_sam_box_prompt.py \
   --row 0 \
   --checkpoint checkpoints/sam_vit_b_01ec64.pth \
   --model-type vit_b \
@@ -240,7 +261,7 @@ PYTHONPATH=src python scripts/run_sam_box_prompt.py \
 ### Run SAM box prompt over all filtered objects
 
 ```bash
-PYTHONPATH=src python scripts/run_sam_box_prompt_batch.py \
+PYTHONPATH=src python scripts/eval/run_sam_box_prompt.py \
   --checkpoint checkpoints/sam_vit_b_01ec64.pth \
   --model-type vit_b \
   --device auto \
@@ -258,7 +279,10 @@ outputs/sam_box_prompt/visualizations/
 ### Analyze box-prompt results
 
 ```bash
-PYTHONPATH=src python scripts/analyze_sam_results.py
+PYTHONPATH=src python scripts/analysis/analyze_results.py \
+  --results-csv outputs/indexes/ocid_debug_seq21_sam_box_results.csv \
+  --prompt-name sam_box_prompt \
+  --output-dir outputs/analysis/sam_box_prompt
 ```
 
 Expected local outputs include:
@@ -270,7 +294,7 @@ outputs/analysis/sam_box_prompt/
 ### Run SAM point prompt on one object
 
 ```bash
-PYTHONPATH=src python scripts/run_sam_point_prompt.py \
+PYTHONPATH=src python scripts/eval/run_sam_point_prompt.py \
   --row 1 \
   --checkpoint checkpoints/sam_vit_b_01ec64.pth \
   --model-type vit_b \
@@ -281,7 +305,7 @@ PYTHONPATH=src python scripts/run_sam_point_prompt.py \
 ### Run SAM point prompt over all filtered objects
 
 ```bash
-PYTHONPATH=src python scripts/run_sam_point_prompt_batch.py \
+PYTHONPATH=src python scripts/eval/run_sam_point_prompt.py \
   --checkpoint checkpoints/sam_vit_b_01ec64.pth \
   --model-type vit_b \
   --device auto \
@@ -299,7 +323,7 @@ outputs/sam_point_prompt_batch/visualizations/
 ### Analyze point-prompt results
 
 ```bash
-PYTHONPATH=src python scripts/analyze_prompt_results.py \
+PYTHONPATH=src python scripts/analysis/analyze_results.py \
   --results-csv outputs/sam_point_prompt_batch/sam_point_prompt_results.csv \
   --prompt-name sam_point_prompt \
   --output-dir outputs/analysis/sam_point_prompt \
@@ -321,7 +345,7 @@ outputs/analysis/sam_point_prompt/sam_point_prompt_per_object_mean_iou.png
 ### Compare box prompts and point prompts
 
 ```bash
-PYTHONPATH=src python scripts/compare_prompt_results.py \
+PYTHONPATH=src python scripts/analysis/compare_models.py \
   --box-results-csv outputs/indexes/ocid_debug_seq21_sam_box_results.csv \
   --point-results-csv outputs/sam_point_prompt_batch/sam_point_prompt_results.csv \
   --output-dir outputs/analysis/prompt_comparison \
