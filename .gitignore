@@ -1,38 +1,35 @@
-# Large datasets should stay outside the repo
-/datasets/
-# /data/*
+# Generated/local datasets and outputs
+/data/*
 !/data/README.md
+/outputs/*
+!/outputs/README.md
+/datasets/
 /external_data/
 /Raw_Dataset/
 /OCID/
-/checkpoints/
-*.tar.gz
-*.zip
-
-# Model weights / checkpoints
-*.pth
-*.pt
-
-# Generated results
-/outputs/*
-!/outputs/README.md
 /results/
 /runs/
+/sim_dataset/
+/raw_isaac_exports/
 
-# Python virtual environment
+# Model weights and checkpoints
+/checkpoints/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+
+# Local machine configuration
+/configs/paths.yaml
+
+# Python environments
 /.venv/
 /venv/
 /env/
 
-# Local workspace/tooling markers
-.codex
-.vscode/settings.json
-
-# Python cache files
+# Python/tooling caches and build outputs
 __pycache__/
 *.py[cod]
-
-# Test / tooling caches
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
@@ -42,24 +39,12 @@ htmlcov/
 build/
 dist/
 
-/sim_dataset/
-/raw_isaac_exports/
+# Editor and local tooling state
+.vscode/
+.codex
 
-
-# Generated synthetic dataset
-# data/cogar_sim_500/raw_blenderproc/
-# data/cogar_sim_500/rgb/
-# data/cogar_sim_500/depth/
-# data/cogar_sim_500/semantic_masks/
-# data/cogar_sim_500/instance_masks/
-# data/cogar_sim_500/annotations/
-# data/cogar_sim_500/metadata/
-# data/cogar_sim_500/splits/
-# data/cogar_sim_500/debug_visualizations/
-
-# Blender / BlenderProc cache and backups
+# Blender/archives
 *.blend1
 *.blend2
-__pycache__/
-*.pyc
-.pytest_cache/
+*.tar.gz
+*.zip

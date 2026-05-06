@@ -8,6 +8,7 @@ dataset:
 
 generation:
   seed: 42
+  render_samples: 32
   pilot_base_scenes: 5
   pilot_captures_per_scene: 4
   final_base_scenes: 50

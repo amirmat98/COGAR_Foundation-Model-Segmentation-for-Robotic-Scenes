@@ -426,7 +426,7 @@ def generate_cogar_sim_500(
         print("[INFO] Rendering segmentation...")
         seg_data = bproc.renderer.render_segmap(map_by=["instance", "class"])
 
-        print(f"[INFO] Writing COCO frame {image_id + 1}/{args.num_images}...")
+        print(f"[INFO] Writing COCO frame {image_id + 1}/{num_images}...")
         bproc.writer.write_coco_annotations(
             str(coco_output_dir),
             instance_segmaps=seg_data["instance_segmaps"],

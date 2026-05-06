@@ -163,11 +163,16 @@ Large or generated assets are intentionally ignored by Git:
 - `checkpoints/`
 - `outputs/*` except `outputs/README.md`
 - `results/`, `runs/`
-- `*.pth`, `*.pt`
+- `*.pth`, `*.pt`, `*.ckpt`, `*.safetensors`
 - `.venv/`
 
 Keep OCID data, SAM checkpoints, generated masks, results, summaries, and plots
 in those local folders or in external storage.
+COGAR-Sim raw BlenderProc output lives under
+`data/cogar_sim_500/raw_blenderproc/`. Normalized COGAR-Sim data lives under
+`data/cogar_sim_500/rgb`, `data/cogar_sim_500/annotations`,
+`data/cogar_sim_500/metadata`, and `data/cogar_sim_500/splits`. Checkpoints
+must stay under `checkpoints/`; that directory is ignored.
 
 ## Setup
 
@@ -223,8 +228,29 @@ This writes the fixed-camera BlenderProc pilot dataset under `data/cogar_sim_500
 ### Generate and normalize COGAR-SimRobotics-500
 
 ```bash
-PYTHONPATH=src python scripts/blenderproc/generate_cogar_sim_500.py --num-images 500
+source ~/blenderproc_test/.venv/bin/activate
+
+blenderproc run scripts/blenderproc/generate_cogar_sim_500.py \
+  --config configs/blenderproc_dataset.yaml \
+  --num-images 500
+
 PYTHONPATH=src python scripts/dataset/normalize_cogar_sim_500.py
+```
+
+The generator writes raw BlenderProc data under
+`data/cogar_sim_500/raw_blenderproc/`. The normalization command writes RGB,
+COCO annotations, metadata, and split files under the normalized
+`data/cogar_sim_500/` folders.
+
+To create the normalized COGAR-Sim object index:
+
+```bash
+PYTHONPATH=src python scripts/dataset/create_object_index.py \
+  --dataset cogar_sim_500 \
+  --coco data/cogar_sim_500/annotations/instances_all.json \
+  --metadata data/cogar_sim_500/metadata/frame_index.csv \
+  --rgb-dir data/cogar_sim_500/rgb \
+  --output outputs/indexes/cogar_sim_500_objects.csv
 ```
 
 ### Prepare OCID indexes and binary ground-truth masks
