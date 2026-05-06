@@ -40,8 +40,9 @@ def make_material(name, color, metallic=0.0, roughness=0.5, alpha=1.0):
 
 
 def tag_object(obj, category, name_suffix=""):
-    name = category["name"] if not name_suffix else f"{category['name']}_{name_suffix}"
-    obj.set_name(name)
+    # Keep semantic category name stable for COCO taxonomy.
+    # Do not use unique object names as category names.
+    obj.set_name(category["name"])
     obj.set_cp("category_id", category["id"])
     obj.set_cp("supercategory", category["supercategory"])
     return obj
@@ -599,7 +600,7 @@ def main():
         data = bproc.renderer.render()
 
         print("[INFO] Rendering segmentation...")
-        seg_data = bproc.renderer.render_segmap(map_by=["instance", "class", "name"])
+        seg_data = bproc.renderer.render_segmap(map_by=["instance", "class"])
 
         print(f"[INFO] Writing COCO frame {image_id + 1}/{args.num_images}...")
         bproc.writer.write_coco_annotations(
