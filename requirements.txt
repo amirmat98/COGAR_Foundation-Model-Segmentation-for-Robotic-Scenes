@@ -6,3 +6,4 @@ PyYAML
 torch
 segment-anything
 pytest
+pycocotools
