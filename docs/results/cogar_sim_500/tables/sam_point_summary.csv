@@ -1,0 +1,2 @@
+prompt,objects,mean_iou,median_iou,mean_sam_score
+SAM ViT-B single positive point prompt,7274,0.8039926726752314,0.9126252727799964,0.8783572905414997
