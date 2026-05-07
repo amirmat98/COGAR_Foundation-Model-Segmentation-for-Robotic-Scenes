@@ -1,0 +1,2 @@
+objects,images,auto_mean_iou,auto_median_iou,box_mean_iou,box_median_iou,mean_iou_drop_auto_minus_box,mean_generated_masks_per_image,median_generated_masks_per_image
+7274,407,0.622318275085874,0.8702947880070013,0.8913587139135872,0.9426592753784329,-0.2690404388277132,24.42014742014742,24.0
