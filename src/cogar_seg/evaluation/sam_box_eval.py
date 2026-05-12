@@ -3,13 +3,14 @@
 from collections.abc import Callable, Iterable
 from dataclasses import dataclass
 from pathlib import Path
+import time
 from typing import Any
 
 import pandas as pd
 
 from cogar_seg.config import load_config
 from cogar_seg.io import load_binary_mask, load_rgb_image, save_binary_mask
-from cogar_seg.metrics import compute_iou
+from cogar_seg.metrics import compute_boundary_f1, compute_iou
 from cogar_seg.models.sam import DeviceMode, load_sam_predictor, run_sam_for_box, select_device
 from cogar_seg.paths import default_results_csv, remap_ocid_path, resolve_project_path
 from cogar_seg.prompts import make_box_from_row
@@ -67,6 +68,8 @@ class SingleSamBoxResult:
     visualization_output_path: Path
     sam_score: float
     iou: float
+    boundary_f1: float
+    latency_sec: float
     device: str
     model_type: str
 
@@ -250,8 +253,17 @@ def run_single_sam_box(
         device=selected_device,
     )
     predictor.set_image(image_rgb)
+
+    t_start = time.perf_counter()
     sam_mask, sam_score = run_sam_for_box(predictor, box_xyxy)
+    if selected_device == "cuda":
+        import torch
+        torch.cuda.synchronize()
+    t_end = time.perf_counter()
+    latency = t_end - t_start
+
     iou = compute_iou(sam_mask, gt_mask)
+    boundary_f1 = compute_boundary_f1(sam_mask, gt_mask)
 
     object_id = int(row["object_id"])
     mask_output_path = paths.output_dir / f"row_{row_index:04d}_object_{object_id}_sam_mask.png"
@@ -287,6 +299,8 @@ def run_single_sam_box(
         visualization_output_path=vis_output_path,
         sam_score=sam_score,
         iou=iou,
+        boundary_f1=boundary_f1,
+        latency_sec=latency,
         device=selected_device,
         model_type=model_type,
     )
@@ -376,8 +390,19 @@ def run_batch_sam_box(
             current_image_path = image_path
 
         gt_mask = load_binary_mask(gt_mask_path)
+
+        t_start = time.perf_counter()
         sam_mask, sam_score = run_sam_for_box(predictor=predictor, box_xyxy=box_xyxy)
+        if selected_device == "cuda":
+            import torch
+            torch.cuda.synchronize()
+        t_end = time.perf_counter()
+
+        latency = t_end - t_start
+        fps = 1.0 / latency if latency > 0 else 0.0
+
         iou = compute_iou(sam_mask, gt_mask)
+        boundary_f1 = compute_boundary_f1(sam_mask, gt_mask)
 
         mask_output_path = batch_cfg.masks_dir / f"row_{row_idx:04d}_object_{object_id}_sam_mask.png"
         save_binary_mask(sam_mask, mask_output_path)
@@ -415,6 +440,9 @@ def run_batch_sam_box(
             "sam_visualization_path": str(vis_output_path),
             "sam_score": sam_score,
             "iou": iou,
+            "boundary_f1": boundary_f1,
+            "latency_sec": latency,
+            "fps": fps,
             "device": selected_device,
             "model_type": model_type,
         }

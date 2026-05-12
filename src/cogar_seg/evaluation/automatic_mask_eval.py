@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
+import time
 from typing import Any
 
 import numpy as np
@@ -12,7 +13,7 @@ import pandas as pd
 
 from cogar_seg.config import load_config
 from cogar_seg.io import load_binary_mask, load_rgb_image, save_binary_mask
-from cogar_seg.metrics import compute_iou
+from cogar_seg.metrics import compute_boundary_f1, compute_iou
 from cogar_seg.models.sam import (
     DeviceMode,
     load_sam_automatic_mask_generator,
@@ -152,6 +153,7 @@ def run_batch_sam_automatic_masks(
     records: list[dict[str, Any]] = []
     current_image_path: Path | None = None
     current_masks: list[dict[str, Any]] | None = None
+    current_latency = 0.0
     total_rows = len(process_df)
 
     for counter, (row_index, row) in enumerate(process_df.iterrows(), start=1):
@@ -160,11 +162,20 @@ def run_batch_sam_automatic_masks(
 
         if current_image_path != image_path:
             image_rgb = load_rgb_image(image_path)
+
+            t_start = time.perf_counter()
             current_masks = generator.generate(image_rgb)
+            if selected_device == "cuda":
+                import torch
+                torch.cuda.synchronize()
+            t_end = time.perf_counter()
+
+            current_latency = t_end - t_start
             current_image_path = image_path
 
         gt_mask = load_binary_mask(gt_mask_path)
         best_mask, iou, best_record = select_best_mask_for_gt(current_masks or [], gt_mask)
+        boundary_f1 = compute_boundary_f1(best_mask, gt_mask)
 
         object_id = int(row["object_id"])
         mask_output_path = (
@@ -183,6 +194,9 @@ def run_batch_sam_automatic_masks(
             "stability_score": float(best_record.get("stability_score", 0.0)),
             "generated_mask_count": len(current_masks or []),
             "iou": iou,
+            "boundary_f1": boundary_f1,
+            "image_gen_latency_sec": current_latency,
+            "image_gen_fps": 1.0 / current_latency if current_latency > 0 else 0.0,
             "device": selected_device,
             "model_type": model_type,
         }

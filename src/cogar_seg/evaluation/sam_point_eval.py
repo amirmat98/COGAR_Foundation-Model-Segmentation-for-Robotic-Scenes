@@ -3,13 +3,14 @@
 from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
+import time
 from typing import Any
 
 import pandas as pd
 
 from cogar_seg.config import load_config
 from cogar_seg.io import load_binary_mask, load_rgb_image, save_binary_mask
-from cogar_seg.metrics import compute_iou
+from cogar_seg.metrics import compute_boundary_f1, compute_iou
 from cogar_seg.models.sam import (
     DeviceMode,
     load_sam_predictor,
@@ -53,6 +54,8 @@ class SingleSamPointResult:
     visualization_output_path: Path
     sam_score: float
     iou: float
+    boundary_f1: float
+    latency_sec: float
     device: str
     model_type: str
 
@@ -128,13 +131,20 @@ def run_single_sam_point(
 
     predictor.set_image(image_rgb)
 
+    t_start = time.perf_counter()
     sam_mask, sam_score = run_sam_for_point(
         predictor=predictor,
         point_coords=point_coords,
         point_labels=point_labels,
     )
+    if selected_device == "cuda":
+        import torch
+        torch.cuda.synchronize()
+    t_end = time.perf_counter()
+    latency = t_end - t_start
 
     iou = compute_iou(sam_mask, gt_mask)
+    boundary_f1 = compute_boundary_f1(sam_mask, gt_mask)
 
     object_id = int(row["object_id"])
 
@@ -179,6 +189,8 @@ def run_single_sam_point(
         visualization_output_path=vis_output_path,
         sam_score=sam_score,
         iou=iou,
+        boundary_f1=boundary_f1,
+        latency_sec=latency,
         device=selected_device,
         model_type=model_type,
     )
@@ -198,7 +210,10 @@ class BatchSamPointRun:
     num_rows: int
     mean_iou: float
     median_iou: float
+    mean_boundary_f1: float
     mean_sam_score: float
+    mean_latency_sec: float
+    mean_fps: float
     results: pd.DataFrame
     device: str
     model_type: str
@@ -306,13 +321,22 @@ def run_batch_sam_point(
 
         point_coords, point_labels = make_positive_point_prompt(row)
 
+        t_start = time.perf_counter()
         sam_mask, sam_score = run_sam_for_point(
             predictor=predictor,
             point_coords=point_coords,
             point_labels=point_labels,
         )
+        if selected_device == "cuda":
+            import torch
+            torch.cuda.synchronize()
+        t_end = time.perf_counter()
+
+        latency = t_end - t_start
+        fps = 1.0 / latency if latency > 0 else 0.0
 
         iou = compute_iou(sam_mask, gt_mask)
+        boundary_f1 = compute_boundary_f1(sam_mask, gt_mask)
 
         mask_output_path = (
             mask_dir / f"row_{row_index:04d}_object_{object_id}_sam_point_mask.png"
@@ -350,6 +374,9 @@ def run_batch_sam_point(
             "point_y": float(point_coords[0, 1]),
             "sam_score": float(sam_score),
             "iou": float(iou),
+            "boundary_f1": float(boundary_f1),
+            "latency_sec": latency,
+            "fps": fps,
             "mask_output_path": str(mask_output_path),
             "visualization_output_path": str(vis_output_path),
             "device": selected_device,
@@ -366,7 +393,10 @@ def run_batch_sam_point(
 
     mean_iou = float(results_df["iou"].mean())
     median_iou = float(results_df["iou"].median())
+    mean_boundary_f1 = float(results_df["boundary_f1"].mean())
     mean_sam_score = float(results_df["sam_score"].mean())
+    mean_latency_sec = float(results_df["latency_sec"].mean())
+    mean_fps = float(results_df["fps"].mean())
 
     return BatchSamPointRun(
         config_path=config_path,
@@ -379,7 +409,10 @@ def run_batch_sam_point(
         num_rows=len(results_df),
         mean_iou=mean_iou,
         median_iou=median_iou,
+        mean_boundary_f1=mean_boundary_f1,
         mean_sam_score=mean_sam_score,
+        mean_latency_sec=mean_latency_sec,
+        mean_fps=mean_fps,
         results=results_df,
         device=selected_device,
         model_type=model_type,
