@@ -47,8 +47,6 @@ def choose_point_inside_mask(mask_path: str, fallback_x: float, fallback_y: floa
         return float(fallback_x), float(fallback_y)
 
     binary = (mask > 0).astype(np.uint8)
-
-    # Choose the safest interior point, not just the bbox center.
     dist = cv2.distanceTransform(binary, cv2.DIST_L2, 5)
     y, x = np.unravel_index(np.argmax(dist), dist.shape)
 
@@ -146,7 +144,7 @@ def main() -> None:
 
     out["image_id"] = df["image_id"].astype(int)
     out["file_name"] = df["file_name"].astype(str)
-    out["scene_id"] = df.get("scene_id", "unknown")
+    out["scene_id"] = df["scene_id"] if "scene_id" in df.columns else "unknown"
     out["frame_id"] = df["image_id"].astype(int)
     out["split"] = assign_splits_by_image(df)
 
@@ -178,23 +176,33 @@ def main() -> None:
     out["point_y"] = [p[1] for p in points]
 
     if "primary_challenge_meta" in df.columns:
-        out["challenge_primary"] = df["primary_challenge_meta"].fillna(df.get("primary_challenge", "unknown"))
+        out["challenge_primary"] = df["primary_challenge_meta"].fillna(
+            df["primary_challenge"] if "primary_challenge" in df.columns else "unknown"
+        )
+    elif "primary_challenge" in df.columns:
+        out["challenge_primary"] = df["primary_challenge"]
     else:
-        out["challenge_primary"] = df.get("primary_challenge", "unknown")
+        out["challenge_primary"] = "unknown"
 
     out["challenge_secondary"] = ""
 
-    for src, dst in [
-        ("reflective", "is_reflective"),
-        ("transparent", "is_transparent"),
-        ("occlusion", "is_occluded"),
-        ("small_parts", "is_small_part"),
-        ("dynamic", "is_dynamic"),
-    ]:
-        if src in df.columns:
-            out[dst] = df[src].map(bool_like)
-        else:
-            out[dst] = False
+    # Object-level flags.
+    # These describe the object itself, not every object in the scene.
+    category = out["category_name"].astype(str)
+    challenge = out["challenge_primary"].astype(str)
+
+    out["is_reflective"] = category.isin(["metal_part", "tool"])
+    out["is_transparent"] = category.isin(["glass_object"])
+    out["is_small_part"] = category.isin(["screw", "connector"])
+
+    # Dynamic is still scene-level in the current generator.
+    out["is_dynamic"] = challenge.eq("dynamic_scene")
+
+    # Occlusion is still scene-level unless we later compute visible fraction.
+    if "occlusion" in df.columns:
+        out["is_occluded"] = df["occlusion"].map(bool_like)
+    else:
+        out["is_occluded"] = challenge.eq("partial_occlusion")
 
     out["area"] = df["area"].astype(float)
 
@@ -207,12 +215,24 @@ def main() -> None:
     print(f"[OK] Wrote finalized index: {output_path}")
     print(f"Rows before filtering: {before}")
     print(f"Rows after filtering: {len(out)}")
+
     print("\nSplit counts:")
     print(out["split"].value_counts())
+
     print("\nCategory counts:")
     print(out["category_name"].value_counts())
+
     print("\nChallenge counts:")
     print(out["challenge_primary"].value_counts())
+
+    print("\nObject-level reflective counts:")
+    print(out[out["is_reflective"]]["category_name"].value_counts())
+
+    print("\nObject-level transparent counts:")
+    print(out[out["is_transparent"]]["category_name"].value_counts())
+
+    print("\nObject-level small-part counts:")
+    print(out[out["is_small_part"]]["category_name"].value_counts())
 
 
 if __name__ == "__main__":
