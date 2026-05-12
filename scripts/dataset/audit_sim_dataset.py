@@ -7,6 +7,7 @@ import pandas as pd
 
 def image_stats(image_path: Path) -> dict:
     image = cv2.imread(str(image_path), cv2.IMREAD_COLOR)
+
     if image is None:
         return {
             "readable": False,
@@ -38,13 +39,13 @@ def main() -> None:
     parser.add_argument("--max-objects-per-image", type=int, default=25)
     args = parser.parse_args()
 
-    index_path = Path(args.index)
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    df = pd.read_csv(index_path)
+    df = pd.read_csv(args.index)
 
     image_rows = []
+
     for file_name, group in df.groupby("file_name"):
         image_path = Path(group["image_path"].iloc[0])
         stats = image_stats(image_path)
@@ -64,20 +65,23 @@ def main() -> None:
 
         if num_objects < args.min_objects_per_image:
             bad_reasons.append("too_few_objects")
+
         if num_objects > args.max_objects_per_image:
             bad_reasons.append("too_many_objects")
 
-        image_rows.append({
-            "file_name": file_name,
-            "image_path": str(image_path),
-            "num_objects": num_objects,
-            "total_mask_area": total_area,
-            "mean_gray": stats["mean_gray"],
-            "std_gray": stats["std_gray"],
-            "readable": stats["readable"],
-            "bad_reasons": ";".join(bad_reasons),
-            "is_bad": len(bad_reasons) > 0,
-        })
+        image_rows.append(
+            {
+                "file_name": file_name,
+                "image_path": str(image_path),
+                "num_objects": num_objects,
+                "total_mask_area": total_area,
+                "mean_gray": stats["mean_gray"],
+                "std_gray": stats["std_gray"],
+                "readable": stats["readable"],
+                "bad_reasons": ";".join(bad_reasons),
+                "is_bad": len(bad_reasons) > 0,
+            }
+        )
 
     image_audit = pd.DataFrame(image_rows)
     image_audit.to_csv(output_dir / "image_quality_audit.csv", index=False)
@@ -110,8 +114,13 @@ def main() -> None:
         area_summary.to_csv(output_dir / "area_by_category.csv")
 
     print("[OK] Wrote dataset audit files to:", output_dir)
+
     print("\nBad images:")
-    print(image_audit[image_audit["is_bad"]][["file_name", "num_objects", "mean_gray", "std_gray", "bad_reasons"]])
+    bad = image_audit[image_audit["is_bad"]]
+    if len(bad) == 0:
+        print("None")
+    else:
+        print(bad[["file_name", "num_objects", "mean_gray", "std_gray", "bad_reasons"]])
 
     print("\nCategory counts:")
     print(category_counts)
