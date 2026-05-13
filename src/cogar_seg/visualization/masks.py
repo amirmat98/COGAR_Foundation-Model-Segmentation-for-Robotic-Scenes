@@ -6,6 +6,8 @@ from typing import Any
 
 import numpy as np
 
+from cogar_seg.cv_compat import cv2
+
 
 def _pyplot():
     """Import pyplot after ensuring Matplotlib has a writable cache directory."""
@@ -33,8 +35,6 @@ def draw_box_and_point(
     point_y: int,
 ) -> np.ndarray:
     """Draw a green box prompt and red point prompt on a BGR image."""
-    import cv2
-
     output = image_bgr.copy()
 
     cv2.rectangle(output, (xmin, ymin), (xmax, ymax), (0, 255, 0), 2)
@@ -45,8 +45,6 @@ def draw_box_and_point(
 
 def visualize_object_prompt_from_row(row: dict[str, Any], row_index: int) -> None:
     """Visualize one object prompt from one CSV row."""
-    import cv2
-
     plt = _pyplot()
 
     image_path = row["image_path"]
@@ -93,8 +91,6 @@ def visualize_object_prompt_from_row(row: dict[str, Any], row_index: int) -> Non
 
 def visualize_binary_mask_from_row(row: dict[str, Any], row_index: int) -> None:
     """Visualize an RGB image and binary ground-truth mask side by side."""
-    import cv2
-
     plt = _pyplot()
 
     image_path = row["image_path"]

@@ -1,7 +1,8 @@
 from pathlib import Path
 
-import cv2
 import numpy as np
+
+from cogar_seg.cv_compat import cv2
 
 
 IMAGE_ROOT = Path("data/cogar_sim_500/raw_blenderproc/pilot_v2_ocid_like/coco_data")

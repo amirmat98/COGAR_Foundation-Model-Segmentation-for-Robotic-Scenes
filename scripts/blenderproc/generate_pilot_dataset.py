@@ -2,6 +2,8 @@ import blenderproc as bproc
 import sys
 from pathlib import Path
 
+# BlenderProc entry scripts must be run with:
+# blenderproc run scripts/blenderproc/generate_pilot_dataset.py ...
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SRC_DIR = REPO_ROOT / "src"
 if str(SRC_DIR) not in sys.path:

@@ -1,6 +1,10 @@
 # Generated/local datasets and outputs
 /data/*
 !/data/README.md
+/data/cogar_sim_500/rgb/
+/data/cogar_sim_500/raw_blenderproc/
+/data/cogar_sim_500/instance_masks/
+/data/cogar_sim_500/annotations/*.json
 /outputs/*
 !/outputs/README.md
 /datasets/

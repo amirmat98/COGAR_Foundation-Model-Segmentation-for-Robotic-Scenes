@@ -6,6 +6,7 @@ from typing import Any
 
 import numpy as np
 
+from cogar_seg.cv_compat import cv2
 from cogar_seg.paths import resolve_ocid_sequence_path
 
 OCID_IMAGE_WIDTH = 640
@@ -82,8 +83,6 @@ def compute_object_properties(label: np.ndarray, object_id: int) -> dict[str, in
 
 def create_object_index(image_index_csv: Path, output_csv: Path) -> int:
     """Create an object-level CSV with one row per object instance."""
-    import cv2
-
     output_csv.parent.mkdir(parents=True, exist_ok=True)
     object_rows = []
 
@@ -235,8 +234,6 @@ def export_binary_gt_masks(
     output_mask_dir: Path,
 ) -> int:
     """Export one binary ground-truth mask for each object row."""
-    import cv2
-
     output_csv.parent.mkdir(parents=True, exist_ok=True)
     output_mask_dir.mkdir(parents=True, exist_ok=True)
     updated_rows = []

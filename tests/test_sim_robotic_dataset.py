@@ -13,10 +13,14 @@ def make_valid_sim_index() -> pd.DataFrame:
         [
             {
                 "image_id": "img_000001",
+                "file_name": "img_000001.png",
                 "scene_id": "scene_0001",
                 "frame_id": 0,
                 "split": "train",
                 "image_path": "data/cogar_sim_500/rgb/train/img_000001.png",
+                "binary_mask_path": (
+                    "data/cogar_sim_500/instance_masks/train/img_000001_obj_0001.png"
+                ),
                 "instance_mask_path": (
                     "data/cogar_sim_500/instance_masks/train/img_000001_obj_0001.png"
                 ),
@@ -39,7 +43,7 @@ def make_valid_sim_index() -> pd.DataFrame:
                 "is_occluded": True,
                 "is_small_part": False,
                 "is_dynamic": False,
-                "camera_name": "front",
+                "area": 9000,
             }
         ],
         columns=REQUIRED_SIM_INDEX_COLUMNS,
@@ -58,7 +62,7 @@ def test_validate_sim_index_accepts_valid_rows() -> None:
 
 
 def test_validate_sim_index_rejects_missing_columns() -> None:
-    df = make_valid_sim_index().drop(columns=["camera_name"])
+    df = make_valid_sim_index().drop(columns=["binary_mask_path"])
 
     with pytest.raises(ValueError, match="Missing required simulation-index columns"):
         validate_sim_index(df)

@@ -19,9 +19,10 @@ import time
 from pathlib import Path
 from typing import Any
 
-import cv2
 import numpy as np
 import pandas as pd
+
+from cogar_seg.cv_compat import cv2
 import torch
 from segment_anything import SamAutomaticMaskGenerator, sam_model_registry
 

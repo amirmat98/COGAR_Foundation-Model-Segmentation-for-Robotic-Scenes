@@ -5,6 +5,8 @@ import csv
 
 import numpy as np
 
+from cogar_seg.cv_compat import cv2
+
 
 def read_csv_rows(csv_path: str | Path) -> list[dict[str, str]]:
     """Read a CSV file and return rows as dictionaries."""
@@ -19,8 +21,6 @@ def read_csv_rows(csv_path: str | Path) -> list[dict[str, str]]:
 
 def load_rgb_image(image_path: str | Path) -> np.ndarray:
     """Load an RGB image as an HWC uint8 array."""
-    import cv2
-
     image_path = Path(image_path)
     image_bgr = cv2.imread(str(image_path), cv2.IMREAD_COLOR)
 
@@ -32,8 +32,6 @@ def load_rgb_image(image_path: str | Path) -> np.ndarray:
 
 def load_binary_mask(mask_path: str | Path) -> np.ndarray:
     """Load a binary mask as a boolean array."""
-    import cv2
-
     mask_path = Path(mask_path)
     mask = cv2.imread(str(mask_path), cv2.IMREAD_GRAYSCALE)
 
@@ -45,8 +43,6 @@ def load_binary_mask(mask_path: str | Path) -> np.ndarray:
 
 def save_binary_mask(mask: np.ndarray, output_path: str | Path) -> None:
     """Save a boolean-like mask as a binary PNG using 255 for foreground."""
-    import cv2
-
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
 

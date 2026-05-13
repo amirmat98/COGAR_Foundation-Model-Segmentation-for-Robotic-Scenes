@@ -260,44 +260,138 @@ def sample_scene_family(image_id):
     return families[image_id % len(families)]
 
 
+GENERATOR_VERSION = "v1_clean"
+
+
+def _weighted_plan(count: int, weights: dict[str, float]) -> list[str]:
+    """Sample a bounded category plan while preserving robotic-scene diversity."""
+    categories = list(weights.keys())
+    plan = random.choices(categories, weights=[weights[name] for name in categories], k=count)
+    random.shuffle(plan)
+    return plan
+
+
 def object_plan_for_family(family):
     base_pool = ["box", "metal_part", "glass_object", "plastic_object", "connector", "screw", "cable", "tool"]
+    occlusion_level = "none"
+    if family in {"partial_occlusion"}:
+        occlusion_level = random.choice(["medium", "severe"])
+    elif family in {"transparent_glass", "small_parts", "dynamic_scene"}:
+        occlusion_level = random.choice(["none", "mild", "medium"])
+    elif family == "reflective_metal":
+        occlusion_level = random.choice(["none", "mild"])
 
+    gripper_count = 3 if occlusion_level != "none" else 0
+
+    # These ranges intentionally avoid v0 over-clutter while keeping the
+    # requested robotic challenge diversity. The count includes gripper
+    # primitives because BlenderProc emits them as object annotations.
     if family == "reflective_metal":
-        plan = (
-            random.choices(["metal_part", "tool"], k=random.randint(5, 10))
-            + random.choices(["box", "plastic_object", "connector", "screw", "cable"], k=random.randint(5, 12))
+        target_total = random.randint(6, 10)
+        plan_count = max(1, target_total - gripper_count)
+        plan = _weighted_plan(
+            plan_count,
+            {
+                "metal_part": 0.42,
+                "tool": 0.25,
+                "box": 0.10,
+                "plastic_object": 0.10,
+                "connector": 0.06,
+                "screw": 0.04,
+                "cable": 0.03,
+            },
         )
+        if "metal_part" not in plan:
+            plan[0] = "metal_part"
+        if "tool" not in plan and len(plan) > 1:
+            plan[1] = "tool"
         random.shuffle(plan)
-        return plan, random.choice(["none", "mild"])
+        return plan, occlusion_level, target_total
 
     if family == "transparent_glass":
-        plan = (
-            random.choices(["glass_object"], k=random.randint(4, 8))
-            + random.choices(["metal_part", "box", "plastic_object", "connector", "cable"], k=random.randint(5, 12))
+        target_total = random.randint(6, 10)
+        plan_count = max(1, target_total - gripper_count)
+        plan = _weighted_plan(
+            plan_count,
+            {
+                "glass_object": 0.48,
+                "box": 0.12,
+                "plastic_object": 0.12,
+                "metal_part": 0.10,
+                "connector": 0.08,
+                "cable": 0.06,
+                "tool": 0.04,
+            },
         )
+        if "glass_object" not in plan:
+            plan[0] = "glass_object"
         random.shuffle(plan)
-        return plan, random.choice(["none", "mild", "medium"])
+        return plan, occlusion_level, target_total
 
     if family == "partial_occlusion":
-        return random.choices(base_pool, k=random.randint(12, 22)), random.choice(["medium", "severe"])
-
-    if family == "small_parts":
-        plan = (
-            random.choices(["screw"], k=random.randint(12, 25))
-            + random.choices(["connector"], k=random.randint(5, 12))
-            + random.choices(["cable", "metal_part", "plastic_object", "box"], k=random.randint(3, 8))
+        target_total = random.randint(8, 12)
+        plan_count = max(1, target_total - gripper_count)
+        plan = _weighted_plan(
+            plan_count,
+            {
+                "box": 0.16,
+                "metal_part": 0.14,
+                "glass_object": 0.10,
+                "plastic_object": 0.20,
+                "connector": 0.13,
+                "screw": 0.10,
+                "cable": 0.10,
+                "tool": 0.07,
+            },
         )
         random.shuffle(plan)
-        return plan, random.choice(["none", "mild", "medium"])
+        return plan, occlusion_level, target_total
+
+    if family == "small_parts":
+        target_total = random.randint(10, 16)
+        plan_count = max(2, target_total - gripper_count)
+        plan = _weighted_plan(
+            plan_count,
+            {
+                "screw": 0.36,
+                "connector": 0.30,
+                "cable": 0.08,
+                "metal_part": 0.09,
+                "plastic_object": 0.08,
+                "box": 0.06,
+                "tool": 0.03,
+            },
+        )
+        if "screw" not in plan:
+            plan[0] = "screw"
+        if "connector" not in plan and len(plan) > 1:
+            plan[1] = "connector"
+        random.shuffle(plan)
+        return plan, occlusion_level, target_total
 
     if family == "dynamic_scene":
-        plan = random.choices(base_pool, k=random.randint(8, 16))
-        plan += ["plastic_object"] * random.randint(4, 8)
+        target_total = random.randint(6, 10)
+        plan_count = max(1, target_total - gripper_count)
+        plan = _weighted_plan(
+            plan_count,
+            {
+                "plastic_object": 0.46,
+                "box": 0.12,
+                "cable": 0.10,
+                "connector": 0.10,
+                "metal_part": 0.09,
+                "glass_object": 0.06,
+                "tool": 0.04,
+                "screw": 0.03,
+            },
+        )
+        if "plastic_object" not in plan:
+            plan[0] = "plastic_object"
         random.shuffle(plan)
-        return plan, random.choice(["none", "mild", "medium"])
+        return plan, occlusion_level, target_total
 
-    return random.choices(base_pool, k=10), "none"
+    target_total = 10
+    return random.choices(base_pool, k=target_total), "none", target_total
 
 
 def add_lighting():
@@ -321,7 +415,7 @@ def add_lighting():
         light2.set_energy(random.uniform(80, 300))
 
 
-def build_random_scene(image_id, categories, render_samples):
+def build_random_scene(image_id, categories, render_samples, seed):
     cats = category_lookup(categories)
 
     bproc.clean_up(clean_up_camera=True)
@@ -334,7 +428,7 @@ def build_random_scene(image_id, categories, render_samples):
     add_table_and_background(cats, mats)
 
     family = sample_scene_family(image_id)
-    object_plan, occlusion_level = object_plan_for_family(family)
+    object_plan, occlusion_level, num_requested_objects = object_plan_for_family(family)
 
     num_objects = 0
 
@@ -354,15 +448,23 @@ def build_random_scene(image_id, categories, render_samples):
     metadata = {
         "image_id": image_id + 1,
         "file_name": f"{image_id:06d}.png",
-        "scene_id": f"pilot_v2_scene_{image_id:03d}",
+        "candidate_image_id": image_id,
+        "accepted_image_id": image_id,
+        "scene_id": f"v1_clean_scene_{image_id:03d}",
         "scene_family": family,
         "primary_challenge": primary_challenge,
+        "challenge_primary": primary_challenge,
         "reflective": int("metal_part" in object_plan or "tool" in object_plan),
         "transparent": int("glass_object" in object_plan),
         "occlusion": int(occlusion_level != "none"),
         "small_parts": int("screw" in object_plan or "connector" in object_plan),
         "dynamic": int(family == "dynamic_scene"),
         "num_objects": num_objects,
+        "num_requested_objects": num_requested_objects,
+        "num_created_objects": num_objects,
+        "occlusion_level": occlusion_level,
+        "seed": seed,
+        "generator_version": GENERATOR_VERSION,
         "camera_view": view_type,
         "lighting_condition": "randomized",
     }
@@ -375,6 +477,7 @@ def generate_cogar_sim_500(
     num_images: int | None = None,
     repo_root: str | Path | None = None,
     raw_dataset_name: str = "pilot_v2_ocid_like",
+    seed: int | None = None,
     clean: bool = True,
 ) -> tuple[Path, Path]:
     """Generate randomized BlenderProc scenes for the COGAR-Sim 500 pipeline."""
@@ -402,8 +505,9 @@ def generate_cogar_sim_500(
     raw_output_dir.mkdir(parents=True, exist_ok=True)
     coco_output_dir.mkdir(parents=True, exist_ok=True)
 
-    random.seed(gen_cfg["seed"])
-    np.random.seed(gen_cfg["seed"])
+    seed_value = int(gen_cfg["seed"] if seed is None else seed)
+    random.seed(seed_value)
+    np.random.seed(seed_value)
 
     bproc.init()
     ensure_world_background()
@@ -418,6 +522,7 @@ def generate_cogar_sim_500(
             image_id=image_id,
             categories=categories,
             render_samples=render_samples,
+            seed=seed_value,
         )
 
         print("[INFO] Rendering RGB...")
