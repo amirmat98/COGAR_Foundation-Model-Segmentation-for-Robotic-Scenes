@@ -19,10 +19,12 @@ from cogar_seg.datasets.coco_utils import (
 
 REQUIRED_SIM_INDEX_COLUMNS = [
     "image_id",
+    "file_name",
     "scene_id",
     "frame_id",
     "split",
     "image_path",
+    "binary_mask_path",
     "instance_mask_path",
     "semantic_mask_path",
     "category_id",
@@ -41,7 +43,7 @@ REQUIRED_SIM_INDEX_COLUMNS = [
     "is_occluded",
     "is_small_part",
     "is_dynamic",
-    "camera_name",
+    "area",
 ]
 
 VALID_SIM_SPLITS = {"train", "val", "test"}
@@ -393,9 +395,17 @@ def normalize_cogar_sim_500(
     shutil.copy2(raw_metadata_path, metadata_path)
 
     ids = [f"{i:06d}" for i in range(expected_images)]
-    train = ids[:350]
-    val = ids[350:425]
-    test = ids[425:expected_images]
+    train_count = int(round(0.70 * expected_images))
+    val_count = int(round(0.15 * expected_images))
+    if expected_images >= 3:
+        train_count = max(1, min(train_count, expected_images - 2))
+        val_count = max(1, min(val_count, expected_images - train_count - 1))
+    else:
+        train_count = max(1, expected_images)
+        val_count = 0
+    train = ids[:train_count]
+    val = ids[train_count : train_count + val_count]
+    test = ids[train_count + val_count : expected_images]
 
     (split_dir / "train.txt").write_text("\n".join(train) + "\n", encoding="utf-8")
     (split_dir / "val.txt").write_text("\n".join(val) + "\n", encoding="utf-8")

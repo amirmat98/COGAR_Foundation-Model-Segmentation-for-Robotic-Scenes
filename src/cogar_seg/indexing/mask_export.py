@@ -6,11 +6,10 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
-import cv2
 import numpy as np
 import pandas as pd
-from pycocotools.coco import COCO
 
+from cogar_seg.cv_compat import cv2
 from cogar_seg.config import load_config
 from cogar_seg.datasets.ocid import export_binary_gt_masks
 from cogar_seg.indexing.object_index import build_ocid_debug_index_paths
@@ -76,6 +75,8 @@ def export_cogar_sim_binary_masks(
 
     The output CSV is the input object index plus a new gt_mask_path column.
     """
+    from pycocotools.coco import COCO
+
     coco_path = Path(coco_path)
     object_index_csv = Path(object_index_csv)
     output_csv = Path(output_csv)

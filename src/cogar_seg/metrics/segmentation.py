@@ -1,7 +1,8 @@
 """Metrics for binary and instance segmentation masks."""
 
-import cv2
 import numpy as np
+
+from cogar_seg.cv_compat import cv2
 
 
 def compute_iou(mask_a: np.ndarray, mask_b: np.ndarray) -> float:
