@@ -133,3 +133,44 @@ For the final project conclusion:
 - Use FastSAM-S when speed is more important than accurate masks.
 - Avoid relying only on automatic masks for precise robotic manipulation.
 - Treat transparent objects, reflective objects, cables, small parts, grippers, and occlusions as high-risk failure cases.
+
+## EfficientSAM-Ti box-prompt recommendation
+
+EfficientSAM-Ti is a lightweight SAM-style zero-shot segmentation model evaluated with box prompts.
+
+Measured result on the final dataset:
+
+- Mean IoU: 0.880745
+- Median IoU: 0.939880
+- Mean boundary F1: 0.910907
+- IoU >= 0.90: 0.674346
+- IoU >= 0.75: 0.880787
+- IoU >= 0.50: 0.957057
+- IoU < 0.10: 0.005592
+- Mean FPS: 9.474405
+- Device: CUDA, NVIDIA GTX 1050 4 GB
+
+Recommended use:
+
+- Use EfficientSAM-Ti when a lightweight promptable SAM-style model is needed and accuracy is more important than maximum speed.
+- Use MobileSAM when the best lightweight SAM-style speed/accuracy trade-off is needed.
+- Use SAM ViT-B box when maximum promptable segmentation accuracy is the priority.
+- Use FastSAM-S when speed is the dominant requirement.
+- Use YOLOv8n-seg when automatic supervised segmentation is allowed and prompts are unavailable.
+
+Observed hard categories:
+
+- cable
+- robot_gripper
+- tool
+- screw
+
+Observed hard challenges:
+
+- partial_occlusion
+- transparent_glass
+- dynamic_scene
+
+Final recommendation:
+
+EfficientSAM-Ti is a valuable lightweight SAM-family benchmark. However, on this hardware and implementation, MobileSAM remains the stronger lightweight deployment recommendation because it achieves higher throughput while staying close in accuracy.

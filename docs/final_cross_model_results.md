@@ -57,3 +57,39 @@ Across robotic-scene challenges, transparent glass and partial occlusion are the
 ## Speed note
 
 The reported FPS values are object-row-level timing values from the evaluation scripts. Because several objects can come from the same image and image-level predictions or embeddings may be reused, the FPS values should be treated as relative speed indicators, not strict per-frame robot deployment FPS.
+
+## EfficientSAM-Ti addition
+
+EfficientSAM-Ti box-prompt evaluation was added as the lightweight EfficientSAM-family benchmark.
+
+EfficientSAM-Ti overall results:
+
+- Mean IoU: 0.880745
+- Median IoU: 0.939880
+- Mean boundary F1: 0.910907
+- IoU >= 0.90: 0.674346
+- IoU >= 0.75: 0.880787
+- IoU >= 0.50: 0.957057
+- IoU < 0.10: 0.005592
+- Mean predicted IoU: 0.927803
+- Mean FPS: 9.474405
+- Device: CUDA, NVIDIA GTX 1050 4 GB
+
+Category-level findings:
+
+- Hardest categories: cable, robot_gripper, tool, screw.
+- Strongest categories: plastic_object, box, metal_part, connector.
+
+Challenge-level findings:
+
+- Hardest challenge: partial_occlusion.
+- Other difficult challenges: transparent_glass and dynamic_scene.
+- Reflective metal and small-parts scenes remained comparatively stronger.
+
+Updated interpretation:
+
+- SAM ViT-B box remains the best accuracy-oriented promptable model.
+- MobileSAM box remains the best lightweight SAM-style trade-off.
+- EfficientSAM-Ti is a strong lightweight SAM-family accuracy baseline but is slower than MobileSAM and FastSAM-S in this implementation.
+- FastSAM-S remains the speed-first promptable baseline.
+- YOLOv8n-seg remains the supervised fine-tuned automatic segmentation baseline.
