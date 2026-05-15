@@ -189,3 +189,26 @@ Current recommendation status:
 
 - SAM2 is not part of the final quantitative comparison.
 - It should be reported as future work, not as a completed result.
+
+## SAM2.1-Tiny recommendation
+
+SAM2.1-Tiny was evaluated with box and point prompts on the full 4,471-object simulated dataset.
+
+Measured results:
+
+| Prompt type | Mean IoU | Median IoU | Mean boundary F1 | IoU >= 0.75 | Mean FPS |
+|---|---:|---:|---:|---:|---:|
+| Box | 0.912746 | 0.955280 | 0.930659 | 0.926191 | 16.809629 |
+| Point | 0.865783 | 0.934924 | 0.873056 | 0.827555 | 16.679109 |
+
+Recommendation:
+
+- Use SAM2.1-Tiny box when maximum full-dataset promptable accuracy is the priority and lower speed is acceptable.
+- Use SAM ViT-B box when a better speed/accuracy balance is needed in the current implementation.
+- Use MobileSAM when lightweight deployment speed is more important.
+- Use FastSAM-S when maximum speed is the dominant requirement.
+- Use YOLOv8n-seg when supervised automatic segmentation is allowed and prompts are unavailable.
+
+Caveat:
+
+SAM2 automatic mask generation was not included in the completed benchmark. SAM2.1-Tiny was evaluated with box and point prompts only.

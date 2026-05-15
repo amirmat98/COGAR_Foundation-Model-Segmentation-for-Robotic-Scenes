@@ -115,3 +115,24 @@ Final model coverage therefore includes:
 - YOLOv8n-seg supervised fine-tuned baseline
 
 This limitation should be considered when interpreting the final model coverage. SAM2 remains recommended future work, especially for dynamic or video-style robotic perception scenes.
+
+## SAM2.1-Tiny addition
+
+SAM2.1-Tiny was added to the full benchmark using box and point prompts.
+
+SAM2.1-Tiny results:
+
+| Prompt type | Objects | Mean IoU | Median IoU | Mean boundary F1 | IoU >= 0.75 | IoU < 0.10 | Mean FPS |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Box | 4,471 | 0.912746 | 0.955280 | 0.930659 | 0.926191 | 0.000895 | 16.809629 |
+| Point | 4,471 | 0.865783 | 0.934924 | 0.873056 | 0.827555 | 0.004921 | 16.679109 |
+
+Updated interpretation:
+
+- SAM2.1-Tiny box gives the highest mean IoU among the completed full-dataset promptable box-prompt evaluations.
+- SAM ViT-B box remains faster than SAM2.1-Tiny box in the current implementation.
+- SAM2.1-Tiny point prompting is strong but remains below SAM2.1-Tiny box prompting.
+- FastSAM-S remains the speed-first baseline.
+- MobileSAM remains a strong lightweight SAM-style trade-off.
+- EfficientSAM-Ti remains a lightweight SAM-family accuracy baseline.
+- YOLOv8n-seg remains the supervised fine-tuned automatic segmentation baseline.

@@ -1,0 +1,108 @@
+# SAM2.1-Tiny Zero-Shot Results
+
+## Role in benchmark
+
+SAM2.1-Tiny is included as the SAM2-family zero-shot segmentation model in the benchmark.
+
+It was evaluated on the final simulated robotic-scene dataset:
+
+- `data/cogar_sim_500_final/annotations/sim_robotic_scenes_index_final_filtered.csv`
+
+SAM2.1-Tiny was installed in a separate environment under:
+
+- `/mnt/Info/COGAR_Large/SAM2/`
+
+This was done to avoid modifying the main benchmark environment.
+
+## Evaluation setup
+
+- Model: SAM2.1-Tiny / SAM2.1 Hiera Tiny
+- Checkpoint: `sam2.1_hiera_tiny.pt`
+- Prompt modes evaluated: box and point
+- Device: CUDA
+- GPU: NVIDIA GTX 1050 4 GB
+- Objects evaluated: 4,471
+- Image dataset: 500 simulated robotic-scene images
+
+## Prompt protocol
+
+### Box prompt
+
+Box prompts use the ground-truth object bounding box:
+
+- `bbox_xmin`
+- `bbox_ymin`
+- `bbox_xmax`
+- `bbox_ymax`
+
+### Point prompt
+
+Point prompts use the stored object point:
+
+- `point_x`
+- `point_y`
+
+For each prompt, SAM2 predicts multiple masks. The benchmark selects the mask with the highest IoU against the ground-truth object mask for object-level scoring.
+
+## Overall results
+
+| Prompt type | Objects | Mean IoU | Median IoU | Mean boundary F1 | IoU >= 0.90 | IoU >= 0.75 | IoU >= 0.50 | IoU < 0.10 | Mean predicted IoU | Mean FPS |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Box | 4,471 | 0.912746 | 0.955280 | 0.930659 | 0.754641 | 0.926191 | 0.981660 | 0.000895 | 0.935720 | 16.809629 |
+| Point | 4,471 | 0.865783 | 0.934924 | 0.873056 | 0.614404 | 0.827555 | 0.952807 | 0.004921 | 0.804797 | 16.679109 |
+
+## Mean IoU by category: box prompt
+
+| Category | Count | Mean IoU | Median IoU | Mean boundary F1 | IoU >= 0.75 | IoU < 0.10 |
+|---|---:|---:|---:|---:|---:|---:|
+| cable | 281 | 0.848384 | 0.895760 | 0.905199 | 0.829181 | 0.007117 |
+| robot_gripper | 1042 | 0.859480 | 0.912873 | 0.848819 | 0.849328 | 0.000960 |
+| tool | 296 | 0.880302 | 0.935766 | 0.889262 | 0.878378 | 0.003378 |
+| screw | 427 | 0.897325 | 0.919831 | 0.988927 | 0.946136 | 0.000000 |
+| glass_object | 360 | 0.934410 | 0.966264 | 0.895568 | 0.952778 | 0.000000 |
+| connector | 531 | 0.938521 | 0.959478 | 0.985101 | 0.971751 | 0.000000 |
+| metal_part | 555 | 0.952624 | 0.972770 | 0.974476 | 0.978378 | 0.000000 |
+| box | 352 | 0.955106 | 0.979920 | 0.945244 | 0.977273 | 0.000000 |
+| plastic_object | 627 | 0.962588 | 0.979200 | 0.985004 | 0.977671 | 0.000000 |
+
+## Mean IoU by category: point prompt
+
+| Category | Count | Mean IoU | Median IoU | Mean boundary F1 | IoU >= 0.75 | IoU < 0.10 |
+|---|---:|---:|---:|---:|---:|---:|
+| robot_gripper | 1042 | 0.767225 | 0.827355 | 0.749527 | 0.641075 | 0.014395 |
+| cable | 281 | 0.800109 | 0.842007 | 0.860588 | 0.697509 | 0.000000 |
+| tool | 296 | 0.839987 | 0.911390 | 0.845837 | 0.773649 | 0.000000 |
+| glass_object | 360 | 0.850406 | 0.918180 | 0.757417 | 0.777778 | 0.002778 |
+| screw | 427 | 0.873286 | 0.905063 | 0.966363 | 0.913349 | 0.002342 |
+| connector | 531 | 0.917311 | 0.953146 | 0.955066 | 0.937853 | 0.001883 |
+| metal_part | 555 | 0.918042 | 0.965753 | 0.928011 | 0.915315 | 0.003604 |
+| box | 352 | 0.934325 | 0.976164 | 0.910163 | 0.937500 | 0.002841 |
+| plastic_object | 627 | 0.946527 | 0.975720 | 0.960708 | 0.958533 | 0.001595 |
+
+## Interpretation
+
+SAM2.1-Tiny performs very strongly on the simulated robotic-scene dataset.
+
+Main observations:
+
+- SAM2.1-Tiny box prompting achieved the highest mean IoU among the completed promptable full-dataset benchmarks.
+- SAM2.1-Tiny box slightly outperformed SAM ViT-B box in mean IoU.
+- SAM2.1-Tiny point prompting also performed strongly, but lower than box prompting.
+- The hardest categories for SAM2.1-Tiny box are cable, robot_gripper, tool, and screw.
+- The strongest categories for SAM2.1-Tiny box are plastic_object, box, metal_part, and connector.
+- SAM2.1-Tiny is slower than SAM ViT-B and much slower than FastSAM-S in the current implementation, but it is accurate and feasible on the GTX 1050 4 GB with the tiny checkpoint.
+
+## Limitations
+
+SAM2 automatic mask generation was not included in this completed run. The final SAM2 evaluation covers box and point prompts.
+
+SAM2 was installed in a separate environment on `/mnt/Info/COGAR_Large/SAM2/` because the official SAM2 dependency stack required a newer PyTorch/torchvision version than the main benchmark environment.
+
+Generated result files are intentionally not committed:
+
+- `outputs/tables/sam2/final_box_cuda/`
+- `outputs/tables/sam2/final_point_cuda/`
+
+## Conclusion
+
+SAM2.1-Tiny is now included as a completed zero-shot promptable model in the benchmark with box and point prompt evaluation on all 4,471 object instances.
