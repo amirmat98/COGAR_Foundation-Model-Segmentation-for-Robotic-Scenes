@@ -106,3 +106,69 @@ Generated result files are intentionally not committed:
 ## Conclusion
 
 SAM2.1-Tiny is now included as a completed zero-shot promptable model in the benchmark with box and point prompt evaluation on all 4,471 object instances.
+
+## SAM2.1-Tiny automatic mask generation
+
+SAM2.1-Tiny automatic mask generation was evaluated on the full 500-image dataset using conservative settings suitable for the GTX 1050 4 GB GPU:
+
+- `points_per_side`: 16
+- `pred_iou_thresh`: 0.80
+- `stability_score_thresh`: 0.90
+- `crop_n_layers`: 0
+- Device: CUDA
+
+Automatic mask generation is prompt-free. SAM2 samples point prompts over an image grid, predicts masks, filters masks, and then the benchmark matches generated masks to ground-truth object instances for scoring.
+
+### Overall auto results
+
+| Metric | Value |
+|---|---:|
+| Objects | 4,471 |
+| Mean IoU | 0.640259 |
+| Median IoU | 0.870136 |
+| Mean boundary F1 | 0.678148 |
+| IoU >= 0.90 | 0.470588 |
+| IoU >= 0.75 | 0.586670 |
+| IoU >= 0.50 | 0.683292 |
+| IoU < 0.10 | 0.224782 |
+| Mean predicted IoU | 0.940974 |
+| Mean FPS | 2.300666 |
+| Total model time | 1943.350 s |
+
+### Mean IoU by category: auto
+
+| Category | Count | Mean IoU | Median IoU | Mean boundary F1 | IoU >= 0.75 | IoU < 0.10 |
+|---|---:|---:|---:|---:|---:|---:|
+| screw | 427 | 0.262570 | 0.000876 | 0.323649 | 0.238876 | 0.676815 |
+| robot_gripper | 1042 | 0.508220 | 0.613787 | 0.557955 | 0.384837 | 0.245681 |
+| cable | 281 | 0.540056 | 0.685232 | 0.604072 | 0.427046 | 0.266904 |
+| glass_object | 360 | 0.603488 | 0.787498 | 0.605631 | 0.527778 | 0.216667 |
+| tool | 296 | 0.663334 | 0.851463 | 0.691366 | 0.570946 | 0.179054 |
+| connector | 531 | 0.737014 | 0.942533 | 0.783449 | 0.738230 | 0.169492 |
+| metal_part | 555 | 0.773017 | 0.964469 | 0.812575 | 0.760360 | 0.153153 |
+| plastic_object | 627 | 0.844045 | 0.975248 | 0.870719 | 0.848485 | 0.102073 |
+| box | 352 | 0.869217 | 0.976169 | 0.872345 | 0.838068 | 0.042614 |
+
+### Mean IoU by challenge: auto
+
+| Challenge | Count | Mean IoU | Median IoU | Mean boundary F1 | IoU >= 0.75 | IoU < 0.10 |
+|---|---:|---:|---:|---:|---:|---:|
+| small_parts | 1551 | 0.586400 | 0.830841 | 0.635217 | 0.554481 | 0.301096 |
+| partial_occlusion | 3187 | 0.627681 | 0.830764 | 0.665380 | 0.566050 | 0.225290 |
+| transparent_glass | 830 | 0.629659 | 0.848286 | 0.651270 | 0.563855 | 0.203614 |
+| dynamic_scene | 797 | 0.681483 | 0.909036 | 0.721684 | 0.633626 | 0.191970 |
+| reflective_metal | 1161 | 0.712922 | 0.932247 | 0.747000 | 0.663221 | 0.168820 |
+
+### Auto interpretation
+
+SAM2.1-Tiny automatic mask generation is substantially weaker than SAM2.1-Tiny box and point prompting.
+
+Main observations:
+
+- Auto mode is prompt-free and therefore much harder than box or point prompting.
+- Screws are the hardest category, with very low mean IoU and many failures.
+- Small parts are the hardest challenge group.
+- Reflective metal is the strongest challenge group in auto mode.
+- Auto mode is slow on GTX 1050, with approximately 2.30 FPS measured over object-instance scoring.
+
+This completes SAM2.1-Tiny coverage for box, point, and automatic mask generation.

@@ -212,3 +212,26 @@ Recommendation:
 Caveat:
 
 SAM2 automatic mask generation was not included in the completed benchmark. SAM2.1-Tiny was evaluated with box and point prompts only.
+
+## SAM2.1-Tiny final recommendation
+
+SAM2.1-Tiny was evaluated with box, point, and automatic mask generation on the full 4,471-object simulated dataset.
+
+| Prompt type | Mean IoU | Median IoU | Mean boundary F1 | IoU >= 0.75 | IoU < 0.10 | Mean FPS |
+|---|---:|---:|---:|---:|---:|---:|
+| Box | 0.912746 | 0.955280 | 0.930659 | 0.926191 | 0.000895 | 16.809629 |
+| Point | 0.865783 | 0.934924 | 0.873056 | 0.827555 | 0.004921 | 16.679109 |
+| Auto | 0.640259 | 0.870136 | 0.678148 | 0.586670 | 0.224782 | 2.300666 |
+
+Recommendation:
+
+- Use SAM2.1-Tiny box when maximum promptable accuracy is the priority.
+- Use SAM2.1-Tiny point when box prompts are not available but a positive object point is available.
+- Avoid SAM2.1-Tiny auto for small-parts-heavy robotic scenes unless additional post-processing or tuning is added.
+- Use SAM ViT-B box when a better speed/accuracy trade-off is needed in the current implementation.
+- Use FastSAM-S when speed is the dominant requirement.
+- Use YOLOv8n-seg when supervised automatic segmentation is allowed and prompts are unavailable.
+
+Caveat:
+
+SAM2.1-Tiny auto mode was evaluated with conservative `points_per_side=16` settings for GTX 1050 compatibility. Stronger auto settings may improve accuracy but would increase runtime and memory demand.

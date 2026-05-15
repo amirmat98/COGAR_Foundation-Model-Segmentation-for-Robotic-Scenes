@@ -36,3 +36,32 @@ Updated Task 4 status:
 - SAM2.1-Tiny: box and point prompt evaluation completed.
 - SAM ViT-H: small CPU subset completed with hardware caveat.
 - SAM2 auto and full SAM ViT-H remain limitations due to hardware/runtime constraints.
+
+## Final Task 4 completion update
+
+Task 4 is now completed for SAM ViT-B, FastSAM-S, and SAM2.1-Tiny prompt-mode coverage.
+
+Completed prompt modes:
+
+| Model | Box | Point | Auto / Everything |
+|---|---:|---:|---:|
+| SAM ViT-B | Completed | Completed | Completed |
+| FastSAM-S | Completed | Completed | Completed |
+| SAM2.1-Tiny | Completed | Completed | Completed |
+| SAM ViT-H | CPU subset only | Not completed | Not completed |
+
+### SAM2.1-Tiny final prompt-mode results
+
+| Prompt type | Objects | Mean IoU | Median IoU | Mean boundary F1 | IoU >= 0.75 | IoU < 0.10 | Mean FPS |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Box | 4,471 | 0.912746 | 0.955280 | 0.930659 | 0.926191 | 0.000895 | 16.809629 |
+| Point | 4,471 | 0.865783 | 0.934924 | 0.873056 | 0.827555 | 0.004921 | 16.679109 |
+| Auto | 4,471 | 0.640259 | 0.870136 | 0.678148 | 0.586670 | 0.224782 | 2.300666 |
+
+### Final interpretation
+
+SAM2.1-Tiny is now fully evaluated with box, point, and automatic mask generation on the full simulated dataset.
+
+SAM2.1-Tiny box prompting achieved the highest mean IoU among the completed full-dataset box-prompt benchmarks. SAM2.1-Tiny point prompting was also strong, while automatic mask generation was substantially weaker because it is prompt-free and must discover object masks without instance prompts.
+
+The only remaining Task 4 limitation is SAM ViT-H. Full SAM ViT-H evaluation was not feasible on the GTX 1050 4 GB GPU, so only a small CPU subset was completed and documented with a caveat.
