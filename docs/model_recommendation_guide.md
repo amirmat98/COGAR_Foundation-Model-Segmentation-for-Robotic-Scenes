@@ -174,3 +174,18 @@ Observed hard challenges:
 Final recommendation:
 
 EfficientSAM-Ti is a valuable lightweight SAM-family benchmark. However, on this hardware and implementation, MobileSAM remains the stronger lightweight deployment recommendation because it achieves higher throughput while staying close in accuracy.
+
+## SAM2 future-work recommendation
+
+SAM2 was not included in the final full-object benchmark because the available local GPU had limited memory and the final evaluation focused on static simulated images.
+
+Recommended future use:
+
+- Evaluate SAM2 on dynamic robotic scenes or video-style frame sequences.
+- Use SAM2 when temporal consistency, object persistence, or video segmentation is important.
+- Compare SAM2 against SAM ViT-B box and EfficientSAM-Ti box on the same image prompts if enough GPU memory is available.
+
+Current recommendation status:
+
+- SAM2 is not part of the final quantitative comparison.
+- It should be reported as future work, not as a completed result.

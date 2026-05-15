@@ -93,3 +93,25 @@ Updated interpretation:
 - EfficientSAM-Ti is a strong lightweight SAM-family accuracy baseline but is slower than MobileSAM and FastSAM-S in this implementation.
 - FastSAM-S remains the speed-first promptable baseline.
 - YOLOv8n-seg remains the supervised fine-tuned automatic segmentation baseline.
+
+## SAM2 limitation
+
+SAM2 was included in the original benchmark plan because it is a promptable segmentation model for both images and videos. However, SAM2 was not included in the final full-object benchmark.
+
+Reason for exclusion:
+
+- The local benchmark machine uses an NVIDIA GTX 1050 with 4 GB VRAM.
+- The project already encountered memory limits with larger SAM variants, especially SAM ViT-H.
+- The final benchmark prioritized models that could be evaluated consistently on the complete 4,471-object simulated image dataset.
+- The dataset is image-instance based, while SAM2's main additional strength is video/object-memory segmentation.
+
+Final model coverage therefore includes:
+
+- SAM ViT-B box, point, and auto
+- SAM ViT-H CPU subset with caveat
+- MobileSAM box
+- FastSAM-S box
+- EfficientSAM-Ti box
+- YOLOv8n-seg supervised fine-tuned baseline
+
+This limitation should be considered when interpreting the final model coverage. SAM2 remains recommended future work, especially for dynamic or video-style robotic perception scenes.
