@@ -21,6 +21,16 @@ DeepLabV3+ was reviewed but excluded from the final instance-level benchmark bec
 | Mask R-CNN ResNet-50 FPN | Supervised instance segmentation | Completed | Mean IoU, median IoU, boundary F1, per-class IoU, FPS | Classical supervised instance baseline |
 | DeepLabV3+ | Semantic segmentation | Excluded | Not evaluated as instance segmentation | Documented limitation / not directly comparable |
 
+## Visual evidence
+
+![Supervised baseline summary](/outputs/figures/final_report/metrics/supervised_baselines_summary.png)
+
+*Figure: YOLOv8n-seg AP metrics and Mask R-CNN IoU/BF1 metrics, shown separately because AP and IoU are different metric families.*
+
+![FPS comparison with supervised baselines context](/outputs/figures/final_report/speed/fps_comparison.png)
+
+*Figure: Speed context for segmentation models and baselines. YOLOv8n-seg image-level speed is reported in the tables below.*
+
 ## YOLOv8n-seg fine-tuned baseline
 
 YOLOv8n-seg was fine-tuned as the practical supervised deployment baseline.

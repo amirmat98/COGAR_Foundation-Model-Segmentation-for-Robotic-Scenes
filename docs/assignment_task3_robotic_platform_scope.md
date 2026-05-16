@@ -12,6 +12,16 @@ The final 500-image benchmark dataset was generated as simulated robotic manipul
 
 A full Unitree G1 or Unitree As2 embodied simulation was investigated but was not run locally because the available laptop GPU, NVIDIA GTX 1050 with 4 GB VRAM, is below practical Isaac Sim / Isaac Lab rendering requirements.
 
+## Visual evidence
+
+![Robot gripper sample scene](/outputs/figures/final_report/dataset/sample_scenes/robot_gripper.png)
+
+*Figure: Representative simulated manipulation scene containing the `robot_gripper` category from the final benchmark dataset.*
+
+![Robot gripper failure example](/outputs/figures/final_report/failure_modes/worst_04_iou_0.007_robot_gripper_dynamic_scene.png)
+
+*Figure: Example gripper/dynamic-scene failure panel showing why articulated robot parts are a documented segmentation challenge.*
+
 ## Main benchmark scene design
 
 The main dataset remains:

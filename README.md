@@ -45,6 +45,32 @@ debug-subset prototype is no longer the current pipeline.
 | 8. Failure mode analysis | Complete | [Task 8](docs/assignment_task8_failure_mode_analysis.md), [failure analysis](docs/failure_mode_analysis.md) |
 | 9. Lightweight SAM edge trade-off | Complete | [Task 9](docs/assignment_task9_lightweight_sam_edge_tradeoff.md) |
 
+## Visual Summary
+
+![Representative COGAR-SimRobotics-500 scenes](/outputs/figures/final_report/dataset/sample_scene_montage.png)
+
+*Figure: Representative simulated robotic scenes used by the final benchmark, including reflective, transparent, small-part, gripper, occlusion, and dynamic-scene cases.*
+
+![Dataset category counts](/outputs/figures/final_report/dataset/category_counts.png)
+
+*Figure: Object-instance distribution across the nine COGAR-SimRobotics-500 categories.*
+
+![Mean IoU comparison](/outputs/figures/final_report/metrics/mean_iou_by_model_prompt.png)
+
+*Figure: Mean IoU comparison across zero-shot models and prompt modes. SAM ViT-H entries are CPU subset reference results only.*
+
+![FPS comparison](/outputs/figures/final_report/speed/fps_comparison.png)
+
+*Figure: Measured FPS comparison on a log scale, showing GPU runs and SAM ViT-H CPU subset timings.*
+
+![IoU and FPS trade-off](/outputs/figures/final_report/edge_tradeoff/iou_vs_fps_tradeoff.png)
+
+*Figure: Accuracy/speed trade-off for deployable model choices. The YOLOv8n-seg point uses mask mAP50-95 rather than IoU and is included as a supervised baseline reference.*
+
+![Failure mode montage](/outputs/figures/final_report/failure_modes/failure_mode_montage.png)
+
+*Figure: Representative failure panels from existing output visualizations. Green is ground truth only, red is prediction only, and yellow is overlap.*
+
 ## Dataset Summary
 
 | Property | Value |

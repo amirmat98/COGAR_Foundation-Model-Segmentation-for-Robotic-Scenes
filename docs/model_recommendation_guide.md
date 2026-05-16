@@ -16,6 +16,16 @@ The final recommendation uses the completed zero-shot, lightweight, and
 supervised baseline results. SAM ViT-H is included only as a CPU subset reference
 because full CUDA evaluation is hardware-limited on the available GTX 1050 4 GB.
 
+## Visual evidence
+
+![IoU versus FPS recommendation chart](/outputs/figures/final_report/edge_tradeoff/iou_vs_fps_tradeoff.png)
+
+*Figure: Main recommendation chart showing the accuracy/speed trade-off between promptable, lightweight, speed-first, and supervised options.*
+
+![Failure mode montage](/outputs/figures/final_report/failure_modes/failure_mode_montage.png)
+
+*Figure: Representative failure modes that inform the deployment recommendations and risk notes.*
+
 ## Overall full-dataset promptable results
 
 | Model / mode | Objects | Mean IoU | Median IoU | Boundary F1 | IoU >= 0.75 | IoU < 0.10 | Mean FPS |

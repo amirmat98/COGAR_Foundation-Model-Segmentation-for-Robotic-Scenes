@@ -4,6 +4,12 @@
 
 YOLOv8n-seg is included as a supervised fine-tuned segmentation baseline. It is not a zero-shot foundation model. It is used to compare promptable foundation models against a small-data trained detector/segmenter.
 
+## Visual evidence
+
+![Supervised baseline AP and IoU summary](/outputs/figures/final_report/metrics/supervised_baselines_summary.png)
+
+*Figure: YOLOv8n-seg mask AP metrics are shown separately from Mask R-CNN IoU metrics because they are different evaluation families.*
+
 ## Dataset
 
 Prepared YOLO segmentation dataset:

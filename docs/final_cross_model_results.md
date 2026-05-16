@@ -16,6 +16,20 @@ This page summarizes cross-model results across:
 - YOLOv8n-seg supervised baseline
 - Mask R-CNN supervised baseline
 
+## Visual evidence
+
+![Mean IoU by model and prompt](/outputs/figures/final_report/metrics/mean_iou_by_model_prompt.png)
+
+*Figure: Full benchmark mean IoU comparison across model families and prompt modes. SAM ViT-H entries are CPU subset references.*
+
+![Boundary F1 by model and prompt](/outputs/figures/final_report/metrics/boundary_f1_by_model_prompt.png)
+
+*Figure: Boundary-quality comparison across the same model and prompt set.*
+
+![Per-category IoU chart](/outputs/figures/final_report/metrics/per_category_iou.png)
+
+*Figure: Per-category IoU evidence from existing SAM2.1-Tiny and Mask R-CNN category-level result tables.*
+
 ## Full-dataset promptable and lightweight comparison
 
 | Model / mode | Objects | Mean IoU | Median IoU | Boundary F1 | IoU >= 0.90 | IoU >= 0.75 | IoU >= 0.50 | IoU < 0.10 | Mean FPS |

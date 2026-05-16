@@ -8,6 +8,16 @@ Unlike the zero-shot foundation models, this baseline was fine-tuned on the COGA
 
 Mask R-CNN is suitable for this role because it is an instance-segmentation model: it detects objects and predicts a segmentation mask for each instance. The original Mask R-CNN paper describes it as extending Faster R-CNN with a parallel mask-prediction branch, and TorchVision provides a Mask R-CNN implementation for instance segmentation.
 
+## Visual evidence
+
+![Supervised baseline summary](/outputs/figures/final_report/metrics/supervised_baselines_summary.png)
+
+*Figure: Mask R-CNN mean IoU and boundary F1 alongside YOLOv8n-seg mask AP metrics.*
+
+![Mask R-CNN per-category IoU comparison](/outputs/figures/final_report/metrics/per_category_iou.png)
+
+*Figure: Mask R-CNN per-class IoU compared with SAM2.1-Tiny box per-category IoU.*
+
 ## Training setup
 
 | Item | Value |

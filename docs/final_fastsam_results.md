@@ -8,6 +8,16 @@ It was evaluated on the final simulated robotic-scene dataset:
 
 - `data/cogar_sim_500_final/annotations/sim_robotic_scenes_index_final_filtered.csv`
 
+## Visual evidence
+
+![FastSAM-S prompt modes in mean IoU chart](/outputs/figures/final_report/metrics/mean_iou_by_model_prompt.png)
+
+*Figure: FastSAM-S box, point, and auto/everything results shown in the zero-shot prompt-mode comparison.*
+
+![FastSAM-S speed in FPS chart](/outputs/figures/final_report/speed/fps_comparison.png)
+
+*Figure: FastSAM-S has the highest measured zero-shot throughput in the speed comparison.*
+
 ## Evaluation protocol
 
 FastSAM-S was evaluated with three prompt modes:

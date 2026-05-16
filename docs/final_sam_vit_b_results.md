@@ -9,6 +9,16 @@
 - Final index: `data/cogar_sim_500_final/annotations/sim_robotic_scenes_index_final_filtered.csv`
 - Bad images after final filtering: 0
 
+## Visual evidence
+
+![SAM ViT-B prompt context in mean IoU chart](/outputs/figures/final_report/metrics/mean_iou_by_model_prompt.png)
+
+*Figure: SAM ViT-B box, point, and auto results shown in the full zero-shot prompt-mode comparison.*
+
+![SAM ViT-B boundary F1 context](/outputs/figures/final_report/metrics/boundary_f1_by_model_prompt.png)
+
+*Figure: Boundary F1 comparison showing SAM ViT-B prompt-mode boundary quality relative to other evaluated models.*
+
 ## SAM ViT-B prompt comparison
 
 | Prompt | Objects | Mean IoU | Median IoU | Boundary F1 | IoU >= 0.90 | IoU >= 0.75 | IoU >= 0.50 | IoU < 0.10 |

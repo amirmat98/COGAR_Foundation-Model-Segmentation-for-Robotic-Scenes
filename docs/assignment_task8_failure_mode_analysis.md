@@ -10,6 +10,24 @@ Task 8 is completed.
 
 The project includes a qualitative failure-mode analysis based on low-IoU predictions, category-level metrics, challenge tags, and visual inspection of generated failure panels.
 
+## Visual evidence
+
+![Failure mode montage](/outputs/figures/final_report/failure_modes/failure_mode_montage.png)
+
+*Figure: Representative failure montage from existing SAM ViT-B, MobileSAM, and FastSAM-S panels.*
+
+![Cable and occlusion failure](/outputs/figures/final_report/failure_modes/worst_01_iou_0.000_cable_partial_occlusion.png)
+
+*Figure: Cable/partial-occlusion failure showing how thin structures can be missed or fragmented.*
+
+![Transparent gripper failure](/outputs/figures/final_report/failure_modes/worst_01_iou_0.000_robot_gripper_transparent_glass.png)
+
+*Figure: Robot-gripper failure in a transparent-glass challenge scene, illustrating ambiguous object boundaries and nearby clutter.*
+
+![Screw and occlusion failure](/outputs/figures/final_report/failure_modes/worst_06_iou_0.000_screw_partial_occlusion.png)
+
+*Figure: Screw/partial-occlusion failure showing why small parts are fragile for automatic or proposal-based segmentation.*
+
 Main supporting file:
 
 - `docs/failure_mode_analysis.md`

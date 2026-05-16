@@ -8,6 +8,16 @@ It was evaluated on the final simulated robotic-scene dataset:
 
 - `data/cogar_sim_500_final/annotations/sim_robotic_scenes_index_final_filtered.csv`
 
+## Visual evidence
+
+![SAM2.1-Tiny prompt modes in mean IoU chart](/outputs/figures/final_report/metrics/mean_iou_by_model_prompt.png)
+
+*Figure: SAM2.1-Tiny box, point, and auto results in the final zero-shot comparison.*
+
+![SAM2.1-Tiny and Mask R-CNN per-category IoU chart](/outputs/figures/final_report/metrics/per_category_iou.png)
+
+*Figure: SAM2.1-Tiny box per-category IoU compared with the Mask R-CNN supervised baseline using existing category tables.*
+
 SAM2.1-Tiny was installed in a separate environment under:
 
 - `/mnt/Info/COGAR_Large/SAM2/`

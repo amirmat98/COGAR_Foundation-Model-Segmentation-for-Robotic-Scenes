@@ -13,6 +13,16 @@ Because the available GPU is an NVIDIA GTX 1050 with 4 GB VRAM, SAM ViT-H could
 not be evaluated on the full 4,471-object dataset with CUDA. The final ViT-H
 results are therefore CPU subset results only.
 
+## Visual evidence
+
+![SAM ViT-H CPU subset in mean IoU chart](/outputs/figures/final_report/metrics/mean_iou_by_model_prompt.png)
+
+*Figure: SAM ViT-H box, point, and auto CPU subset results are labelled separately from full-dataset GPU runs.*
+
+![SAM ViT-H CPU FPS in speed chart](/outputs/figures/final_report/speed/fps_comparison.png)
+
+*Figure: SAM ViT-H CPU subset speed appears at the low end of the log-scale FPS comparison, supporting the hardware-limited conclusion.*
+
 ## Checkpoint verification
 
 The official SAM ViT-H checkpoint was downloaded and verified successfully.
@@ -59,4 +69,3 @@ available 4 GB GPU.
 
 For the final assignment, SAM ViT-B is the complete SAM-family full-dataset
 reference, while SAM ViT-H is documented as a larger hardware-limited model.
-

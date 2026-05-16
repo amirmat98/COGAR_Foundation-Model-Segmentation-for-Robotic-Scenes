@@ -17,6 +17,16 @@ The evaluated lightweight SAM variants are:
 
 Both models were evaluated zero-shot with box prompts on the full 4,471-object simulated robotic-scene benchmark.
 
+## Visual evidence
+
+![IoU versus FPS trade-off](/outputs/figures/final_report/edge_tradeoff/iou_vs_fps_tradeoff.png)
+
+*Figure: Edge-deployment trade-off for SAM ViT-B, MobileSAM, EfficientSAM-Ti, FastSAM-S, SAM2.1-Tiny, and YOLOv8n-seg supervised reference.*
+
+![Mean IoU model comparison](/outputs/figures/final_report/metrics/mean_iou_by_model_prompt.png)
+
+*Figure: Mean IoU chart showing lightweight SAM variants in context with the broader zero-shot benchmark.*
+
 ## Motivation
 
 Full SAM models provide strong segmentation quality but can be too expensive for edge robotic deployment. Lightweight SAM variants aim to preserve promptable segmentation behavior while reducing model size and runtime cost.

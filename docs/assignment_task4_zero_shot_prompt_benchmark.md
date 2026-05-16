@@ -26,6 +26,16 @@ GPU due to CUDA out-of-memory during image encoding.
 | SAM2.1-Tiny | Complete | Complete | Complete | Full 4,471 objects |
 | SAM ViT-H | CPU subset | CPU subset | CPU subset | Hardware-limited reference |
 
+## Visual evidence
+
+![Mean IoU by model and prompt mode](/outputs/figures/final_report/metrics/mean_iou_by_model_prompt.png)
+
+*Figure: Mean IoU across zero-shot prompt modes. SAM ViT-H entries are CPU subset results only.*
+
+![Boundary F1 by model and prompt mode](/outputs/figures/final_report/metrics/boundary_f1_by_model_prompt.png)
+
+*Figure: Boundary F1 comparison across the same prompt modes, highlighting boundary quality on small and thin objects.*
+
 ## Full-dataset results
 
 ### SAM ViT-B

@@ -10,6 +10,12 @@ MobileSAM was evaluated as a lightweight SAM-style segmentation model for edge/r
 - Prompt type: box
 - Checkpoint: `checkpoints/mobile_sam.pt`
 
+## Visual evidence
+
+![MobileSAM in edge trade-off chart](/outputs/figures/final_report/edge_tradeoff/iou_vs_fps_tradeoff.png)
+
+*Figure: MobileSAM appears as the best lightweight SAM-style speed/accuracy trade-off in the edge deployment chart.*
+
 ## SAM ViT-B vs MobileSAM box-prompt comparison
 
 | Run | Objects | Mean IoU | Median IoU | Boundary F1 | IoU >= 0.90 | IoU >= 0.75 | IoU >= 0.50 | IoU < 0.10 | Mean FPS |

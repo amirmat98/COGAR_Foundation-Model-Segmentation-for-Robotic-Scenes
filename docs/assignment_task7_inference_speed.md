@@ -21,6 +21,16 @@ GPU inference speed was measured for the completed full-dataset or full-test eva
 | Full zero-shot object count | 4,471 objects |
 | Supervised test split | 75 images / 679 objects |
 
+## Visual evidence
+
+![FPS comparison](/outputs/figures/final_report/speed/fps_comparison.png)
+
+*Figure: FPS comparison on a log scale, including high-throughput FastSAM-S runs and slow SAM ViT-H CPU subset reference runs.*
+
+![IoU versus FPS trade-off](/outputs/figures/final_report/edge_tradeoff/iou_vs_fps_tradeoff.png)
+
+*Figure: Deployment trade-off between segmentation quality and speed. The YOLOv8n-seg point uses mask mAP50-95 as its y-value and is not directly an IoU score.*
+
 ## GPU inference speed summary
 
 | Model | Mode | Device | Evaluation size | FPS | FPS type | Real-time feasibility |

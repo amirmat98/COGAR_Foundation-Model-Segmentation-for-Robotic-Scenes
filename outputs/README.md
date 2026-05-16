@@ -23,3 +23,12 @@ The output folders document evidence for the final benchmark, including
 foundation-model evaluations, supervised baselines, metrics, speed summaries,
 and failure-mode analysis. The canonical human-readable interpretation remains
 in `README.md` and `docs/`.
+
+Final report figures are generated into:
+
+```text
+outputs/figures/final_report/
+```
+
+These figures are lightweight PNG charts and montages referenced by the final
+Markdown reports.

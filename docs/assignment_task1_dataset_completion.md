@@ -12,6 +12,20 @@ The project created a final simulated robotic-scene dataset for zero-shot segmen
 
 Legacy OCID prototype data is not included in this Task 1 report. It is reserved only as historical context or for a later external real-world generalization test after the main 500-image benchmark is completed.
 
+## Visual evidence
+
+![Representative simulated robotic scenes](/outputs/figures/final_report/dataset/sample_scene_montage.png)
+
+*Figure: Sample scenes from the final simulated benchmark, selected from existing local RGB images and saved as lightweight report thumbnails.*
+
+![Object category counts](/outputs/figures/final_report/dataset/category_counts.png)
+
+*Figure: Final object-instance counts by category for the 4,471-object benchmark index.*
+
+![Challenge distribution](/outputs/figures/final_report/dataset/challenge_distribution.png)
+
+*Figure: Final challenge distribution across small parts, partial occlusion, dynamic scenes, reflective metal, and transparent glass.*
+
 ## Final dataset location
 
 Dataset root:

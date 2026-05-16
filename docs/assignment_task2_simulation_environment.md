@@ -10,6 +10,16 @@ Task 2 is complete.
 
 The project uses Isaac Sim as the simulation environment for generating and organizing the robotic scene dataset. Gazebo and Rviz2 were not used in the final pipeline because Isaac Sim already provides the required tools for synthetic robotic scene generation, semantic annotation, domain randomization, and dataset export.
 
+## Visual evidence
+
+![Simulation dataset generation pipeline](/outputs/figures/final_report/dataset/simulation_pipeline.png)
+
+*Figure: Documented simulation-to-benchmark pipeline used to turn synthetic scenes into RGB images, masks, annotations, object indexes, and evaluation reports.*
+
+![Representative generated scenes](/outputs/figures/final_report/dataset/sample_scene_montage.png)
+
+*Figure: Representative generated scenes from the final benchmark dataset.*
+
 ## Selected simulation environment
 
 | Environment | Used | Role |

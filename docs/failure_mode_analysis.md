@@ -23,6 +23,32 @@ Generated panels are stored under:
 - `outputs/figures/failure_modes/mobilesam_box/`
 - `outputs/figures/failure_modes/fastsam_s_box/`
 
+## Visual evidence
+
+![Failure mode montage](/outputs/figures/final_report/failure_modes/failure_mode_montage.png)
+
+*Figure: Representative failure montage assembled from existing low-IoU panels.*
+
+![Cable and occlusion failure panel](/outputs/figures/final_report/failure_modes/worst_01_iou_0.000_cable_partial_occlusion.png)
+
+*Figure: Cable/partial-occlusion example where a thin structure is not reliably segmented.*
+
+![Robot gripper dynamic-scene failure panel](/outputs/figures/final_report/failure_modes/worst_04_iou_0.007_robot_gripper_dynamic_scene.png)
+
+*Figure: Robot-gripper dynamic-scene example showing articulated robot-part ambiguity.*
+
+![Reflective scene failure panel](/outputs/figures/final_report/failure_modes/worst_12_iou_0.062_box_reflective_metal.png)
+
+*Figure: Reflective-metal challenge scene where misleading boundaries reduce mask quality.*
+
+![Transparent gripper failure panel](/outputs/figures/final_report/failure_modes/worst_01_iou_0.000_robot_gripper_transparent_glass.png)
+
+*Figure: Transparent-glass challenge example with severe robot-gripper segmentation failure.*
+
+![Screw partial-occlusion failure panel](/outputs/figures/final_report/failure_modes/worst_06_iou_0.000_screw_partial_occlusion.png)
+
+*Figure: Small screw/partial-occlusion example where the target object is missed.*
+
 ## Worst-case category counts
 
 | Category | FastSAM-S box | MobileSAM box | SAM ViT-B box |

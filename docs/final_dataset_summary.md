@@ -10,6 +10,20 @@
 - Annotation format: COCO-derived instance annotations plus exported binary masks
 - Final benchmark index: `data/cogar_sim_500_final/annotations/sim_robotic_scenes_index_final_filtered.csv`
 
+## Visual evidence
+
+![Representative COGAR-SimRobotics-500 scenes](/outputs/figures/final_report/dataset/sample_scene_montage.png)
+
+*Figure: Lightweight sample-scene montage showing representative challenge families in the final dataset.*
+
+![Category count chart](/outputs/figures/final_report/dataset/category_counts.png)
+
+*Figure: Object-instance counts by category from the final filtered benchmark index.*
+
+![Challenge distribution chart](/outputs/figures/final_report/dataset/challenge_distribution.png)
+
+*Figure: Object-instance counts by primary challenge group.*
+
 ## Quality statistics
 
 - Objects per image mean: 8.94

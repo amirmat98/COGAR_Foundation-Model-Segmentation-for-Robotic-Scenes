@@ -12,6 +12,12 @@ EfficientSAM-Ti was evaluated using the official EfficientSAM-Ti checkpoint kept
 
 - `~/Desktop/COGAR/external/EfficientSAM/weights/efficient_sam_vitt.pt`
 
+## Visual evidence
+
+![EfficientSAM-Ti in edge trade-off chart](/outputs/figures/final_report/edge_tradeoff/iou_vs_fps_tradeoff.png)
+
+*Figure: EfficientSAM-Ti shows strong IoU but lower measured FPS than MobileSAM in the final edge trade-off chart.*
+
 ## Evaluation setup
 
 - Model: EfficientSAM-Ti
