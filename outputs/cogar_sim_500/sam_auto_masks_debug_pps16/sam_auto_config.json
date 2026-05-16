@@ -1,0 +1,14 @@
+{
+  "model_type": "vit_b",
+  "checkpoint": "/home/amir/Desktop/COGAR/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/checkpoints/sam_vit_b_01ec64.pth",
+  "device": "cuda",
+  "points_per_side": 16,
+  "pred_iou_thresh": 0.88,
+  "stability_score_thresh": 0.95,
+  "crop_n_layers": 0,
+  "crop_n_points_downscale_factor": 1,
+  "min_mask_region_area": 100,
+  "index_csv": "/home/amir/Desktop/COGAR/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/outputs/indexes/cogar_sim_500_sam_box_clean_results.csv",
+  "output_csv": "/home/amir/Desktop/COGAR/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/outputs/indexes/cogar_sim_500_sam_auto_clean_results_debug_pps16.csv",
+  "max_images": 5
+}

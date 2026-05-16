@@ -1,0 +1,16 @@
+{
+  "model": "maskrcnn_resnet50_fpn",
+  "num_test_images": 75,
+  "num_test_objects": 679,
+  "score_thresh": 0.05,
+  "mean_iou": 0.7461524914807578,
+  "median_iou": 0.830856781536516,
+  "mean_boundary_f1": 0.7218426575393403,
+  "iou_ge_090": 0.28718703976435933,
+  "iou_ge_075": 0.6745213549337261,
+  "iou_ge_050": 0.8748159057437408,
+  "iou_lt_010": 0.060382916053019146,
+  "total_inference_time_s": 13.427603096999519,
+  "mean_fps_images": 5.5855091529149545,
+  "mean_fps_objects": 50.56747619772339
+}

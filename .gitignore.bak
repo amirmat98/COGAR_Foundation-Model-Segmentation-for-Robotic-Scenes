@@ -1,0 +1,59 @@
+# Generated/local datasets and outputs
+/data/*
+!/data/README.md
+/data/cogar_sim_500/rgb/
+/data/cogar_sim_500/raw_blenderproc/
+/data/cogar_sim_500/instance_masks/
+/data/cogar_sim_500/annotations/*.json
+/outputs/*
+!/outputs/README.md
+/datasets/
+/external_data/
+/Raw_Dataset/
+/OCID/
+/results/
+/runs/
+/sim_dataset/
+/raw_isaac_exports/
+
+# Model weights and checkpoints
+/checkpoints/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+
+# Local machine configuration
+/configs/paths.yaml
+
+# Python environments
+/.venv/
+/venv/
+/env/
+
+# Python/tooling caches and build outputs
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Editor and local tooling state
+.vscode/
+.codex
+
+# Blender/archives
+*.blend1
+*.blend2
+*.tar.gz
+*.zip
+
+# Local benchmark artifacts
+data/
+outputs/
+checkpoints/

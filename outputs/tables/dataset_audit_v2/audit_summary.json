@@ -1,0 +1,36 @@
+{
+  "index": "data/cogar_sim_500_v2/annotations/sim_robotic_scenes_index_v2.csv",
+  "total_images": 88,
+  "total_objects": 765,
+  "bad_images_count": 1,
+  "bad_images": [
+    "000101.png"
+  ],
+  "object_count_per_image": {
+    "min": 1.0,
+    "median": 9.0,
+    "mean": 8.693181818181818,
+    "max": 15.0,
+    "target_min": 6,
+    "target_max": 18
+  },
+  "challenge_distribution": {
+    "small_parts": 202,
+    "dynamic_scene": 162,
+    "partial_occlusion": 153,
+    "reflective_metal": 139,
+    "transparent_glass": 109
+  },
+  "category_distribution": {
+    "robot_gripper": 180,
+    "plastic_object": 91,
+    "metal_part": 90,
+    "connector": 84,
+    "screw": 80,
+    "box": 68,
+    "cable": 60,
+    "tool": 60,
+    "glass_object": 52
+  },
+  "warnings": []
+}

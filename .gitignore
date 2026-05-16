@@ -1,12 +1,10 @@
-# Generated/local datasets and outputs
+# Generated/local datasets
 /data/*
 !/data/README.md
 /data/cogar_sim_500/rgb/
 /data/cogar_sim_500/raw_blenderproc/
 /data/cogar_sim_500/instance_masks/
 /data/cogar_sim_500/annotations/*.json
-/outputs/*
-!/outputs/README.md
 /datasets/
 /external_data/
 /Raw_Dataset/
@@ -15,6 +13,17 @@
 /runs/
 /sim_dataset/
 /raw_isaac_exports/
+
+# Outputs
+# Keep outputs tracked because benchmark result CSV/JSON/MD/log artifacts are part of the submission.
+!/outputs/
+!/outputs/**
+
+# But never commit heavy model/checkpoint files inside outputs.
+outputs/**/*.pt
+outputs/**/*.pth
+outputs/**/*.ckpt
+outputs/**/*.safetensors
 
 # Model weights and checkpoints
 /checkpoints/
@@ -52,8 +61,3 @@ dist/
 *.blend2
 *.tar.gz
 *.zip
-
-# Local benchmark artifacts
-data/
-outputs/
-checkpoints/

@@ -1,0 +1,2 @@
+prompt_name,num_objects,mean_iou,median_iou,min_iou,max_iou,std_iou,mean_sam_score,median_sam_score,min_sam_score,max_sam_score
+sim_sam_vit_b_auto,360,0.7527151771380431,0.9289450302483896,0.0,0.9928051001821494,0.3339476498875143,0.9619039169616169,0.9663539230823517,0.8821831941604614,1.0302467346191406

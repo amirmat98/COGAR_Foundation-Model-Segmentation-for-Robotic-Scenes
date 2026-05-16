@@ -1,0 +1,6 @@
+flag,count_true
+is_reflective,50
+is_transparent,25
+is_small_part,48
+is_occluded,209
+is_dynamic,74

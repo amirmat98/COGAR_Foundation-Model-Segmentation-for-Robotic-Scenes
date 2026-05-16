@@ -1,0 +1,10 @@
+gt_category,n,mean_iou,median_iou,iou_ge_050,iou_lt_010
+box,3,0.0,0.0,0.0,1.0
+cable,1,0.0,0.0,0.0,1.0
+connector,4,0.0,0.0,0.0,1.0
+glass_object,4,0.0,0.0,0.0,1.0
+metal_part,6,0.0,0.0,0.0,1.0
+plastic_object,2,0.0,0.0,0.0,1.0
+robot_gripper,6,0.0,0.0,0.0,1.0
+screw,3,0.0,0.0,0.0,1.0
+tool,1,0.0,0.0,0.0,1.0

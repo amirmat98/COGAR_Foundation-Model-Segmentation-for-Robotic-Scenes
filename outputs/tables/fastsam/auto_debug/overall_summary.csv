@@ -1,0 +1,2 @@
+model,prompt_type,num_objects,mean_iou,median_iou,mean_boundary_f1,iou_ge_90,iou_ge_75,iou_ge_50,iou_lt_10,mean_fps,total_model_time_s,device
+FastSAM-S,auto,25,0.8345172213694108,0.9256780556533991,0.8307601291822929,0.56,0.8,0.88,0.0,39.33098083382306,0.6356312370044178,cuda
