@@ -1,24 +1,57 @@
 # Final Cross-Model Results on COGAR-SimRobotics-500
 
-## Compared models
+## Benchmark scope
 
-This benchmark compares three completed full-dataset segmentation runs:
+All full-dataset zero-shot results use the same final COGAR-SimRobotics-500
+index with 500 images and 4,471 object instances.
 
-- SAM ViT-B with box prompts
-- MobileSAM with box prompts
-- FastSAM-S with box-style mask selection
+This page summarizes cross-model results across:
 
-All models were evaluated on the same final COGAR-SimRobotics-500 index with 500 images and 4,471 object instances.
+- SAM ViT-B
+- SAM2.1-Tiny
+- FastSAM-S
+- MobileSAM
+- EfficientSAM-Ti
+- SAM ViT-H CPU subset reference
+- YOLOv8n-seg supervised baseline
+- Mask R-CNN supervised baseline
 
-## Overall results
+## Full-dataset promptable and lightweight comparison
 
-| Model | Objects | Mean IoU | Median IoU | Boundary F1 | IoU >= 0.90 | IoU >= 0.75 | IoU >= 0.50 | IoU < 0.10 | Mean FPS |
+| Model / mode | Objects | Mean IoU | Median IoU | Boundary F1 | IoU >= 0.90 | IoU >= 0.75 | IoU >= 0.50 | IoU < 0.10 | Mean FPS |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| SAM2.1-Tiny box | 4,471 | 0.912746 | 0.955280 | 0.930659 | 0.754641 | 0.926191 | 0.981660 | 0.000895 | 16.809629 |
 | SAM ViT-B box | 4,471 | 0.9057 | 0.9553 | 0.9356 | 0.7513 | 0.9137 | 0.9703 | 0.0031 | 61.96 |
+| EfficientSAM-Ti box | 4,471 | 0.880745 | 0.939880 | 0.910907 | 0.674346 | 0.880787 | 0.957057 | 0.005592 | 9.474405 |
 | MobileSAM box | 4,471 | 0.8656 | 0.9363 | 0.9797 | 0.6285 | 0.8430 | 0.9457 | 0.0045 | 69.52 |
-| FastSAM-S box | 4,471 | 0.6986 | 0.8135 | 0.8920 | 0.2841 | 0.5927 | 0.8085 | 0.0830 | 471.30 |
+| FastSAM-S box | 4,471 | 0.698569 | 0.813478 | 0.891956 | 0.284053 | 0.592709 | 0.808544 | 0.082979 | 471.295280 |
 
-## Per-category mean IoU
+## Prompt-mode comparison
+
+| Model | Prompt mode | Objects | Mean IoU | Median IoU | Boundary F1 | IoU >= 0.75 | IoU < 0.10 | Mean FPS |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| SAM ViT-B | Box | 4,471 | 0.9057 | 0.9553 | 0.9356 | 0.9137 | 0.0031 | 61.96 |
+| SAM ViT-B | Point | 4,471 | 0.7985 | 0.9125 | 0.8131 | 0.7271 | 0.0204 | not evaluated |
+| SAM ViT-B | Auto | 4,471 | 0.8025 | 0.9422 | 0.8381 | 0.7486 | 0.0552 | not evaluated |
+| SAM2.1-Tiny | Box | 4,471 | 0.912746 | 0.955280 | 0.930659 | 0.926191 | 0.000895 | 16.809629 |
+| SAM2.1-Tiny | Point | 4,471 | 0.865783 | 0.934924 | 0.873056 | 0.827555 | 0.004921 | 16.679109 |
+| SAM2.1-Tiny | Auto | 4,471 | 0.640259 | 0.870136 | 0.678148 | 0.586670 | 0.224782 | 2.300666 |
+| FastSAM-S | Box | 4,471 | 0.698569 | 0.813478 | 0.891956 | 0.592709 | 0.082979 | 471.295280 |
+| FastSAM-S | Point | 4,471 | 0.759372 | 0.888325 | 0.788963 | 0.710356 | 0.073809 | 214.069901 |
+| FastSAM-S | Auto / Everything | 4,471 | 0.777331 | 0.891437 | 0.809290 | 0.720197 | 0.050772 | 206.475290 |
+
+## SAM ViT-H CPU subset reference
+
+| Prompt mode | Subset | Device | Mean IoU | Median IoU | Boundary F1 | Mean FPS |
+|---|---:|---|---:|---:|---:|---:|
+| Box | 25 objects | CPU | 0.9449 | 0.9717 | 0.9637 | 0.1820 |
+| Point | 25 objects | CPU | 0.7721 | 0.9547 | 0.7958 | 0.1762 |
+| Auto | 42 objects / 5 images | CPU | 0.7302 | 0.9563 | 0.7640 | 0.2118 |
+
+SAM ViT-H is excluded from the full cross-model ranking because full CUDA
+evaluation is infeasible on the available GTX 1050 4 GB GPU.
+
+## Per-category mean IoU for main box-prompt runs
 
 | Category | FastSAM-S box | MobileSAM box | SAM ViT-B box |
 |---|---:|---:|---:|
@@ -32,7 +65,7 @@ All models were evaluated on the same final COGAR-SimRobotics-500 index with 500
 | screw | 0.5978 | 0.8415 | 0.8963 |
 | tool | 0.6733 | 0.8149 | 0.8890 |
 
-## Per-challenge mean IoU
+## Per-challenge mean IoU for main box-prompt runs
 
 | Challenge | FastSAM-S box | MobileSAM box | SAM ViT-B box |
 |---|---:|---:|---:|
@@ -42,97 +75,39 @@ All models were evaluated on the same final COGAR-SimRobotics-500 index with 500
 | small_parts | 0.6942 | 0.8660 | 0.9120 |
 | transparent_glass | 0.6895 | 0.8624 | 0.8946 |
 
+Detailed per-category and per-challenge tables for SAM2.1-Tiny and
+EfficientSAM-Ti are reported in their dedicated result pages.
+
+## Supervised baseline comparison
+
+| Model | Evaluation split | Main result | Speed |
+|---|---|---|---|
+| YOLOv8n-seg | 75 test images / 679 instances | mask precision 0.761, mask recall 0.783, mask mAP50 0.806, mask mAP50-95 0.601 | 26.8 ms/image, about 37.3 FPS total |
+| Mask R-CNN ResNet-50 FPN | 75 test images / 679 objects | mean IoU 0.7462, median IoU 0.8309, boundary F1 0.7218 | 5.5855 image FPS |
+
+YOLOv8n-seg and Mask R-CNN are supervised baselines, not zero-shot models.
+DeepLabV3+ is excluded because it is a semantic segmentation model and is not
+directly comparable under the instance-mask protocol used here.
+
 ## Interpretation
 
-SAM ViT-B gives the best overall segmentation accuracy. It achieves the highest mean IoU, median IoU, and the lowest catastrophic failure rate. It is the best choice when reliable segmentation masks are the priority.
+SAM2.1-Tiny box gives the highest completed full-dataset promptable mean IoU.
+SAM ViT-B box remains the stronger speed/accuracy balance in the current
+implementation. MobileSAM is the best lightweight SAM-style edge trade-off.
+EfficientSAM-Ti has strong IoU but slower measured FPS. FastSAM-S is the
+speed-first zero-shot model, with substantially lower box-prompt mask quality.
 
-MobileSAM provides the strongest lightweight trade-off. It is less accurate than SAM ViT-B, but it remains close on median IoU and keeps a very low catastrophic failure rate. This makes it suitable for edge-oriented robotic perception when compute and deployment constraints matter.
+Across object categories, cables, robot grippers, screws, and tools are the
+hardest object types. These include thin structures, small parts, articulated
+shapes, and ambiguous boundaries.
 
-FastSAM-S is the fastest model in this benchmark, but it has the lowest segmentation accuracy. Its mean IoU is much lower than SAM ViT-B and MobileSAM, and its catastrophic failure rate is much higher. It is best interpreted as a high-speed, lower-accuracy baseline.
-
-Across object categories, cables, robot grippers, screws, and tools are the hardest object types. These categories include thin structures, small parts, articulated shapes, and ambiguous boundaries.
-
-Across robotic-scene challenges, transparent glass and partial occlusion are the hardest for SAM ViT-B, while FastSAM-S is weaker across all challenge families.
+Across challenge groups, transparent glass and partial occlusion remain hard for
+the strongest prompted models, while automatic-mask modes are especially weak on
+small parts and missed proposals.
 
 ## Speed note
 
-The reported FPS values are object-row-level timing values from the evaluation scripts. Because several objects can come from the same image and image-level predictions or embeddings may be reused, the FPS values should be treated as relative speed indicators, not strict per-frame robot deployment FPS.
-
-## EfficientSAM-Ti addition
-
-EfficientSAM-Ti box-prompt evaluation was added as the lightweight EfficientSAM-family benchmark.
-
-EfficientSAM-Ti overall results:
-
-- Mean IoU: 0.880745
-- Median IoU: 0.939880
-- Mean boundary F1: 0.910907
-- IoU >= 0.90: 0.674346
-- IoU >= 0.75: 0.880787
-- IoU >= 0.50: 0.957057
-- IoU < 0.10: 0.005592
-- Mean predicted IoU: 0.927803
-- Mean FPS: 9.474405
-- Device: CUDA, NVIDIA GTX 1050 4 GB
-
-Category-level findings:
-
-- Hardest categories: cable, robot_gripper, tool, screw.
-- Strongest categories: plastic_object, box, metal_part, connector.
-
-Challenge-level findings:
-
-- Hardest challenge: partial_occlusion.
-- Other difficult challenges: transparent_glass and dynamic_scene.
-- Reflective metal and small-parts scenes remained comparatively stronger.
-
-Updated interpretation:
-
-- SAM ViT-B box remains the best accuracy-oriented promptable model.
-- MobileSAM box remains the best lightweight SAM-style trade-off.
-- EfficientSAM-Ti is a strong lightweight SAM-family accuracy baseline but is slower than MobileSAM and FastSAM-S in this implementation.
-- FastSAM-S remains the speed-first promptable baseline.
-- YOLOv8n-seg remains the supervised fine-tuned automatic segmentation baseline.
-
-## SAM2 limitation
-
-SAM2 was included in the original benchmark plan because it is a promptable segmentation model for both images and videos. However, SAM2 was not included in the final full-object benchmark.
-
-Reason for exclusion:
-
-- The local benchmark machine uses an NVIDIA GTX 1050 with 4 GB VRAM.
-- The project already encountered memory limits with larger SAM variants, especially SAM ViT-H.
-- The final benchmark prioritized models that could be evaluated consistently on the complete 4,471-object simulated image dataset.
-- The dataset is image-instance based, while SAM2's main additional strength is video/object-memory segmentation.
-
-Final model coverage therefore includes:
-
-- SAM ViT-B box, point, and auto
-- SAM ViT-H CPU subset with caveat
-- MobileSAM box
-- FastSAM-S box
-- EfficientSAM-Ti box
-- YOLOv8n-seg supervised fine-tuned baseline
-
-This limitation should be considered when interpreting the final model coverage. SAM2 remains recommended future work, especially for dynamic or video-style robotic perception scenes.
-
-## SAM2.1-Tiny addition
-
-SAM2.1-Tiny was added to the full benchmark using box and point prompts.
-
-SAM2.1-Tiny results:
-
-| Prompt type | Objects | Mean IoU | Median IoU | Mean boundary F1 | IoU >= 0.75 | IoU < 0.10 | Mean FPS |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| Box | 4,471 | 0.912746 | 0.955280 | 0.930659 | 0.926191 | 0.000895 | 16.809629 |
-| Point | 4,471 | 0.865783 | 0.934924 | 0.873056 | 0.827555 | 0.004921 | 16.679109 |
-
-Updated interpretation:
-
-- SAM2.1-Tiny box gives the highest mean IoU among the completed full-dataset promptable box-prompt evaluations.
-- SAM ViT-B box remains faster than SAM2.1-Tiny box in the current implementation.
-- SAM2.1-Tiny point prompting is strong but remains below SAM2.1-Tiny box prompting.
-- FastSAM-S remains the speed-first baseline.
-- MobileSAM remains a strong lightweight SAM-style trade-off.
-- EfficientSAM-Ti remains a lightweight SAM-family accuracy baseline.
-- YOLOv8n-seg remains the supervised fine-tuned automatic segmentation baseline.
+The reported FPS values for promptable models are object-row-level timing values
+from the evaluation scripts. Because several objects can come from the same image
+and image-level embeddings may be reused, these values should be treated as
+relative speed indicators rather than strict robot camera-frame rates.

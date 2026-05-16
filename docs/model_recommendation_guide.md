@@ -2,236 +2,140 @@
 
 ## Dataset and benchmark context
 
-This guide summarizes model recommendations from the final COGAR-SimRobotics-500 benchmark.
+This guide summarizes model recommendations from the final
+COGAR-SimRobotics-500 benchmark.
 
-- Dataset: COGAR-SimRobotics-500
-- Images: 500
-- Object instances: 4,471
-- Main compared runs:
-  - SAM ViT-B box
-  - MobileSAM box
-  - FastSAM-S box
-- Additional runs:
-  - SAM ViT-B point
-  - SAM ViT-B automatic masks
-  - SAM ViT-H CPU subset proof run
+| Property | Value |
+|---|---:|
+| Images | 500 |
+| Object instances | 4,471 |
+| Categories | 9 |
+| Main metrics | mean IoU, median IoU, boundary F1, per-category IoU, FPS |
 
-## Overall full-dataset box-prompt results
+The final recommendation uses the completed zero-shot, lightweight, and
+supervised baseline results. SAM ViT-H is included only as a CPU subset reference
+because full CUDA evaluation is hardware-limited on the available GTX 1050 4 GB.
 
-| Model | Objects | Mean IoU | Median IoU | Boundary F1 | IoU >= 0.90 | IoU < 0.10 | Mean FPS |
+## Overall full-dataset promptable results
+
+| Model / mode | Objects | Mean IoU | Median IoU | Boundary F1 | IoU >= 0.75 | IoU < 0.10 | Mean FPS |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| SAM ViT-B box | 4,471 | 0.9057 | 0.9553 | 0.9356 | 0.7513 | 0.0031 | 61.96 |
-| MobileSAM box | 4,471 | 0.8656 | 0.9363 | 0.9797 | 0.6285 | 0.0045 | 69.52 |
-| FastSAM-S box | 4,471 | 0.6986 | 0.8135 | 0.8920 | 0.2841 | 0.0830 | 471.30 |
+| SAM2.1-Tiny box | 4,471 | 0.912746 | 0.955280 | 0.930659 | 0.926191 | 0.000895 | 16.809629 |
+| SAM ViT-B box | 4,471 | 0.9057 | 0.9553 | 0.9356 | 0.9137 | 0.0031 | 61.96 |
+| EfficientSAM-Ti box | 4,471 | 0.880745 | 0.939880 | 0.910907 | 0.880787 | 0.005592 | 9.474405 |
+| MobileSAM box | 4,471 | 0.8656 | 0.9363 | 0.9797 | 0.8430 | 0.0045 | 69.52 |
+| FastSAM-S box | 4,471 | 0.698569 | 0.813478 | 0.891956 | 0.592709 | 0.082979 | 471.295280 |
+
+## Prompting recommendation
+
+Box prompts are the most reliable prompt type when object boxes are available.
+
+| Model | Prompt type | Objects | Mean IoU | Median IoU | Boundary F1 | Mean FPS |
+|---|---|---:|---:|---:|---:|---:|
+| SAM ViT-B | Box | 4,471 | 0.9057 | 0.9553 | 0.9356 | 61.96 |
+| SAM ViT-B | Point | 4,471 | 0.7985 | 0.9125 | 0.8131 | not evaluated |
+| SAM ViT-B | Auto | 4,471 | 0.8025 | 0.9422 | 0.8381 | not evaluated |
+| SAM2.1-Tiny | Box | 4,471 | 0.912746 | 0.955280 | 0.930659 | 16.809629 |
+| SAM2.1-Tiny | Point | 4,471 | 0.865783 | 0.934924 | 0.873056 | 16.679109 |
+| SAM2.1-Tiny | Auto | 4,471 | 0.640259 | 0.870136 | 0.678148 | 2.300666 |
+| FastSAM-S | Box | 4,471 | 0.698569 | 0.813478 | 0.891956 | 471.295280 |
+| FastSAM-S | Point | 4,471 | 0.759372 | 0.888325 | 0.788963 | 214.069901 |
+| FastSAM-S | Auto / Everything | 4,471 | 0.777331 | 0.891437 | 0.809290 | 206.475290 |
+
+Point prompts are easier to provide but more ambiguous in cluttered scenes.
+Automatic mask modes are useful when prompts are unavailable, but they have more
+missed-object and proposal-selection failures, especially for small parts and
+robot-gripper scenes.
 
 ## Recommended model by use case
 
 | Use case | Recommended model | Reason |
 |---|---|---|
-| Highest segmentation accuracy | SAM ViT-B box | Best mean IoU, median IoU, and lowest catastrophic failure rate |
-| Robotic manipulation with reliable masks | SAM ViT-B box | Most robust across object categories and challenge types |
-| Edge deployment / lightweight SAM-style model | MobileSAM box | Good accuracy while using a lightweight model design |
-| Real-time approximate segmentation | FastSAM-S box | Much faster in this benchmark, but lower accuracy |
-| Thin objects, cables, small parts | SAM ViT-B box | Best available option, though still difficult |
-| Transparent or reflective scenes | SAM ViT-B box | Best overall robustness, but failures still occur |
-| Low-compute laptop or embedded system | MobileSAM box | Better balance than FastSAM-S when mask quality still matters |
-| Speed-first perception pipeline | FastSAM-S box | Suitable when approximate masks are acceptable |
-| Full automatic proposal mode | SAM ViT-B automatic masks | Useful when object prompts are unavailable, but less stable than box prompts |
-| Research comparison with large SAM | SAM ViT-H | Checkpoint verified, but full evaluation was hardware-limited on the available 4 GB GPU |
+| Highest promptable mean IoU | SAM2.1-Tiny box | Best completed full-dataset box-prompt mean IoU |
+| Best speed/accuracy balance for prompted masks | SAM ViT-B box | High accuracy with much higher measured FPS than SAM2.1-Tiny |
+| Edge deployment / lightweight SAM-style model | MobileSAM box | Best lightweight SAM-style edge trade-off |
+| Lightweight accuracy when speed is less important | EfficientSAM-Ti box | Strong IoU, but slower measured FPS than MobileSAM |
+| Speed-first zero-shot approximate masks | FastSAM-S box | Highest measured SAM-style throughput |
+| Automatic supervised deployment | YOLOv8n-seg | Real-time feed-forward instance segmentation after fine-tuning |
+| Classical supervised comparison | Mask R-CNN ResNet-50 FPN | Standard instance-segmentation baseline |
+| Large SAM reference | SAM ViT-H | Valid CPU subset only; full CUDA hardware-limited |
 
-## Final model ranking
+## Supervised baseline recommendation
 
-### Accuracy ranking
+| Model | Final role | Main result |
+|---|---|---|
+| YOLOv8n-seg | Main supervised deployment baseline | mask mAP50 0.806, mask mAP50-95 0.601, about 37.3 FPS total |
+| Mask R-CNN ResNet-50 FPN | Classical supervised instance baseline | mean IoU 0.7462, median IoU 0.8309, 5.5855 image FPS |
+| DeepLabV3+ | Excluded | Semantic segmentation model, not directly comparable to instance-level masks |
 
-1. SAM ViT-B box
-2. MobileSAM box
-3. FastSAM-S box
-
-### Speed ranking
-
-1. FastSAM-S box
-2. MobileSAM box
-3. SAM ViT-B box
-
-### Practical robotics ranking
-
-1. SAM ViT-B box for offline or high-accuracy perception
-2. MobileSAM box for edge-oriented robotic perception
-3. FastSAM-S box for speed-first approximate segmentation
-
-## Prompting recommendation
-
-Box prompts are the most reliable prompt type in this benchmark.
-
-For SAM ViT-B:
-
-| Prompt type | Objects | Mean IoU | Median IoU | Boundary F1 |
-|---|---:|---:|---:|---:|
-| Box | 4,471 | 0.9057 | 0.9553 | 0.9356 |
-| Point | 4,471 | 0.7985 | 0.9125 | 0.8131 |
-| Automatic masks | 4,471 | 0.8025 | 0.9422 | 0.8381 |
-
-Box prompts are recommended when bounding boxes are available from simulation, robot perception, or an object detector. Point prompts are simpler but less stable. Automatic masks are useful when no prompts are available, but they have more failure cases.
+YOLOv8n-seg is recommended when prompts are unavailable and supervised training
+on the target domain is allowed. Mask R-CNN is useful as a classical comparison
+point but is slower on the available hardware. DeepLabV3+ is excluded because it
+predicts semantic class regions rather than separate object-instance masks.
 
 ## Category-specific recommendations
 
 | Category | Main difficulty | Recommended model |
 |---|---|---|
-| box | Large regular object, usually easy | SAM ViT-B or MobileSAM |
-| cable | Thin elongated geometry | SAM ViT-B |
-| connector | Small part | SAM ViT-B or MobileSAM |
-| glass_object | Transparent boundaries | SAM ViT-B |
-| metal_part | Reflective material | SAM ViT-B |
-| plastic_object | Usually easier object | SAM ViT-B or MobileSAM |
-| robot_gripper | Articulated shape, holes, contact with objects | SAM ViT-B |
-| screw | Very small object | SAM ViT-B |
-| tool | Thin/complex object shape | SAM ViT-B |
+| box | Large regular object, usually easy | SAM2.1-Tiny, SAM ViT-B, or MobileSAM |
+| cable | Thin elongated geometry | SAM2.1-Tiny or SAM ViT-B |
+| connector | Small part | SAM2.1-Tiny, SAM ViT-B, or MobileSAM |
+| glass_object | Transparent boundaries | SAM2.1-Tiny or SAM ViT-B |
+| metal_part | Reflective material | SAM2.1-Tiny or SAM ViT-B |
+| plastic_object | Usually easier object | SAM2.1-Tiny, SAM ViT-B, or MobileSAM |
+| robot_gripper | Articulated shape, holes, contact with objects | SAM2.1-Tiny or SAM ViT-B |
+| screw | Very small object | SAM2.1-Tiny or SAM ViT-B |
+| tool | Thin/complex shape | SAM2.1-Tiny or SAM ViT-B |
 
 ## Challenge-specific recommendations
 
 | Challenge | Recommended model | Notes |
 |---|---|---|
-| reflective_metal | SAM ViT-B | Best mean IoU among tested models |
-| transparent_glass | SAM ViT-B | Still one of the hardest challenge families |
-| partial_occlusion | SAM ViT-B | Most reliable but failures remain |
-| small_parts | SAM ViT-B | Best option for screws/connectors |
-| dynamic_scene | SAM ViT-B | Best robustness; MobileSAM acceptable for lightweight use |
+| reflective_metal | SAM2.1-Tiny box or SAM ViT-B box | Strongest promptable options |
+| transparent_glass | SAM2.1-Tiny box or SAM ViT-B box | Still a high-risk challenge family |
+| partial_occlusion | SAM2.1-Tiny box or SAM ViT-B box | Prompted masks are preferred |
+| small_parts | SAM2.1-Tiny box or SAM ViT-B box | Avoid relying only on automatic masks |
+| dynamic_scene | SAM ViT-B box or MobileSAM box | Balance accuracy and runtime for manipulation scenes |
 
 ## Failure-mode summary
 
 The qualitative failure analysis shows that the hardest cases are:
 
-- Robot grippers
-- Cables and thin structures
-- Small screws/connectors
-- Reflective metal parts
-- Transparent glass objects
-- Partial occlusions
-- Dynamic clutter around the robot
+- robot grippers and articulated robot parts
+- cables and thin structures
+- screws, connectors, and other small parts
+- reflective metal parts
+- transparent glass objects
+- partial occlusions
+- dynamic clutter around the robot
+- prompt ambiguity in crowded scenes
+- automatic-mask proposal misses
 
-Robot grippers dominate the worst-case examples for SAM ViT-B and MobileSAM. FastSAM-S has more severe failures on metal parts, tools, screws, and reflective/small-part scenes.
+Robot grippers dominate several worst-case examples for SAM ViT-B and MobileSAM.
+FastSAM-S has more severe failures on metal parts, tools, screws, and
+small-part scenes.
 
 ## Hardware recommendation
 
-SAM ViT-H was verified successfully, but full evaluation failed on the available 4 GB GPU due to CUDA out-of-memory. A small CPU subset completed successfully, so the checkpoint and implementation are valid, but the model is not practical for the available hardware.
-
-For this project hardware:
-
-| Model | Practical status |
+| Model | Practical status on GTX 1050 4 GB |
 |---|---|
 | SAM ViT-B | Practical full benchmark model |
-| SAM ViT-H | Valid but hardware-limited |
+| SAM2.1-Tiny | Accurate and feasible, but slower than SAM ViT-B |
+| SAM ViT-H | Valid checkpoint, CPU subset only |
 | MobileSAM | Practical lightweight model |
+| EfficientSAM-Ti | Accurate lightweight model, slower measured FPS |
 | FastSAM-S | Practical high-speed model |
+| YOLOv8n-seg | Practical real-time supervised model |
+| Mask R-CNN | Useful baseline, not real-time |
 
 ## Final recommendation
 
-For the final project conclusion:
+Use SAM2.1-Tiny box when maximum promptable accuracy is the priority and lower
+speed is acceptable. Use SAM ViT-B box when a stronger speed/accuracy balance is
+needed. Use MobileSAM for the best lightweight SAM-style edge trade-off. Use
+FastSAM-S when speed matters more than mask quality. Use YOLOv8n-seg when
+supervised automatic segmentation is allowed and prompts are unavailable.
 
-- Use SAM ViT-B box prompts when segmentation accuracy is the priority.
-- Use MobileSAM when a lightweight SAM-style model is needed for edge deployment.
-- Use FastSAM-S when speed is more important than accurate masks.
-- Avoid relying only on automatic masks for precise robotic manipulation.
-- Treat transparent objects, reflective objects, cables, small parts, grippers, and occlusions as high-risk failure cases.
-
-## EfficientSAM-Ti box-prompt recommendation
-
-EfficientSAM-Ti is a lightweight SAM-style zero-shot segmentation model evaluated with box prompts.
-
-Measured result on the final dataset:
-
-- Mean IoU: 0.880745
-- Median IoU: 0.939880
-- Mean boundary F1: 0.910907
-- IoU >= 0.90: 0.674346
-- IoU >= 0.75: 0.880787
-- IoU >= 0.50: 0.957057
-- IoU < 0.10: 0.005592
-- Mean FPS: 9.474405
-- Device: CUDA, NVIDIA GTX 1050 4 GB
-
-Recommended use:
-
-- Use EfficientSAM-Ti when a lightweight promptable SAM-style model is needed and accuracy is more important than maximum speed.
-- Use MobileSAM when the best lightweight SAM-style speed/accuracy trade-off is needed.
-- Use SAM ViT-B box when maximum promptable segmentation accuracy is the priority.
-- Use FastSAM-S when speed is the dominant requirement.
-- Use YOLOv8n-seg when automatic supervised segmentation is allowed and prompts are unavailable.
-
-Observed hard categories:
-
-- cable
-- robot_gripper
-- tool
-- screw
-
-Observed hard challenges:
-
-- partial_occlusion
-- transparent_glass
-- dynamic_scene
-
-Final recommendation:
-
-EfficientSAM-Ti is a valuable lightweight SAM-family benchmark. However, on this hardware and implementation, MobileSAM remains the stronger lightweight deployment recommendation because it achieves higher throughput while staying close in accuracy.
-
-## SAM2 future-work recommendation
-
-SAM2 was not included in the final full-object benchmark because the available local GPU had limited memory and the final evaluation focused on static simulated images.
-
-Recommended future use:
-
-- Evaluate SAM2 on dynamic robotic scenes or video-style frame sequences.
-- Use SAM2 when temporal consistency, object persistence, or video segmentation is important.
-- Compare SAM2 against SAM ViT-B box and EfficientSAM-Ti box on the same image prompts if enough GPU memory is available.
-
-Current recommendation status:
-
-- SAM2 is not part of the final quantitative comparison.
-- It should be reported as future work, not as a completed result.
-
-## SAM2.1-Tiny recommendation
-
-SAM2.1-Tiny was evaluated with box and point prompts on the full 4,471-object simulated dataset.
-
-Measured results:
-
-| Prompt type | Mean IoU | Median IoU | Mean boundary F1 | IoU >= 0.75 | Mean FPS |
-|---|---:|---:|---:|---:|---:|
-| Box | 0.912746 | 0.955280 | 0.930659 | 0.926191 | 16.809629 |
-| Point | 0.865783 | 0.934924 | 0.873056 | 0.827555 | 16.679109 |
-
-Recommendation:
-
-- Use SAM2.1-Tiny box when maximum full-dataset promptable accuracy is the priority and lower speed is acceptable.
-- Use SAM ViT-B box when a better speed/accuracy balance is needed in the current implementation.
-- Use MobileSAM when lightweight deployment speed is more important.
-- Use FastSAM-S when maximum speed is the dominant requirement.
-- Use YOLOv8n-seg when supervised automatic segmentation is allowed and prompts are unavailable.
-
-Caveat:
-
-SAM2 automatic mask generation was not included in the completed benchmark. SAM2.1-Tiny was evaluated with box and point prompts only.
-
-## SAM2.1-Tiny final recommendation
-
-SAM2.1-Tiny was evaluated with box, point, and automatic mask generation on the full 4,471-object simulated dataset.
-
-| Prompt type | Mean IoU | Median IoU | Mean boundary F1 | IoU >= 0.75 | IoU < 0.10 | Mean FPS |
-|---|---:|---:|---:|---:|---:|---:|
-| Box | 0.912746 | 0.955280 | 0.930659 | 0.926191 | 0.000895 | 16.809629 |
-| Point | 0.865783 | 0.934924 | 0.873056 | 0.827555 | 0.004921 | 16.679109 |
-| Auto | 0.640259 | 0.870136 | 0.678148 | 0.586670 | 0.224782 | 2.300666 |
-
-Recommendation:
-
-- Use SAM2.1-Tiny box when maximum promptable accuracy is the priority.
-- Use SAM2.1-Tiny point when box prompts are not available but a positive object point is available.
-- Avoid SAM2.1-Tiny auto for small-parts-heavy robotic scenes unless additional post-processing or tuning is added.
-- Use SAM ViT-B box when a better speed/accuracy trade-off is needed in the current implementation.
-- Use FastSAM-S when speed is the dominant requirement.
-- Use YOLOv8n-seg when supervised automatic segmentation is allowed and prompts are unavailable.
-
-Caveat:
-
-SAM2.1-Tiny auto mode was evaluated with conservative `points_per_side=16` settings for GTX 1050 compatibility. Stronger auto settings may improve accuracy but would increase runtime and memory demand.
+Treat transparent objects, reflective objects, cables, small parts, grippers,
+partial occlusion, and dynamic manipulation clutter as high-risk cases in any
+robotic deployment.

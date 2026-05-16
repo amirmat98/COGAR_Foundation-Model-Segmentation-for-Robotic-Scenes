@@ -1,4 +1,4 @@
-# Project Roadmap
+# Historical Project Roadmap
 
 ## Project Title
 
@@ -33,7 +33,7 @@ This project has five major phases:
 4. **Phase D — Metrics, Speed, and Analysis**
 5. **Phase E — Final Report and Recommendation Guide**
 
-The current OCID-based SAM pipeline is a prototype and sanity-check pipeline.  
+The historical OCID-based SAM pipeline is a legacy prototype and sanity-check pipeline.
 The final assignment should focus on the simulated robotic dataset.
 
 ## Final Deliverables
@@ -55,7 +55,7 @@ These models should be evaluated in zero-shot mode:
 
 | Model | Required | Notes |
 |---|---:|---|
-| SAM ViT-B | Yes | Already prototyped on OCID |
+| SAM ViT-B | Yes | Already prototyped in the legacy OCID sanity check |
 | SAM ViT-H | Yes | Stronger SAM variant |
 | SAM2 | Yes | Useful for image and dynamic/video-style scenes |
 | FastSAM | Yes | Speed-oriented SAM-like model |
@@ -80,8 +80,8 @@ The foundation models should be tested with different prompt modes:
 
 | Prompt mode | Description | Status |
 |---|---|---|
-| Box prompt | Use ground-truth bounding box | Prototyped on OCID |
-| Point prompt | Use one positive point | Prototyped on OCID |
+| Box prompt | Use ground-truth bounding box | Prototyped in the legacy OCID sanity check |
+| Point prompt | Use one positive point | Prototyped in the legacy OCID sanity check |
 | Automatic mask generation | Generate masks without object-specific prompt | Planned |
 | Box + point | Combine box and positive point | Planned |
 | Positive + negative points | Use foreground and background points | Planned |
@@ -189,12 +189,12 @@ camera_name
 
 ### Completed Prototype Work
 
-The OCID prototype benchmark is complete enough as a proof of concept.
+The legacy OCID prototype benchmark is complete enough as a proof of concept.
 
 Completed:
 
-- OCID image-level indexing
-- OCID object-level indexing
+- Legacy OCID image-level indexing
+- Legacy OCID object-level indexing
 - binary ground-truth mask export
 - SAM ViT-B box-prompt inference
 - SAM ViT-B point-prompt inference
@@ -220,9 +220,9 @@ Completed:
 - Isaac manifest template generator
 - Isaac Replicator sanity generator skeleton
 
-### Not Completed Yet
+### Historical Pending Items Superseded By Final Docs
 
-Not completed:
+Historical pending items at the time this roadmap was written:
 
 - real 25-image Isaac Sim sanity dataset
 - real 500-image simulated dataset
@@ -329,7 +329,7 @@ Success condition:
 
 ### B1 — Run SAM ViT-B on Simulated Dataset
 
-**Goal:** Port the existing OCID SAM ViT-B box/point workflow to `data/cogar_sim_500/`.
+**Goal:** Port the existing legacy OCID SAM ViT-B box/point workflow to `data/cogar_sim_500/`.
 
 Prompt modes:
 

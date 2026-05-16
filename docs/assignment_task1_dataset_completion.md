@@ -10,7 +10,7 @@ Task 1 is complete.
 
 The project created a final simulated robotic-scene dataset for zero-shot segmentation benchmarking. The dataset is the primary dataset used in this assignment and is based on the final 500-image Isaac Sim simulation benchmark.
 
-OCID is not included in this Task 1 report. It is reserved for a later external real-world generalization test after the main 500-image benchmark is completed.
+Legacy OCID prototype data is not included in this Task 1 report. It is reserved only as historical context or for a later external real-world generalization test after the main 500-image benchmark is completed.
 
 ## Final dataset location
 

@@ -1,15 +1,25 @@
 # Local Outputs Directory
 
-This directory is reserved for generated experiment outputs.
+This directory is reserved for benchmark outputs and final result evidence.
 
-Do not commit generated masks, visualizations, benchmark CSVs, plots, logs,
-or model outputs. The OCID debug pipeline currently writes files such as:
+For the final assignment submission, lightweight outputs may be committed when
+they make the benchmark reproducible or auditable, including:
 
-- `outputs/indexes/`
-- `outputs/gt_binary_masks/`
-- `outputs/sam_box_prompt/`
-- `outputs/sam_point_prompt_batch/`
-- `outputs/analysis/`
+- final CSV/JSON result tables
+- summary tables used by the Markdown reports
+- compact plots and qualitative figures
+- baseline training summaries
+- logs that document final completed runs
 
-Important results should be summarized in `README.md`, `docs/`, or `reports/`
-rather than committed as generated artifacts.
+Heavy or temporary artifacts should remain ignored or local:
+
+- predicted mask dumps
+- raw generated images
+- model weights and checkpoints
+- large temporary experiment folders
+- scratch reruns that are not part of the final evidence
+
+The output folders document evidence for the final benchmark, including
+foundation-model evaluations, supervised baselines, metrics, speed summaries,
+and failure-mode analysis. The canonical human-readable interpretation remains
+in `README.md` and `docs/`.

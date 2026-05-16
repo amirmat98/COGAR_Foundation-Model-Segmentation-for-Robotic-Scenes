@@ -18,7 +18,7 @@ This was done to avoid modifying the main benchmark environment.
 
 - Model: SAM2.1-Tiny / SAM2.1 Hiera Tiny
 - Checkpoint: `sam2.1_hiera_tiny.pt`
-- Prompt modes evaluated: box and point
+- Prompt modes evaluated: box, point, and automatic mask generation
 - Device: CUDA
 - GPU: NVIDIA GTX 1050 4 GB
 - Objects evaluated: 4,471
@@ -44,7 +44,13 @@ Point prompts use the stored object point:
 
 For each prompt, SAM2 predicts multiple masks. The benchmark selects the mask with the highest IoU against the ground-truth object mask for object-level scoring.
 
-## Overall results
+### Automatic mask generation
+
+Automatic mask generation is prompt-free. SAM2 samples points over an image grid,
+predicts candidate masks, filters masks, and the benchmark matches generated
+masks to ground-truth object instances for scoring.
+
+## Overall prompted results
 
 | Prompt type | Objects | Mean IoU | Median IoU | Mean boundary F1 | IoU >= 0.90 | IoU >= 0.75 | IoU >= 0.50 | IoU < 0.10 | Mean predicted IoU | Mean FPS |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
@@ -94,18 +100,17 @@ Main observations:
 
 ## Limitations
 
-SAM2 automatic mask generation was not included in this completed run. The final SAM2 evaluation covers box and point prompts.
-
 SAM2 was installed in a separate environment on `/mnt/Info/COGAR_Large/SAM2/` because the official SAM2 dependency stack required a newer PyTorch/torchvision version than the main benchmark environment.
 
-Generated result files are intentionally not committed:
+Generated result files may remain local depending on size and reproducibility
+needs. The final metrics are summarized in this document.
 
 - `outputs/tables/sam2/final_box_cuda/`
 - `outputs/tables/sam2/final_point_cuda/`
 
 ## Conclusion
 
-SAM2.1-Tiny is now included as a completed zero-shot promptable model in the benchmark with box and point prompt evaluation on all 4,471 object instances.
+SAM2.1-Tiny is included as a completed SAM2-family zero-shot model in the benchmark. Box, point, and automatic mask generation were evaluated on all 4,471 object instances.
 
 ## SAM2.1-Tiny automatic mask generation
 

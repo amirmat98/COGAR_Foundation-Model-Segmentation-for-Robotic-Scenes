@@ -1,6 +1,6 @@
 # Benchmark Plan
 
-COGAR I2 benchmarks zero-shot segmentation for robotic scenes on OCID and
+COGAR I2 benchmarks zero-shot segmentation for robotic scenes on
 COGAR-SimRobotics-500. The goal is to compare promptability, automatic mask
 quality, runtime, and failure modes across foundation segmentation models.
 
@@ -44,9 +44,10 @@ calibration against ground-truth IoU, and qualitative visualizations.
 
 ## Datasets
 
-OCID remains the real-world robotic-scene baseline. COGAR-SimRobotics-500 adds
-a controlled synthetic benchmark with balanced challenge categories and COCO
-annotations generated through BlenderProc.
+COGAR-SimRobotics-500 is the final controlled synthetic benchmark with balanced
+challenge categories and COCO annotations generated through the simulation
+pipeline. The earlier real-world prototype is retained only as historical
+sanity-check context.
 
 ## Implementation Direction
 

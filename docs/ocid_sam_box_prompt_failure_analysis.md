@@ -1,14 +1,14 @@
-# SAM Box-Prompt Qualitative Failure Analysis
+# Legacy OCID SAM Box-Prompt Qualitative Failure Analysis
 
 ## Experiment Summary
 
-This experiment evaluates the Segment Anything Model (SAM) on object-level segmentation in cluttered robotic scenes from the OCID dataset. The selected debug sequence is `YCB10/table/top/mixed/seq21`. The model used is SAM ViT-B, and each object instance is segmented using a bounding-box prompt derived from the object-level ground-truth index.
+This legacy OCID prototype experiment evaluates the Segment Anything Model (SAM) on object-level segmentation in cluttered robotic scenes from the OCID dataset. The selected debug sequence is `YCB10/table/top/mixed/seq21`. The model used is SAM ViT-B, and each object instance is segmented using a bounding-box prompt derived from the object-level ground-truth index.
 
-The evaluation includes 52 filtered object instances. For each object, the SAM predicted mask is compared against the exported binary ground-truth mask using intersection over union (IoU).
+The legacy evaluation includes 52 filtered object instances. For each object, the SAM predicted mask is compared against the exported binary ground-truth mask using intersection over union (IoU).
 
 | Item | Value |
 | --- | --- |
-| Dataset | OCID |
+| Dataset | Legacy OCID prototype |
 | Sequence | `YCB10/table/top/mixed/seq21` |
 | Model | SAM ViT-B |
 | Prompt type | Bounding box |
@@ -53,7 +53,7 @@ Object ID 6 in row 47 is the lowest-IoU case. The object has a more complex shap
 
 ## Main Failure Modes
 
-**Boundary simplification.** SAM often produces smooth masks, while the OCID binary ground-truth masks may contain irregular boundaries. This mismatch reduces IoU even when the predicted mask is visually plausible.
+**Boundary simplification.** SAM often produces smooth masks, while the legacy OCID binary ground-truth masks may contain irregular boundaries. This mismatch reduces IoU even when the predicted mask is visually plausible.
 
 **Small-object sensitivity.** For small objects, a few pixels of under-segmentation or boundary displacement have a large effect on IoU. This is especially visible in repeated failures for object ID 7.
 
@@ -63,6 +63,6 @@ Object ID 6 in row 47 is the lowest-IoU case. The object has a more complex shap
 
 ## Main Conclusion
 
-SAM ViT-B with bounding-box prompts performs well on compact, visually clear, and relatively isolated objects in the OCID debug sequence. The best cases exceed 0.90 IoU and demonstrate that a tight box prompt can be an effective zero-shot segmentation cue.
+SAM ViT-B with bounding-box prompts performs well on compact, visually clear, and relatively isolated objects in the legacy OCID debug sequence. The best cases exceed 0.90 IoU and demonstrate that a tight box prompt can be an effective zero-shot segmentation cue.
 
 Performance decreases for small irregular objects, objects close to clutter, and objects with complex internal structure. The qualitative analysis also shows that SAM's internal score should not be used alone as the evaluation metric. External comparison against binary ground-truth masks remains necessary for reliable benchmark conclusions.
