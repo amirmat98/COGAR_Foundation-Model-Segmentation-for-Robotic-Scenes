@@ -1,6 +1,9 @@
 # Isaac Sim Dataset Generation Setup
 
-This project uses Isaac Sim Replicator for synthetic robotic-scene dataset generation.
+This project documents Isaac Sim Replicator as a preferred future route for
+synthetic robotic-scene dataset generation. The final COGAR-SimRobotics-500
+dataset in this repository was generated with BlenderProc because the available
+local laptop GPU is not suitable for Isaac Sim Replicator.
 
 ## Local machine status
 

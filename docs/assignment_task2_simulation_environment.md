@@ -6,9 +6,14 @@ Use simulation environments such as Isaac Sim, Gazebo, and/or Rviz2 to generate 
 
 ## Completion status
 
-Task 2 is complete.
+Task 2 is complete with a BlenderProc simulation pipeline.
 
-The project uses Isaac Sim as the simulation environment for generating and organizing the robotic scene dataset. Gazebo and Rviz2 were not used in the final pipeline because Isaac Sim already provides the required tools for synthetic robotic scene generation, semantic annotation, domain randomization, and dataset export.
+The final dataset was generated and organized with BlenderProc. Isaac Sim was
+kept as a documented preferred alternative because it is well suited to
+Replicator-based robotic synthetic data, but it was not used for the final
+500-image run on the available GTX 1050 4 GB laptop. Gazebo and Rviz2 were not
+used because the BlenderProc simulation pipeline already produced the required
+RGB images, masks, COCO-style annotations, metadata, and benchmark index.
 
 ## Visual evidence
 
@@ -24,11 +29,19 @@ The project uses Isaac Sim as the simulation environment for generating and orga
 
 | Environment | Used | Role |
 |---|---:|---|
-| Isaac Sim | Yes | Main simulation and synthetic data generation environment |
+| BlenderProc | Yes | Main reproducible simulation and synthetic data generation environment |
+| Isaac Sim | Documented alternative | Preferred future route for RTX-capable hardware and Unitree-style scenes |
 | Gazebo | No | Not required for final dataset generation |
 | Rviz2 | No | Not required for final dataset generation |
 
-Isaac Sim was selected because it is well suited for synthetic data generation in robotic perception. It supports simulated scenes, camera capture, object-level semantic information, and Replicator-based synthetic data generation workflows.
+BlenderProc was selected for the final run because it was practical on the
+available machine and provides scripted scene generation, RGB rendering,
+instance segmentation, COCO annotations, and reproducible randomized robotic
+tabletop scenes.
+
+Isaac Sim remains documented in `configs/isaac_sim_dataset.yaml` and
+`docs/isaac_sim_setup.md` as the preferred future extension for a workstation or
+cloud machine with an RTX-capable GPU.
 
 ## Dataset generated from simulation
 
@@ -78,15 +91,23 @@ The simulation dataset was designed to include diverse robotic perception condit
 | small_parts | Tests segmentation of screws, connectors, cables, and other small objects |
 | dynamic_scene | Tests robustness under changing object or robot configurations |
 
-## Why Isaac Sim satisfies the task
+## Why the BlenderProc simulation pipeline satisfies the task
 
-Isaac Sim satisfies the simulation requirement because it provides a complete synthetic data generation workflow for perception datasets. The final dataset uses simulation-generated RGB images and object-level annotations, which are then organized into a benchmark-ready CSV index.
+The final pipeline satisfies the simulation requirement because it produces
+simulation-generated RGB images and object-level annotations, which are then
+organized into a benchmark-ready CSV index.
 
-The use of Isaac Sim also supports the assignment goal because the dataset includes robotic-scene objects, manipulation-related categories, and challenge types that are difficult for segmentation models in robotic perception.
+The dataset supports the assignment goal because it includes robotic-scene
+objects, manipulation-related categories, and challenge types that are difficult
+for segmentation models in robotic perception.
 
 ## Relation to Gazebo and Rviz2
 
-Gazebo and Rviz2 were not used in the final dataset generation. This is acceptable because the assignment asks to use simulation environments such as Isaac Sim, Gazebo, and/or Rviz2. The final pipeline uses Isaac Sim, which is the preferred option mentioned in the task.
+Gazebo and Rviz2 were not used in the final dataset generation. Isaac Sim was
+not run locally because the available GPU was below the practical requirement
+for the intended Replicator workflow. The final pipeline instead uses
+BlenderProc as the simulation generator and documents the Isaac Sim migration
+path for future RTX-capable hardware.
 
 ## Output of Task 2
 
@@ -104,6 +125,11 @@ Task 2 produced the organized simulated benchmark dataset used by all later eval
 
 ## Task 2 conclusion
 
-Task 2 is complete.
+Task 2 is complete with the documented BlenderProc simulation workflow.
 
-Isaac Sim was used as the simulation environment to generate and organize the robotic scenes. The output is a structured 500-image simulated robotic-scene dataset with 4,471 annotated object instances, object masks, bounding boxes, prompt points, category labels, challenge labels, and train/validation/test splits.
+BlenderProc was used as the simulation environment to generate and organize the
+robotic scenes. The output is a structured 500-image simulated robotic-scene
+dataset with 4,471 annotated object instances, object masks, bounding boxes,
+prompt points, category labels, challenge labels, and train/validation/test
+splits. Isaac Sim remains documented as the preferred extension route rather
+than claimed as the completed generator.

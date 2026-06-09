@@ -107,11 +107,13 @@ Challenge groups:
 | reflective_metal | 743 |
 | transparent_glass | 742 |
 
-The dataset is documented as an Isaac Sim / BlenderProc-style synthetic
-generation workflow. Gazebo and Rviz2 were not used because the synthetic
-simulation dataset generation satisfied the assignment simulation requirement.
-The scenes include a simulated `robot_gripper`; a full Unitree G1/As2 embodiment
-is documented as future work due to hardware and scope limits.
+The final dataset was generated with the reproducible BlenderProc synthetic
+scene pipeline. Isaac Sim was documented as a preferred alternative route, but
+was not used for the final 500-image generation on the available GTX 1050
+machine. Gazebo and Rviz2 were not used because the synthetic simulation
+dataset generation satisfied the assignment simulation requirement. The scenes
+include a simulated `robot_gripper`; a full Unitree G1/As2 embodiment is
+documented as future work due to hardware and scope limits.
 
 ## Model Coverage
 

@@ -400,7 +400,7 @@ def generate_per_category_chart(generated: list[Path]) -> None:
 def generate_pipeline_diagram(generated: list[Path]) -> None:
     path = DATASET_OUT / "simulation_pipeline.png"
     steps = [
-        "Isaac/BlenderProc\nscene setup",
+        "BlenderProc scene setup\nIsaac route documented",
         "RGB/depth/mask\nrendering",
         "COCO-style\nannotations",
         "Object-level\nbenchmark index",

@@ -8,7 +8,7 @@ Create or curate a robotic scene dataset in simulation with diverse challenges, 
 
 Task 1 is complete.
 
-The project created a final simulated robotic-scene dataset for zero-shot segmentation benchmarking. The dataset is the primary dataset used in this assignment and is based on the final 500-image Isaac Sim simulation benchmark.
+The project created a final simulated robotic-scene dataset for zero-shot segmentation benchmarking. The dataset is the primary dataset used in this assignment and is based on the final 500-image BlenderProc simulation benchmark.
 
 Legacy OCID prototype data is not included in this Task 1 report. It is reserved only as historical context or for a later external real-world generalization test after the main 500-image benchmark is completed.
 
@@ -199,9 +199,11 @@ It is used to evaluate:
 
 - SAM ViT-B
 - SAM ViT-H subset
+- SAM2.1-Tiny
 - FastSAM-S
 - MobileSAM
 - EfficientSAM-Ti
+- Mask R-CNN ResNet-50 FPN
 - YOLOv8n-seg supervised fine-tuned baseline
 
 The dataset is also used for:
