@@ -1,11 +1,15 @@
 """Metrics for binary and instance segmentation masks."""
 
+from __future__ import annotations
+
 import numpy as np
 
 from cogar_seg.cv_compat import cv2
 
 
-def compute_iou(mask_a: np.ndarray, mask_b: np.ndarray) -> float:
+def compute_iou(
+    mask_a: np.ndarray, mask_b: np.ndarray, empty_value: float = 0.0
+) -> float:
     """Compute intersection-over-union between two binary masks."""
     mask_a = mask_a.astype(bool)
     mask_b = mask_b.astype(bool)
@@ -14,9 +18,20 @@ def compute_iou(mask_a: np.ndarray, mask_b: np.ndarray) -> float:
     union = np.logical_or(mask_a, mask_b).sum()
 
     if union == 0:
-        return 0.0
+        return float(empty_value)
 
     return float(intersection / union)
+
+
+def compute_mask_boundary(mask: np.ndarray) -> np.ndarray:
+    """Return the internal one-pixel boundary of a binary mask."""
+    mask = (mask > 0).astype(np.uint8)
+    if mask.sum() == 0:
+        return mask.astype(bool)
+
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+    eroded = cv2.erode(mask, kernel, iterations=1)
+    return mask.astype(bool) & ~eroded.astype(bool)
 
 
 def compute_boundary_f1(
@@ -61,4 +76,39 @@ def compute_boundary_f1(
     if precision + recall == 0:
         return 0.0
 
+    return float(2 * precision * recall / (precision + recall))
+
+
+def compute_boundary_f1_ratio(
+    mask_a: np.ndarray, mask_b: np.ndarray, dilation_ratio: float = 0.02
+) -> float:
+    """Compute Boundary F1 using an image-diagonal-relative dilation tolerance."""
+    mask_a = (mask_a > 0).astype(np.uint8)
+    mask_b = (mask_b > 0).astype(np.uint8)
+
+    if mask_a.sum() == 0 and mask_b.sum() == 0:
+        return 1.0
+    if mask_a.sum() == 0 or mask_b.sum() == 0:
+        return 0.0
+
+    height, width = mask_b.shape
+    diagonal = float((height * height + width * width) ** 0.5)
+    dilation = max(1, int(round(dilation_ratio * diagonal)))
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+
+    boundary_a = mask_a - cv2.erode(mask_a, kernel, iterations=1)
+    boundary_b = mask_b - cv2.erode(mask_b, kernel, iterations=1)
+
+    dilated_a = cv2.dilate(boundary_a, kernel, iterations=dilation)
+    dilated_b = cv2.dilate(boundary_b, kernel, iterations=dilation)
+
+    matches_a = np.logical_and(boundary_a > 0, dilated_b > 0).sum()
+    matches_b = np.logical_and(boundary_b > 0, dilated_a > 0).sum()
+    count_a = max(int((boundary_a > 0).sum()), 1)
+    count_b = max(int((boundary_b > 0).sum()), 1)
+
+    precision = matches_a / count_a
+    recall = matches_b / count_b
+    if precision + recall == 0:
+        return 0.0
     return float(2 * precision * recall / (precision + recall))

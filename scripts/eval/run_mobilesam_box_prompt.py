@@ -6,6 +6,7 @@ import cv2
 import numpy as np
 import pandas as pd
 import torch
+from cogar_seg.metrics import compute_boundary_f1_ratio, compute_iou
 from mobile_sam import SamPredictor, sam_model_registry
 
 
@@ -14,40 +15,6 @@ def read_mask(path: str) -> np.ndarray:
     if mask is None:
         raise FileNotFoundError(path)
     return mask > 0
-
-
-def mask_iou(pred: np.ndarray, gt: np.ndarray) -> float:
-    pred = pred.astype(bool)
-    gt = gt.astype(bool)
-    inter = np.logical_and(pred, gt).sum()
-    union = np.logical_or(pred, gt).sum()
-    return float(inter / union) if union > 0 else 0.0
-
-
-def boundary_f1(pred: np.ndarray, gt: np.ndarray, dilation_ratio: float = 0.02) -> float:
-    pred = pred.astype(np.uint8)
-    gt = gt.astype(np.uint8)
-
-    h, w = gt.shape
-    diag = (h * h + w * w) ** 0.5
-    dilation = max(1, int(round(dilation_ratio * diag)))
-    kernel = np.ones((3, 3), np.uint8)
-
-    pred_boundary = pred - cv2.erode(pred, kernel, iterations=1)
-    gt_boundary = gt - cv2.erode(gt, kernel, iterations=1)
-
-    pred_dil = cv2.dilate(pred_boundary, kernel, iterations=dilation)
-    gt_dil = cv2.dilate(gt_boundary, kernel, iterations=dilation)
-
-    pred_match = (pred_boundary > 0) & (gt_dil > 0)
-    gt_match = (gt_boundary > 0) & (pred_dil > 0)
-
-    precision = pred_match.sum() / max((pred_boundary > 0).sum(), 1)
-    recall = gt_match.sum() / max((gt_boundary > 0).sum(), 1)
-
-    if precision + recall == 0:
-        return 0.0
-    return float(2 * precision * recall / (precision + recall))
 
 
 def resolve_device(device: str) -> str:
@@ -138,8 +105,8 @@ def main() -> None:
         sam_score = float(scores[best_idx])
 
         gt_mask = read_mask(gt_mask_path)
-        iou = mask_iou(pred_mask, gt_mask)
-        bf1 = boundary_f1(pred_mask, gt_mask)
+        iou = compute_iou(pred_mask, gt_mask)
+        bf1 = compute_boundary_f1_ratio(pred_mask, gt_mask)
 
         out_mask_path = mask_dir / f"row_{i:05d}_object_{int(row['object_id'])}_mobilesam_box_mask.png"
         cv2.imwrite(str(out_mask_path), (pred_mask.astype(np.uint8) * 255))

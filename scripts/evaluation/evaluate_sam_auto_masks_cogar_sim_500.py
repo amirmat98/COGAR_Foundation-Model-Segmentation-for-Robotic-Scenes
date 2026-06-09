@@ -23,6 +23,7 @@ import numpy as np
 import pandas as pd
 
 from cogar_seg.cv_compat import cv2
+from cogar_seg.metrics import compute_iou
 import torch
 from segment_anything import SamAutomaticMaskGenerator, sam_model_registry
 
@@ -49,16 +50,6 @@ def read_binary_mask(path: Path) -> np.ndarray:
     if mask is None:
         raise FileNotFoundError(f"Could not read GT mask: {path}")
     return mask > 0
-
-
-def mask_iou(mask_a: np.ndarray, mask_b: np.ndarray) -> float:
-    a = mask_a.astype(bool)
-    b = mask_b.astype(bool)
-    intersection = np.logical_and(a, b).sum()
-    union = np.logical_or(a, b).sum()
-    if union == 0:
-        return 0.0
-    return float(intersection / union)
 
 
 def bbox_xywh_to_xyxy(bbox: list[float] | tuple[float, ...] | None) -> tuple[float, float, float, float]:
@@ -187,7 +178,7 @@ def evaluate(args: argparse.Namespace) -> None:
 
             for mask_idx, mask_dict in enumerate(masks):
                 pred_mask = mask_dict["segmentation"].astype(bool)
-                iou = mask_iou(gt_mask, pred_mask)
+                iou = compute_iou(gt_mask, pred_mask)
 
                 if iou > best_iou:
                     best_iou = iou

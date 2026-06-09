@@ -6,10 +6,10 @@ import sys
 import time
 from pathlib import Path
 
-import cv2
 import numpy as np
 import pandas as pd
 import torch
+from cogar_seg.metrics import compute_boundary_f1, compute_iou
 from PIL import Image
 from tqdm import tqdm
 
@@ -130,53 +130,6 @@ def get_challenge(row, df):
     return ";".join(deduped) if deduped else "none"
 
 
-def mask_iou(pred, gt):
-    pred = pred.astype(bool)
-    gt = gt.astype(bool)
-
-    inter = np.logical_and(pred, gt).sum()
-    union = np.logical_or(pred, gt).sum()
-
-    if union == 0:
-        return 1.0 if inter == 0 else 0.0
-
-    return float(inter / union)
-
-
-def mask_boundary(mask):
-    mask = mask.astype(np.uint8)
-
-    if mask.sum() == 0:
-        return mask.astype(bool)
-
-    kernel = np.ones((3, 3), np.uint8)
-    eroded = cv2.erode(mask, kernel, iterations=1)
-    return mask.astype(bool) & ~eroded.astype(bool)
-
-
-def boundary_f1(pred, gt, tolerance_px=2):
-    pred_b = mask_boundary(pred)
-    gt_b = mask_boundary(gt)
-
-    if pred_b.sum() == 0 and gt_b.sum() == 0:
-        return 1.0
-
-    if pred_b.sum() == 0 or gt_b.sum() == 0:
-        return 0.0
-
-    kernel = np.ones((3, 3), np.uint8)
-    pred_d = cv2.dilate(pred_b.astype(np.uint8), kernel, iterations=tolerance_px).astype(bool)
-    gt_d = cv2.dilate(gt_b.astype(np.uint8), kernel, iterations=tolerance_px).astype(bool)
-
-    precision = np.logical_and(pred_b, gt_d).sum() / max(pred_b.sum(), 1)
-    recall = np.logical_and(gt_b, pred_d).sum() / max(gt_b.sum(), 1)
-
-    if precision + recall == 0:
-        return 0.0
-
-    return float(2 * precision * recall / (precision + recall))
-
-
 def normalize_generated_masks(mask_records, gt_shape):
     out = []
 
@@ -216,7 +169,7 @@ def best_mask_by_iou(candidates, gt_mask):
     best_score = 0.0
 
     for m, score, _area in candidates:
-        iou = mask_iou(m, gt_mask)
+        iou = compute_iou(m, gt_mask, empty_value=1.0)
         if iou > best_iou:
             best_iou = iou
             best_mask = m
@@ -404,7 +357,9 @@ def main():
                 gt_mask = load_gt_mask(row, df, project_root, (h, w))
 
                 pred_mask, iou_val, pred_score = best_mask_by_iou(candidates, gt_mask)
-                bf1 = boundary_f1(pred_mask, gt_mask, tolerance_px=args.boundary_tolerance_px)
+                bf1 = compute_boundary_f1(
+                    pred_mask, gt_mask, bound_thresh=args.boundary_tolerance_px
+                )
 
                 rows.append({
                     "model": "SAM2.1-Tiny",

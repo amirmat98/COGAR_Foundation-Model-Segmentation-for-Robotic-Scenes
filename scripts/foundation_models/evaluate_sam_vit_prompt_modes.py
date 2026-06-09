@@ -10,6 +10,7 @@ import cv2
 import numpy as np
 import pandas as pd
 import torch
+from cogar_seg.metrics import compute_boundary_f1, compute_iou
 from segment_anything import SamAutomaticMaskGenerator, SamPredictor, sam_model_registry
 
 
@@ -123,45 +124,6 @@ def point_from_mask(mask):
     _, _, _, max_loc = cv2.minMaxLoc(dist)
     x, y = max_loc
     return np.array([[float(x), float(y)]], dtype=np.float32)
-
-
-def iou(pred, gt):
-    pred = pred.astype(bool)
-    gt = gt.astype(bool)
-    inter = np.logical_and(pred, gt).sum()
-    union = np.logical_or(pred, gt).sum()
-    if union == 0:
-        return float("nan")
-    return float(inter / union)
-
-
-def boundary_f1(pred, gt, tolerance=2):
-    pred = pred.astype(np.uint8)
-    gt = gt.astype(np.uint8)
-
-    if pred.sum() == 0 and gt.sum() == 0:
-        return 1.0
-    if pred.sum() == 0 or gt.sum() == 0:
-        return 0.0
-
-    kernel = np.ones((3, 3), np.uint8)
-    pred_boundary = pred - cv2.erode(pred, kernel, iterations=1)
-    gt_boundary = gt - cv2.erode(gt, kernel, iterations=1)
-
-    dil_kernel = np.ones((2 * tolerance + 1, 2 * tolerance + 1), np.uint8)
-    pred_dil = cv2.dilate(pred_boundary, dil_kernel, iterations=1)
-    gt_dil = cv2.dilate(gt_boundary, dil_kernel, iterations=1)
-
-    pred_count = pred_boundary.sum()
-    gt_count = gt_boundary.sum()
-    if pred_count == 0 or gt_count == 0:
-        return 0.0
-
-    precision = (pred_boundary & gt_dil).sum() / pred_count
-    recall = (gt_boundary & pred_dil).sum() / gt_count
-    if precision + recall == 0:
-        return 0.0
-    return float(2 * precision * recall / (precision + recall))
 
 
 def summarize(results, total_time, args):
@@ -332,8 +294,8 @@ def main():
                         miou = float("nan")
                         bf1 = float("nan")
                     else:
-                        miou = iou(pred, gt)
-                        bf1 = boundary_f1(pred, gt)
+                        miou = compute_iou(pred, gt, empty_value=float("nan"))
+                        bf1 = compute_boundary_f1(pred, gt)
 
                     rec = row.to_dict()
                     rec.update({
@@ -361,7 +323,7 @@ def main():
                     best_score = float("nan")
 
                     for cm, cs in zip(cand_masks, cand_scores):
-                        val = iou(cm, gt)
+                        val = compute_iou(cm, gt, empty_value=float("nan"))
                         if val > best_iou:
                             best_iou = val
                             best_mask = cm
@@ -372,7 +334,7 @@ def main():
                         bf1 = float("nan")
                     else:
                         miou = best_iou
-                        bf1 = boundary_f1(best_mask, gt)
+                        bf1 = compute_boundary_f1(best_mask, gt)
 
                     rec = row.to_dict()
                     rec.update({

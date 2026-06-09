@@ -9,6 +9,7 @@ import cv2
 import numpy as np
 import pandas as pd
 import torch
+from cogar_seg.metrics import compute_boundary_f1, compute_iou
 from torch.utils.data import Dataset, DataLoader
 import torchvision
 from torchvision.ops import box_iou
@@ -103,45 +104,6 @@ def box_from_mask(mask):
     if x2 <= x1 or y2 <= y1:
         return None
     return [float(x1), float(y1), float(x2), float(y2)]
-
-
-def mask_iou(a, b):
-    a = a.astype(bool)
-    b = b.astype(bool)
-    inter = np.logical_and(a, b).sum()
-    union = np.logical_or(a, b).sum()
-    if union == 0:
-        return float("nan")
-    return float(inter / union)
-
-
-def boundary_f1(pred, gt, tolerance=2):
-    pred = pred.astype(np.uint8)
-    gt = gt.astype(np.uint8)
-
-    if pred.sum() == 0 and gt.sum() == 0:
-        return 1.0
-    if pred.sum() == 0 or gt.sum() == 0:
-        return 0.0
-
-    kernel = np.ones((3, 3), np.uint8)
-    pb = pred - cv2.erode(pred, kernel, iterations=1)
-    gb = gt - cv2.erode(gt, kernel, iterations=1)
-
-    dk = np.ones((2 * tolerance + 1, 2 * tolerance + 1), np.uint8)
-    pb_dil = cv2.dilate(pb, dk, iterations=1)
-    gb_dil = cv2.dilate(gb, dk, iterations=1)
-
-    p_count = pb.sum()
-    g_count = gb.sum()
-    if p_count == 0 or g_count == 0:
-        return 0.0
-
-    precision = (pb & gb_dil).sum() / p_count
-    recall = (gb & pb_dil).sum() / g_count
-    if precision + recall == 0:
-        return 0.0
-    return float(2 * precision * recall / (precision + recall))
 
 
 class CogarInstanceDataset(Dataset):
@@ -363,10 +325,10 @@ def evaluate(model, loader, device, score_thresh, output_prefix, root):
             for pm, pl, ps in zip(pred_masks, pred_labels, pred_scores):
                 if int(pl) != int(gl):
                     continue
-                miou = mask_iou(pm, gm)
+                miou = compute_iou(pm, gm, empty_value=float("nan"))
                 if miou > best_iou:
                     best_iou = miou
-                    best_bf1 = boundary_f1(pm, gm)
+                    best_bf1 = compute_boundary_f1(pm, gm)
                     best_score = float(ps)
                     best_label = int(pl)
 
