@@ -434,13 +434,11 @@ def generate_cogar_isaac_sim_500(
             name="cogar_isaac_sim_500",
         )
 
-        backend = rep.backends.get("DiskBackend")
-        backend.initialize(output_dir=str(raw_dir))
         writer = rep.writers.get("BasicWriter")
         write_segmentation = writer_mode_value in {"full", "seg"}
         write_bboxes = writer_mode_value == "full"
         writer.initialize(
-            backend=backend,
+            output_dir=str(raw_dir),
             rgb=True,
             semantic_segmentation=write_segmentation,
             colorize_semantic_segmentation=write_segmentation,
@@ -448,7 +446,7 @@ def generate_cogar_isaac_sim_500(
             colorize_instance_id_segmentation=write_segmentation,
             bounding_box_2d_tight=write_bboxes,
         )
-        writer.attach(render_product)
+        writer.attach([render_product])
         print("[ISAAC] Writer attached; starting frame capture", flush=True)
 
         rows: list[dict[str, Any]] = []
