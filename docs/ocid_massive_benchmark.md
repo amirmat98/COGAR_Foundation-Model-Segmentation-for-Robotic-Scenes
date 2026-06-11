@@ -13,6 +13,9 @@ benchmark. Use it as an additional robustness/generalization experiment.
 For EC2 GPU runs, use the AWS wrapper workflow in
 `docs/aws_ocid_benchmark.md`.
 
+For Azure Windows GPU VMs, use the PowerShell workflow in
+`docs/azure_windows_ocid_benchmark.md`.
+
 ## 1. Build the full OCID object index
 
 ```bash
