@@ -544,6 +544,18 @@ def generate_cogar_isaac_sim_500(
         print(f"[ISAAC] Frames: {total_frames}", flush=True)
         print(f"[ISAAC] Elapsed seconds: {elapsed_total:.1f}", flush=True)
 
+        if skip_writer_wait:
+            import os
+            import sys
+
+            print(
+                "[ISAAC] Emergency mode complete; exiting before Isaac shutdown cleanup",
+                flush=True,
+            )
+            sys.stdout.flush()
+            sys.stderr.flush()
+            os._exit(0)
+
         return IsaacSimGenerationRun(
             output_dir=resolved_output_dir,
             raw_output_dir=raw_dir,
