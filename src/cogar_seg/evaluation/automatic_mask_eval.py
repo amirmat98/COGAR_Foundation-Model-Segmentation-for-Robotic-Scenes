@@ -96,6 +96,13 @@ def run_batch_sam_automatic_masks(
     split: str = "all",
     project_root: str | Path | None = None,
     progress_callback: ProgressCallback | None = None,
+    points_per_side: int | None = None,
+    pred_iou_thresh: float | None = None,
+    stability_score_thresh: float | None = None,
+    crop_n_layers: int | None = None,
+    crop_n_points_downscale_factor: int | None = None,
+    min_mask_region_area: int | None = None,
+    save_masks: bool = True,
 ) -> BatchAutomaticMaskRun:
     """Run SAM automatic mask generation and score best matching masks."""
     root = Path.cwd() if project_root is None else Path(project_root)
@@ -144,10 +151,25 @@ def run_batch_sam_automatic_masks(
         requested_device=device,
         allow_cpu_fallback=allow_cpu_fallback,
     )
+    generator_kwargs: dict[str, Any] = {}
+    if points_per_side is not None:
+        generator_kwargs["points_per_side"] = points_per_side
+    if pred_iou_thresh is not None:
+        generator_kwargs["pred_iou_thresh"] = pred_iou_thresh
+    if stability_score_thresh is not None:
+        generator_kwargs["stability_score_thresh"] = stability_score_thresh
+    if crop_n_layers is not None:
+        generator_kwargs["crop_n_layers"] = crop_n_layers
+    if crop_n_points_downscale_factor is not None:
+        generator_kwargs["crop_n_points_downscale_factor"] = crop_n_points_downscale_factor
+    if min_mask_region_area is not None:
+        generator_kwargs["min_mask_region_area"] = min_mask_region_area
+
     generator = load_sam_automatic_mask_generator(
         checkpoint_path=checkpoint_path,
         model_type=model_type,
         device=selected_device,
+        **generator_kwargs,
     )
 
     records: list[dict[str, Any]] = []
@@ -178,10 +200,14 @@ def run_batch_sam_automatic_masks(
         boundary_f1 = compute_boundary_f1(best_mask, gt_mask)
 
         object_id = int(row["object_id"])
-        mask_output_path = (
-            masks_dir / f"row_{row_index:04d}_object_{object_id}_sam_auto_mask.png"
-        )
-        save_binary_mask(best_mask, mask_output_path)
+        if save_masks:
+            mask_output_path = (
+                masks_dir / f"row_{row_index:04d}_object_{object_id}_sam_auto_mask.png"
+            )
+            save_binary_mask(best_mask, mask_output_path)
+            mask_output_path_str = str(mask_output_path)
+        else:
+            mask_output_path_str = ""
 
         result = {
             "row_index": int(row_index),
@@ -189,7 +215,7 @@ def run_batch_sam_automatic_masks(
             "object_id": object_id,
             "image_path": str(image_path),
             "gt_mask_path": str(gt_mask_path),
-            "sam_mask_path": str(mask_output_path),
+            "sam_mask_path": mask_output_path_str,
             "sam_score": float(best_record.get("predicted_iou", 0.0)),
             "stability_score": float(best_record.get("stability_score", 0.0)),
             "generated_mask_count": len(current_masks or []),
@@ -199,6 +225,20 @@ def run_batch_sam_automatic_masks(
             "image_gen_fps": 1.0 / current_latency if current_latency > 0 else 0.0,
             "device": selected_device,
             "model_type": model_type,
+            "points_per_side": points_per_side if points_per_side is not None else "",
+            "pred_iou_thresh": pred_iou_thresh if pred_iou_thresh is not None else "",
+            "stability_score_thresh": (
+                stability_score_thresh if stability_score_thresh is not None else ""
+            ),
+            "crop_n_layers": crop_n_layers if crop_n_layers is not None else "",
+            "crop_n_points_downscale_factor": (
+                crop_n_points_downscale_factor
+                if crop_n_points_downscale_factor is not None
+                else ""
+            ),
+            "min_mask_region_area": (
+                min_mask_region_area if min_mask_region_area is not None else ""
+            ),
         }
         records.append(result)
 

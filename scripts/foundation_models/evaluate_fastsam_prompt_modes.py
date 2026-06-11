@@ -9,10 +9,14 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-import torch
 from cogar_seg.metrics import compute_boundary_f1, compute_iou
 from PIL import Image
 from tqdm import tqdm
+
+try:
+    import torch
+except ModuleNotFoundError:
+    torch = None
 
 
 KNOWN_CHALLENGES = [
@@ -309,6 +313,12 @@ def main():
     ap.add_argument("--limit", type=int, default=None)
     ap.add_argument("--boundary-tolerance-px", type=int, default=2)
     args = ap.parse_args()
+
+    if torch is None:
+        raise RuntimeError(
+            "PyTorch is required for FastSAM prompt-mode evaluation. Install "
+            "torch in the benchmark environment before running this script."
+        )
 
     from ultralytics import FastSAM
 

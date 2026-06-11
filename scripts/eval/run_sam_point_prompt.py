@@ -22,10 +22,34 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", default=None)
     parser.add_argument("--results-csv", default=None)
     parser.add_argument("--no-visualizations", action="store_true")
+    parser.add_argument(
+        "--no-save-masks",
+        action="store_true",
+        help="Do not write predicted mask PNGs; only write the results CSV.",
+    )
+    parser.add_argument(
+        "--progress-every",
+        type=int,
+        default=100,
+        help="Print progress every N rows. Use 1 for every row, 0 to disable.",
+    )
     return parser.parse_args()
 
 
-def print_progress(result: dict[str, Any], counter: int, total: int) -> None:
+def should_print_progress(counter: int, total: int, progress_every: int) -> bool:
+    if progress_every <= 0:
+        return False
+    return counter == 1 or counter == total or counter % progress_every == 0
+
+
+def print_progress(
+    result: dict[str, Any],
+    counter: int,
+    total: int,
+    progress_every: int,
+) -> None:
+    if not should_print_progress(counter, total, progress_every):
+        return
     print(
         f"[{counter:03d}/{total:03d}] "
         f"row={int(result['row_index']):04d} "
@@ -68,11 +92,18 @@ def main() -> None:
         start_row=args.start_row,
         split=args.split,
         save_visualizations=not args.no_visualizations,
-        progress_callback=print_progress,
+        save_masks=not args.no_save_masks,
+        progress_callback=lambda result, counter, total: print_progress(
+            result,
+            counter,
+            total,
+            args.progress_every,
+        ),
     )
 
     print("Saved results CSV:", run.results_csv_path)
-    print("Saved masks dir:", run.output_dir / "masks")
+    if not args.no_save_masks:
+        print("Saved masks dir:", run.output_dir / "masks")
     if not args.no_visualizations:
         print("Saved visualizations dir:", run.output_dir / "visualizations")
     print(f"Rows evaluated: {run.num_rows}")

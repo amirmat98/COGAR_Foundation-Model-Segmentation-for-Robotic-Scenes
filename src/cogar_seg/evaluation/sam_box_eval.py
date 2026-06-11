@@ -319,6 +319,7 @@ def run_batch_sam_box(
     start_row: int = 0,
     split: str = "all",
     save_visualizations: bool = True,
+    save_masks: bool = True,
     project_root: str | Path | None = None,
     progress_callback: ProgressCallback | None = None,
 ) -> BatchSamBoxRun:
@@ -404,8 +405,12 @@ def run_batch_sam_box(
         iou = compute_iou(sam_mask, gt_mask)
         boundary_f1 = compute_boundary_f1(sam_mask, gt_mask)
 
-        mask_output_path = batch_cfg.masks_dir / f"row_{row_idx:04d}_object_{object_id}_sam_mask.png"
-        save_binary_mask(sam_mask, mask_output_path)
+        if save_masks:
+            mask_output_path = batch_cfg.masks_dir / f"row_{row_idx:04d}_object_{object_id}_sam_mask.png"
+            save_binary_mask(sam_mask, mask_output_path)
+            mask_output_path_str = str(mask_output_path)
+        else:
+            mask_output_path_str = ""
 
         if save_visualizations:
             vis_output_path = (
@@ -436,7 +441,7 @@ def run_batch_sam_box(
             "bbox_ymin": float(row["bbox_ymin"]),
             "bbox_xmax": float(row["bbox_xmax"]),
             "bbox_ymax": float(row["bbox_ymax"]),
-            "sam_mask_path": str(mask_output_path),
+            "sam_mask_path": mask_output_path_str,
             "sam_visualization_path": str(vis_output_path),
             "sam_score": sam_score,
             "iou": iou,

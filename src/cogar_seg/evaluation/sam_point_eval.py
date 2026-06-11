@@ -232,6 +232,7 @@ def run_batch_sam_point(
     start_row: int = 0,
     split: str = "all",
     save_visualizations: bool = True,
+    save_masks: bool = True,
     project_root: str | Path | None = None,
     progress_callback: ProgressCallback | None = None,
 ) -> BatchSamPointRun:
@@ -338,9 +339,15 @@ def run_batch_sam_point(
         iou = compute_iou(sam_mask, gt_mask)
         boundary_f1 = compute_boundary_f1(sam_mask, gt_mask)
 
-        mask_output_path = (
-            mask_dir / f"row_{row_index:04d}_object_{object_id}_sam_point_mask.png"
-        )
+        if save_masks:
+            mask_output_path = (
+                mask_dir / f"row_{row_index:04d}_object_{object_id}_sam_point_mask.png"
+            )
+            save_binary_mask(sam_mask, mask_output_path)
+            mask_output_path_str = str(mask_output_path)
+        else:
+            mask_output_path_str = ""
+
         if save_visualizations:
             vis_output_path = (
                 vis_dir
@@ -348,8 +355,6 @@ def run_batch_sam_point(
             )
         else:
             vis_output_path = ""
-
-        save_binary_mask(sam_mask, mask_output_path)
 
         if save_visualizations:
             save_sam_point_visualization(
@@ -377,7 +382,7 @@ def run_batch_sam_point(
             "boundary_f1": float(boundary_f1),
             "latency_sec": latency,
             "fps": fps,
-            "mask_output_path": str(mask_output_path),
+            "mask_output_path": mask_output_path_str,
             "visualization_output_path": str(vis_output_path),
             "device": selected_device,
             "model_type": model_type,

@@ -82,6 +82,12 @@ def main() -> None:
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--start-row", type=int, default=0)
     parser.add_argument("--split", choices=["train", "val", "test", "all"], default="all")
+    parser.add_argument(
+        "--progress-every",
+        type=int,
+        default=100,
+        help="Print progress every N rows. Use 1 for every row, 0 to disable.",
+    )
     args = parser.parse_args()
 
     device = resolve_device(args.device)
@@ -188,7 +194,16 @@ def main() -> None:
             "fps": 1.0 / max(total_latency, 1e-9),
         })
 
-        print(f"[{i+1:04d}/{len(df):04d}] obj={row['object_id']} masks={num_masks} score={score:.4f} IoU={iou_value:.4f}")
+        counter = i + 1
+        if (
+            args.progress_every > 0
+            and (counter == 1 or counter == len(df) or counter % args.progress_every == 0)
+        ):
+            print(
+                f"[{counter:04d}/{len(df):04d}] "
+                f"obj={row['object_id']} masks={num_masks} "
+                f"score={score:.4f} IoU={iou_value:.4f}"
+            )
 
     out = pd.DataFrame(rows)
     out.to_csv(results_csv, index=False)

@@ -8,10 +8,14 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
-import torch
 from cogar_seg.metrics import compute_boundary_f1, compute_iou
 from PIL import Image
 from tqdm import tqdm
+
+try:
+    import torch
+except ModuleNotFoundError:
+    torch = None
 
 
 def norm_name(s):
@@ -275,6 +279,12 @@ def main():
     ap.add_argument("--min-mask-region-area", type=int, default=0)
     ap.add_argument("--boundary-tolerance-px", type=int, default=2)
     args = ap.parse_args()
+
+    if torch is None:
+        raise RuntimeError(
+            "PyTorch is required for SAM2 automatic-mask evaluation. Install "
+            "torch in the benchmark environment before running this script."
+        )
 
     project_root = Path(args.project_root).expanduser().resolve()
     sam2_repo = Path(args.sam2_repo).expanduser().resolve()

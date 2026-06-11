@@ -9,13 +9,21 @@ import time
 import zipfile
 from pathlib import Path
 
-import cv2
 import numpy as np
 import pandas as pd
-import torch
 from cogar_seg.metrics import compute_boundary_f1, compute_iou
 from PIL import Image
 from tqdm import tqdm
+
+try:
+    import cv2
+except ModuleNotFoundError:
+    cv2 = None
+
+try:
+    import torch
+except ModuleNotFoundError:
+    torch = None
 
 
 KNOWN_CHALLENGES = [
@@ -412,6 +420,18 @@ def main():
     ap.add_argument("--bbox-format", choices=["auto", "xyxy", "xywh"], default="auto")
     ap.add_argument("--boundary-tolerance-px", type=int, default=2)
     args = ap.parse_args()
+
+    missing = []
+    if torch is None:
+        missing.append("torch")
+    if cv2 is None:
+        missing.append("opencv-python")
+    if missing:
+        raise RuntimeError(
+            "EfficientSAM evaluation requires missing dependencies: "
+            + ", ".join(missing)
+            + ". Install them in the benchmark environment before running this script."
+        )
 
     project_root = Path(args.project_root).expanduser().resolve()
     index_csv = Path(args.index_csv).expanduser()

@@ -20,10 +20,12 @@
 !/outputs/**
 
 # But never commit heavy model/checkpoint files inside outputs.
+outputs/ocid_full/
 outputs/**/*.pt
 outputs/**/*.pth
 outputs/**/*.ckpt
 outputs/**/*.safetensors
+docs/ocid_massive_benchmark_report.md
 
 # Model weights and checkpoints
 /checkpoints/
