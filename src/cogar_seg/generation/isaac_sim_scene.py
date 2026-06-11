@@ -298,6 +298,7 @@ def generate_cogar_isaac_sim_500(
     writer_mode: str | None = None,
     headless: bool | None = None,
     clean: bool = True,
+    skip_writer_wait: bool = False,
     progress_every: int = 25,
 ) -> IsaacSimGenerationRun:
     """Generate a complete 500-frame Isaac Sim robotic scene dataset."""
@@ -331,6 +332,7 @@ def generate_cogar_isaac_sim_500(
         f"frames={total_frames} size={image_width}x{image_height} "
         f"renderer={renderer_value} subframes={subframes} "
         f"writer_mode={writer_mode_value} "
+        f"skip_writer_wait={skip_writer_wait} "
         f"output={resolved_output_dir}",
         flush=True,
     )
@@ -495,13 +497,23 @@ def generate_cogar_isaac_sim_500(
                 }
             )
 
-        print("[ISAAC] Waiting for Replicator writer", flush=True)
-        rep.orchestrator.wait_until_complete()
-        print("[ISAAC] Replicator writer complete", flush=True)
+        if skip_writer_wait:
+            print("[ISAAC] Skipping Replicator writer wait by request", flush=True)
+        else:
+            print("[ISAAC] Waiting for Replicator writer", flush=True)
+            rep.orchestrator.wait_until_complete()
+            print("[ISAAC] Replicator writer complete", flush=True)
+
         if hasattr(writer, "detach"):
-            writer.detach()
+            try:
+                writer.detach()
+            except Exception as exc:  # pragma: no cover - Isaac-version-specific.
+                print(f"[ISAAC][WARN] Writer detach skipped: {exc}", flush=True)
         if hasattr(render_product, "destroy"):
-            render_product.destroy()
+            try:
+                render_product.destroy()
+            except Exception as exc:  # pragma: no cover - Isaac-version-specific.
+                print(f"[ISAAC][WARN] Render product destroy skipped: {exc}", flush=True)
 
         elapsed_total = time.perf_counter() - start
         _write_text_metadata(
@@ -531,4 +543,7 @@ def generate_cogar_isaac_sim_500(
             elapsed_seconds=elapsed_total,
         )
     finally:
-        simulation_app.close()
+        try:
+            simulation_app.close()
+        except Exception as exc:  # pragma: no cover - Isaac-version-specific.
+            print(f"[ISAAC][WARN] SimulationApp close skipped: {exc}", flush=True)

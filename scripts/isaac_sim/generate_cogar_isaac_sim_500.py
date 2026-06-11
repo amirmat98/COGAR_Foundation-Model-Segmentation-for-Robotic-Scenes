@@ -41,6 +41,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--headless", action="store_true")
     parser.add_argument("--show-window", action="store_true")
     parser.add_argument("--no-clean", action="store_true")
+    parser.add_argument(
+        "--skip-writer-wait",
+        action="store_true",
+        help="Skip Replicator wait_until_complete; useful when weak GPUs hang during writer finalization.",
+    )
     parser.add_argument("--progress-every", type=int, default=25)
     return parser.parse_args()
 
@@ -68,6 +73,7 @@ def main() -> None:
         writer_mode=args.writer_mode,
         headless=headless,
         clean=not args.no_clean,
+        skip_writer_wait=args.skip_writer_wait,
         progress_every=args.progress_every,
     )
 
