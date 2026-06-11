@@ -122,7 +122,7 @@ exist after the AWS rerun. They are not equivalent.
 | `data/cogar_sim_500_v2/` | Older intermediate version from dataset iteration. | Historical comparison only. Do not use for final results. |
 | `data/cogar_sim_500_final/` | Final cleaned 500-image benchmark dataset. | Main assignment dataset and all final benchmark evaluations. |
 | `data/yolo_cogar_sim_500_final/` | YOLOv8-seg export derived from the final dataset. | YOLOv8-seg fine-tuning and evaluation. |
-| `data/cogar_isaac_sim_500/` | Complete 500-image Isaac Sim / Replicator dataset generated on AWS. It is separate from the frozen BlenderProc dataset. | Improved Task 2 evidence or replacement benchmark only after rerunning model results. |
+| `data/cogar_isaac_sim_500/` | Experimental Isaac Sim / Replicator output folder from AWS feasibility tests. It is not the final benchmark dataset. | Future work only unless a complete, validated Isaac dataset is generated and all benchmark results are rerun. |
 
 The final dataset should not be replaced casually. If
 `data/cogar_sim_500_final/` changes, the reported benchmark results must be
@@ -258,10 +258,10 @@ The final benchmark was built as:
 7. Freeze `data/cogar_sim_500_final/` as the benchmark dataset.
 8. Derive `data/yolo_cogar_sim_500_final/` from the frozen final dataset.
 
-## Complete Isaac Sim Rerun Path
+## Experimental Isaac Sim Rerun Path
 
-The repo also contains a complete Isaac Sim / Replicator path for generating a
-separate 500-image version:
+The repo also contains an experimental Isaac Sim / Replicator path that was
+tested as a possible separate 500-image version:
 
 ```text
 configs/isaac_sim_dataset.yaml
@@ -276,20 +276,19 @@ Default Isaac output:
 data/cogar_isaac_sim_500/
 ```
 
-This path exists because Isaac Sim is the stronger preferred simulation
-environment when an RTX AWS machine is available. It should not overwrite
-`data/cogar_sim_500_final/`. If the Isaac dataset becomes the official
-benchmark target, rerun the segmentation evaluations and update the reported
-tables.
+This path exists because Isaac Sim is a preferred robotics simulation
+environment, but it did not produce the current final benchmark dataset. It
+should not overwrite `data/cogar_sim_500_final/`. If a future Isaac dataset
+becomes the official benchmark target, rerun the segmentation evaluations and
+update the reported tables.
 
 The available Tesla T4 AWS instance was useful for segmentation inference but
-not practical for this Isaac Sim generation path. The Isaac workflow should be
-run on an RTX-class AWS instance with RT cores. For the next attempt, use
-`g6e.4xlarge` as the preferred target, `g6e.2xlarge` as the minimum
-cost-sensitive target, or `g6e.8xlarge` if budget and quota allow.
+not practical for reliable Isaac Sim / Replicator dataset writing. Low
+resolution tests could start Isaac Sim and reach frame capture, but writer
+finalization did not reliably produce usable benchmark image files.
 
-Before running the full Isaac dataset, validate the machine and one-frame
-generation:
+For future work only, validate the machine and one-frame generation before any
+full Isaac dataset attempt:
 
 ```bash
 bash scripts/aws/run_isaac_sim_dataset_aws.sh diagnose

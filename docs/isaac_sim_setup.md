@@ -1,7 +1,7 @@
 # Isaac Sim Dataset Generation Setup
 
-This project now includes a complete Isaac Sim / Replicator generation path for
-a 500-image robotic-scene dataset:
+This project includes an experimental Isaac Sim / Replicator generation path
+that was tested as a possible additional robotic-scene dataset:
 
 ```text
 data/cogar_isaac_sim_500/
@@ -26,8 +26,7 @@ generation:
 - no RTX / RT cores
 
 The local machine can edit scripts, inspect results, and run lightweight tests,
-but the full Isaac Sim dataset should be generated on an RTX-capable cloud or
-workstation GPU.
+but it cannot run a practical Isaac Sim / Replicator dataset generation job.
 
 ## Required Generation Machine
 
@@ -69,20 +68,22 @@ Observed result:
   container.
 - The runner was updated to force `/isaac-sim/python.sh` as the Docker
   entrypoint so the full streaming app wrapper is not launched accidentally.
-- Even after those fixes, the T4 machine remained too slow and memory-limited
-  for a practical full Isaac Sim dataset generation run.
+- Low-resolution emergency smoke tests could start Isaac Sim and reach frame
+  capture, but Replicator writer finalization did not reliably produce saved
+  benchmark image files on the T4 machine.
 
 Conclusion:
 
 ```text
 Use the T4 instance for SAM/SAM2/FastSAM benchmarking.
 Do not use the T4 instance as the final Isaac Sim generation machine.
-Use g6e.4xlarge, or at minimum g6e.2xlarge, for the full Isaac Sim dataset.
+Do not spend more cloud budget for Task 2; the assignment report closes Task 2
+with the completed BlenderProc simulation pipeline.
 ```
 
 This is why the reported assignment dataset remains
-`data/cogar_sim_500_final/`, while the Isaac Sim workflow stays available as a
-reproducible route for a future RTX-class AWS run.
+`data/cogar_sim_500_final/`, while the Isaac Sim workflow stays available only
+as documented future work.
 
 ## Tracked Files
 
@@ -102,11 +103,9 @@ docs/aws_isaac_sim_dataset.md
 4. Run `bash scripts/aws/run_isaac_sim_dataset_aws.sh diagnose`.
 5. Pull the Isaac Sim container.
 6. Run the compatibility check and a 1-frame smoke test.
-7. Run the full 500-frame generation.
-8. Package `data/cogar_isaac_sim_500/`.
-9. Download it locally.
-10. Decide whether to use it as extra Task 2 evidence or rerun all model
-   benchmarks on it as a replacement dataset.
+7. Stop unless the smoke test reliably writes RGB and annotation files.
+8. Treat any future successful Isaac dataset as a separate future extension,
+   not as part of the current final benchmark.
 
 See the full command sequence:
 

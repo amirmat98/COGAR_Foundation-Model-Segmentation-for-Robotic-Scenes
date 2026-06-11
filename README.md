@@ -110,9 +110,10 @@ Challenge groups:
 The final dataset was generated with the reproducible BlenderProc synthetic
 scene pipeline. Isaac Sim was documented as a preferred alternative route, but
 was not used for the final 500-image generation on the available GTX 1050
-machine or the later Tesla T4 benchmark server. The repo now includes an AWS
-Isaac Sim rerun path targeting `g6e.4xlarge` preferred, `g6e.2xlarge` minimum,
-or `g6e.8xlarge` if budget/quota allow. Gazebo and Rviz2 were not used because
+machine or the later Tesla T4 benchmark server. Isaac Sim / Replicator was
+implemented and tested on AWS, but it was not reliable on the affordable T4
+setup for writing benchmark-ready dataset files, so it is documented as future
+work rather than a final deliverable. Gazebo and Rviz2 were not used because
 the synthetic simulation dataset generation satisfied the assignment simulation
 requirement. The scenes include a simulated `robot_gripper`; a full Unitree
 G1/As2 embodiment is documented as future work due to hardware and scope

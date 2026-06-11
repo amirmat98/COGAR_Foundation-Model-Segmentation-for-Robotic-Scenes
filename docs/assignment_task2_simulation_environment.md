@@ -7,18 +7,17 @@ and organize the robotic scenes.
 
 ## Completion Status
 
-Task 2 is complete with a reproducible BlenderProc simulation pipeline, and the
-repository now also contains a complete Isaac Sim / Replicator generation path
-for a stronger 500-image AWS rerun.
+Task 2 is complete with a reproducible BlenderProc simulation pipeline. Isaac
+Sim / Replicator was also implemented and tested on AWS, but it was not used as
+the final dataset generator because the available affordable GPU setup was not
+reliable for producing benchmark-ready Replicator files.
 
 The final 500-image COGAR-SimRobotics-500 dataset used in the current benchmark
-tables was generated and organized with BlenderProc. A complete Isaac
-Sim/Replicator generator is now included for `data/cogar_isaac_sim_500/`, but
-that output is intentionally separate from the frozen BlenderProc dataset until
-the Isaac run is completed and the benchmark tables are rerun. Gazebo and Rviz2
-were not used because the BlenderProc pipeline already produced the required
-RGB images, instance masks, semantic/COCO-derived annotations, metadata, and
-benchmark indexes.
+tables was generated and organized with BlenderProc. The Isaac Sim work is
+reported as an engineering feasibility attempt, not as a source of the final
+benchmark data. Gazebo and Rviz2 were not used because the BlenderProc pipeline
+already produced the required RGB images, instance masks, semantic/COCO-derived
+annotations, metadata, and benchmark indexes.
 
 This report is intentionally explicit about the environment choice: the final
 results should not claim Isaac Sim, Gazebo, or Rviz2 execution when the frozen
@@ -32,9 +31,9 @@ dataset was generated with BlenderProc.
 | Organize generated scenes into a benchmark dataset | Yes | RGB, masks, COCO-style annotations, metadata, object indexes, and splits are stored under `data/cogar_sim_500_final/`. |
 | Include robotic-scene content | Yes | The dataset contains `robot_gripper` scenes and manipulation objects such as metal parts, glass objects, screws, connectors, cables, tools, boxes, and plastic objects. |
 | Cover required visual challenges | Yes | Reflective metal, transparent glass, partial occlusion, small parts, and dynamic-scene groups are explicitly configured and reported. |
-| Use or address Isaac Sim / Gazebo / Rviz2 | Yes | Isaac Sim was implemented as a complete AWS Replicator route; Gazebo and Rviz2 are scoped out because they were not needed for object-level dataset generation. |
+| Address Isaac Sim / Gazebo / Rviz2 scope | Addressed, not final | Isaac Sim was implemented and tested on AWS, then documented as impractical on the available affordable hardware; Gazebo and Rviz2 are scoped out because they were not needed for object-level dataset generation. |
 | Provide reproducibility | Yes | Generation configs, scripts, normalization commands, validation commands, and AWS Isaac setup notes are tracked. |
-| Avoid overclaiming | Yes | The report states that the current frozen benchmark was generated with BlenderProc, while Isaac Sim is a prepared RTX-AWS extension route. |
+| Avoid overclaiming | Yes | The report states that the current frozen benchmark was generated with BlenderProc, while Isaac Sim was attempted but not used for final data. |
 
 ## Visual Evidence
 
@@ -64,7 +63,7 @@ images, masks, annotations, object indexes, and evaluation reports.*
 | Environment | Used for final dataset? | Role in this project |
 |---|---:|---|
 | BlenderProc | Yes | Main reproducible synthetic-data generation environment. |
-| Isaac Sim | Prepared, not frozen | Complete 500-image AWS Replicator workflow now exists under a separate dataset root. |
+| Isaac Sim | Attempted, not final | AWS Replicator workflow was implemented and tested, but not used for the frozen dataset. |
 | Gazebo | No | Not required for the final dataset because object-level RGB/mask/COCO outputs were produced through BlenderProc. |
 | Rviz2 | No | Not required because this project needed dataset generation, not ROS visualization. |
 
@@ -84,11 +83,11 @@ The simulation workflow is represented by these tracked files:
 | `src/cogar_seg/generation/blenderproc_scene.py` | Reusable scene-generation implementation. |
 | `docs/blenderproc_cogar_sim_500.md` | Short BlenderProc generation notes. |
 | `docs/dataset_quality_workflow.md` | Dataset build, audit, filtering, and validation workflow. |
-| `configs/isaac_sim_dataset.yaml` | Complete Isaac Sim/Replicator configuration for the 500-image AWS rerun. |
-| `scripts/isaac_sim/generate_cogar_isaac_sim_500.py` | Isaac Sim entry point for complete 500-image generation. |
-| `src/cogar_seg/generation/isaac_sim_scene.py` | Reusable Isaac Sim scene-generation implementation. |
-| `scripts/aws/run_isaac_sim_dataset_aws.sh` | AWS Docker wrapper for Isaac Sim generation, packaging, and smoke tests. |
-| `docs/aws_isaac_sim_dataset.md` | Step-by-step AWS instructions for the full Isaac Sim dataset run. |
+| `configs/isaac_sim_dataset.yaml` | Isaac Sim/Replicator configuration prepared for AWS testing. |
+| `scripts/isaac_sim/generate_cogar_isaac_sim_500.py` | Isaac Sim entry point used during AWS feasibility tests. |
+| `src/cogar_seg/generation/isaac_sim_scene.py` | Reusable Isaac Sim scene-generation implementation kept for reproducibility and future work. |
+| `scripts/aws/run_isaac_sim_dataset_aws.sh` | AWS Docker wrapper used for Isaac Sim setup, smoke tests, and troubleshooting. |
+| `docs/aws_isaac_sim_dataset.md` | AWS instructions and troubleshooting notes for the Isaac Sim route. |
 | `docs/isaac_sim_setup.md` | Isaac Sim setup note and hardware explanation. |
 
 ## Generation Configuration
@@ -268,33 +267,31 @@ produces:
 For this project, the critical deliverable is an organized simulated robotic
 scene dataset for segmentation benchmarking. BlenderProc produced that dataset.
 
-## Complete Isaac Sim Generation Path
+## Isaac Sim Feasibility Attempt
 
-The repository now provides a complete Isaac Sim dataset path, separate from
-the frozen benchmark data:
+The repository provides an Isaac Sim dataset path, separate from the frozen
+benchmark data:
 
 ```text
 data/cogar_isaac_sim_500/
 ```
 
-Recommended AWS target:
+Recommended hardware for a practical future run:
 
 ```text
 g6e.4xlarge preferred, g6e.2xlarge minimum, g6e.8xlarge if budget/quota allows
 ```
 
-Main validation and generation commands on the RTX AWS instance:
+Main validation commands used during the AWS attempt:
 
 ```bash
 bash scripts/aws/run_isaac_sim_dataset_aws.sh diagnose
 bash scripts/aws/run_isaac_sim_dataset_aws.sh compat
 FRAMES=1 PROGRESS_EVERY=1 \
   bash scripts/aws/run_isaac_sim_dataset_aws.sh smoke1
-FRAMES=500 PROGRESS_EVERY=25 \
-  bash scripts/aws/run_isaac_sim_dataset_aws.sh generate
 ```
 
-The Isaac workflow writes raw Replicator outputs plus metadata:
+The intended Isaac workflow would write raw Replicator outputs plus metadata:
 
 ```text
 data/cogar_isaac_sim_500/raw_replicator/final_500/
@@ -303,10 +300,10 @@ data/cogar_isaac_sim_500/metadata/categories.json
 data/cogar_isaac_sim_500/metadata/dataset_summary.json
 ```
 
-This improves Task 2 because it gives a direct Isaac Sim route on AWS. It does
-not automatically replace the reported benchmark dataset. If
-`data/cogar_isaac_sim_500/` becomes the primary dataset, Tasks 4-9 should be
-rerun on the Isaac-generated annotations.
+This route is kept for transparency and future work, but it is not used as a
+final deliverable in this submission. If `data/cogar_isaac_sim_500/` ever
+becomes the primary dataset, Tasks 4-9 must be rerun on the Isaac-generated
+annotations.
 
 ## AWS Isaac Sim Attempt And Practical Outcome
 
@@ -323,28 +320,32 @@ What was validated:
   `OmniHub: Hub failed to launch` startup loops.
 - The AWS runner had to force `/isaac-sim/python.sh` as the Docker entrypoint;
   otherwise the container launched the full streaming app wrapper.
+- Low-resolution emergency smoke tests could start Isaac Sim and reach frame
+  capture, but Replicator writer finalization did not reliably produce saved
+  benchmark image files on the T4 machine.
 
 Observed limitation:
 
 ```text
-Tesla T4 could start Isaac Sim, but startup and extension loading were too slow
-and memory-constrained for a practical 500-image generation run.
+Tesla T4 could start Isaac Sim and execute the prepared Python scene path, but
+it was not reliable enough to produce the required saved RGB/mask/annotation
+dataset through Replicator.
 ```
 
 Decision:
 
 ```text
 Keep data/cogar_sim_500_final/ as the frozen reported benchmark dataset.
-Keep the Isaac Sim workflow as a reproducible RTX-AWS generation route.
-Use g6e.4xlarge, or at minimum g6e.2xlarge, before attempting the full Isaac
-500-image run.
+Keep the Isaac Sim workflow only as documented future work.
+Do not spend more cloud budget for Task 2; close the assignment task with the
+completed BlenderProc simulation pipeline.
 ```
 
 ## Isaac Sim, Gazebo, And Rviz2 Scope
 
 Isaac Sim was considered the preferred future environment because Replicator is
-well suited for robotic synthetic-data generation. The repository now keeps a
-complete Isaac Sim configuration, generator, and AWS runner:
+well suited for robotic synthetic-data generation. The repository keeps the
+Isaac Sim configuration, generator, and AWS runner as a record of the attempt:
 
 ```text
 configs/isaac_sim_dataset.yaml
@@ -354,10 +355,10 @@ docs/isaac_sim_setup.md
 ```
 
 It was not used for the currently reported 500-image benchmark because the
-original available hardware was not suitable for the intended Isaac Sim
-Replicator workflow. Running the new AWS Isaac dataset will create a stronger
-dataset candidate and should be reported separately unless all segmentation
-models and baseline results are rerun on that data.
+available local and affordable AWS hardware was not suitable for reliably
+writing Replicator dataset files. A future Isaac dataset should be reported
+separately unless all segmentation models and baseline results are rerun on
+that data.
 
 Gazebo and Rviz2 were not used because they are better suited here for robot
 simulation/visualization than for producing the final object-level RGB/mask/COCO
@@ -380,6 +381,6 @@ Task 2 is complete.
 
 The project used BlenderProc as the simulation environment to generate and
 organize the currently frozen 500-image COGAR-SimRobotics-500 benchmark
-dataset. The repository now also contains a complete Isaac Sim / Replicator
-generation path for `data/cogar_isaac_sim_500/` so the simulation component can
-be strengthened on AWS without damaging the existing Task 1 result.
+dataset. Isaac Sim was attempted and documented, but the final Task 2 evidence
+is the completed BlenderProc simulation pipeline and the organized dataset it
+produced.
