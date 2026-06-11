@@ -19,13 +19,26 @@
 !/outputs/
 !/outputs/**
 
-# But never commit heavy model/checkpoint files inside outputs.
-outputs/ocid_full/
+# Track compact OCID benchmark deliverables, but keep heavy generated masks and
+# per-model image artifacts out of Git.
+outputs/ocid_full/**
+!outputs/ocid_full/
+!outputs/ocid_full/indexes/
+!outputs/ocid_full/indexes/*.csv
+!outputs/ocid_full/results/
+!outputs/ocid_full/results/*.csv
+!outputs/ocid_full/tables/
+!outputs/ocid_full/tables/*.csv
+outputs/ocid_full/gt_binary_masks/
+outputs/ocid_full/full/
+outputs/ocid_full/pilot100/
+outputs/ocid_full/pilot1000/
+outputs/ocid_full/pilot500/
+outputs/ocid_full/smoke/
 outputs/**/*.pt
 outputs/**/*.pth
 outputs/**/*.ckpt
 outputs/**/*.safetensors
-docs/ocid_massive_benchmark_report.md
 
 # Model weights and checkpoints
 /checkpoints/
