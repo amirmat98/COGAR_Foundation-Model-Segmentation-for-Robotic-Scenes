@@ -398,25 +398,30 @@ Recommended release asset names:
 Create the archives outside the repository:
 
 ```bash
-mkdir -p /tmp/cogar_dataset_release
-
-tar -C data -czf \
-  /tmp/cogar_dataset_release/COGAR-SimRobotics-500_dataset.tar.gz \
-  cogar_sim_500_final
-
-tar -C data -czf \
-  /tmp/cogar_dataset_release/COGAR-SimRobotics-500_yolov8seg_export.tar.gz \
-  yolo_cogar_sim_500_final
-
-sha256sum /tmp/cogar_dataset_release/*.tar.gz \
-  > /tmp/cogar_dataset_release/SHA256SUMS.txt
-
-ls -lh /tmp/cogar_dataset_release
+bash scripts/dataset/package_release_datasets.sh
 ```
 
-Do not put the archives under Git control. The repository `.gitignore` already
-ignores `*.tar.gz` and `*.zip`, but using `/tmp/cogar_dataset_release` keeps the
-working tree cleaner.
+The script writes archives, checksums, and a release-notes template to:
+
+```text
+/tmp/cogar_dataset_release
+```
+
+Check the package plan without creating archives:
+
+```bash
+bash scripts/dataset/package_release_datasets.sh --dry-run
+```
+
+Full packaging instructions are in:
+
+```text
+docs/dataset_release.md
+```
+
+Do not put the archives under Git control. The repository `.gitignore` ignores
+release archives and local release-asset folders, but using
+`/tmp/cogar_dataset_release` keeps the working tree cleaner.
 
 Recommended GitHub Release:
 
@@ -441,7 +446,7 @@ Then verify the extracted dataset:
 test -f data/cogar_sim_500_final/annotations/sim_robotic_scenes_index_final_filtered.csv
 test -d data/cogar_sim_500_final/rgb
 test -d data/cogar_sim_500_final/instance_masks/final
-test -f data/yolo_cogar_sim_500_final/data.yaml
+test -f data/yolo_cogar_sim_500_final/cogar_sim_500_yolov8seg.yaml
 ```
 
 The expected final counts are:
@@ -470,4 +475,5 @@ dataset files and generation process.
 - `docs/final_dataset_summary.md`
 - `docs/blenderproc_cogar_sim_500.md`
 - `docs/dataset_quality_workflow.md`
+- `docs/dataset_release.md`
 - `docs/ocid_massive_benchmark_report.md`

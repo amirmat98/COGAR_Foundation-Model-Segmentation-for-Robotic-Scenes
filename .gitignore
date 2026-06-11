@@ -74,6 +74,7 @@ dist/
 
 # Blender/archives
 /archive/
+/release_assets/
 *.blend1
 *.blend2
 *.tar.gz
