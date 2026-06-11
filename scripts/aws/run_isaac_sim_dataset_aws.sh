@@ -8,6 +8,9 @@ Run the complete COGAR-IsaacSimRobotics-500 workflow on an AWS RTX GPU instance.
 Usage:
   bash scripts/aws/run_isaac_sim_dataset_aws.sh check
   bash scripts/aws/run_isaac_sim_dataset_aws.sh pull
+  bash scripts/aws/run_isaac_sim_dataset_aws.sh fix-permissions
+  bash scripts/aws/run_isaac_sim_dataset_aws.sh start-hub
+  bash scripts/aws/run_isaac_sim_dataset_aws.sh stop-isaac
   bash scripts/aws/run_isaac_sim_dataset_aws.sh smoke
   bash scripts/aws/run_isaac_sim_dataset_aws.sh generate
   bash scripts/aws/run_isaac_sim_dataset_aws.sh package
@@ -49,19 +52,22 @@ RAW_DATASET_NAME="${RAW_DATASET_NAME:-final_500}"
 PROGRESS_EVERY="${PROGRESS_EVERY:-25}"
 
 cache_root="${HOME}/docker/isaac-sim"
-mkdir -p \
-  "${cache_root}/cache/main" \
-  "${cache_root}/cache/computecache" \
-  "${cache_root}/config" \
-  "${cache_root}/data" \
-  "${cache_root}/logs" \
-  "${cache_root}/pkg" \
+cache_dirs=(
+  "${cache_root}/cache/main"
+  "${cache_root}/cache/computecache"
+  "${cache_root}/config"
+  "${cache_root}/data"
+  "${cache_root}/logs"
+  "${cache_root}/pkg"
   "${HOME}/.cache/ov/hub"
+)
+mkdir -p "${cache_dirs[@]}"
 
 docker_args=(
   --rm
   --gpus all
   --network=host
+  -u 1234:1234
   -e ACCEPT_EULA=Y
   -e PRIVACY_CONSENT=Y
   -v "${cache_root}/cache/main:/isaac-sim/.cache:rw"
@@ -79,7 +85,8 @@ run_generator() {
   local frame_count="$1"
   [[ -f "$CONFIG" ]] || die "Missing config: $CONFIG"
   mkdir -p "$OUTPUT_DIR"
-  chmod -R a+rwX "$OUTPUT_DIR"
+  chmod -R a+rwX "$OUTPUT_DIR" 2>/dev/null || \
+    log "Output dir has files not owned by this user; continuing for container UID 1234."
 
   extra_args=()
   [[ -n "${WIDTH:-}" ]] && extra_args+=(--width "$WIDTH")
@@ -87,8 +94,11 @@ run_generator() {
   [[ -n "${RT_SUBFRAMES:-}" ]] && extra_args+=(--rt-subframes "$RT_SUBFRAMES")
 
   log "Generating ${frame_count} Isaac Sim frames into ${OUTPUT_DIR}"
-  docker run "${docker_args[@]}" "$ISAAC_SIM_IMAGE" \
-    /isaac-sim/python.sh /workspace/cogar/scripts/isaac_sim/generate_cogar_isaac_sim_500.py \
+  log "Using /isaac-sim/python.sh as Docker entrypoint to avoid the full streaming app wrapper."
+  docker run "${docker_args[@]}" \
+    --entrypoint /isaac-sim/python.sh \
+    "$ISAAC_SIM_IMAGE" \
+      /workspace/cogar/scripts/isaac_sim/generate_cogar_isaac_sim_500.py \
       --config "/workspace/cogar/${CONFIG}" \
       --output-dir "/workspace/cogar/${OUTPUT_DIR}" \
       --raw-dataset-name "$RAW_DATASET_NAME" \
@@ -114,6 +124,34 @@ case "$cmd" in
     ;;
   pull)
     docker pull "$ISAAC_SIM_IMAGE"
+    ;;
+  fix-permissions)
+    command -v sudo >/dev/null 2>&1 || die "sudo not found"
+    sudo mkdir -p "${cache_dirs[@]}"
+    sudo chown -R 1234:1234 "$cache_root" "${HOME}/.cache/ov/hub"
+    sudo chmod -R a+rwX "$cache_root" "${HOME}/.cache/ov/hub"
+    if [[ -d "$OUTPUT_DIR" ]]; then
+      sudo chmod -R a+rwX "$OUTPUT_DIR" || true
+    fi
+    log "Prepared Isaac Sim cache directories for container UID 1234."
+    ;;
+  start-hub)
+    docker rm -f hub-cache >/dev/null 2>&1 || true
+    docker pull nvcr.io/nvidia/omniverse/hub_workstation_cache:2.0.0
+    docker run --name hub-cache --rm -d --network=host \
+      -v "${HOME}/.cache/ov/hub:/var/cache/hub:rw" \
+      -u 1234:1234 \
+      nvcr.io/nvidia/omniverse/hub_workstation_cache:2.0.0
+    sleep 3
+    docker ps | grep hub-cache
+    ;;
+  stop-isaac)
+    ids="$(docker ps -q --filter ancestor="$ISAAC_SIM_IMAGE")"
+    if [[ -n "$ids" ]]; then
+      docker kill $ids 2>/dev/null || true
+    fi
+    pkill -f generate_cogar_isaac_sim_500.py 2>/dev/null || true
+    log "Stopped active Isaac Sim generator containers/processes if any were running."
     ;;
   smoke)
     run_generator "${FRAMES:-5}"

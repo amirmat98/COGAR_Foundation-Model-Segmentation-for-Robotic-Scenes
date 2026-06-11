@@ -24,6 +24,13 @@ Isaac Sim 6.0 is much heavier than SAM inference. A Tesla T4 instance is useful
 for SAM/SAM2/FastSAM experiments, but it is not the right target for a full
 Isaac Sim synthetic-data run.
 
+This was confirmed experimentally on the available AWS T4 machine. Docker,
+NVIDIA drivers, the Isaac Sim image, Replicator startup, Hub cache, and the
+project generator could be configured, but the machine spent many minutes in
+Isaac startup and extension loading before producing a single frame. The T4 run
+is useful as an environment-debugging exercise, not as the recommended full
+dataset generation route.
+
 Use an RTX-capable AWS instance.
 
 Recommended:
@@ -148,9 +155,65 @@ This checks:
 - Docker availability
 - GPU access inside a CUDA container
 
-## 6. Run A 5-Frame Smoke Test
+## 6. Prepare Isaac Cache And Hub
 
-Before spending money on the full 500 images, run:
+Isaac Sim containers write cache/log/data files as container UID `1234`.
+Prepare the cache folders before generation:
+
+```bash
+bash scripts/aws/run_isaac_sim_dataset_aws.sh fix-permissions
+```
+
+Start the Omniverse Hub cache container:
+
+```bash
+bash scripts/aws/run_isaac_sim_dataset_aws.sh start-hub
+```
+
+If Hub is not running, Isaac Sim may repeat this warning and never reach the
+generator:
+
+```text
+OmniHub: Hub failed to launch
+```
+
+Check Hub:
+
+```bash
+docker ps | grep hub-cache
+docker logs --tail 100 hub-cache
+```
+
+On small machines, add swap before testing Isaac:
+
+```bash
+sudo fallocate -l 16G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+free -h
+```
+
+## 7. Run A 1-Frame Smoke Test
+
+Before spending money on the full 500 images, run one frame:
+
+```bash
+mkdir -p outputs/logs
+
+FRAMES=1 PROGRESS_EVERY=1 \
+  bash scripts/aws/run_isaac_sim_dataset_aws.sh smoke 2>&1 | tee outputs/logs/isaac_smoke1.log
+```
+
+Expected success marker:
+
+```text
+[ISAAC] 1/1
+[ISAAC] Dataset root: ...
+[ISAAC] Frames: 1
+```
+
+Only after one frame succeeds, try five frames:
 
 ```bash
 FRAMES=5 PROGRESS_EVERY=1 \
@@ -173,7 +236,7 @@ data/cogar_isaac_sim_500/metadata/dataset_summary.json
 data/cogar_isaac_sim_500/README.md
 ```
 
-## 7. Run The Full 500-Image Dataset
+## 8. Run The Full 500-Image Dataset
 
 After the smoke test works:
 
@@ -210,7 +273,14 @@ Check whether it is still running:
 ps -eo pid,etime,pcpu,pmem,cmd | grep -E "generate_cogar_isaac|python.sh|docker" | grep -v grep
 ```
 
-## 8. Package The Result
+Run only one Isaac generator at a time. If multiple generator processes exist,
+stop them:
+
+```bash
+bash scripts/aws/run_isaac_sim_dataset_aws.sh stop-isaac
+```
+
+## 9. Package The Result
 
 When generation is finished:
 
@@ -241,7 +311,71 @@ Extract locally:
 tar -xzf cogar_isaac_sim_500_dataset.tar.gz
 ```
 
-## 9. What To Do After Generation
+## Troubleshooting From The T4 AWS Attempt
+
+### Docker Pull Looks Stuck
+
+The Isaac Sim image is large. Check progress from another terminal:
+
+```bash
+docker system df
+sudo du -sh /var/lib/docker 2>/dev/null
+df -h /
+```
+
+### Permission Denied Under `/isaac-sim/.cache` Or `.local/share/ov`
+
+Run:
+
+```bash
+bash scripts/aws/run_isaac_sim_dataset_aws.sh fix-permissions
+```
+
+If partial output was created by UID `1234`, either keep it and continue, or
+remove only the incomplete Isaac output:
+
+```bash
+sudo rm -rf data/cogar_isaac_sim_500
+```
+
+Do not delete `data/cogar_sim_500_final/`.
+
+### Full Streaming App Loads Instead Of The Generator
+
+Bad symptom:
+
+```text
+Isaac Sim Full Streaming App is loaded.
+app ready
+```
+
+The runner now forces `/isaac-sim/python.sh` as Docker entrypoint to avoid this.
+If this symptom returns, make sure the script contains:
+
+```text
+--entrypoint /isaac-sim/python.sh
+```
+
+### Headless UI Warnings
+
+These are expected in headless Docker and are not fatal by themselves:
+
+```text
+failed to open the default display
+GLFW initialization failed
+Failed to acquire interface: carb::windowing::IWindowing
+```
+
+Continue unless the command exits or a project-script traceback appears.
+
+### T4 Practical Limit
+
+On the tested Tesla T4 instance, Isaac Sim could start, but startup was slow and
+memory pressure was high. For the final assignment, keep the existing
+BlenderProc dataset as the reported dataset unless you can run Isaac Sim on an
+RTX-class instance such as `g6e.2xlarge` or stronger.
+
+## 10. What To Do After Generation
 
 After the full Isaac dataset exists locally, decide whether to keep it as:
 

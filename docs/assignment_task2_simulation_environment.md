@@ -286,6 +286,37 @@ not automatically replace the reported benchmark dataset. If
 `data/cogar_isaac_sim_500/` becomes the primary dataset, Tasks 4-9 should be
 rerun on the Isaac-generated annotations.
 
+## AWS Isaac Sim Attempt And Practical Outcome
+
+The Isaac Sim path was exercised on the available AWS Tesla T4 machine. The
+machine was sufficient for SAM-family inference and OCID benchmarking, but it
+was not practical for full Isaac Sim data generation.
+
+What was validated:
+
+- Docker and NVIDIA Container Toolkit could expose the GPU to containers.
+- The Isaac Sim 6.0 container could be pulled.
+- Isaac cache permissions had to be prepared for container UID `1234`.
+- The Omniverse Hub cache container was needed to avoid repeated
+  `OmniHub: Hub failed to launch` startup loops.
+- The AWS runner had to force `/isaac-sim/python.sh` as the Docker entrypoint;
+  otherwise the container launched the full streaming app wrapper.
+
+Observed limitation:
+
+```text
+Tesla T4 could start Isaac Sim, but startup and extension loading were too slow
+and memory-constrained for a practical 500-image generation run.
+```
+
+Decision:
+
+```text
+Keep data/cogar_sim_500_final/ as the frozen reported benchmark dataset.
+Keep the Isaac Sim workflow as a reproducible RTX-AWS generation route.
+Use g6e.2xlarge or stronger before attempting the full Isaac 500-image run.
+```
+
 ## Isaac Sim, Gazebo, And Rviz2 Scope
 
 Isaac Sim was considered the preferred future environment because Replicator is

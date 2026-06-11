@@ -50,6 +50,36 @@ The Tesla T4 machine used for SAM inference is not the preferred choice for
 Isaac Sim. It can run segmentation benchmarks, but Isaac Sim 6.0 targets newer
 RTX-class GPUs.
 
+## AWS T4 Attempt Outcome
+
+The project was also tested on an AWS Tesla T4 instance after the Docker and
+NVIDIA Container Toolkit setup was repaired.
+
+Observed result:
+
+- `nvidia-smi` worked on the host and inside Docker.
+- `nvcr.io/nvidia/isaac-sim:6.0.0` downloaded successfully.
+- Isaac Sim cache permission issues were solved by preparing cache folders for
+  container UID `1234`.
+- Omniverse Hub startup issues were solved by running the Hub Workstation Cache
+  container.
+- The runner was updated to force `/isaac-sim/python.sh` as the Docker
+  entrypoint so the full streaming app wrapper is not launched accidentally.
+- Even after those fixes, the T4 machine remained too slow and memory-limited
+  for a practical full Isaac Sim dataset generation run.
+
+Conclusion:
+
+```text
+Use the T4 instance for SAM/SAM2/FastSAM benchmarking.
+Do not use the T4 instance as the final Isaac Sim generation machine.
+Use g6e.2xlarge or stronger for the full Isaac Sim dataset.
+```
+
+This is why the reported assignment dataset remains
+`data/cogar_sim_500_final/`, while the Isaac Sim workflow stays available as a
+reproducible route for a future RTX-class AWS run.
+
 ## Tracked Files
 
 ```text

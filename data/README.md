@@ -282,6 +282,10 @@ environment when an RTX AWS machine is available. It should not overwrite
 benchmark target, rerun the segmentation evaluations and update the reported
 tables.
 
+The available Tesla T4 AWS instance was useful for segmentation inference but
+not practical for this Isaac Sim generation path. The Isaac workflow should be
+run on an RTX-class AWS instance such as `g6e.2xlarge` or stronger.
+
 ## Rebuild Commands
 
 Only use these commands when intentionally rebuilding the dataset. Rebuilding
