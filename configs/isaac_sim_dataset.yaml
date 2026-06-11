@@ -1,18 +1,26 @@
 dataset:
-  name: COGAR-SimRobotics-500
-  output_dir: data/cogar_sim_500
-  raw_output_dir: data/cogar_sim_500/raw_isaac
-  pilot_images: 20
+  name: COGAR-IsaacSimRobotics-500
+  output_dir: data/cogar_isaac_sim_500
+  raw_output_dir: data/cogar_isaac_sim_500/raw_replicator/final_500
   final_images: 500
   image_width: 640
   image_height: 480
 
 replicator:
+  image: nvcr.io/nvidia/isaac-sim:6.0.0
   writer: BasicWriter
   renderer: RayTracedLighting
   headless: true
   rt_subframes: 16
   seed: 42
+
+scene:
+  table_size: [2.8, 1.8, 0.08]
+  camera_position: [2.4, -2.4, 1.8]
+  camera_look_at: [0.0, 0.0, 0.15]
+  object_position_min: [-0.85, -0.55, 0.04]
+  object_position_max: [0.85, 0.55, 0.42]
+  enable_material_hints: true
 
 categories:
   - id: 1
@@ -46,21 +54,38 @@ categories:
     name: box
     supercategory: object
 
-pilot_plan:
-  - challenge: reflective_metal
-    count: 4
-  - challenge: transparent_glass
-    count: 4
-  - challenge: partial_occlusion
-    count: 4
-  - challenge: small_parts
-    count: 4
-  - challenge: dynamic_scene
-    count: 4
-
 final_plan:
   reflective_metal: 100
   transparent_glass: 100
   partial_occlusion: 100
   small_parts: 100
   dynamic_scene: 100
+
+object_specs:
+  - category: metal_part
+    count: 4
+    scale: [0.16, 0.10, 0.08]
+  - category: glass_object
+    count: 4
+    scale: [0.13, 0.13, 0.22]
+  - category: plastic_object
+    count: 4
+    scale: [0.14, 0.12, 0.10]
+  - category: screw
+    count: 8
+    scale: [0.035, 0.035, 0.025]
+  - category: connector
+    count: 8
+    scale: [0.09, 0.045, 0.035]
+  - category: cable
+    count: 4
+    scale: [0.035, 0.035, 0.45]
+  - category: tool
+    count: 3
+    scale: [0.35, 0.055, 0.045]
+  - category: box
+    count: 4
+    scale: [0.20, 0.16, 0.12]
+  - category: robot_gripper
+    count: 3
+    scale: [0.42, 0.08, 0.08]

@@ -113,7 +113,8 @@ surfaces are not final benchmark target objects in the filtered object index.
 
 ## Local Folder Meanings
 
-Four dataset folders may exist locally. They are not equivalent.
+Four original dataset folders may exist locally. A fifth Isaac Sim folder may
+exist after the AWS rerun. They are not equivalent.
 
 | Folder | Meaning | Use it for |
 |---|---|---|
@@ -121,6 +122,7 @@ Four dataset folders may exist locally. They are not equivalent.
 | `data/cogar_sim_500_v2/` | Older intermediate version from dataset iteration. | Historical comparison only. Do not use for final results. |
 | `data/cogar_sim_500_final/` | Final cleaned 500-image benchmark dataset. | Main assignment dataset and all final benchmark evaluations. |
 | `data/yolo_cogar_sim_500_final/` | YOLOv8-seg export derived from the final dataset. | YOLOv8-seg fine-tuning and evaluation. |
+| `data/cogar_isaac_sim_500/` | Complete 500-image Isaac Sim / Replicator dataset generated on AWS. It is separate from the frozen BlenderProc dataset. | Improved Task 2 evidence or replacement benchmark only after rerunning model results. |
 
 The final dataset should not be replaced casually. If
 `data/cogar_sim_500_final/` changes, the reported benchmark results must be
@@ -255,6 +257,30 @@ The final benchmark was built as:
 6. Filter down to exactly 500 clean images.
 7. Freeze `data/cogar_sim_500_final/` as the benchmark dataset.
 8. Derive `data/yolo_cogar_sim_500_final/` from the frozen final dataset.
+
+## Complete Isaac Sim Rerun Path
+
+The repo also contains a complete Isaac Sim / Replicator path for generating a
+separate 500-image version:
+
+```text
+configs/isaac_sim_dataset.yaml
+scripts/isaac_sim/generate_cogar_isaac_sim_500.py
+scripts/aws/run_isaac_sim_dataset_aws.sh
+docs/aws_isaac_sim_dataset.md
+```
+
+Default Isaac output:
+
+```text
+data/cogar_isaac_sim_500/
+```
+
+This path exists because Isaac Sim is the stronger preferred simulation
+environment when an RTX AWS machine is available. It should not overwrite
+`data/cogar_sim_500_final/`. If the Isaac dataset becomes the official
+benchmark target, rerun the segmentation evaluations and update the reported
+tables.
 
 ## Rebuild Commands
 
