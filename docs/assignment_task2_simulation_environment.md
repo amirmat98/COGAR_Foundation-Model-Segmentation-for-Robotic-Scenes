@@ -2,134 +2,290 @@
 
 ## Requirement
 
-Use simulation environments such as Isaac Sim, Gazebo, and/or Rviz2 to generate and organize the robotic scenes.
+Use simulation environments such as Isaac Sim, Gazebo, and/or Rviz2 to generate
+and organize the robotic scenes.
 
-## Completion status
+## Completion Status
 
-Task 2 is complete with a BlenderProc simulation pipeline.
+Task 2 is complete with a reproducible BlenderProc simulation pipeline.
 
-The final dataset was generated and organized with BlenderProc. Isaac Sim was
-kept as a documented preferred alternative because it is well suited to
-Replicator-based robotic synthetic data, but it was not used for the final
-500-image run on the available GTX 1050 4 GB laptop. Gazebo and Rviz2 were not
-used because the BlenderProc simulation pipeline already produced the required
-RGB images, masks, COCO-style annotations, metadata, and benchmark index.
+The final 500-image COGAR-SimRobotics-500 dataset was generated and organized
+with BlenderProc. Isaac Sim is documented as the preferred future RTX-capable
+route, but it was not used for the final frozen dataset. Gazebo and Rviz2 were
+not used because the BlenderProc pipeline already produced the required RGB
+images, instance masks, semantic/COCO-derived annotations, metadata, and
+benchmark indexes.
 
-## Visual evidence
+This report is intentionally explicit about the environment choice: the final
+results should not claim Isaac Sim, Gazebo, or Rviz2 execution when the frozen
+dataset was generated with BlenderProc.
+
+## Visual Evidence
 
 ![Simulation dataset generation pipeline](/outputs/figures/final_report/dataset/simulation_pipeline.png)
 
-*Figure: Documented simulation-to-benchmark pipeline used to turn synthetic scenes into RGB images, masks, annotations, object indexes, and evaluation reports.*
+*Figure: Simulation-to-benchmark pipeline used to turn synthetic scenes into RGB
+images, masks, annotations, object indexes, and evaluation reports.*
 
 ![Representative generated scenes](/outputs/figures/final_report/dataset/sample_scene_montage.png)
 
 *Figure: Representative generated scenes from the final benchmark dataset.*
 
-## Selected simulation environment
+| Reflective metal | Transparent glass |
+|---|---|
+| ![Reflective metal scene](/outputs/figures/final_report/dataset/sample_scenes/reflective_metal.png) | ![Transparent glass scene](/outputs/figures/final_report/dataset/sample_scenes/transparent_glass.png) |
 
-| Environment | Used | Role |
+| Partial occlusion | Small parts |
+|---|---|
+| ![Partial occlusion scene](/outputs/figures/final_report/dataset/sample_scenes/partial_occlusion.png) | ![Small parts scene](/outputs/figures/final_report/dataset/sample_scenes/small_parts.png) |
+
+| Dynamic scene | Robot gripper scene |
+|---|---|
+| ![Dynamic scene](/outputs/figures/final_report/dataset/sample_scenes/dynamic_scene.png) | ![Robot gripper scene](/outputs/figures/final_report/dataset/sample_scenes/robot_gripper.png) |
+
+## Selected Environment
+
+| Environment | Used for final dataset? | Role in this project |
 |---|---:|---|
-| BlenderProc | Yes | Main reproducible simulation and synthetic data generation environment |
-| Isaac Sim | Documented alternative | Preferred future route for RTX-capable hardware and Unitree-style scenes |
-| Gazebo | No | Not required for final dataset generation |
-| Rviz2 | No | Not required for final dataset generation |
+| BlenderProc | Yes | Main reproducible synthetic-data generation environment. |
+| Isaac Sim | No | Documented preferred future route for RTX-capable Replicator generation. |
+| Gazebo | No | Not required for the final dataset because object-level RGB/mask/COCO outputs were produced through BlenderProc. |
+| Rviz2 | No | Not required because this project needed dataset generation, not ROS visualization. |
 
-BlenderProc was selected for the final run because it was practical on the
-available machine and provides scripted scene generation, RGB rendering,
-instance segmentation, COCO annotations, and reproducible randomized robotic
-tabletop scenes.
+BlenderProc was selected because it supports scripted scene construction,
+camera randomization, physically based rendering, instance segmentation, and
+COCO-style annotation export in a workflow that was practical on the available
+hardware.
 
-Isaac Sim remains documented in `configs/isaac_sim_dataset.yaml` and
-`docs/isaac_sim_setup.md` as the preferred future extension for a workstation or
-cloud machine with an RTX-capable GPU.
+## Reproducible Simulation Files
 
-## Dataset generated from simulation
+The simulation workflow is represented by these tracked files:
 
-The final simulated dataset is:
+| File | Purpose |
+|---|---|
+| `configs/blenderproc_dataset.yaml` | Main simulation-generation configuration for COGAR-SimRobotics-500. |
+| `scripts/blenderproc/generate_cogar_sim_500.py` | BlenderProc entry point for generating randomized scenes. |
+| `src/cogar_seg/generation/blenderproc_scene.py` | Reusable scene-generation implementation. |
+| `docs/blenderproc_cogar_sim_500.md` | Short BlenderProc generation notes. |
+| `docs/dataset_quality_workflow.md` | Dataset build, audit, filtering, and validation workflow. |
+| `configs/isaac_sim_dataset.yaml` | Isaac Sim/Replicator configuration template for a future RTX-capable extension. |
+| `docs/isaac_sim_setup.md` | Isaac Sim setup note and hardware limitation explanation. |
 
-- `data/cogar_sim_500_final/`
+## Generation Configuration
 
-The final annotation index is:
+The main generation config is:
 
-- `data/cogar_sim_500_final/annotations/sim_robotic_scenes_index_final_filtered.csv`
+```text
+configs/blenderproc_dataset.yaml
+```
 
-The dataset contains:
+Key settings:
+
+| Setting | Value |
+|---|---:|
+| Dataset name | `COGAR-SimRobotics-500` |
+| Output directory | `data/cogar_sim_500` |
+| Final target images | 500 |
+| Image width | 640 |
+| Image height | 480 |
+| Random seed | 42 |
+| Render samples | 32 |
+| Final base scenes | 50 |
+| Final captures per scene | 10 |
+
+Challenge plan:
+
+| Challenge | Target images |
+|---|---:|
+| `reflective_metal` | 100 |
+| `transparent_glass` | 100 |
+| `partial_occlusion` | 100 |
+| `small_parts` | 100 |
+| `dynamic_scene` | 100 |
+
+## Generation Command
+
+The dataset candidates are generated through the BlenderProc launcher:
+
+```bash
+source ~/blenderproc_test/.venv/bin/activate
+
+blenderproc run scripts/blenderproc/generate_cogar_sim_500.py \
+  --config configs/blenderproc_dataset.yaml \
+  --num-images 650 \
+  --raw-dataset-name pilot_v5_650_final_candidates
+```
+
+The final benchmark was produced from more candidates than needed, then audited
+and filtered down to 500 clean images.
+
+## Organization Pipeline
+
+The generated scenes are not just raw images. They are organized into a
+benchmark-ready dataset with object-level annotations and prompt fields.
+
+Pipeline:
+
+1. Generate randomized simulated scenes with BlenderProc.
+2. Normalize raw BlenderProc outputs into project dataset folders.
+3. Export or derive RGB images, masks, metadata, and COCO annotations.
+4. Build an object-level CSV index.
+5. Export per-object binary masks.
+6. Audit image quality and object statistics.
+7. Filter bad frames and non-target support surfaces.
+8. Freeze the final 500-image dataset.
+9. Derive the YOLOv8-seg export from the frozen dataset.
+
+Main commands after generation:
+
+```bash
+PYTHONPATH=src python scripts/dataset/normalize_cogar_sim_500.py
+
+PYTHONPATH=src python scripts/dataset/create_object_index.py \
+  --dataset cogar_sim_500 \
+  --coco data/cogar_sim_500/annotations/instances_all.json \
+  --metadata data/cogar_sim_500/metadata/frame_index.csv \
+  --rgb-dir data/cogar_sim_500/rgb \
+  --output outputs/indexes/cogar_sim_500_objects.csv
+
+PYTHONPATH=src python scripts/dataset/export_binary_masks.py \
+  --index outputs/indexes/cogar_sim_500_objects.csv \
+  --output-dir data/cogar_sim_500/instance_masks/all
+```
+
+Final validation:
+
+```bash
+PYTHONPATH=src python scripts/dataset/validate_sim_index.py \
+  --index data/cogar_sim_500_final/annotations/sim_robotic_scenes_index_final_filtered.csv
+```
+
+## Final Dataset Produced By The Simulation Pipeline
+
+Final dataset root:
+
+```text
+data/cogar_sim_500_final/
+```
+
+Final object-level benchmark index:
+
+```text
+data/cogar_sim_500_final/annotations/sim_robotic_scenes_index_final_filtered.csv
+```
+
+Final dataset summary:
 
 | Property | Value |
 |---|---:|
 | RGB images | 500 |
 | Annotated object instances | 4,471 |
 | Object categories | 9 |
-| Challenge groups | 5 |
+| Robotic challenge groups | 5 |
+| Image size | 640 x 480 |
 
-## Organization of generated scenes
+Expected final layout:
 
-The generated scenes were organized into a structured dataset format containing:
+```text
+data/cogar_sim_500_final/
+  annotations/
+    instances_all.json
+    sim_robotic_scenes_index_final_filtered.csv
+  instance_masks/
+    final/
+  metadata/
+    categories.json
+    frame_index.csv
+  rgb/
+  splits/
+```
 
-- RGB image paths
-- binary object mask paths
-- instance mask paths
-- semantic mask paths
-- category IDs and names
-- object IDs
-- bounding boxes
-- point prompts
-- challenge labels
-- train/validation/test split labels
+YOLO export derived from the same frozen dataset:
 
-The final CSV index provides one row per object instance. This structure makes the dataset directly usable for object-level segmentation benchmarking with promptable foundation models.
+```text
+data/yolo_cogar_sim_500_final/
+```
 
-## Simulation diversity
+## Robotic Scene Content
 
-The simulation dataset was designed to include diverse robotic perception conditions:
+The simulated scenes were organized around robotic tabletop perception and
+manipulation challenges:
 
-| Challenge type | Purpose |
+| Challenge type | Simulation purpose |
 |---|---|
-| reflective_metal | Tests segmentation under specular reflections and unstable object boundaries |
-| transparent_glass | Tests segmentation of transparent or weak-boundary objects |
-| partial_occlusion | Tests segmentation when objects are partially blocked |
-| small_parts | Tests segmentation of screws, connectors, cables, and other small objects |
-| dynamic_scene | Tests robustness under changing object or robot configurations |
+| `reflective_metal` | Tests segmentation under specular surfaces and unstable visual edges. |
+| `transparent_glass` | Tests transparent or weak-boundary object segmentation. |
+| `partial_occlusion` | Tests object segmentation when objects are blocked by clutter or robot geometry. |
+| `small_parts` | Tests screws, connectors, cables, and thin/fine structures. |
+| `dynamic_scene` | Tests robustness under changing object and robot-layout configurations. |
 
-## Why the BlenderProc simulation pipeline satisfies the task
+The dataset includes manipulation-relevant categories:
 
-The final pipeline satisfies the simulation requirement because it produces
-simulation-generated RGB images and object-level annotations, which are then
-organized into a benchmark-ready CSV index.
+```text
+robot_gripper, metal_part, glass_object, plastic_object, screw,
+connector, cable, tool, box
+```
 
-The dataset supports the assignment goal because it includes robotic-scene
-objects, manipulation-related categories, and challenge types that are difficult
-for segmentation models in robotic perception.
+## Why BlenderProc Satisfies Task 2
 
-## Relation to Gazebo and Rviz2
+The requirement says to use simulation environments such as Isaac Sim, Gazebo,
+and/or Rviz2. The phrase "such as" allows an equivalent simulation environment
+when it produces the needed robotic-scene data.
 
-Gazebo and Rviz2 were not used in the final dataset generation. Isaac Sim was
-not run locally because the available GPU was below the practical requirement
-for the intended Replicator workflow. The final pipeline instead uses
-BlenderProc as the simulation generator and documents the Isaac Sim migration
-path for future RTX-capable hardware.
+BlenderProc satisfies the practical dataset-generation requirement because it
+produces:
 
-## Output of Task 2
+- simulated RGB images;
+- object-level masks;
+- category labels;
+- bounding boxes;
+- prompt points;
+- COCO-derived annotations;
+- train/validation/test splits;
+- reproducible randomized scene generation;
+- organized benchmark indexes consumed by the evaluation scripts.
 
-Task 2 produced the organized simulated benchmark dataset used by all later evaluation stages:
+For this project, the critical deliverable is an organized simulated robotic
+scene dataset for segmentation benchmarking. BlenderProc produced that dataset.
 
-- SAM ViT-B evaluation
-- SAM ViT-H subset evaluation
-- FastSAM-S evaluation
-- MobileSAM evaluation
-- EfficientSAM-Ti evaluation
-- YOLOv8n-seg fine-tuned baseline evaluation
-- per-category analysis
-- per-challenge analysis
-- failure-mode visualization
+## Isaac Sim, Gazebo, And Rviz2 Scope
 
-## Task 2 conclusion
+Isaac Sim was considered the preferred future environment because Replicator is
+well suited for robotic synthetic-data generation. The repository keeps an
+Isaac Sim configuration template and setup note:
 
-Task 2 is complete with the documented BlenderProc simulation workflow.
+```text
+configs/isaac_sim_dataset.yaml
+docs/isaac_sim_setup.md
+```
 
-BlenderProc was used as the simulation environment to generate and organize the
-robotic scenes. The output is a structured 500-image simulated robotic-scene
-dataset with 4,471 annotated object instances, object masks, bounding boxes,
-prompt points, category labels, challenge labels, and train/validation/test
-splits. Isaac Sim remains documented as the preferred extension route rather
-than claimed as the completed generator.
+It was not used for the final 500-image run because the original available
+hardware was not suitable for the intended Isaac Sim Replicator workflow.
+Running a new Isaac dataset now would create a different benchmark and would
+require rerunning all segmentation models and baseline results.
+
+Gazebo and Rviz2 were not used because they are better suited here for robot
+simulation/visualization than for producing the final object-level RGB/mask/COCO
+dataset already generated through BlenderProc.
+
+## Task 2 Output
+
+Task 2 produced the organized simulation dataset used by later stages:
+
+- Task 4 zero-shot prompt and automatic-mask evaluations.
+- Task 5 supervised baseline training and comparison.
+- Task 6 mIoU, boundary F1, mask AP, and per-category analysis.
+- Task 7 FPS measurement.
+- Task 8 failure-mode visualization.
+- Task 9 lightweight SAM trade-off analysis.
+
+## Conclusion
+
+Task 2 is complete.
+
+The project used BlenderProc as the simulation environment to generate and
+organize the 500-image COGAR-SimRobotics-500 dataset. The output is a frozen,
+structured, benchmark-ready simulated robotic-scene dataset with RGB images,
+object masks, COCO-derived annotations, bounding boxes, point prompts, category
+labels, challenge labels, and train/validation/test splits. Isaac Sim remains
+documented as a preferred future extension, not as the completed generator.
