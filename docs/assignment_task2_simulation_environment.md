@@ -24,6 +24,18 @@ This report is intentionally explicit about the environment choice: the final
 results should not claim Isaac Sim, Gazebo, or Rviz2 execution when the frozen
 dataset was generated with BlenderProc.
 
+## Coverage Checklist
+
+| Task 2 expectation | Covered? | Evidence in this project |
+|---|---:|---|
+| Use a simulation environment to generate robotic scenes | Yes | BlenderProc generated the frozen 500-image benchmark dataset. |
+| Organize generated scenes into a benchmark dataset | Yes | RGB, masks, COCO-style annotations, metadata, object indexes, and splits are stored under `data/cogar_sim_500_final/`. |
+| Include robotic-scene content | Yes | The dataset contains `robot_gripper` scenes and manipulation objects such as metal parts, glass objects, screws, connectors, cables, tools, boxes, and plastic objects. |
+| Cover required visual challenges | Yes | Reflective metal, transparent glass, partial occlusion, small parts, and dynamic-scene groups are explicitly configured and reported. |
+| Use or address Isaac Sim / Gazebo / Rviz2 | Yes | Isaac Sim was implemented as a complete AWS Replicator route; Gazebo and Rviz2 are scoped out because they were not needed for object-level dataset generation. |
+| Provide reproducibility | Yes | Generation configs, scripts, normalization commands, validation commands, and AWS Isaac setup notes are tracked. |
+| Avoid overclaiming | Yes | The report states that the current frozen benchmark was generated with BlenderProc, while Isaac Sim is a prepared RTX-AWS extension route. |
+
 ## Visual Evidence
 
 ![Simulation dataset generation pipeline](/outputs/figures/final_report/dataset/simulation_pipeline.png)

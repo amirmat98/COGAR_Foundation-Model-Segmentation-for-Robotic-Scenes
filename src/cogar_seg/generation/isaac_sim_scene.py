@@ -318,6 +318,13 @@ def generate_cogar_isaac_sim_500(
     headless_value = (
         _bool_value(repl_cfg.get("headless", True)) if headless is None else headless
     )
+    print(
+        "[ISAAC] Starting generation "
+        f"frames={total_frames} size={image_width}x{image_height} "
+        f"renderer={renderer_value} subframes={subframes} "
+        f"output={resolved_output_dir}",
+        flush=True,
+    )
 
     raw_dir, metadata_dir = _prepare_dirs(
         output_dir=resolved_output_dir,
@@ -337,13 +344,16 @@ def generate_cogar_isaac_sim_500(
         headless=headless_value,
         renderer=renderer_value,
     )
+    print("[ISAAC] SimulationApp started", flush=True)
     start = time.perf_counter()
 
     try:
+        print("[ISAAC] Importing Replicator modules", flush=True)
         import carb.settings
         import omni.replicator.core as rep
         import omni.usd
 
+        print("[ISAAC] Creating stage and scene objects", flush=True)
         omni.usd.get_context().new_stage()
         rep.orchestrator.set_capture_on_play(False)
         rep.set_global_seed(seed_value)
@@ -415,6 +425,7 @@ def generate_cogar_isaac_sim_500(
             bounding_box_2d_tight=True,
         )
         writer.attach(render_product)
+        print("[ISAAC] Writer attached; starting frame capture", flush=True)
 
         rows: list[dict[str, Any]] = []
         for frame_idx, challenge in enumerate(challenges):
@@ -448,7 +459,8 @@ def generate_cogar_isaac_sim_500(
                 print(
                     "[ISAAC] "
                     f"{done}/{total_frames} challenge={challenge} "
-                    f"elapsed_min={elapsed / 60.0:.1f} eta_min={remaining / 60.0:.1f}"
+                    f"elapsed_min={elapsed / 60.0:.1f} eta_min={remaining / 60.0:.1f}",
+                    flush=True,
                 )
 
             rep.orchestrator.step(rt_subframes=subframes)
@@ -488,11 +500,11 @@ def generate_cogar_isaac_sim_500(
             raw_output_dir=raw_dir,
         )
 
-        print(f"[ISAAC] Dataset root: {resolved_output_dir}")
-        print(f"[ISAAC] Raw Replicator output: {raw_dir}")
-        print(f"[ISAAC] Metadata: {metadata_dir}")
-        print(f"[ISAAC] Frames: {total_frames}")
-        print(f"[ISAAC] Elapsed seconds: {elapsed_total:.1f}")
+        print(f"[ISAAC] Dataset root: {resolved_output_dir}", flush=True)
+        print(f"[ISAAC] Raw Replicator output: {raw_dir}", flush=True)
+        print(f"[ISAAC] Metadata: {metadata_dir}", flush=True)
+        print(f"[ISAAC] Frames: {total_frames}", flush=True)
+        print(f"[ISAAC] Elapsed seconds: {elapsed_total:.1f}", flush=True)
 
         return IsaacSimGenerationRun(
             output_dir=resolved_output_dir,

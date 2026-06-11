@@ -79,6 +79,7 @@ docker_args=(
   -u "${ISAAC_CONTAINER_UID}:${ISAAC_CONTAINER_UID}"
   -e ACCEPT_EULA=Y
   -e PRIVACY_CONSENT=Y
+  -e PYTHONUNBUFFERED=1
   -v "${cache_root}/cache/main:/isaac-sim/.cache:rw"
   -v "${cache_root}/cache/computecache:/isaac-sim/.nv/ComputeCache:rw"
   -v "${cache_root}/logs:/isaac-sim/.nvidia-omniverse/logs:rw"
