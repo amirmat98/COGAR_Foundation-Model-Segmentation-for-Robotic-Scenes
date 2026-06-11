@@ -31,6 +31,7 @@ Environment variables:
   WIDTH                Optional override
   HEIGHT               Optional override
   RT_SUBFRAMES         Optional override
+  WRITER_MODE          Optional: full, seg, or rgb. Default comes from config/full.
   PROGRESS_EVERY       Default: 25
   SWAP_SIZE_GB         Default: 16 for setup-swap
 USAGE
@@ -181,6 +182,7 @@ run_generator() {
   [[ -n "${WIDTH:-}" ]] && extra_args+=(--width "$WIDTH")
   [[ -n "${HEIGHT:-}" ]] && extra_args+=(--height "$HEIGHT")
   [[ -n "${RT_SUBFRAMES:-}" ]] && extra_args+=(--rt-subframes "$RT_SUBFRAMES")
+  [[ -n "${WRITER_MODE:-}" ]] && extra_args+=(--writer-mode "$WRITER_MODE")
 
   log "Generating ${frame_count} Isaac Sim frames into ${OUTPUT_DIR}"
   log "Using /isaac-sim/python.sh as Docker entrypoint to avoid the full streaming app wrapper."

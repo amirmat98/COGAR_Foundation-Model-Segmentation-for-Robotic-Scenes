@@ -32,6 +32,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--height", type=int, default=None)
     parser.add_argument("--rt-subframes", type=int, default=None)
     parser.add_argument("--renderer", default=None)
+    parser.add_argument(
+        "--writer-mode",
+        choices=("full", "seg", "rgb"),
+        default=None,
+        help="Replicator writer outputs: full=rgb+segmentation+bboxes, seg=rgb+segmentation, rgb=rgb only.",
+    )
     parser.add_argument("--headless", action="store_true")
     parser.add_argument("--show-window", action="store_true")
     parser.add_argument("--no-clean", action="store_true")
@@ -59,6 +65,7 @@ def main() -> None:
         height=args.height,
         rt_subframes=args.rt_subframes,
         renderer=args.renderer,
+        writer_mode=args.writer_mode,
         headless=headless,
         clean=not args.no_clean,
         progress_every=args.progress_every,

@@ -267,7 +267,6 @@ def _apply_optional_material(rep: Any, prim: Any, category: str) -> None:
             material = rep.create.material_omnipbr(
                 diffuse=(0.60, 0.85, 1.0),
                 roughness=0.02,
-                opacity=0.35,
             )
         elif category == "screw":
             material = rep.create.material_omnipbr(
@@ -278,8 +277,10 @@ def _apply_optional_material(rep: Any, prim: Any, category: str) -> None:
         else:
             return
 
-        with prim:
-            rep.modify.material(material)
+        modify = getattr(getattr(rep, "functional", None), "modify", None)
+        if modify is not None and hasattr(modify, "material"):
+            modify.material(prim, material)
+            return
     except Exception as exc:  # pragma: no cover - Isaac-version-specific.
         print(f"[ISAAC][WARN] Material hint skipped for {category}: {exc}")
 
@@ -294,6 +295,7 @@ def generate_cogar_isaac_sim_500(
     height: int | None = None,
     rt_subframes: int | None = None,
     renderer: str | None = None,
+    writer_mode: str | None = None,
     headless: bool | None = None,
     clean: bool = True,
     progress_every: int = 25,
@@ -315,6 +317,12 @@ def generate_cogar_isaac_sim_500(
     seed_value = int(seed if seed is not None else repl_cfg.get("seed", 42))
     subframes = int(rt_subframes or repl_cfg.get("rt_subframes", 16))
     renderer_value = str(renderer or repl_cfg.get("renderer", "RayTracedLighting"))
+    writer_mode_value = str(writer_mode or repl_cfg.get("writer_mode", "full")).lower()
+    if writer_mode_value not in {"full", "seg", "rgb"}:
+        raise ValueError(
+            "writer_mode must be one of 'full', 'seg', or 'rgb'; "
+            f"got {writer_mode_value!r}"
+        )
     headless_value = (
         _bool_value(repl_cfg.get("headless", True)) if headless is None else headless
     )
@@ -322,6 +330,7 @@ def generate_cogar_isaac_sim_500(
         "[ISAAC] Starting generation "
         f"frames={total_frames} size={image_width}x{image_height} "
         f"renderer={renderer_value} subframes={subframes} "
+        f"writer_mode={writer_mode_value} "
         f"output={resolved_output_dir}",
         flush=True,
     )
@@ -415,14 +424,16 @@ def generate_cogar_isaac_sim_500(
         backend = rep.backends.get("DiskBackend")
         backend.initialize(output_dir=str(raw_dir))
         writer = rep.writers.get("BasicWriter")
+        write_segmentation = writer_mode_value in {"full", "seg"}
+        write_bboxes = writer_mode_value == "full"
         writer.initialize(
             backend=backend,
             rgb=True,
-            semantic_segmentation=True,
-            colorize_semantic_segmentation=True,
-            instance_id_segmentation=True,
-            colorize_instance_id_segmentation=True,
-            bounding_box_2d_tight=True,
+            semantic_segmentation=write_segmentation,
+            colorize_semantic_segmentation=write_segmentation,
+            instance_id_segmentation=write_segmentation,
+            colorize_instance_id_segmentation=write_segmentation,
+            bounding_box_2d_tight=write_bboxes,
         )
         writer.attach(render_product)
         print("[ISAAC] Writer attached; starting frame capture", flush=True)
@@ -463,7 +474,9 @@ def generate_cogar_isaac_sim_500(
                     flush=True,
                 )
 
+            print(f"[ISAAC] Rendering frame {frame_idx + 1}/{total_frames}", flush=True)
             rep.orchestrator.step(rt_subframes=subframes)
+            print(f"[ISAAC] Captured frame {frame_idx + 1}/{total_frames}", flush=True)
             flags = _challenge_flags(challenge)
             rows.append(
                 {
@@ -482,7 +495,9 @@ def generate_cogar_isaac_sim_500(
                 }
             )
 
+        print("[ISAAC] Waiting for Replicator writer", flush=True)
         rep.orchestrator.wait_until_complete()
+        print("[ISAAC] Replicator writer complete", flush=True)
         if hasattr(writer, "detach"):
             writer.detach()
         if hasattr(render_product, "destroy"):
