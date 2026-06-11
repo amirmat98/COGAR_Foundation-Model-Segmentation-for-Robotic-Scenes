@@ -265,9 +265,19 @@ the frozen benchmark data:
 data/cogar_isaac_sim_500/
 ```
 
-Main command on an RTX AWS instance:
+Recommended AWS target:
+
+```text
+g6e.4xlarge preferred, g6e.2xlarge minimum, g6e.8xlarge if budget/quota allows
+```
+
+Main validation and generation commands on the RTX AWS instance:
 
 ```bash
+bash scripts/aws/run_isaac_sim_dataset_aws.sh diagnose
+bash scripts/aws/run_isaac_sim_dataset_aws.sh compat
+FRAMES=1 PROGRESS_EVERY=1 \
+  bash scripts/aws/run_isaac_sim_dataset_aws.sh smoke1
 FRAMES=500 PROGRESS_EVERY=25 \
   bash scripts/aws/run_isaac_sim_dataset_aws.sh generate
 ```
@@ -314,7 +324,8 @@ Decision:
 ```text
 Keep data/cogar_sim_500_final/ as the frozen reported benchmark dataset.
 Keep the Isaac Sim workflow as a reproducible RTX-AWS generation route.
-Use g6e.2xlarge or stronger before attempting the full Isaac 500-image run.
+Use g6e.4xlarge, or at minimum g6e.2xlarge, before attempting the full Isaac
+500-image run.
 ```
 
 ## Isaac Sim, Gazebo, And Rviz2 Scope

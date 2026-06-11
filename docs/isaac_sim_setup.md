@@ -40,15 +40,19 @@ Use a workstation or cloud machine with:
 - Docker with NVIDIA Container Toolkit;
 - Isaac Sim 6.0 container image.
 
-Recommended AWS instance:
+Recommended AWS instances:
 
 ```text
-g6e.2xlarge or larger
+Best practical choice: g6e.4xlarge
+Minimum cost-sensitive choice: g6e.2xlarge
+Stronger choice if budget/quota allows: g6e.8xlarge
+NVIDIA AWS documentation option: g7e.8xlarge
 ```
 
 The Tesla T4 machine used for SAM inference is not the preferred choice for
 Isaac Sim. It can run segmentation benchmarks, but Isaac Sim 6.0 targets newer
-RTX-class GPUs.
+RTX-class GPUs with RT cores. Avoid A100/H100 for this task because Isaac Sim
+documents GPUs without RT cores as unsupported.
 
 ## AWS T4 Attempt Outcome
 
@@ -73,7 +77,7 @@ Conclusion:
 ```text
 Use the T4 instance for SAM/SAM2/FastSAM benchmarking.
 Do not use the T4 instance as the final Isaac Sim generation machine.
-Use g6e.2xlarge or stronger for the full Isaac Sim dataset.
+Use g6e.4xlarge, or at minimum g6e.2xlarge, for the full Isaac Sim dataset.
 ```
 
 This is why the reported assignment dataset remains
@@ -92,15 +96,16 @@ docs/aws_isaac_sim_dataset.md
 
 ## Workflow
 
-1. Launch an RTX AWS instance, preferably `g6e.2xlarge`.
+1. Launch an RTX AWS instance, preferably `g6e.4xlarge`.
 2. Install Docker and NVIDIA Container Toolkit.
 3. Clone or pull this repository.
-4. Pull the Isaac Sim container.
-5. Run a 5-frame smoke test.
-6. Run the full 500-frame generation.
-7. Package `data/cogar_isaac_sim_500/`.
-8. Download it locally.
-9. Decide whether to use it as extra Task 2 evidence or rerun all model
+4. Run `bash scripts/aws/run_isaac_sim_dataset_aws.sh diagnose`.
+5. Pull the Isaac Sim container.
+6. Run the compatibility check and a 1-frame smoke test.
+7. Run the full 500-frame generation.
+8. Package `data/cogar_isaac_sim_500/`.
+9. Download it locally.
+10. Decide whether to use it as extra Task 2 evidence or rerun all model
    benchmarks on it as a replacement dataset.
 
 See the full command sequence:

@@ -31,16 +31,20 @@ Isaac startup and extension loading before producing a single frame. The T4 run
 is useful as an environment-debugging exercise, not as the recommended full
 dataset generation route.
 
-Use an RTX-capable AWS instance.
-
-Recommended:
+Use an RTX-capable AWS instance. For this project, the practical target is:
 
 ```text
-Instance type: g6e.2xlarge or larger
-GPU: RTX-class NVIDIA GPU with RT cores
-Storage: 200 GB or larger EBS volume
+Best practical choice: g6e.4xlarge
+Minimum cost-sensitive choice: g6e.2xlarge
+Stronger choice if budget/quota allows: g6e.8xlarge
+NVIDIA AWS documentation option: g7e.8xlarge
+Storage: 300 GB gp3 EBS volume
 OS: Ubuntu 24.04 LTS or Ubuntu 22.04 LTS
 ```
+
+Avoid `g4dn` / Tesla T4 for the full Isaac dataset. Also avoid A100/H100
+instances for this task: they are excellent training GPUs, but Isaac Sim
+requires RT cores and NVIDIA documents A100/H100 as unsupported for Isaac Sim.
 
 Official references:
 
@@ -54,10 +58,10 @@ Official references:
 In the AWS console:
 
 ```text
-Region: eu-central-1, or another region where g6e is available
+Region: eu-central-1, or another region where g6e/g7e is available
 AMI: Ubuntu 24.04 LTS, Ubuntu 22.04 LTS, or NVIDIA Deep Learning AMI
-Instance: g6e.2xlarge preferred
-Storage: 200 GB gp3 EBS minimum
+Instance: g6e.4xlarge preferred, g6e.2xlarge minimum
+Storage: 300 GB gp3 EBS recommended
 Security group: SSH only
 ```
 
@@ -105,7 +109,7 @@ sudo systemctl restart docker
 Validate Docker GPU access:
 
 ```bash
-docker run --rm --runtime=nvidia --gpus all \
+docker run --rm --gpus all \
   nvcr.io/nvidia/cuda:12.8.0-base-ubuntu24.04 nvidia-smi
 ```
 
@@ -125,7 +129,30 @@ cd COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes
 git pull
 ```
 
-## 4. Pull Isaac Sim
+## 4. Diagnose The Machine First
+
+Before pulling the huge Isaac image, run:
+
+```bash
+bash scripts/aws/run_isaac_sim_dataset_aws.sh diagnose
+```
+
+Use this output to confirm:
+
+- the instance type is `g6e.2xlarge`, `g6e.4xlarge`, `g6e.8xlarge`, or
+  another RTX/RT-core instance;
+- `nvidia-smi` sees the GPU;
+- memory is at least 64 GiB for `g6e.2xlarge`, preferably 128 GiB for
+  `g6e.4xlarge`;
+- free disk is comfortably above 150 GB before pulling Isaac Sim.
+
+Add swap before testing Isaac. This protects against startup memory spikes:
+
+```bash
+bash scripts/aws/run_isaac_sim_dataset_aws.sh setup-swap
+```
+
+## 5. Pull Isaac Sim
 
 Pull the Isaac Sim container:
 
@@ -141,7 +168,7 @@ docker logout nvcr.io
 bash scripts/aws/run_isaac_sim_dataset_aws.sh pull
 ```
 
-## 5. Check The Machine
+## 6. Check The Machine
 
 Run:
 
@@ -155,7 +182,16 @@ This checks:
 - Docker availability
 - GPU access inside a CUDA container
 
-## 6. Prepare Isaac Cache And Hub
+Then run NVIDIA's Isaac compatibility checker from inside the container:
+
+```bash
+bash scripts/aws/run_isaac_sim_dataset_aws.sh compat
+```
+
+If the compatibility checker does not pass, fix the GPU driver/container setup
+before continuing.
+
+## 7. Prepare Isaac Cache And Hub
 
 Isaac Sim containers write cache/log/data files as container UID `1234`.
 Prepare the cache folders before generation:
@@ -187,14 +223,10 @@ docker logs --tail 100 hub-cache
 On small machines, add swap before testing Isaac:
 
 ```bash
-sudo fallocate -l 16G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
-free -h
+bash scripts/aws/run_isaac_sim_dataset_aws.sh setup-swap
 ```
 
-## 7. Run A 1-Frame Smoke Test
+## 8. Run A 1-Frame Smoke Test
 
 Before spending money on the full 500 images, run one frame:
 
@@ -202,7 +234,7 @@ Before spending money on the full 500 images, run one frame:
 mkdir -p outputs/logs
 
 FRAMES=1 PROGRESS_EVERY=1 \
-  bash scripts/aws/run_isaac_sim_dataset_aws.sh smoke 2>&1 | tee outputs/logs/isaac_smoke1.log
+  bash scripts/aws/run_isaac_sim_dataset_aws.sh smoke1 2>&1 | tee outputs/logs/isaac_smoke1.log
 ```
 
 Expected success marker:
@@ -236,7 +268,7 @@ data/cogar_isaac_sim_500/metadata/dataset_summary.json
 data/cogar_isaac_sim_500/README.md
 ```
 
-## 8. Run The Full 500-Image Dataset
+## 9. Run The Full 500-Image Dataset
 
 After the smoke test works:
 
@@ -280,7 +312,7 @@ stop them:
 bash scripts/aws/run_isaac_sim_dataset_aws.sh stop-isaac
 ```
 
-## 9. Package The Result
+## 10. Package The Result
 
 When generation is finished:
 
@@ -373,9 +405,9 @@ Continue unless the command exits or a project-script traceback appears.
 On the tested Tesla T4 instance, Isaac Sim could start, but startup was slow and
 memory pressure was high. For the final assignment, keep the existing
 BlenderProc dataset as the reported dataset unless you can run Isaac Sim on an
-RTX-class instance such as `g6e.2xlarge` or stronger.
+RTX-class instance such as `g6e.4xlarge` or, at minimum, `g6e.2xlarge`.
 
-## 10. What To Do After Generation
+## 11. What To Do After Generation
 
 After the full Isaac dataset exists locally, decide whether to keep it as:
 

@@ -284,7 +284,19 @@ tables.
 
 The available Tesla T4 AWS instance was useful for segmentation inference but
 not practical for this Isaac Sim generation path. The Isaac workflow should be
-run on an RTX-class AWS instance such as `g6e.2xlarge` or stronger.
+run on an RTX-class AWS instance with RT cores. For the next attempt, use
+`g6e.4xlarge` as the preferred target, `g6e.2xlarge` as the minimum
+cost-sensitive target, or `g6e.8xlarge` if budget and quota allow.
+
+Before running the full Isaac dataset, validate the machine and one-frame
+generation:
+
+```bash
+bash scripts/aws/run_isaac_sim_dataset_aws.sh diagnose
+bash scripts/aws/run_isaac_sim_dataset_aws.sh compat
+FRAMES=1 PROGRESS_EVERY=1 \
+  bash scripts/aws/run_isaac_sim_dataset_aws.sh smoke1
+```
 
 ## Rebuild Commands
 
