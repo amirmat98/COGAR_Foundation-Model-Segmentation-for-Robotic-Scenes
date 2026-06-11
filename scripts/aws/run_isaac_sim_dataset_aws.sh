@@ -33,6 +33,8 @@ Environment variables:
   RT_SUBFRAMES         Optional override
   WRITER_MODE          Optional: full, seg, or rgb. Default comes from config/full.
   SKIP_WRITER_WAIT     Optional: 1/true to skip blocking writer finalization on weak GPUs.
+  MAX_OBJECTS          Optional object cap for weak GPUs.
+  DISABLE_MATERIALS    Optional: 1/true to skip material hints.
   PROGRESS_EVERY       Default: 25
   SWAP_SIZE_GB         Default: 16 for setup-swap
 USAGE
@@ -185,6 +187,8 @@ run_generator() {
   [[ -n "${RT_SUBFRAMES:-}" ]] && extra_args+=(--rt-subframes "$RT_SUBFRAMES")
   [[ -n "${WRITER_MODE:-}" ]] && extra_args+=(--writer-mode "$WRITER_MODE")
   [[ -n "${SKIP_WRITER_WAIT:-}" ]] && extra_args+=(--skip-writer-wait)
+  [[ -n "${MAX_OBJECTS:-}" ]] && extra_args+=(--max-objects "$MAX_OBJECTS")
+  [[ -n "${DISABLE_MATERIALS:-}" ]] && extra_args+=(--disable-materials)
 
   log "Generating ${frame_count} Isaac Sim frames into ${OUTPUT_DIR}"
   log "Using /isaac-sim/python.sh as Docker entrypoint to avoid the full streaming app wrapper."

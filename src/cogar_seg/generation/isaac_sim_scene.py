@@ -299,6 +299,8 @@ def generate_cogar_isaac_sim_500(
     headless: bool | None = None,
     clean: bool = True,
     skip_writer_wait: bool = False,
+    max_objects: int | None = None,
+    disable_materials: bool = False,
     progress_every: int = 25,
 ) -> IsaacSimGenerationRun:
     """Generate a complete 500-frame Isaac Sim robotic scene dataset."""
@@ -333,6 +335,7 @@ def generate_cogar_isaac_sim_500(
         f"renderer={renderer_value} subframes={subframes} "
         f"writer_mode={writer_mode_value} "
         f"skip_writer_wait={skip_writer_wait} "
+        f"max_objects={max_objects or 'all'} "
         f"output={resolved_output_dir}",
         flush=True,
     )
@@ -349,7 +352,10 @@ def generate_cogar_isaac_sim_500(
     challenges = _challenge_sequence(config["final_plan"], total_frames)
     pos_min = list(scene_cfg["object_position_min"])
     pos_max = list(scene_cfg["object_position_max"])
-    enable_material_hints = _bool_value(scene_cfg.get("enable_material_hints", True))
+    enable_material_hints = (
+        _bool_value(scene_cfg.get("enable_material_hints", True))
+        and not disable_materials
+    )
 
     simulation_app = _start_simulation_app(
         headless=headless_value,
@@ -394,6 +400,8 @@ def generate_cogar_isaac_sim_500(
             if category not in categories_by_name:
                 raise ValueError(f"Object spec has unknown category: {category}")
             for instance_idx in range(int(spec["count"])):
+                if max_objects is not None and len(objects) >= max_objects:
+                    break
                 prim = rep.functional.create.cube(
                     parent="/World/Objects",
                     name=f"{category}_{instance_idx:02d}",
@@ -410,6 +418,9 @@ def generate_cogar_isaac_sim_500(
                 if enable_material_hints:
                     _apply_optional_material(rep, prim, category)
                 objects.append({"prim": prim, "category": category, "scale": scale})
+            if max_objects is not None and len(objects) >= max_objects:
+                break
+        print(f"[ISAAC] Scene objects: {len(objects)}", flush=True)
 
         camera = rep.functional.create.camera(
             position=tuple(scene_cfg["camera_position"]),

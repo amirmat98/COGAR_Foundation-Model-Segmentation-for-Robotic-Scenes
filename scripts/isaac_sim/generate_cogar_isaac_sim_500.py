@@ -46,6 +46,17 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="Skip Replicator wait_until_complete; useful when weak GPUs hang during writer finalization.",
     )
+    parser.add_argument(
+        "--max-objects",
+        type=int,
+        default=None,
+        help="Optional cap on scene objects for weak GPU smoke tests.",
+    )
+    parser.add_argument(
+        "--disable-materials",
+        action="store_true",
+        help="Skip optional material hints for weak GPU smoke tests.",
+    )
     parser.add_argument("--progress-every", type=int, default=25)
     return parser.parse_args()
 
@@ -74,6 +85,8 @@ def main() -> None:
         headless=headless,
         clean=not args.no_clean,
         skip_writer_wait=args.skip_writer_wait,
+        max_objects=args.max_objects,
+        disable_materials=args.disable_materials,
         progress_every=args.progress_every,
     )
 
