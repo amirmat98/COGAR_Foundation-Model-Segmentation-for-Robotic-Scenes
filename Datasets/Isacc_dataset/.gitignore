@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+
+# Generated datasets and large simulation outputs.
+data/
+datasets/
+assets/unitree_model/
+outputs/
+_out*/
+
+# Isaac Sim and Omniverse local state.
+kit_*/
+omniverse_logs/
+*.usd.tmp
+
+# OS/editor noise.
+.DS_Store
+.idea/
+.vscode/

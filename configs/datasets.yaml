@@ -1,0 +1,61 @@
+project:
+  name: foundation_model_segmentation_for_robotic_scenes
+  student_id: "5884715"
+  active_phase: dataset_preparation_tasks_1_to_3
+
+datasets:
+  isaac_official_unitree_g1:
+    status: active
+    kind: synthetic_simulation
+    simulator: isaac_sim
+    target_images: 1000
+    robot: unitree_g1_official_usd_only
+    generator_root: Datasets/Isacc_dataset
+    config: Datasets/Isacc_dataset/configs/dataset_config_v3_official_g1.json
+    runbook: Datasets/Isacc_dataset/docs/dataset_v3_official_g1_runbook.md
+    expected_output: Datasets/Isacc_dataset/data/robotic_sdg_v3_official_g1_1000
+    requires_gpu: true
+    aws_recommended: true
+    notes:
+      - Smoke-test 5 frames before launching the full run.
+      - Do not allow surrogate robot fallback for final data.
+
+  blenderproc_cogar_sim:
+    status: planned_rebuild
+    kind: synthetic_simulation
+    simulator: blenderproc
+    target_images: 500
+    archive_code_sources:
+      - /home/amir/Desktop/COGAR/Archive/scripts/blenderproc/generate_cogar_sim_500.py
+      - /home/amir/Desktop/COGAR/Archive/scripts/dataset/normalize_cogar_sim_500.py
+      - /home/amir/Desktop/COGAR/Archive/src/cogar_seg/generation
+    expected_output: Datasets/BlenderProc_cogar_sim_500
+    requires_gpu: false
+    aws_recommended: false
+    notes:
+      - The old generated dataset was removed accidentally.
+      - Recover only the needed generator and normalization code when this task starts.
+
+  ocid:
+    status: external_available_locally
+    kind: real_world_rgbd
+    local_root: /mnt/Info/COGAR_DATASETs/OCID-dataset
+    expected_top_level_dirs:
+      - ARID10
+      - ARID20
+      - YCB10
+    expected_modalities:
+      - rgb
+      - label
+      - depth
+      - pcd
+    local_scan_2026_06_13:
+      rgb_frames: 2390
+      label_frames: 2390
+      depth_frames: 2390
+      pcd_frames: 2390
+    requires_gpu: false
+    aws_recommended: false
+    notes:
+      - Keep OCID outside this Git repository.
+      - Build indexes/manifests from the external path when benchmark scripts are added.

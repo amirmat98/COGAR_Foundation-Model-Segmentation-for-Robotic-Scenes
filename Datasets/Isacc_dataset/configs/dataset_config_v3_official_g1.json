@@ -1,0 +1,106 @@
+{
+  "dataset": {
+    "name": "robotic_sdg_v3_official_unitree_g1_1000",
+    "num_images": 1000,
+    "seed": 5884717,
+    "resolution": [1024, 768],
+    "output_format": "isaac_basic_writer_plus_coco",
+    "target_annotation_format": "semantic_instance_depth_boxes_coco"
+  },
+  "robot": {
+    "platform": "unitree_g1_edu",
+    "unitree_usd_path": "assets/unitree_model/G1/29dof/usd/g1_29dof_rev_1_0/g1_29dof_rev_1_0.usd",
+    "asset_source": "https://huggingface.co/datasets/unitreerobotics/unitree_model",
+    "robot_class_policy": "single_class_robot",
+    "pose_policy": "official_usd_root_pose_plus_editable_g1_link_pose_targets"
+  },
+  "classes": [
+    "robot",
+    "workbench",
+    "background_fixture",
+    "storage_bin",
+    "metal_part",
+    "transparent_glass",
+    "screw",
+    "connector",
+    "cable",
+    "moving_object",
+    "occluder",
+    "tool",
+    "pcb",
+    "rubber_part",
+    "sensor_module",
+    "fiducial_marker"
+  ],
+  "scenarios": [
+    {
+      "name": "reflective_metal_workcell",
+      "count": 90,
+      "challenge_tags": ["reflective", "specular", "thin_edges", "robot_nearby"]
+    },
+    {
+      "name": "transparent_inspection",
+      "count": 90,
+      "challenge_tags": ["transparent", "weak_texture", "overlap", "robot_nearby"]
+    },
+    {
+      "name": "occluded_bin_picking",
+      "count": 100,
+      "challenge_tags": ["partial_occlusion", "bin_clutter", "foreground_blockers"]
+    },
+    {
+      "name": "dense_small_parts",
+      "count": 100,
+      "challenge_tags": ["small_objects", "screws", "connectors", "thin_cables"]
+    },
+    {
+      "name": "dynamic_conveyor",
+      "count": 100,
+      "challenge_tags": ["motion", "frame_to_frame_change", "conveyor", "blur_risk"]
+    },
+    {
+      "name": "mixed_hard_workcell",
+      "count": 150,
+      "challenge_tags": ["reflective", "transparent", "occlusion", "small_objects", "motion", "clutter"]
+    },
+    {
+      "name": "robot_close_range",
+      "count": 90,
+      "challenge_tags": ["robot_closeup", "hand_object_overlap", "extreme_scale_change"]
+    },
+    {
+      "name": "micro_assembly_electronics",
+      "count": 80,
+      "challenge_tags": ["small_objects", "pcbs", "sensors", "fiducials", "thin_cables"]
+    },
+    {
+      "name": "handover_pose_occlusion",
+      "count": 70,
+      "challenge_tags": ["robot_pose_variation", "partial_occlusion", "hand_object_overlap"]
+    },
+    {
+      "name": "glass_reflection_robot_closeup",
+      "count": 60,
+      "challenge_tags": ["transparent", "reflective", "robot_closeup", "ambiguous_edges"]
+    },
+    {
+      "name": "low_light_motion_blur",
+      "count": 70,
+      "challenge_tags": ["motion", "low_light", "weak_texture", "real_time_challenge"]
+    }
+  ],
+  "render": {
+    "rt_subframes": 4,
+    "dlss_quality_mode": 2,
+    "headless": true
+  },
+  "writer": {
+    "rgb": true,
+    "semantic_segmentation": true,
+    "colorize_semantic_segmentation": true,
+    "instance_segmentation": true,
+    "colorize_instance_segmentation": true,
+    "bounding_box_2d_tight": true,
+    "distance_to_camera": true
+  }
+}
