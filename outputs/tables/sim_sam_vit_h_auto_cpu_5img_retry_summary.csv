@@ -1,2 +1,0 @@
-model_type,prompt_mode,device,checkpoint,num_objects,mean_iou,median_iou,mean_boundary_f1,iou_ge_090,iou_ge_075,iou_ge_050,iou_lt_010,total_model_time_s,mean_fps,mean_predicted_iou
-vit_h,auto,cpu,checkpoints/sam_vit_h_4b8939.pth,42,0.7302306344733782,0.956347575259021,0.7639909077814317,0.5952380952380952,0.7142857142857143,0.7857142857142857,0.19047619047619047,198.33166944700497,0.21176648246397467,0.9934147681508746

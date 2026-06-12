@@ -1,2 +1,0 @@
-model,num_test_images,num_test_objects,score_thresh,mean_iou,median_iou,mean_boundary_f1,iou_ge_090,iou_ge_075,iou_ge_050,iou_lt_010,total_inference_time_s,mean_fps_images,mean_fps_objects
-maskrcnn_resnet50_fpn,3,30,0.25,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.6616993750067195,4.533780918214613,45.337809182146124

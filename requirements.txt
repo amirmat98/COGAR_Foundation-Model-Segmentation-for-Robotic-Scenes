@@ -1,9 +1,0 @@
-matplotlib
-numpy
-opencv-python
-pandas
-PyYAML
-torch
-segment-anything
-pytest
-pycocotools

@@ -1,4 +1,0 @@
-ocid_root: "."
-ocid_debug_sequence: "."
-outputs_dir: "outputs"
-sam_outputs_dir: "outputs/sam_box_prompt_sim"

@@ -1,1 +1,0 @@
-image_id,scene_id,frame_id,split,raw_image_path,raw_instance_mask_path,raw_semantic_mask_path,category_id,category_name,object_id,bbox_xmin,bbox_ymin,bbox_xmax,bbox_ymax,challenge_primary,challenge_secondary,is_reflective,is_transparent,is_occluded,is_small_part,is_dynamic,camera_name

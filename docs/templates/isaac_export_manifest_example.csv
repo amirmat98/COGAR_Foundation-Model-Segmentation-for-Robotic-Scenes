@@ -1,2 +1,0 @@
-image_id,scene_id,frame_id,split,raw_image_path,raw_instance_mask_path,raw_semantic_mask_path,category_id,category_name,object_id,bbox_xmin,bbox_ymin,bbox_xmax,bbox_ymax,challenge_primary,challenge_secondary,is_reflective,is_transparent,is_occluded,is_small_part,is_dynamic,camera_name
-img_000001,scene_0001,0,train,sim_dataset/images/train/img_000001.png,sim_dataset/masks/instance/train/img_000001_obj_1.png,sim_dataset/masks/semantic/train/img_000001.png,1,metal_tool,1,250,180,430,280,reflective_metal,partial_occlusion,True,False,True,False,False,front_table

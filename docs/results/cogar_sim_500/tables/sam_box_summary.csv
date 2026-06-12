@@ -1,2 +1,0 @@
-prompt,objects,mean_iou,median_iou,mean_sam_score
-SAM ViT-B box prompt,7274,0.8913587139135872,0.9426592753784329,0.9523189252087269

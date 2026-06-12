@@ -1,2 +1,0 @@
-category,count,mean_iou,median_iou,mean_boundary_f1,iou_ge_75,iou_lt_10
-unknown,25,0.8915574909695217,0.955899419729207,0.8827232533147297,0.92,0.0

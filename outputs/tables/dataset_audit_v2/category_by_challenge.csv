@@ -1,6 +1,0 @@
-challenge_primary,box,cable,connector,glass_object,metal_part,plastic_object,robot_gripper,screw,tool
-dynamic_scene,12,12,13,7,12,46,52,1,7
-partial_occlusion,26,18,13,8,13,12,49,7,7
-reflective_metal,12,3,5,0,45,13,18,8,35
-small_parts,10,15,48,0,14,13,29,64,9
-transparent_glass,8,12,5,37,6,7,32,0,2

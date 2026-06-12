@@ -1,4 +1,0 @@
-mode,objects,mean_iou,median_iou,mean_sam_score,notes
-box_prompt,7274,0.8913587139135872,0.9426592753784327,0.9523189252087269,Object-level bounding-box prompt
-single_positive_point_prompt,7274,0.8039926726752314,0.9126252727799964,0.8783572905414997,One foreground point per object
-automatic_mask_generation,7274,0.622318275085874,0.8702947880070013,,Best generated AMG mask matched to each GT object

@@ -1,9 +1,0 @@
-category_name,fastsam_s_box,mobilesam_box,sam_vit_b_box
-box,0,1,3
-cable,0,2,2
-connector,0,1,0
-glass_object,1,0,0
-metal_part,3,0,0
-robot_gripper,4,8,5
-screw,1,0,0
-tool,3,0,2
