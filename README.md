@@ -16,6 +16,23 @@ The final work evaluates zero-shot promptable segmentation models, lightweight
 SAM-style variants, and supervised instance-segmentation baselines. The old
 debug-subset prototype is no longer the current pipeline.
 
+## Supervisor Review Focus
+
+The benchmark pipeline is complete, but the main point for supervisor feedback
+is the dataset interpretation.
+
+The current final dataset was generated with BlenderProc and contains simulated
+robotic manipulation scenes with a visible `robot_gripper`. It does not include
+a full Unitree G1 EDU or Unitree As2 EDU embodied robot. Isaac Sim /
+Replicator was implemented and tested on AWS, but it did not reliably produce
+benchmark-ready dataset files on the available Tesla T4 setup.
+
+The key question is whether this dataset and approach are acceptable if this
+limitation is documented clearly, or whether a corrected Unitree/Isaac/Gazebo
+subset is required before final submission. If a correction is required, the
+minimum acceptable change may be a small 20-50 image Unitree/Isaac/Gazebo
+subset rather than replacing the full 500-image benchmark.
+
 ## Final Status
 
 | Area | Final state |
