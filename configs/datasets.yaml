@@ -98,7 +98,7 @@ datasets:
       rgb_frames: 2390
       label_frames: 2390
       depth_frames: 2390
-      pcd_frames: 2390
+      pcd_frames: 2380
     requires_gpu: false
     external_generation_machine_recommended: false
 

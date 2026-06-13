@@ -3,6 +3,8 @@
 Task 3 requires a simulated robotic platform such as Unitree G1 EDU or Unitree
 AS2 EDU.
 
+Status: complete, audited on 2026-06-13.
+
 ## Platform Used
 
 The main dataset uses the official Unitree G1 USD asset in Isaac Sim.
@@ -26,3 +28,8 @@ Datasets/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000
 
 The BlenderProc dataset uses a robot-gripper proxy as an additional tabletop
 occluder. It is secondary and does not replace the official Unitree G1 dataset.
+
+## Closure Decision
+
+Task 3 is complete. The primary simulated robotic platform is Unitree G1 EDU,
+represented by the official Unitree G1 USD asset in the Isaac Sim dataset.

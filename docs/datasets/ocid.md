@@ -38,7 +38,7 @@ Current local scan:
 - RGB frames: 2390
 - Label frames: 2390
 - Depth frames: 2390
-- Point clouds: 2390
+- Point clouds: 2380
 
 ## Source
 
@@ -49,4 +49,3 @@ Semi-Automatic Pixel-wise Object Annotation Tool for Creating Robotic RGB-D
 Datasets", arXiv:1902.01626.
 
 https://arxiv.org/abs/1902.01626
-

@@ -4,6 +4,8 @@ Task 1 requires robotic-scene datasets with segmentation annotations and
 challenge cases: reflective metal, transparent objects, partial occlusion,
 small parts, and dynamic scenes.
 
+Status: complete, audited on 2026-06-13.
+
 ## Dataset Set
 
 | Dataset | Role | Annotation type |
@@ -32,7 +34,7 @@ OCID is available locally:
 - RGB frames: 2390
 - Label frames: 2390
 - Depth frames: 2390
-- Point clouds: 2390
+- Point clouds: 2380
 
 BlenderProc final generation target:
 
@@ -52,3 +54,10 @@ BlenderProc target:
 - Status: available locally
 
 Local 5-image smoke test: PASS
+
+## Closure Decision
+
+Task 1 is complete. The project now has two local synthetic robotic-scene
+datasets with segmentation annotations and explicit coverage of reflective
+metal, transparent glass, occlusion, small parts, and moving or dynamic scenes.
+OCID is available locally as an external real-world robustness dataset.

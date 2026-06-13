@@ -2,6 +2,8 @@
 
 Task 2 requires simulation-based dataset generation.
 
+Status: complete, audited on 2026-06-13.
+
 ## Isaac Sim
 
 Isaac Sim is the primary simulator. The official Unitree G1 dataset was
@@ -43,3 +45,9 @@ Normalization command:
 
 The 5-image BlenderProc smoke test passed on 2026-06-13. The full 1000-image
 dataset has been generated and normalized.
+
+## Closure Decision
+
+Task 2 is complete. Isaac Sim was used for the primary official Unitree G1
+dataset, and BlenderProc was used for the secondary synthetic tabletop
+robotic-scene dataset.

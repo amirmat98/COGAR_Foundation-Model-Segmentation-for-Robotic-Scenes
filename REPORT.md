@@ -9,6 +9,16 @@ This report covers Assignment 2 tasks 1-3: dataset creation/curation,
 simulation environment use, and robotic platform use. Segmentation model
 benchmarking is the next project phase.
 
+## Closure Status
+
+Tasks 1-3 are complete as of 2026-06-13 based on the local dataset audit.
+
+| Task | Status | Evidence |
+| --- | --- | --- |
+| Task 1: Dataset creation/curation | Complete | Isaac and BlenderProc synthetic datasets are available locally with segmentation annotations and the required challenge coverage. |
+| Task 2: Simulation environment | Complete | Isaac Sim and BlenderProc generation pipelines are configured and documented. |
+| Task 3: Robotic platform | Complete | The main Isaac dataset uses the official Unitree G1 USD asset for all 1000 frames. |
+
 ## Dataset Summary
 
 | Dataset | Type | Status | Images | Location setting |
