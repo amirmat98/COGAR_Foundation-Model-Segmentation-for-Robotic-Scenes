@@ -356,16 +356,19 @@ def run_prompted(
     prompt_mode: str,
     run_metadata: dict[str, Any],
 ) -> Iterable[dict[str, Any]]:
+    import torch
+
     for index, record in enumerate(records, start=1):
         image = load_image_rgb(record["image_path"])
         start = time.perf_counter()
-        adapter.set_image(image, record["image_path"])
-        if prompt_mode == "point":
-            predictions = adapter.predict_point(record)
-        elif prompt_mode == "box":
-            predictions = adapter.predict_box(record)
-        else:
-            raise ValueError(f"Prompted run received {prompt_mode}")
+        with torch.inference_mode():
+            adapter.set_image(image, record["image_path"])
+            if prompt_mode == "point":
+                predictions = adapter.predict_point(record)
+            elif prompt_mode == "box":
+                predictions = adapter.predict_box(record)
+            else:
+                raise ValueError(f"Prompted run received {prompt_mode}")
         elapsed_ms = (time.perf_counter() - start) * 1000.0
         yield {
             **run_metadata,
@@ -387,11 +390,14 @@ def run_automatic(
     records: list[dict[str, Any]],
     run_metadata: dict[str, Any],
 ) -> Iterable[dict[str, Any]]:
+    import torch
+
     for index, record in enumerate(unique_image_records(records), start=1):
         image = load_image_rgb(record["image_path"])
         start = time.perf_counter()
-        adapter.set_image(image, record["image_path"])
-        predictions = adapter.predict_automatic(image)
+        with torch.inference_mode():
+            adapter.set_image(image, record["image_path"])
+            predictions = adapter.predict_automatic(image)
         elapsed_ms = (time.perf_counter() - start) * 1000.0
         yield {
             **run_metadata,
