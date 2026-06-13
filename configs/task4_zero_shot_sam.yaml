@@ -22,9 +22,11 @@ datasets:
       image_dir: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/rgb
 
   ocid:
-    enabled: false
+    enabled: true
     root: /mnt/Info/COGAR_DATASETs/OCID-dataset
-    reason: OCID labels need conversion to COCO instance annotations before prompt-based Task 4 inference.
+    annotation_file: /mnt/Info/COGAR_DATASETs/OCID-dataset/annotations/instances_all.json
+    image_path:
+      mode: coco_file_name_relative_to_root
 
 prompt_modes:
   point:

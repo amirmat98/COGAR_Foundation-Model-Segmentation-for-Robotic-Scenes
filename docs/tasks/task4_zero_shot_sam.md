@@ -37,9 +37,9 @@ annotations:
 - Isaac official Unitree G1
 - BlenderProc COGAR-SimRobotics-1000
 
-OCID is kept for the benchmark, but it needs a separate conversion from its
-label images to COCO-style instance annotations before using the same prompt
-runner.
+OCID uses integer instance-label PNG files. It is converted to COCO-style
+instance annotations with `scripts/datasets/convert_ocid_to_coco.py` before
+using the same prompt runner.
 
 ## Outputs
 
