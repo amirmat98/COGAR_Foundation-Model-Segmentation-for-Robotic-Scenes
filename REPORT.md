@@ -1,13 +1,13 @@
-# Main Report: Tasks 1-3 Dataset Preparation
+# Main Report: Foundation Model Segmentation Benchmark
 
 Project: Foundation Model Segmentation for Robotic Scenes  
 Student id: 5884715
 
 ## Scope
 
-This report covers Assignment 2 tasks 1-3: dataset creation/curation,
-simulation environment use, and robotic platform use. Segmentation model
-benchmarking is the next project phase.
+This report tracks the Assignment 2 benchmark workflow. Tasks 1-3 cover
+dataset preparation, simulation environment use, and robotic platform use.
+Task 4 starts the zero-shot SAM-family inference stage.
 
 ## Closure Status
 
@@ -51,3 +51,4 @@ Public URLs are currently marked as `TODO_PUBLIC_URL` in
 - [Task 1](docs/tasks/task1_dataset_creation.md)
 - [Task 2](docs/tasks/task2_simulation_environment.md)
 - [Task 3](docs/tasks/task3_robotic_platform.md)
+- [Task 4](docs/tasks/task4_zero_shot_sam.md)
