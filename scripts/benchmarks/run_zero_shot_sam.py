@@ -60,7 +60,7 @@ def write_jsonl(path: str | Path, records: Iterable[dict[str, Any]]) -> None:
 
 
 def load_image_rgb(path: str | Path) -> np.ndarray:
-    return np.asarray(Image.open(path).convert("RGB"))
+    return np.array(Image.open(path).convert("RGB"))
 
 
 def encode_mask(mask: Any) -> dict[str, Any]:
