@@ -33,14 +33,14 @@ Run this first on the AWS GPU machine:
 
 ```bash
 cd /home/ubuntu/Isacc_dataset
-bash scripts/run_isaac_dataset_v3_official_g1_container.sh data/smoke_v3_official_g1_5 5 --sample-mode coverage
+bash scripts/run_isaac_dataset_v3_official_g1_container.sh datasets/smoke_v3_official_g1_5 5 --sample-mode coverage
 ```
 
 After copying the smoke output back locally:
 
 ```bash
-python3 scripts/validate_dataset_preview.py data/smoke_v3_official_g1_5 --expected-images 5 --require-official-robot --require-robot-pose-variation --require-robot-mask
-python3 scripts/export_isaac_to_coco.py data/smoke_v3_official_g1_5 --config configs/dataset_config_v3_official_g1.json
+python3 scripts/validate_dataset_preview.py datasets/smoke_v3_official_g1_5 --expected-images 5 --require-official-robot --require-robot-pose-variation --require-robot-mask
+python3 scripts/export_isaac_to_coco.py datasets/smoke_v3_official_g1_5 --config configs/dataset_config_v3_official_g1.json
 ```
 
 ## Full 1000-Image AWS Run
@@ -49,16 +49,16 @@ Use `nohup` so SSH disconnects do not stop the job:
 
 ```bash
 cd /home/ubuntu/Isacc_dataset
-nohup bash scripts/run_isaac_dataset_v3_official_g1_container.sh data/robotic_sdg_v3_official_g1_1000 > generation_v3_official_g1_1000.log 2>&1 &
+nohup bash scripts/run_isaac_dataset_v3_official_g1_container.sh datasets/robotic_sdg_v3_official_g1_1000 > generation_v3_official_g1_1000.log 2>&1 &
 tail -f generation_v3_official_g1_1000.log
 ```
 
 Copy the dataset back:
 
 ```bash
-rsync -az --partial --info=progress2 isaac-aws:/home/ubuntu/Isacc_dataset/data/robotic_sdg_v3_official_g1_1000/ data/robotic_sdg_v3_official_g1_1000/
-python3 scripts/validate_dataset_preview.py data/robotic_sdg_v3_official_g1_1000 --expected-images 1000 --require-official-robot --require-robot-pose-variation --require-robot-mask
-python3 scripts/export_isaac_to_coco.py data/robotic_sdg_v3_official_g1_1000 --config configs/dataset_config_v3_official_g1.json
+rsync -az --partial --info=progress2 isaac-aws:/home/ubuntu/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000/ datasets/robotic_sdg_v3_official_g1_1000/
+python3 scripts/validate_dataset_preview.py datasets/robotic_sdg_v3_official_g1_1000 --expected-images 1000 --require-official-robot --require-robot-pose-variation --require-robot-mask
+python3 scripts/export_isaac_to_coco.py datasets/robotic_sdg_v3_official_g1_1000 --config configs/dataset_config_v3_official_g1.json
 ```
 
 ## Important

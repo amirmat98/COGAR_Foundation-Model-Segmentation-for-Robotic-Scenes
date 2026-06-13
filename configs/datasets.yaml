@@ -5,7 +5,7 @@ project:
 
 datasets:
   isaac_official_unitree_g1:
-    status: active
+    status: generated_locally
     kind: synthetic_simulation
     simulator: isaac_sim
     target_images: 1000
@@ -13,33 +13,67 @@ datasets:
     generator_root: Datasets/Isacc_dataset
     config: Datasets/Isacc_dataset/configs/dataset_config_v3_official_g1.json
     runbook: Datasets/Isacc_dataset/docs/dataset_v3_official_g1_runbook.md
-    expected_output: Datasets/Isacc_dataset/data/robotic_sdg_v3_official_g1_1000
+    repo_default_root: Datasets/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000
+    local_root: /mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000
+    public_url: TODO_PUBLIC_URL
+    local_size: 3.7G
+    local_scan_2026_06_13:
+      images: 1000
+      manifest_rows: 1000
+      semantic_masks: 1000
+      instance_masks: 1000
+      coco_instances: annotations/instances_coco.json
+      coco_annotations: 72695
+      coco_categories: 16
+      validation: PASS
     requires_gpu: true
     aws_recommended: true
-    notes:
-      - Smoke-test 5 frames before launching the full run.
-      - Do not allow surrogate robot fallback for final data.
 
   blenderproc_cogar_sim:
-    status: planned_rebuild
+    status: aws_generation_pending
     kind: synthetic_simulation
     simulator: blenderproc
-    target_images: 500
-    archive_code_sources:
-      - /home/amir/Desktop/COGAR/Archive/scripts/blenderproc/generate_cogar_sim_500.py
-      - /home/amir/Desktop/COGAR/Archive/scripts/dataset/normalize_cogar_sim_500.py
-      - /home/amir/Desktop/COGAR/Archive/src/cogar_seg/generation
-    expected_output: Datasets/BlenderProc_cogar_sim_500
+    target_images: 1000
+    config: configs/blenderproc_dataset.yaml
+    generator_script: scripts/blenderproc/generate_cogar_sim.py
+    normalize_script: scripts/datasets/normalize_blenderproc_cogar_sim.py
+    repo_default_root: Datasets/BlenderProc_cogar_sim_1000
+    local_root: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000
+    public_url: TODO_PUBLIC_URL
+    smoke_test_2026_06_13:
+      raw_dataset_name: smoke_5_clean
+      images: 5
+      coco_images: 5
+      coco_annotations: 53
+      coco_categories: 10
+      metadata_rows: 5
+      challenge_families:
+        - dynamic_scene
+        - partial_occlusion
+        - reflective_metal
+        - small_parts
+        - transparent_glass
+      validation: PASS
+    final_target:
+      images: 1000
+      split_train: 700
+      split_val: 150
+      split_test: 150
+      challenge_families:
+        dynamic_scene: 200
+        partial_occlusion: 200
+        reflective_metal: 200
+        small_parts: 200
+        transparent_glass: 200
     requires_gpu: false
-    aws_recommended: false
-    notes:
-      - The old generated dataset was removed accidentally.
-      - Recover only the needed generator and normalization code when this task starts.
+    aws_recommended: true
 
   ocid:
     status: external_available_locally
     kind: real_world_rgbd
+    repo_default_root: Datasets/OCID
     local_root: /mnt/Info/COGAR_DATASETs/OCID-dataset
+    public_url: TODO_UPSTREAM_OCID_PUBLIC_LINK
     expected_top_level_dirs:
       - ARID10
       - ARID20
@@ -56,6 +90,13 @@ datasets:
       pcd_frames: 2390
     requires_gpu: false
     aws_recommended: false
-    notes:
-      - Keep OCID outside this Git repository.
-      - Build indexes/manifests from the external path when benchmark scripts are added.
+
+publishing:
+  recommended_option: zenodo_for_final_dataset_release
+  alternatives:
+    - hugging_face_datasets
+    - google_drive
+    - university_storage
+  notes:
+    - Replace TODO_PUBLIC_URL values after upload.
+    - Keep raw datasets out of Git.

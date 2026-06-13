@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-output_dir="${1:-data/robotic_sdg_v3_official_g1_1000}"
+output_dir="${1:-datasets/robotic_sdg_v3_official_g1_1000}"
 max_images="${2:-}"
 
 if [[ $# -gt 0 ]]; then

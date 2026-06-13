@@ -21,4 +21,4 @@ Main files:
 | `docs/dataset_v3_official_g1_runbook.md` | Current run commands |
 | `docs/aws_ssh.md` | AWS SSH setup notes |
 
-Generated data belongs under `data/` and is ignored by Git.
+Generated data belongs under `datasets/` and is ignored by Git.

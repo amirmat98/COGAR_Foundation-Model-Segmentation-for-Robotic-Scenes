@@ -1,0 +1,49 @@
+dataset:
+  name: COGAR-SimRobotics-1000
+  output_dir: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000
+  final_images: 1000
+  image_width: 640
+  image_height: 480
+
+generation:
+  seed: 5884715
+  render_samples: 32
+
+challenges:
+  reflective_metal: 200
+  transparent_glass: 200
+  partial_occlusion: 200
+  small_parts: 200
+  dynamic_scene: 200
+
+categories:
+  - id: 1
+    name: table
+    supercategory: scene
+  - id: 2
+    name: robot_gripper
+    supercategory: robot
+  - id: 3
+    name: metal_part
+    supercategory: object
+  - id: 4
+    name: glass_object
+    supercategory: object
+  - id: 5
+    name: plastic_object
+    supercategory: object
+  - id: 6
+    name: screw
+    supercategory: small_part
+  - id: 7
+    name: connector
+    supercategory: small_part
+  - id: 8
+    name: cable
+    supercategory: object
+  - id: 9
+    name: tool
+    supercategory: object
+  - id: 10
+    name: box
+    supercategory: object

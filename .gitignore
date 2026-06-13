@@ -28,6 +28,10 @@ wandb/
 
 # Raw or external datasets must stay outside Git.
 Datasets/OCID-dataset/
+Datasets/OCID/
+Datasets/BlenderProc_cogar_sim_500/
+Datasets/BlenderProc_cogar_sim_1000/
+Datasets/Isacc_dataset/assets/
 OCID-dataset/
 Datasets/*/data/
 Datasets/*/datasets/

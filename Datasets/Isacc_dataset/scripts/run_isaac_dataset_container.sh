@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-output_dir="${1:-data/smoke_test}"
+output_dir="${1:-datasets/smoke_test}"
 max_images="${2:-}"
 config_path="${3:-configs/dataset_config_v3_official_g1.json}"
 generator_script="${4:-src/robotic_sdg/generate_dataset_v2.py}"
@@ -17,11 +17,11 @@ mkdir -p \
   "$HOME/docker/isaac-sim/logs" \
   "$HOME/docker/isaac-sim/pkg" \
   "$HOME/.cache/ov/hub" \
-  "$repo_dir/data"
+  "$repo_dir/datasets"
 
 sudo chown -R 1234:1234 "$HOME/docker/isaac-sim" "$HOME/.cache/ov/hub"
-sudo chown -R "$(id -u):$(id -g)" "$repo_dir/data"
-chmod -R a+rwX "$repo_dir/data"
+sudo chown -R "$(id -u):$(id -g)" "$repo_dir/datasets"
+chmod -R a+rwX "$repo_dir/datasets"
 
 generator_args=(
   "$generator_script"
