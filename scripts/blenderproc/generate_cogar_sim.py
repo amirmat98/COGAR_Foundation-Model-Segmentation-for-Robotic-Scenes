@@ -22,6 +22,7 @@ if str(SRC_DIR) not in sys.path:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate COGAR-SimRobotics with BlenderProc.")
     parser.add_argument("--config", default="configs/blenderproc_dataset.yaml")
+    parser.add_argument("--output-root", default=None)
     parser.add_argument("--num-images", type=int, default=None)
     parser.add_argument("--raw-dataset-name", default="cogar_sim_1000_raw")
     parser.add_argument("--seed", type=int, default=None)
@@ -35,6 +36,7 @@ def main() -> None:
 
     generate_cogar_sim(
         config_path=args.config,
+        output_root=args.output_root,
         num_images=args.num_images,
         repo_root=REPO_ROOT,
         raw_dataset_name=args.raw_dataset_name,

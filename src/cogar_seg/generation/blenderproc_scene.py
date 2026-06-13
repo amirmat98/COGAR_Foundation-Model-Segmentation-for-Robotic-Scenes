@@ -482,6 +482,7 @@ def reset_registered_outputs() -> None:
 
 def generate_cogar_sim(
     config_path: str | Path = "configs/blenderproc_dataset.yaml",
+    output_root: str | Path | None = None,
     num_images: int | None = None,
     repo_root: str | Path | None = None,
     raw_dataset_name: str = "cogar_sim_1000_raw",
@@ -503,8 +504,14 @@ def generate_cogar_sim(
     if num_images is None:
         num_images = int(dataset_cfg["final_images"])
 
-    output_root = root / dataset_cfg["output_dir"]
-    raw_output_dir = output_root / "raw_blenderproc" / raw_dataset_name
+    if output_root is None:
+        output_root_path = Path(dataset_cfg["output_dir"])
+        if not output_root_path.is_absolute():
+            output_root_path = root / output_root_path
+    else:
+        output_root_path = Path(output_root)
+
+    raw_output_dir = output_root_path / "raw_blenderproc" / raw_dataset_name
     coco_output_dir = raw_output_dir / "coco_data"
 
     if clean and raw_output_dir.exists():
@@ -552,7 +559,7 @@ def generate_cogar_sim(
         metadata_rows.append(metadata)
 
     write_metadata(
-        output_root=output_root,
+        output_root=output_root_path,
         categories=categories,
         rows=metadata_rows,
     )

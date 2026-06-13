@@ -17,6 +17,12 @@ Generation target on this machine:
 /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000
 ```
 
+AWS generation target:
+
+```text
+~/COGAR_DATASETs/BlenderProc_cogar_sim_1000
+```
+
 Default repo path for another user:
 
 ```text
@@ -29,7 +35,8 @@ Users may store it elsewhere and update `configs/datasets.yaml`.
 
 ```bash
 blenderproc run scripts/blenderproc/generate_cogar_sim.py \
-  --config configs/blenderproc_dataset.yaml
+  --config configs/blenderproc_dataset.yaml \
+  --output-root ~/COGAR_DATASETs/BlenderProc_cogar_sim_1000
 ```
 
 Normalize:

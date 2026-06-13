@@ -38,6 +38,7 @@ datasets:
     generator_script: scripts/blenderproc/generate_cogar_sim.py
     normalize_script: scripts/datasets/normalize_blenderproc_cogar_sim.py
     repo_default_root: Datasets/BlenderProc_cogar_sim_1000
+    aws_root: ~/COGAR_DATASETs/BlenderProc_cogar_sim_1000
     local_root: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000
     public_url: TODO_PUBLIC_URL
     smoke_test_2026_06_13:

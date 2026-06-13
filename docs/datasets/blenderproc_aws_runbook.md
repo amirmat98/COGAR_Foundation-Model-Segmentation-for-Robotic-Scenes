@@ -1,6 +1,12 @@
 # BlenderProc AWS Runbook
 
-Target dataset:
+AWS target dataset:
+
+```text
+~/COGAR_DATASETs/BlenderProc_cogar_sim_1000
+```
+
+Final local destination after copying back:
 
 ```text
 /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000
@@ -11,13 +17,10 @@ Target dataset:
 Use an AWS instance with enough disk space for Blender, the repository, and the
 generated dataset. GPU is recommended for speed.
 
-The current config writes to `/mnt/Info/COGAR_DATASETs`. Create it on AWS or
-edit `configs/blenderproc_dataset.yaml` and `configs/datasets.yaml` to use the
-AWS dataset mount path.
+Create a dataset folder outside the Git repository:
 
 ```bash
-sudo mkdir -p /mnt/Info/COGAR_DATASETs
-sudo chown -R "$USER:$USER" /mnt/Info/COGAR_DATASETs
+mkdir -p ~/COGAR_DATASETs
 ```
 
 After the repository is on AWS:
@@ -34,6 +37,7 @@ python -m pip install -r requirements.txt
 ```bash
 .venv/bin/blenderproc run scripts/blenderproc/generate_cogar_sim.py \
   --config configs/blenderproc_dataset.yaml \
+  --output-root ~/COGAR_DATASETs/BlenderProc_cogar_sim_1000 \
   --num-images 5 \
   --raw-dataset-name smoke_5_aws \
   --seed 5884715
@@ -44,6 +48,7 @@ python -m pip install -r requirements.txt
 ```bash
 nohup .venv/bin/blenderproc run scripts/blenderproc/generate_cogar_sim.py \
   --config configs/blenderproc_dataset.yaml \
+  --output-root ~/COGAR_DATASETs/BlenderProc_cogar_sim_1000 \
   --num-images 1000 \
   --raw-dataset-name cogar_sim_1000_raw \
   --seed 5884715 > blenderproc_cogar_sim_1000.log 2>&1 &
@@ -58,13 +63,26 @@ tail -f blenderproc_cogar_sim_1000.log
 ## Normalize
 
 ```bash
-.venv/bin/python scripts/datasets/normalize_blenderproc_cogar_sim.py
+.venv/bin/python scripts/datasets/normalize_blenderproc_cogar_sim.py \
+  --output-root ~/COGAR_DATASETs/BlenderProc_cogar_sim_1000 \
+  --raw-coco-dir ~/COGAR_DATASETs/BlenderProc_cogar_sim_1000/raw_blenderproc/cogar_sim_1000_raw/coco_data \
+  --raw-metadata ~/COGAR_DATASETs/BlenderProc_cogar_sim_1000/metadata/frame_index_raw.csv \
+  --expected-images 1000
 ```
 
 ## Package
 
 ```bash
 .venv/bin/python scripts/datasets/package_dataset_release.py \
-  /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000 \
+  ~/COGAR_DATASETs/BlenderProc_cogar_sim_1000 \
   --name BlenderProc_cogar_sim_1000
+```
+
+Copy back to the local machine from the local terminal:
+
+```bash
+mkdir -p /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000
+rsync -az --partial --info=progress2 \
+  isaac-aws:~/COGAR_DATASETs/BlenderProc_cogar_sim_1000/ \
+  /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/
 ```
