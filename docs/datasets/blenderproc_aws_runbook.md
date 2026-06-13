@@ -17,6 +17,26 @@ Final local destination after copying back:
 Use an AWS instance with enough disk space for Blender, the repository, and the
 generated dataset. GPU is recommended for speed.
 
+Install Blender runtime libraries:
+
+```bash
+sudo apt-get update
+sudo apt-get install -y \
+  libxfixes3 \
+  libxi6 \
+  libxrender1 \
+  libxrandr2 \
+  libxcursor1 \
+  libxinerama1 \
+  libxxf86vm1 \
+  libxkbcommon0 \
+  libsm6 \
+  libxext6 \
+  libgl1 \
+  libegl1 \
+  libdbus-1-3
+```
+
 Create a dataset folder outside the Git repository:
 
 ```bash
