@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import time
 from pathlib import Path
 from typing import Any
 
@@ -25,6 +26,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--datasets", nargs="*", default=None)
     parser.add_argument("--max-images", type=int, default=None)
     parser.add_argument("--min-area", type=float, default=1.0)
+    parser.add_argument(
+        "--log-every",
+        type=int,
+        default=1000,
+        help="Print progress after this many COCO annotations per dataset.",
+    )
     return parser.parse_args()
 
 
@@ -108,6 +115,7 @@ def build_dataset_manifest(
     output_dir: Path,
     max_images: int | None,
     min_area: float,
+    log_every: int,
 ) -> dict[str, Any]:
     coco = load_json(dataset_config["annotation_file"])
     images = {image["id"]: image for image in coco["images"]}
@@ -120,18 +128,41 @@ def build_dataset_manifest(
     output_path = output_dir / f"{dataset_name}_instances.jsonl"
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
+    total_annotations = len(coco["annotations"])
+    selected_images_count = len(selected_image_ids)
+    started_at = time.perf_counter()
+    print(
+        f"[START] {dataset_name}: {total_annotations} annotations, "
+        f"{selected_images_count} selected images -> {output_path}",
+        flush=True,
+    )
+
     count = 0
     skipped = 0
+
+    def maybe_log_progress(annotation_index: int) -> None:
+        if log_every > 0 and annotation_index % log_every == 0:
+            elapsed = time.perf_counter() - started_at
+            print(
+                f"[PROGRESS] {dataset_name}: "
+                f"{annotation_index}/{total_annotations} annotations scanned, "
+                f"{count} prompts, {skipped} skipped, {elapsed:.1f}s",
+                flush=True,
+            )
+
     with output_path.open("w", encoding="utf-8") as f:
-        for annotation in coco["annotations"]:
+        for annotation_index, annotation in enumerate(coco["annotations"], start=1):
             image_id = annotation["image_id"]
             if image_id not in selected_image_ids:
+                maybe_log_progress(annotation_index)
                 continue
             if annotation.get("iscrowd", 0):
                 skipped += 1
+                maybe_log_progress(annotation_index)
                 continue
             if float(annotation.get("area", 0.0)) < min_area:
                 skipped += 1
+                maybe_log_progress(annotation_index)
                 continue
 
             image = images[image_id]
@@ -140,6 +171,7 @@ def build_dataset_manifest(
             mask = decode_mask(annotation["segmentation"], height, width)
             if not mask.any():
                 skipped += 1
+                maybe_log_progress(annotation_index)
                 continue
 
             point_xy = point_nearest_centroid(mask)
@@ -165,6 +197,7 @@ def build_dataset_manifest(
             }
             f.write(json.dumps(record) + "\n")
             count += 1
+            maybe_log_progress(annotation_index)
 
     summary = {
         "dataset": dataset_name,
@@ -175,6 +208,12 @@ def build_dataset_manifest(
         "min_area": min_area,
     }
     write_json(output_dir / f"{dataset_name}_summary.json", summary)
+    elapsed = time.perf_counter() - started_at
+    print(
+        f"[DONE] {dataset_name}: {count} prompts, {skipped} skipped, "
+        f"{elapsed:.1f}s",
+        flush=True,
+    )
     return summary
 
 
@@ -192,6 +231,7 @@ def main() -> None:
                 output_dir=output_dir,
                 max_images=args.max_images,
                 min_area=args.min_area,
+                log_every=args.log_every,
             )
         )
 

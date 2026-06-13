@@ -38,6 +38,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--device", default=None)
     parser.add_argument("--max-images", type=int, default=None)
     parser.add_argument("--max-instances", type=int, default=None)
+    parser.add_argument(
+        "--log-every",
+        type=int,
+        default=100,
+        help="Print progress after this many records/images during inference.",
+    )
     parser.add_argument("--dry-run", action="store_true")
     return parser.parse_args()
 
@@ -355,9 +361,12 @@ def run_prompted(
     records: list[dict[str, Any]],
     prompt_mode: str,
     run_metadata: dict[str, Any],
+    log_every: int,
 ) -> Iterable[dict[str, Any]]:
     import torch
 
+    total = len(records)
+    started_at = time.perf_counter()
     for index, record in enumerate(records, start=1):
         image = load_image_rgb(record["image_path"])
         start = time.perf_counter()
@@ -370,6 +379,19 @@ def run_prompted(
             else:
                 raise ValueError(f"Prompted run received {prompt_mode}")
         elapsed_ms = (time.perf_counter() - start) * 1000.0
+        if (
+            index == 1
+            or index == total
+            or (log_every > 0 and index % log_every == 0)
+        ):
+            total_elapsed = time.perf_counter() - started_at
+            print(
+                f"[PROGRESS] {run_metadata['dataset']} "
+                f"{run_metadata['model']} {prompt_mode}: "
+                f"{index}/{total} records, last={elapsed_ms:.1f}ms, "
+                f"elapsed={total_elapsed:.1f}s",
+                flush=True,
+            )
         yield {
             **run_metadata,
             "record_index": index,
@@ -389,16 +411,33 @@ def run_automatic(
     adapter: Any,
     records: list[dict[str, Any]],
     run_metadata: dict[str, Any],
+    log_every: int,
 ) -> Iterable[dict[str, Any]]:
     import torch
 
-    for index, record in enumerate(unique_image_records(records), start=1):
+    image_records = unique_image_records(records)
+    total = len(image_records)
+    started_at = time.perf_counter()
+    for index, record in enumerate(image_records, start=1):
         image = load_image_rgb(record["image_path"])
         start = time.perf_counter()
         with torch.inference_mode():
             adapter.set_image(image, record["image_path"])
             predictions = adapter.predict_automatic(image)
         elapsed_ms = (time.perf_counter() - start) * 1000.0
+        if (
+            index == 1
+            or index == total
+            or (log_every > 0 and index % log_every == 0)
+        ):
+            total_elapsed = time.perf_counter() - started_at
+            print(
+                f"[PROGRESS] {run_metadata['dataset']} "
+                f"{run_metadata['model']} automatic: "
+                f"{index}/{total} images, last={elapsed_ms:.1f}ms, "
+                f"elapsed={total_elapsed:.1f}s",
+                flush=True,
+            )
         yield {
             **run_metadata,
             "record_index": index,
@@ -432,6 +471,11 @@ def main() -> None:
     records = load_jsonl(manifest_path)
     records = select_limited_records(records, args.max_images, args.max_instances)
     out_path = output_path_for(config, args.dataset, args.model, args.prompt_mode)
+    total_units = (
+        len(unique_image_records(records))
+        if args.prompt_mode == "automatic"
+        else len(records)
+    )
 
     if args.dry_run:
         dry_run(config, args.dataset, args.model, args.prompt_mode, records, out_path)
@@ -445,14 +489,32 @@ def main() -> None:
         "device": device,
         "checkpoint": config["models"][args.model].get("checkpoint"),
     }
+    print(
+        f"[START] dataset={args.dataset} model={args.model} "
+        f"prompt_mode={args.prompt_mode} device={device} records={len(records)} "
+        f"run_units={total_units} output={out_path}",
+        flush=True,
+    )
+    load_started_at = time.perf_counter()
+    print(f"[LOAD] {args.model}: loading checkpoint/model", flush=True)
     adapter = build_adapter(config["models"][args.model], device)
+    print(
+        f"[LOAD] {args.model}: ready in {time.perf_counter() - load_started_at:.1f}s",
+        flush=True,
+    )
     if args.prompt_mode == "automatic":
-        output_records = run_automatic(adapter, records, run_metadata)
+        output_records = run_automatic(adapter, records, run_metadata, args.log_every)
     else:
-        output_records = run_prompted(adapter, records, args.prompt_mode, run_metadata)
+        output_records = run_prompted(
+            adapter,
+            records,
+            args.prompt_mode,
+            run_metadata,
+            args.log_every,
+        )
 
     write_jsonl(out_path, output_records)
-    print(f"[OK] wrote {out_path}")
+    print(f"[OK] wrote {out_path}", flush=True)
 
 
 if __name__ == "__main__":
