@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import time
 from collections import OrderedDict
@@ -60,9 +61,24 @@ def load_jsonl(path: str | Path) -> list[dict[str, Any]]:
 def write_jsonl(path: str | Path, records: Iterable[dict[str, Any]]) -> None:
     resolved = Path(path)
     resolved.parent.mkdir(parents=True, exist_ok=True)
-    with resolved.open("w", encoding="utf-8") as f:
-        for record in records:
-            f.write(json.dumps(record) + "\n")
+    tmp_path = resolved.with_name(f".{resolved.name}.{os.getpid()}.tmp")
+    written = 0
+    try:
+        with tmp_path.open("w", encoding="utf-8") as f:
+            for record in records:
+                f.write(json.dumps(record) + "\n")
+                written += 1
+            f.flush()
+            os.fsync(f.fileno())
+        tmp_path.replace(resolved)
+    except Exception:
+        print(
+            f"[ERROR] incomplete output kept at {tmp_path}",
+            flush=True,
+        )
+        raise
+
+    print(f"[WRITE] wrote {written} records to {resolved}", flush=True)
 
 
 def load_image_rgb(path: str | Path) -> np.ndarray:
