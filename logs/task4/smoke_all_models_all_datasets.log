@@ -1,0 +1,297 @@
+===== SMOKE dataset=isaac_official_unitree_g1 model=sam_vit_b prompt=point =====
+[START] dataset=isaac_official_unitree_g1 model=sam_vit_b prompt_mode=point device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_b/point_predictions.jsonl
+[LOAD] sam_vit_b: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_b: ready in 5.2s
+[PROGRESS] isaac_official_unitree_g1 sam_vit_b point: 1/1 records, last=789.6ms, elapsed=0.8s
+[OK] wrote results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_b/point_predictions.jsonl
+===== SMOKE dataset=isaac_official_unitree_g1 model=sam_vit_b prompt=box =====
+[START] dataset=isaac_official_unitree_g1 model=sam_vit_b prompt_mode=box device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_b/box_predictions.jsonl
+[LOAD] sam_vit_b: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_b: ready in 5.2s
+[PROGRESS] isaac_official_unitree_g1 sam_vit_b box: 1/1 records, last=680.7ms, elapsed=0.7s
+[OK] wrote results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_b/box_predictions.jsonl
+===== SMOKE dataset=isaac_official_unitree_g1 model=sam_vit_b prompt=automatic =====
+[START] dataset=isaac_official_unitree_g1 model=sam_vit_b prompt_mode=automatic device=cuda records=79 run_units=1 output=results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_b/automatic_predictions.jsonl
+[LOAD] sam_vit_b: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_b: ready in 5.2s
+[PROGRESS] isaac_official_unitree_g1 sam_vit_b automatic: 1/1 images, last=5463.4ms, elapsed=5.5s
+[OK] wrote results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_b/automatic_predictions.jsonl
+===== SMOKE dataset=isaac_official_unitree_g1 model=sam_vit_h prompt=point =====
+[START] dataset=isaac_official_unitree_g1 model=sam_vit_h prompt_mode=point device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_h/point_predictions.jsonl
+[LOAD] sam_vit_h: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_h: ready in 28.7s
+[PROGRESS] isaac_official_unitree_g1 sam_vit_h point: 1/1 records, last=2151.1ms, elapsed=2.2s
+[OK] wrote results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_h/point_predictions.jsonl
+===== SMOKE dataset=isaac_official_unitree_g1 model=sam_vit_h prompt=box =====
+[START] dataset=isaac_official_unitree_g1 model=sam_vit_h prompt_mode=box device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_h/box_predictions.jsonl
+[LOAD] sam_vit_h: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_h: ready in 28.1s
+[PROGRESS] isaac_official_unitree_g1 sam_vit_h box: 1/1 records, last=2025.6ms, elapsed=2.1s
+[OK] wrote results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_h/box_predictions.jsonl
+===== SMOKE dataset=isaac_official_unitree_g1 model=sam_vit_h prompt=automatic =====
+[START] dataset=isaac_official_unitree_g1 model=sam_vit_h prompt_mode=automatic device=cuda records=79 run_units=1 output=results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_h/automatic_predictions.jsonl
+[LOAD] sam_vit_h: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_h: ready in 15.7s
+[PROGRESS] isaac_official_unitree_g1 sam_vit_h automatic: 1/1 images, last=8837.2ms, elapsed=8.9s
+[OK] wrote results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_h/automatic_predictions.jsonl
+===== SMOKE dataset=isaac_official_unitree_g1 model=sam2_hiera_large prompt=point =====
+[START] dataset=isaac_official_unitree_g1 model=sam2_hiera_large prompt_mode=point device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/isaac_official_unitree_g1/sam2_hiera_large/point_predictions.jsonl
+[LOAD] sam2_hiera_large: loading checkpoint/model
+[LOAD] sam2_hiera_large: ready in 12.7s
+[PROGRESS] isaac_official_unitree_g1 sam2_hiera_large point: 1/1 records, last=931.7ms, elapsed=1.0s
+[OK] wrote results/task4_zero_shot_sam/isaac_official_unitree_g1/sam2_hiera_large/point_predictions.jsonl
+===== SMOKE dataset=isaac_official_unitree_g1 model=sam2_hiera_large prompt=box =====
+[START] dataset=isaac_official_unitree_g1 model=sam2_hiera_large prompt_mode=box device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/isaac_official_unitree_g1/sam2_hiera_large/box_predictions.jsonl
+[LOAD] sam2_hiera_large: loading checkpoint/model
+[LOAD] sam2_hiera_large: ready in 7.4s
+[PROGRESS] isaac_official_unitree_g1 sam2_hiera_large box: 1/1 records, last=824.6ms, elapsed=0.9s
+[OK] wrote results/task4_zero_shot_sam/isaac_official_unitree_g1/sam2_hiera_large/box_predictions.jsonl
+===== SMOKE dataset=isaac_official_unitree_g1 model=sam2_hiera_large prompt=automatic =====
+[START] dataset=isaac_official_unitree_g1 model=sam2_hiera_large prompt_mode=automatic device=cuda records=79 run_units=1 output=results/task4_zero_shot_sam/isaac_official_unitree_g1/sam2_hiera_large/automatic_predictions.jsonl
+[LOAD] sam2_hiera_large: loading checkpoint/model
+[LOAD] sam2_hiera_large: ready in 7.4s
+[PROGRESS] isaac_official_unitree_g1 sam2_hiera_large automatic: 1/1 images, last=5756.9ms, elapsed=5.8s
+[OK] wrote results/task4_zero_shot_sam/isaac_official_unitree_g1/sam2_hiera_large/automatic_predictions.jsonl
+===== SMOKE dataset=isaac_official_unitree_g1 model=fastsam_x prompt=point =====
+[START] dataset=isaac_official_unitree_g1 model=fastsam_x prompt_mode=point device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/isaac_official_unitree_g1/fastsam_x/point_predictions.jsonl
+[LOAD] fastsam_x: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/external/FastSAM/ultralytics/nn/tasks.py:518: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(file, map_location='cpu'), file  # load
+[LOAD] fastsam_x: ready in 5.0s
+
+image 1/1 /mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000/isaac/rgb_0000.png: 768x1024 55 objects, 116.7ms
+Speed: 3.0ms preprocess, 116.7ms inference, 169.6ms postprocess per image at shape (1, 3, 1024, 1024)
+[PROGRESS] isaac_official_unitree_g1 fastsam_x point: 1/1 records, last=4045.6ms, elapsed=4.1s
+[OK] wrote results/task4_zero_shot_sam/isaac_official_unitree_g1/fastsam_x/point_predictions.jsonl
+===== SMOKE dataset=isaac_official_unitree_g1 model=fastsam_x prompt=box =====
+[START] dataset=isaac_official_unitree_g1 model=fastsam_x prompt_mode=box device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/isaac_official_unitree_g1/fastsam_x/box_predictions.jsonl
+[LOAD] fastsam_x: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/external/FastSAM/ultralytics/nn/tasks.py:518: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(file, map_location='cpu'), file  # load
+[LOAD] fastsam_x: ready in 4.3s
+
+image 1/1 /mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000/isaac/rgb_0000.png: 768x1024 55 objects, 116.2ms
+Speed: 2.8ms preprocess, 116.2ms inference, 148.6ms postprocess per image at shape (1, 3, 1024, 1024)
+[PROGRESS] isaac_official_unitree_g1 fastsam_x box: 1/1 records, last=3327.4ms, elapsed=3.4s
+[OK] wrote results/task4_zero_shot_sam/isaac_official_unitree_g1/fastsam_x/box_predictions.jsonl
+===== SMOKE dataset=isaac_official_unitree_g1 model=fastsam_x prompt=automatic =====
+[START] dataset=isaac_official_unitree_g1 model=fastsam_x prompt_mode=automatic device=cuda records=79 run_units=1 output=results/task4_zero_shot_sam/isaac_official_unitree_g1/fastsam_x/automatic_predictions.jsonl
+[LOAD] fastsam_x: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/external/FastSAM/ultralytics/nn/tasks.py:518: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(file, map_location='cpu'), file  # load
+[LOAD] fastsam_x: ready in 4.3s
+
+image 1/1 /mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000/isaac/rgb_0000.png: 768x1024 55 objects, 115.8ms
+Speed: 2.8ms preprocess, 115.8ms inference, 164.3ms postprocess per image at shape (1, 3, 1024, 1024)
+[PROGRESS] isaac_official_unitree_g1 fastsam_x automatic: 1/1 images, last=3560.8ms, elapsed=3.6s
+[OK] wrote results/task4_zero_shot_sam/isaac_official_unitree_g1/fastsam_x/automatic_predictions.jsonl
+===== SMOKE dataset=blenderproc_cogar_sim model=sam_vit_b prompt=point =====
+[START] dataset=blenderproc_cogar_sim model=sam_vit_b prompt_mode=point device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_b/point_predictions.jsonl
+[LOAD] sam_vit_b: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_b: ready in 5.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 1/1 records, last=808.7ms, elapsed=0.8s
+[OK] wrote results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_b/point_predictions.jsonl
+===== SMOKE dataset=blenderproc_cogar_sim model=sam_vit_b prompt=box =====
+[START] dataset=blenderproc_cogar_sim model=sam_vit_b prompt_mode=box device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_b/box_predictions.jsonl
+[LOAD] sam_vit_b: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_b: ready in 5.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 1/1 records, last=695.1ms, elapsed=0.7s
+[OK] wrote results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_b/box_predictions.jsonl
+===== SMOKE dataset=blenderproc_cogar_sim model=sam_vit_b prompt=automatic =====
+[START] dataset=blenderproc_cogar_sim model=sam_vit_b prompt_mode=automatic device=cuda records=7 run_units=1 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_b/automatic_predictions.jsonl
+[LOAD] sam_vit_b: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_b: ready in 5.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b automatic: 1/1 images, last=5199.2ms, elapsed=5.2s
+[OK] wrote results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_b/automatic_predictions.jsonl
+===== SMOKE dataset=blenderproc_cogar_sim model=sam_vit_h prompt=point =====
+[START] dataset=blenderproc_cogar_sim model=sam_vit_h prompt_mode=point device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_h/point_predictions.jsonl
+[LOAD] sam_vit_h: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_h: ready in 12.9s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1/1 records, last=2147.4ms, elapsed=2.2s
+[OK] wrote results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_h/point_predictions.jsonl
+===== SMOKE dataset=blenderproc_cogar_sim model=sam_vit_h prompt=box =====
+[START] dataset=blenderproc_cogar_sim model=sam_vit_h prompt_mode=box device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_h/box_predictions.jsonl
+[LOAD] sam_vit_h: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_h: ready in 11.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h box: 1/1 records, last=2043.9ms, elapsed=2.1s
+[OK] wrote results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_h/box_predictions.jsonl
+===== SMOKE dataset=blenderproc_cogar_sim model=sam_vit_h prompt=automatic =====
+[START] dataset=blenderproc_cogar_sim model=sam_vit_h prompt_mode=automatic device=cuda records=7 run_units=1 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_h/automatic_predictions.jsonl
+[LOAD] sam_vit_h: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_h: ready in 11.5s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h automatic: 1/1 images, last=9497.6ms, elapsed=9.5s
+[OK] wrote results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_h/automatic_predictions.jsonl
+===== SMOKE dataset=blenderproc_cogar_sim model=sam2_hiera_large prompt=point =====
+[START] dataset=blenderproc_cogar_sim model=sam2_hiera_large prompt_mode=point device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/sam2_hiera_large/point_predictions.jsonl
+[LOAD] sam2_hiera_large: loading checkpoint/model
+[LOAD] sam2_hiera_large: ready in 7.4s
+[PROGRESS] blenderproc_cogar_sim sam2_hiera_large point: 1/1 records, last=817.7ms, elapsed=0.8s
+[OK] wrote results/task4_zero_shot_sam/blenderproc_cogar_sim/sam2_hiera_large/point_predictions.jsonl
+===== SMOKE dataset=blenderproc_cogar_sim model=sam2_hiera_large prompt=box =====
+[START] dataset=blenderproc_cogar_sim model=sam2_hiera_large prompt_mode=box device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/sam2_hiera_large/box_predictions.jsonl
+[LOAD] sam2_hiera_large: loading checkpoint/model
+[LOAD] sam2_hiera_large: ready in 7.5s
+[PROGRESS] blenderproc_cogar_sim sam2_hiera_large box: 1/1 records, last=812.0ms, elapsed=0.8s
+[OK] wrote results/task4_zero_shot_sam/blenderproc_cogar_sim/sam2_hiera_large/box_predictions.jsonl
+===== SMOKE dataset=blenderproc_cogar_sim model=sam2_hiera_large prompt=automatic =====
+[START] dataset=blenderproc_cogar_sim model=sam2_hiera_large prompt_mode=automatic device=cuda records=7 run_units=1 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/sam2_hiera_large/automatic_predictions.jsonl
+[LOAD] sam2_hiera_large: loading checkpoint/model
+[LOAD] sam2_hiera_large: ready in 7.4s
+[PROGRESS] blenderproc_cogar_sim sam2_hiera_large automatic: 1/1 images, last=6078.6ms, elapsed=6.1s
+[OK] wrote results/task4_zero_shot_sam/blenderproc_cogar_sim/sam2_hiera_large/automatic_predictions.jsonl
+===== SMOKE dataset=blenderproc_cogar_sim model=fastsam_x prompt=point =====
+[START] dataset=blenderproc_cogar_sim model=fastsam_x prompt_mode=point device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/fastsam_x/point_predictions.jsonl
+[LOAD] fastsam_x: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/external/FastSAM/ultralytics/nn/tasks.py:518: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(file, map_location='cpu'), file  # load
+[LOAD] fastsam_x: ready in 4.4s
+
+image 1/1 /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/rgb/000000.png: 768x1024 18 objects, 116.9ms
+Speed: 4.1ms preprocess, 116.9ms inference, 150.2ms postprocess per image at shape (1, 3, 1024, 1024)
+[PROGRESS] blenderproc_cogar_sim fastsam_x point: 1/1 records, last=3301.8ms, elapsed=3.3s
+[OK] wrote results/task4_zero_shot_sam/blenderproc_cogar_sim/fastsam_x/point_predictions.jsonl
+===== SMOKE dataset=blenderproc_cogar_sim model=fastsam_x prompt=box =====
+[START] dataset=blenderproc_cogar_sim model=fastsam_x prompt_mode=box device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/fastsam_x/box_predictions.jsonl
+[LOAD] fastsam_x: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/external/FastSAM/ultralytics/nn/tasks.py:518: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(file, map_location='cpu'), file  # load
+[LOAD] fastsam_x: ready in 4.3s
+
+image 1/1 /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/rgb/000000.png: 768x1024 18 objects, 116.8ms
+Speed: 4.2ms preprocess, 116.8ms inference, 147.3ms postprocess per image at shape (1, 3, 1024, 1024)
+[PROGRESS] blenderproc_cogar_sim fastsam_x box: 1/1 records, last=3299.5ms, elapsed=3.3s
+[OK] wrote results/task4_zero_shot_sam/blenderproc_cogar_sim/fastsam_x/box_predictions.jsonl
+===== SMOKE dataset=blenderproc_cogar_sim model=fastsam_x prompt=automatic =====
+[START] dataset=blenderproc_cogar_sim model=fastsam_x prompt_mode=automatic device=cuda records=7 run_units=1 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/fastsam_x/automatic_predictions.jsonl
+[LOAD] fastsam_x: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/external/FastSAM/ultralytics/nn/tasks.py:518: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(file, map_location='cpu'), file  # load
+[LOAD] fastsam_x: ready in 4.4s
+
+image 1/1 /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/rgb/000000.png: 768x1024 18 objects, 117.0ms
+Speed: 4.3ms preprocess, 117.0ms inference, 148.2ms postprocess per image at shape (1, 3, 1024, 1024)
+[PROGRESS] blenderproc_cogar_sim fastsam_x automatic: 1/1 images, last=3332.7ms, elapsed=3.3s
+[OK] wrote results/task4_zero_shot_sam/blenderproc_cogar_sim/fastsam_x/automatic_predictions.jsonl
+===== SMOKE dataset=ocid model=sam_vit_b prompt=point =====
+[START] dataset=ocid model=sam_vit_b prompt_mode=point device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/ocid/sam_vit_b/point_predictions.jsonl
+[LOAD] sam_vit_b: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_b: ready in 5.1s
+[PROGRESS] ocid sam_vit_b point: 1/1 records, last=811.0ms, elapsed=0.9s
+[OK] wrote results/task4_zero_shot_sam/ocid/sam_vit_b/point_predictions.jsonl
+===== SMOKE dataset=ocid model=sam_vit_b prompt=box =====
+[START] dataset=ocid model=sam_vit_b prompt_mode=box device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/ocid/sam_vit_b/box_predictions.jsonl
+[LOAD] sam_vit_b: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_b: ready in 5.1s
+[PROGRESS] ocid sam_vit_b box: 1/1 records, last=704.2ms, elapsed=0.8s
+[OK] wrote results/task4_zero_shot_sam/ocid/sam_vit_b/box_predictions.jsonl
+===== SMOKE dataset=ocid model=sam_vit_b prompt=automatic =====
+[START] dataset=ocid model=sam_vit_b prompt_mode=automatic device=cuda records=2 run_units=1 output=results/task4_zero_shot_sam/ocid/sam_vit_b/automatic_predictions.jsonl
+[LOAD] sam_vit_b: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_b: ready in 5.2s
+[PROGRESS] ocid sam_vit_b automatic: 1/1 images, last=5273.9ms, elapsed=5.4s
+[OK] wrote results/task4_zero_shot_sam/ocid/sam_vit_b/automatic_predictions.jsonl
+===== SMOKE dataset=ocid model=sam_vit_h prompt=point =====
+[START] dataset=ocid model=sam_vit_h prompt_mode=point device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/ocid/sam_vit_h/point_predictions.jsonl
+[LOAD] sam_vit_h: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_h: ready in 11.6s
+[PROGRESS] ocid sam_vit_h point: 1/1 records, last=2146.6ms, elapsed=2.2s
+[OK] wrote results/task4_zero_shot_sam/ocid/sam_vit_h/point_predictions.jsonl
+===== SMOKE dataset=ocid model=sam_vit_h prompt=box =====
+[START] dataset=ocid model=sam_vit_h prompt_mode=box device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/ocid/sam_vit_h/box_predictions.jsonl
+[LOAD] sam_vit_h: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_h: ready in 11.6s
+[PROGRESS] ocid sam_vit_h box: 1/1 records, last=2047.9ms, elapsed=2.1s
+[OK] wrote results/task4_zero_shot_sam/ocid/sam_vit_h/box_predictions.jsonl
+===== SMOKE dataset=ocid model=sam_vit_h prompt=automatic =====
+[START] dataset=ocid model=sam_vit_h prompt_mode=automatic device=cuda records=2 run_units=1 output=results/task4_zero_shot_sam/ocid/sam_vit_h/automatic_predictions.jsonl
+[LOAD] sam_vit_h: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_h: ready in 11.6s
+[PROGRESS] ocid sam_vit_h automatic: 1/1 images, last=8570.6ms, elapsed=8.6s
+[OK] wrote results/task4_zero_shot_sam/ocid/sam_vit_h/automatic_predictions.jsonl
+===== SMOKE dataset=ocid model=sam2_hiera_large prompt=point =====
+[START] dataset=ocid model=sam2_hiera_large prompt_mode=point device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/ocid/sam2_hiera_large/point_predictions.jsonl
+[LOAD] sam2_hiera_large: loading checkpoint/model
+[LOAD] sam2_hiera_large: ready in 7.4s
+[PROGRESS] ocid sam2_hiera_large point: 1/1 records, last=806.9ms, elapsed=0.8s
+[OK] wrote results/task4_zero_shot_sam/ocid/sam2_hiera_large/point_predictions.jsonl
+===== SMOKE dataset=ocid model=sam2_hiera_large prompt=box =====
+[START] dataset=ocid model=sam2_hiera_large prompt_mode=box device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/ocid/sam2_hiera_large/box_predictions.jsonl
+[LOAD] sam2_hiera_large: loading checkpoint/model
+[LOAD] sam2_hiera_large: ready in 7.4s
+[PROGRESS] ocid sam2_hiera_large box: 1/1 records, last=806.8ms, elapsed=0.8s
+[OK] wrote results/task4_zero_shot_sam/ocid/sam2_hiera_large/box_predictions.jsonl
+===== SMOKE dataset=ocid model=sam2_hiera_large prompt=automatic =====
+[START] dataset=ocid model=sam2_hiera_large prompt_mode=automatic device=cuda records=2 run_units=1 output=results/task4_zero_shot_sam/ocid/sam2_hiera_large/automatic_predictions.jsonl
+[LOAD] sam2_hiera_large: loading checkpoint/model
+[LOAD] sam2_hiera_large: ready in 7.4s
+[PROGRESS] ocid sam2_hiera_large automatic: 1/1 images, last=5315.3ms, elapsed=5.3s
+[OK] wrote results/task4_zero_shot_sam/ocid/sam2_hiera_large/automatic_predictions.jsonl
+===== SMOKE dataset=ocid model=fastsam_x prompt=point =====
+[START] dataset=ocid model=fastsam_x prompt_mode=point device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/ocid/fastsam_x/point_predictions.jsonl
+[LOAD] fastsam_x: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/external/FastSAM/ultralytics/nn/tasks.py:518: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(file, map_location='cpu'), file  # load
+[LOAD] fastsam_x: ready in 4.3s
+
+image 1/1 /mnt/Info/COGAR_DATASETs/OCID-dataset/ARID10/floor/bottom/box/seq03/rgb/result_2018-08-27-15-54-17.png: 768x1024 20 objects, 118.0ms
+Speed: 4.2ms preprocess, 118.0ms inference, 152.0ms postprocess per image at shape (1, 3, 1024, 1024)
+[PROGRESS] ocid fastsam_x point: 1/1 records, last=3302.1ms, elapsed=3.3s
+[OK] wrote results/task4_zero_shot_sam/ocid/fastsam_x/point_predictions.jsonl
+===== SMOKE dataset=ocid model=fastsam_x prompt=box =====
+[START] dataset=ocid model=fastsam_x prompt_mode=box device=cuda records=1 run_units=1 output=results/task4_zero_shot_sam/ocid/fastsam_x/box_predictions.jsonl
+[LOAD] fastsam_x: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/external/FastSAM/ultralytics/nn/tasks.py:518: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(file, map_location='cpu'), file  # load
+[LOAD] fastsam_x: ready in 4.3s
+
+image 1/1 /mnt/Info/COGAR_DATASETs/OCID-dataset/ARID10/floor/bottom/box/seq03/rgb/result_2018-08-27-15-54-17.png: 768x1024 20 objects, 118.4ms
+Speed: 4.2ms preprocess, 118.4ms inference, 151.3ms postprocess per image at shape (1, 3, 1024, 1024)
+[PROGRESS] ocid fastsam_x box: 1/1 records, last=3287.9ms, elapsed=3.3s
+[OK] wrote results/task4_zero_shot_sam/ocid/fastsam_x/box_predictions.jsonl
+===== SMOKE dataset=ocid model=fastsam_x prompt=automatic =====
+[START] dataset=ocid model=fastsam_x prompt_mode=automatic device=cuda records=2 run_units=1 output=results/task4_zero_shot_sam/ocid/fastsam_x/automatic_predictions.jsonl
+[LOAD] fastsam_x: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/external/FastSAM/ultralytics/nn/tasks.py:518: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  return torch.load(file, map_location='cpu'), file  # load
+[LOAD] fastsam_x: ready in 4.3s
+
+image 1/1 /mnt/Info/COGAR_DATASETs/OCID-dataset/ARID10/floor/bottom/box/seq03/rgb/result_2018-08-27-15-54-17.png: 768x1024 20 objects, 116.8ms
+Speed: 4.4ms preprocess, 116.8ms inference, 164.6ms postprocess per image at shape (1, 3, 1024, 1024)
+[PROGRESS] ocid fastsam_x automatic: 1/1 images, last=3338.2ms, elapsed=3.3s
+[OK] wrote results/task4_zero_shot_sam/ocid/fastsam_x/automatic_predictions.jsonl
