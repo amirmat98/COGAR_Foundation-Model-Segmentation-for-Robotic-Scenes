@@ -27,10 +27,10 @@ datasets:
       coco_categories: 16
       validation: PASS
     requires_gpu: true
-    aws_recommended: true
+    gpu_machine_recommended: true
 
   blenderproc_cogar_sim:
-    status: aws_generation_pending
+    status: available_locally
     kind: synthetic_simulation
     simulator: blenderproc
     target_images: 1000
@@ -38,7 +38,6 @@ datasets:
     generator_script: scripts/blenderproc/generate_cogar_sim.py
     normalize_script: scripts/datasets/normalize_blenderproc_cogar_sim.py
     repo_default_root: Datasets/BlenderProc_cogar_sim_1000
-    aws_root: ~/COGAR_DATASETs/BlenderProc_cogar_sim_1000
     local_root: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000
     public_url: TODO_PUBLIC_URL
     smoke_test_2026_06_13:
@@ -66,8 +65,19 @@ datasets:
         reflective_metal: 200
         small_parts: 200
         transparent_glass: 200
+    normalized_2026_06_13:
+      images: 1000
+      coco_annotations: 8768
+      annotations_file: annotations/instances_all.json
+      metadata_file: metadata/frame_index.csv
+      validation: PASS
+      local_copy: PASS
+      local_rgb_images: 1000
+      split_train: 700
+      split_val: 150
+      split_test: 150
     requires_gpu: false
-    aws_recommended: true
+    external_generation_machine_recommended: true
 
   ocid:
     status: external_available_locally
@@ -90,7 +100,7 @@ datasets:
       depth_frames: 2390
       pcd_frames: 2390
     requires_gpu: false
-    aws_recommended: false
+    external_generation_machine_recommended: false
 
 publishing:
   recommended_option: zenodo_for_final_dataset_release

@@ -46,8 +46,9 @@ BlenderProc target:
 
 - Images: 1000
 - COCO categories: 10
+- COCO annotations: 8768
 - Split: 700 train, 150 validation, 150 test
 - Challenge families: 200 images each
-- Generation location: AWS
+- Status: available locally
 
 Local 5-image smoke test: PASS

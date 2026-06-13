@@ -14,7 +14,7 @@ benchmarking is the next project phase.
 | Dataset | Type | Status | Images | Location setting |
 | --- | --- | --- | ---: | --- |
 | Isaac official Unitree G1 | Synthetic, Isaac Sim | Validated locally | 1000 | `isaac_official_unitree_g1` |
-| BlenderProc COGAR-SimRobotics-1000 | Synthetic, BlenderProc | AWS generation pending | 1000 target | `blenderproc_cogar_sim` |
+| BlenderProc COGAR-SimRobotics-1000 | Synthetic, BlenderProc | Available locally | 1000 | `blenderproc_cogar_sim` |
 | OCID | Real RGB-D clutter dataset | Available locally, external source | 2390 | `ocid` |
 
 Configured paths are in [configs/datasets.yaml](configs/datasets.yaml).
@@ -22,9 +22,9 @@ Configured paths are in [configs/datasets.yaml](configs/datasets.yaml).
 The Isaac dataset validation passed on 2026-06-13. The COCO export contains
 1000 images, 72,695 annotations, and 16 categories.
 
-The BlenderProc generator passed a 5-image local smoke test on 2026-06-13.
-The final dataset target is now 1000 images generated on AWS with 200 images
-per challenge family.
+The BlenderProc generator passed a 5-image smoke test on 2026-06-13. The full
+dataset was generated, normalized, and copied to the configured local dataset
+root with 1000 images and 8768 COCO annotations.
 
 ## Public Release
 

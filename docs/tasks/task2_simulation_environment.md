@@ -17,7 +17,7 @@ The active runbook is:
 Datasets/Isacc_dataset/docs/dataset_v3_official_g1_runbook.md
 ```
 
-Full Isaac generation should run on AWS or another NVIDIA GPU machine.
+Full Isaac generation requires an NVIDIA GPU machine.
 
 ## BlenderProc
 
@@ -41,5 +41,5 @@ Normalization command:
 .venv/bin/python scripts/datasets/normalize_blenderproc_cogar_sim.py
 ```
 
-The local 5-image BlenderProc smoke test passed on 2026-06-13. The full
-1000-image dataset should be generated on AWS.
+The 5-image BlenderProc smoke test passed on 2026-06-13. The full 1000-image
+dataset has been generated and normalized.
