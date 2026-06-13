@@ -1,0 +1,26 @@
+[
+  {
+    "dataset": "isaac_official_unitree_g1",
+    "manifest": "outputs/task4_zero_shot_sam/prompts/isaac_official_unitree_g1_instances.jsonl",
+    "images": 1000,
+    "instances": 72695,
+    "skipped_annotations": 0,
+    "min_area": 1.0
+  },
+  {
+    "dataset": "blenderproc_cogar_sim",
+    "manifest": "outputs/task4_zero_shot_sam/prompts/blenderproc_cogar_sim_instances.jsonl",
+    "images": 1000,
+    "instances": 8768,
+    "skipped_annotations": 0,
+    "min_area": 1.0
+  },
+  {
+    "dataset": "ocid",
+    "manifest": "outputs/task4_zero_shot_sam/prompts/ocid_instances.jsonl",
+    "images": 2390,
+    "instances": 21487,
+    "skipped_annotations": 0,
+    "min_area": 1.0
+  }
+]

@@ -1,0 +1,96 @@
+===== FULL dataset=blenderproc_cogar_sim model=sam_vit_b prompt=point =====
+[START] dataset=blenderproc_cogar_sim model=sam_vit_b prompt_mode=point device=cuda records=8768 run_units=8768 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_b/point_predictions.jsonl
+[LOAD] sam_vit_b: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_b: ready in 5.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 1/8768 records, last=799.5ms, elapsed=0.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 250/8768 records, last=8.8ms, elapsed=14.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 500/8768 records, last=8.5ms, elapsed=28.4s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 750/8768 records, last=371.2ms, elapsed=43.6s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 1000/8768 records, last=8.7ms, elapsed=58.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 1250/8768 records, last=8.3ms, elapsed=74.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 1500/8768 records, last=8.7ms, elapsed=88.4s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 1750/8768 records, last=8.7ms, elapsed=102.3s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 2000/8768 records, last=8.9ms, elapsed=116.5s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 2250/8768 records, last=8.9ms, elapsed=131.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 2500/8768 records, last=373.7ms, elapsed=146.4s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 2750/8768 records, last=8.4ms, elapsed=160.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 3000/8768 records, last=8.8ms, elapsed=174.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 3250/8768 records, last=9.1ms, elapsed=190.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 3500/8768 records, last=8.6ms, elapsed=204.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 3750/8768 records, last=373.3ms, elapsed=218.9s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 4000/8768 records, last=8.4ms, elapsed=232.0s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 4250/8768 records, last=8.3ms, elapsed=246.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 4500/8768 records, last=7.9ms, elapsed=259.5s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 4750/8768 records, last=8.8ms, elapsed=274.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 5000/8768 records, last=376.8ms, elapsed=290.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 5250/8768 records, last=8.3ms, elapsed=304.6s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 5500/8768 records, last=8.3ms, elapsed=318.0s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 5750/8768 records, last=9.0ms, elapsed=333.3s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 6000/8768 records, last=9.8ms, elapsed=347.5s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 6250/8768 records, last=8.3ms, elapsed=361.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 6500/8768 records, last=9.1ms, elapsed=375.9s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 6750/8768 records, last=8.9ms, elapsed=391.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 7000/8768 records, last=8.8ms, elapsed=404.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 7250/8768 records, last=8.7ms, elapsed=418.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 7500/8768 records, last=8.8ms, elapsed=433.6s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 7750/8768 records, last=8.9ms, elapsed=447.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 8000/8768 records, last=8.8ms, elapsed=462.4s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 8250/8768 records, last=8.6ms, elapsed=476.6s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 8500/8768 records, last=8.7ms, elapsed=490.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 8750/8768 records, last=8.4ms, elapsed=504.0s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b point: 8768/8768 records, last=8.1ms, elapsed=504.6s
+[OK] wrote results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_b/point_predictions.jsonl
+===== FULL dataset=blenderproc_cogar_sim model=sam_vit_b prompt=box =====
+[START] dataset=blenderproc_cogar_sim model=sam_vit_b prompt_mode=box device=cuda records=8768 run_units=8768 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_b/box_predictions.jsonl
+[LOAD] sam_vit_b: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_b: ready in 5.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 1/8768 records, last=702.4ms, elapsed=0.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 250/8768 records, last=8.1ms, elapsed=14.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 500/8768 records, last=8.0ms, elapsed=28.3s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 750/8768 records, last=371.8ms, elapsed=43.4s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 1000/8768 records, last=7.6ms, elapsed=57.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 1250/8768 records, last=7.6ms, elapsed=73.5s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 1500/8768 records, last=8.0ms, elapsed=87.4s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 1750/8768 records, last=7.8ms, elapsed=101.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 2000/8768 records, last=7.8ms, elapsed=115.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 2250/8768 records, last=9.0ms, elapsed=130.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 2500/8768 records, last=373.9ms, elapsed=144.6s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 2750/8768 records, last=8.2ms, elapsed=158.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 3000/8768 records, last=8.2ms, elapsed=171.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 3250/8768 records, last=8.0ms, elapsed=187.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 3500/8768 records, last=7.8ms, elapsed=202.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 3750/8768 records, last=374.6ms, elapsed=216.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 4000/8768 records, last=8.1ms, elapsed=229.0s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 4250/8768 records, last=7.7ms, elapsed=243.0s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 4500/8768 records, last=8.0ms, elapsed=256.3s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 4750/8768 records, last=8.2ms, elapsed=271.4s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 5000/8768 records, last=372.5ms, elapsed=287.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 5250/8768 records, last=8.4ms, elapsed=300.9s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 5500/8768 records, last=7.7ms, elapsed=314.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 5750/8768 records, last=8.6ms, elapsed=329.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 6000/8768 records, last=8.7ms, elapsed=343.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 6250/8768 records, last=8.1ms, elapsed=357.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 6500/8768 records, last=9.0ms, elapsed=371.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 6750/8768 records, last=7.8ms, elapsed=386.3s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 7000/8768 records, last=7.7ms, elapsed=399.6s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 7250/8768 records, last=7.9ms, elapsed=413.0s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 7500/8768 records, last=8.0ms, elapsed=428.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 7750/8768 records, last=7.8ms, elapsed=441.4s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 8000/8768 records, last=7.8ms, elapsed=456.5s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 8250/8768 records, last=8.1ms, elapsed=470.5s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 8500/8768 records, last=7.6ms, elapsed=484.6s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 8750/8768 records, last=7.7ms, elapsed=497.5s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b box: 8768/8768 records, last=8.1ms, elapsed=498.1s
+[OK] wrote results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_b/box_predictions.jsonl
+===== FULL dataset=blenderproc_cogar_sim model=sam_vit_b prompt=automatic =====
+[START] dataset=blenderproc_cogar_sim model=sam_vit_b prompt_mode=automatic device=cuda records=8768 run_units=1000 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_b/automatic_predictions.jsonl
+[LOAD] sam_vit_b: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_b: ready in 5.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b automatic: 1/1000 images, last=5254.4ms, elapsed=5.3s
+[PROGRESS] blenderproc_cogar_sim sam_vit_b automatic: 250/1000 images, last=5248.7ms, elapsed=1312.6s

@@ -1,0 +1,72 @@
+nohup: ignoring input
+===== FULL dataset=blenderproc_cogar_sim model=sam_vit_h prompt=point =====
+[START] dataset=blenderproc_cogar_sim model=sam_vit_h prompt_mode=point device=cuda records=8768 run_units=8768 output=results/task4_zero_shot_sam/blenderproc_cogar_sim/sam_vit_h/point_predictions.jsonl
+[LOAD] sam_vit_h: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] sam_vit_h: ready in 11.5s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1/8768 records, last=2116.4ms, elapsed=2.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 25/8768 records, last=8.5ms, elapsed=5.9s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 50/8768 records, last=9.0ms, elapsed=9.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 75/8768 records, last=8.3ms, elapsed=15.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 100/8768 records, last=8.2ms, elapsed=19.0s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 125/8768 records, last=8.3ms, elapsed=22.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 150/8768 records, last=8.5ms, elapsed=28.3s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 175/8768 records, last=8.5ms, elapsed=33.9s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 200/8768 records, last=8.5ms, elapsed=39.5s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 225/8768 records, last=9.7ms, elapsed=46.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 250/8768 records, last=8.9ms, elapsed=54.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 275/8768 records, last=1727.1ms, elapsed=59.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 300/8768 records, last=8.3ms, elapsed=65.3s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 325/8768 records, last=8.8ms, elapsed=72.6s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 350/8768 records, last=8.6ms, elapsed=76.4s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 375/8768 records, last=8.9ms, elapsed=80.3s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 400/8768 records, last=8.8ms, elapsed=84.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 425/8768 records, last=8.3ms, elapsed=89.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 450/8768 records, last=8.5ms, elapsed=93.6s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 475/8768 records, last=9.7ms, elapsed=100.9s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 500/8768 records, last=8.4ms, elapsed=104.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 525/8768 records, last=1754.7ms, elapsed=113.9s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 550/8768 records, last=9.0ms, elapsed=117.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 575/8768 records, last=8.3ms, elapsed=123.4s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 600/8768 records, last=1747.8ms, elapsed=132.5s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 625/8768 records, last=9.6ms, elapsed=138.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 650/8768 records, last=8.8ms, elapsed=143.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 675/8768 records, last=8.6ms, elapsed=147.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 700/8768 records, last=8.4ms, elapsed=153.3s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 725/8768 records, last=8.7ms, elapsed=157.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 750/8768 records, last=1769.3ms, elapsed=162.9s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 775/8768 records, last=8.7ms, elapsed=168.5s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 800/8768 records, last=8.8ms, elapsed=172.4s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 825/8768 records, last=8.3ms, elapsed=179.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 850/8768 records, last=8.7ms, elapsed=185.5s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 875/8768 records, last=8.9ms, elapsed=192.9s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 900/8768 records, last=1761.5ms, elapsed=196.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 925/8768 records, last=9.6ms, elapsed=202.5s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 950/8768 records, last=8.9ms, elapsed=206.4s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 975/8768 records, last=8.3ms, elapsed=213.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1000/8768 records, last=8.3ms, elapsed=217.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1025/8768 records, last=9.7ms, elapsed=225.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1050/8768 records, last=8.4ms, elapsed=230.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1075/8768 records, last=8.2ms, elapsed=234.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1100/8768 records, last=8.9ms, elapsed=242.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1125/8768 records, last=8.3ms, elapsed=246.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1150/8768 records, last=8.9ms, elapsed=251.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1175/8768 records, last=9.1ms, elapsed=262.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1200/8768 records, last=8.8ms, elapsed=266.6s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1225/8768 records, last=9.2ms, elapsed=274.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1250/8768 records, last=8.4ms, elapsed=279.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1275/8768 records, last=9.0ms, elapsed=283.7s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1300/8768 records, last=8.5ms, elapsed=289.4s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1325/8768 records, last=1779.0ms, elapsed=295.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1350/8768 records, last=8.6ms, elapsed=299.0s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1375/8768 records, last=8.3ms, elapsed=302.9s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1400/8768 records, last=8.5ms, elapsed=310.4s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1425/8768 records, last=8.5ms, elapsed=317.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1450/8768 records, last=8.8ms, elapsed=323.5s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1475/8768 records, last=8.7ms, elapsed=327.4s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1500/8768 records, last=8.7ms, elapsed=333.1s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1525/8768 records, last=9.3ms, elapsed=338.8s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1550/8768 records, last=9.0ms, elapsed=346.3s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1575/8768 records, last=8.5ms, elapsed=350.2s
+[PROGRESS] blenderproc_cogar_sim sam_vit_h point: 1600/8768 records, last=8.1ms, elapsed=354.1s

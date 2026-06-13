@@ -15,8 +15,6 @@ venv/
 
 # Generated data, model outputs, and heavy artifacts.
 data/
-outputs/
-results/
 checkpoints/
 external/
 models/

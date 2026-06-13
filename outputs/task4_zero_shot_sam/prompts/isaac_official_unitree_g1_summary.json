@@ -1,0 +1,8 @@
+{
+  "dataset": "isaac_official_unitree_g1",
+  "manifest": "outputs/task4_zero_shot_sam/prompts/isaac_official_unitree_g1_instances.jsonl",
+  "images": 1000,
+  "instances": 72695,
+  "skipped_annotations": 0,
+  "min_area": 1.0
+}

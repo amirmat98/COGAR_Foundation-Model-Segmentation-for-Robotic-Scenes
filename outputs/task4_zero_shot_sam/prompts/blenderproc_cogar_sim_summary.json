@@ -1,0 +1,8 @@
+{
+  "dataset": "blenderproc_cogar_sim",
+  "manifest": "outputs/task4_zero_shot_sam/prompts/blenderproc_cogar_sim_instances.jsonl",
+  "images": 1000,
+  "instances": 8768,
+  "skipped_annotations": 0,
+  "min_area": 1.0
+}
