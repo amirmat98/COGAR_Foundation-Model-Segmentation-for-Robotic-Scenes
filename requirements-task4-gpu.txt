@@ -1,0 +1,24 @@
+# Task 4 GPU inference dependencies.
+#
+# Install PyTorch/TorchVision with the CUDA wheel that matches the GPU machine
+# before installing this file. Example for CUDA 12.1:
+#
+#   python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+#
+# SAM2 requires torch>=2.5.1 and torchvision>=0.20.1.
+
+gdown
+matplotlib
+opencv-python
+pycocotools>=2.0.8
+scipy
+tqdm
+
+git+https://github.com/facebookresearch/segment-anything.git
+git+https://github.com/facebookresearch/sam2.git
+
+# FastSAM is cloned separately into external/FastSAM because the official
+# repository is used from source:
+#
+#   git clone https://github.com/CASIA-IVA-Lab/FastSAM.git external/FastSAM
+#   python -m pip install -r external/FastSAM/requirements.txt

@@ -18,6 +18,7 @@ data/
 outputs/
 results/
 checkpoints/
+external/
 models/
 runs/
 wandb/

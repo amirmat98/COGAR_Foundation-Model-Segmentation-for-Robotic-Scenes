@@ -58,6 +58,12 @@ results/task4_zero_shot_sam
 Large prediction files, model checkpoints, and generated outputs stay outside
 Git.
 
+## Environment
+
+Use `requirements.txt` for lightweight local setup and prompt-manifest
+validation. Use `requirements-task4-gpu.txt` on the GPU machine after
+installing the matching PyTorch and TorchVision CUDA wheels.
+
 ## Closure Criteria
 
 Task 4 is complete when prediction files exist for each enabled model, dataset,

@@ -20,6 +20,9 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 SRC_DIR = REPO_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
+FASTSAM_SRC_DIR = REPO_ROOT / "external" / "FastSAM"
+if FASTSAM_SRC_DIR.exists() and str(FASTSAM_SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(FASTSAM_SRC_DIR))
 
 
 def parse_args() -> argparse.Namespace:
