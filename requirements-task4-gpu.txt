@@ -10,6 +10,7 @@
 gdown
 matplotlib
 opencv-python
+psutil
 pycocotools>=2.0.8
 scipy
 tqdm
