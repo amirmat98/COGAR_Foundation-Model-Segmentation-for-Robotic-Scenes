@@ -1,0 +1,71 @@
+[
+  {
+    "dataset": "isaac_official_unitree_g1",
+    "status": "ok",
+    "elapsed_s": 431.00690992499585,
+    "best_weight": "/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/results/task5_baselines/yolo8_seg/isaac_official_unitree_g1_yolov8n_seg_small_subset_e50/weights/best.pt",
+    "train_kwargs": {
+      "data": "/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/outputs/task5_baselines/yolo8_seg/isaac_official_unitree_g1.yaml",
+      "epochs": 50,
+      "imgsz": 640,
+      "batch": 8,
+      "device": 0,
+      "workers": 4,
+      "project": "/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/results/task5_baselines/yolo8_seg",
+      "name": "isaac_official_unitree_g1_yolov8n_seg_small_subset_e50",
+      "exist_ok": true,
+      "seed": 5884715,
+      "patience": 15,
+      "optimizer": "auto",
+      "cache": false,
+      "verbose": true
+    },
+    "result_save_dir": "/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/results/task5_baselines/yolo8_seg/isaac_official_unitree_g1_yolov8n_seg_small_subset_e50"
+  },
+  {
+    "dataset": "blenderproc_cogar_sim",
+    "status": "ok",
+    "elapsed_s": 154.8946153940051,
+    "best_weight": "/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/results/task5_baselines/yolo8_seg/blenderproc_cogar_sim_yolov8n_seg_small_subset_e50/weights/best.pt",
+    "train_kwargs": {
+      "data": "/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/outputs/task5_baselines/yolo8_seg/blenderproc_cogar_sim.yaml",
+      "epochs": 50,
+      "imgsz": 640,
+      "batch": 8,
+      "device": 0,
+      "workers": 4,
+      "project": "/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/results/task5_baselines/yolo8_seg",
+      "name": "blenderproc_cogar_sim_yolov8n_seg_small_subset_e50",
+      "exist_ok": true,
+      "seed": 5884715,
+      "patience": 15,
+      "optimizer": "auto",
+      "cache": false,
+      "verbose": true
+    },
+    "result_save_dir": "/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/results/task5_baselines/yolo8_seg/blenderproc_cogar_sim_yolov8n_seg_small_subset_e50"
+  },
+  {
+    "dataset": "ocid",
+    "status": "ok",
+    "elapsed_s": 154.31348417099798,
+    "best_weight": "/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/results/task5_baselines/yolo8_seg/ocid_yolov8n_seg_small_subset_e50/weights/best.pt",
+    "train_kwargs": {
+      "data": "/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/outputs/task5_baselines/yolo8_seg/ocid.yaml",
+      "epochs": 50,
+      "imgsz": 640,
+      "batch": 8,
+      "device": 0,
+      "workers": 4,
+      "project": "/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/results/task5_baselines/yolo8_seg",
+      "name": "ocid_yolov8n_seg_small_subset_e50",
+      "exist_ok": true,
+      "seed": 5884715,
+      "patience": 15,
+      "optimizer": "auto",
+      "cache": false,
+      "verbose": true
+    },
+    "result_save_dir": "/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/results/task5_baselines/yolo8_seg/ocid_yolov8n_seg_small_subset_e50"
+  }
+]
