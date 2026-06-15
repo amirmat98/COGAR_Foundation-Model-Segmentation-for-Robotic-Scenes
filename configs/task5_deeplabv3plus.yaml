@@ -1,0 +1,39 @@
+task:
+  name: task5_deeplabv3plus
+  description: DeepLabV3+ semantic segmentation baseline fine-tuned on Task 5A subsets
+  output_root: outputs/task5_baselines/deeplabv3plus_training
+  results_root: results/task5_baselines/deeplabv3plus
+  seed: 5884715
+
+model:
+  architecture: DeepLabV3Plus
+  encoder_name: resnet34
+  encoder_weights: imagenet
+  run_suffix: deeplabv3plus_resnet34_small_subset
+
+training:
+  epochs: 30
+  batch_size: 4
+  workers: 4
+  image_size:
+    - 512
+    - 512
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  device: 0
+  amp: true
+  eval_every: 5
+  log_every: 10
+
+datasets:
+  isaac_official_unitree_g1:
+    enabled: true
+    data_yaml: outputs/task5_baselines/deeplabv3plus/isaac_official_unitree_g1.yaml
+
+  blenderproc_cogar_sim:
+    enabled: true
+    data_yaml: outputs/task5_baselines/deeplabv3plus/blenderproc_cogar_sim.yaml
+
+  ocid:
+    enabled: true
+    data_yaml: outputs/task5_baselines/deeplabv3plus/ocid.yaml

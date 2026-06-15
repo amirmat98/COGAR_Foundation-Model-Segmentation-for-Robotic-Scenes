@@ -136,6 +136,36 @@ Then run all enabled datasets:
 python scripts/baselines/train_mask_rcnn.py
 ```
 
+## DeepLabV3+ Training
+
+DeepLabV3+ is trained with `segmentation-models-pytorch` using a ResNet-34
+encoder initialized from ImageNet weights. It uses the semantic image/mask
+folders prepared in Task 5A.
+
+Training outputs are written under:
+
+```text
+results/task5_baselines/deeplabv3plus
+```
+
+Compact training summaries and validation semantic metrics are written under:
+
+```text
+outputs/task5_baselines/deeplabv3plus_training
+```
+
+Use a smoke run first:
+
+```text
+python scripts/baselines/train_deeplabv3plus.py --datasets blenderproc_cogar_sim --smoke
+```
+
+Then run all enabled datasets:
+
+```text
+python scripts/baselines/train_deeplabv3plus.py
+```
+
 ## Closure Criteria
 
 Task 5 is complete when YOLOv8-seg, Mask R-CNN, and DeepLabV3+ have trained on
