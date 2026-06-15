@@ -1,0 +1,385 @@
+{
+  "dataset": "blenderproc_cogar_sim",
+  "status": "ok",
+  "epochs": 30,
+  "best_epoch": 30,
+  "best_metric": "foreground_miou",
+  "best_metrics": {
+    "miou": 0.719802264279518,
+    "foreground_miou": 0.6974741301045857,
+    "pixel_accuracy": 0.9829419708251953,
+    "mean_accuracy": 0.8103269190217492,
+    "per_class_iou": {
+      "background": 0.9430836060288421,
+      "table": 0.987489205716373,
+      "robot_gripper": 0.9059702224468082,
+      "metal_part": 0.626736979077492,
+      "glass_object": 0.8891495836002562,
+      "plastic_object": 0.6605793825471418,
+      "screw": 0.2622191336576326,
+      "connector": 0.41188450069095933,
+      "cable": 0.5934889601300402,
+      "tool": 0.7154729304259961,
+      "box": 0.9217504027531571
+    },
+    "prediction_count": 50,
+    "predictions_dir": "results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_030",
+    "elapsed_s": 1.565120222978294
+  },
+  "train_images": 100,
+  "val_images": 50,
+  "num_classes": 11,
+  "class_names": [
+    "background",
+    "table",
+    "robot_gripper",
+    "metal_part",
+    "glass_object",
+    "plastic_object",
+    "screw",
+    "connector",
+    "cable",
+    "tool",
+    "box"
+  ],
+  "elapsed_s": 102.7703896810126,
+  "run_dir": "results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30",
+  "best_checkpoint": "results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt",
+  "last_checkpoint": "results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/checkpoints/last.pt",
+  "epochs_summary": [
+    {
+      "epoch": 1,
+      "train_loss": 1.6943993115425109,
+      "elapsed_s": 2.825315697991755,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.25111102014039804,
+        "foreground_miou": 0.2235226390713338,
+        "pixel_accuracy": 0.8581578063964844,
+        "mean_accuracy": 0.430641864891197,
+        "per_class_iou": {
+          "background": 0.5269948308310407,
+          "table": 0.877052170576818,
+          "robot_gripper": 0.5351681764672555,
+          "metal_part": 3.811484001295905e-05,
+          "glass_object": 0.2778984519549217,
+          "plastic_object": 0.19781569411597527,
+          "screw": 0.00408905043162199,
+          "connector": 0.0,
+          "cable": 0.0,
+          "tool": 5.184481119847922e-05,
+          "box": 0.3431128875155342
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_001",
+        "elapsed_s": 1.667140246980125
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.7577631783485412,
+      "elapsed_s": 2.782319340010872,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.4552099692821503,
+      "elapsed_s": 2.779994254990015,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.3071183407306671,
+      "elapsed_s": 2.758550758007914,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.25675353050231936,
+      "elapsed_s": 2.786290960997576,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.4667211163101561,
+        "foreground_miou": 0.4243027554501767,
+        "pixel_accuracy": 0.9565105438232422,
+        "mean_accuracy": 0.5138956579645211,
+        "per_class_iou": {
+          "background": 0.8909047249099513,
+          "table": 0.9602002613077919,
+          "robot_gripper": 0.7150834606174484,
+          "metal_part": 0.48510859150431174,
+          "glass_object": 0.7228682020214556,
+          "plastic_object": 0.4807970589385584,
+          "screw": 0.0,
+          "connector": 0.00010026872017005575,
+          "cable": 0.0002712600027126,
+          "tool": 0.16156922250146205,
+          "box": 0.7170292288878555
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_005",
+        "elapsed_s": 1.5920419209869578
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.22014673173427582,
+      "elapsed_s": 2.775912449025782,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.18153547316789628,
+      "elapsed_s": 2.7718235259817448,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.1462287998199463,
+      "elapsed_s": 2.772686779993819,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.1325082951784134,
+      "elapsed_s": 2.763890763017116,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.1076996536552906,
+      "elapsed_s": 2.778628726984607,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.5642431856447863,
+        "foreground_miou": 0.5508176767068051,
+        "pixel_accuracy": 0.9564199066162109,
+        "mean_accuracy": 0.6612369644042093,
+        "per_class_iou": {
+          "background": 0.698498275024598,
+          "table": 0.9644044086495893,
+          "robot_gripper": 0.7493871455132085,
+          "metal_part": 0.4028356739109906,
+          "glass_object": 0.7838224119127021,
+          "plastic_object": 0.5593016931006795,
+          "screw": 0.0,
+          "connector": 0.3189447517006147,
+          "cable": 0.3775587157940099,
+          "tool": 0.548993023729504,
+          "box": 0.8029289427567522
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_010",
+        "elapsed_s": 1.645690511999419
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.10638549908995629,
+      "elapsed_s": 2.8135356229904573,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.09170235186815262,
+      "elapsed_s": 2.709794457012322,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.08394363433122635,
+      "elapsed_s": 2.7375937630131375,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.07842205166816711,
+      "elapsed_s": 2.772007952007698,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.07401582509279252,
+      "elapsed_s": 2.755610260006506,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.6481371911435314,
+        "foreground_miou": 0.6237910532430433,
+        "pixel_accuracy": 0.9728983306884765,
+        "mean_accuracy": 0.7447610503353025,
+        "per_class_iou": {
+          "background": 0.8915985701484123,
+          "table": 0.9804605960294173,
+          "robot_gripper": 0.7917214177342665,
+          "metal_part": 0.5126757580655049,
+          "glass_object": 0.7996379850046083,
+          "plastic_object": 0.6535564938492144,
+          "screw": 0.0,
+          "connector": 0.46460224622340235,
+          "cable": 0.5702568308812221,
+          "tool": 0.5943344753203909,
+          "box": 0.870664729322407
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_015",
+        "elapsed_s": 1.6300082770176232
+      }
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.06210508719086647,
+      "elapsed_s": 2.7291801709798165,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.06139171272516251,
+      "elapsed_s": 2.745251251006266,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.0744703958183527,
+      "elapsed_s": 2.7639542589895427,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.06524853244423866,
+      "elapsed_s": 2.73599283999647,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.05209559284150601,
+      "elapsed_s": 2.762995876983041,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.681826643069828,
+        "foreground_miou": 0.652746334244035,
+        "pixel_accuracy": 0.9829203033447266,
+        "mean_accuracy": 0.7659155730323548,
+        "per_class_iou": {
+          "background": 0.9726297313277591,
+          "table": 0.9873644765946458,
+          "robot_gripper": 0.8979622234214787,
+          "metal_part": 0.6959107355517966,
+          "glass_object": 0.8746998609882471,
+          "plastic_object": 0.6196798164680066,
+          "screw": 0.0,
+          "connector": 0.39312034680991426,
+          "cable": 0.501101321585903,
+          "tool": 0.6588471001757469,
+          "box": 0.8987774608446109
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_020",
+        "elapsed_s": 1.596740160981426
+      }
+    },
+    {
+      "epoch": 21,
+      "train_loss": 0.04878287553787231,
+      "elapsed_s": 2.7418157600041013,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 22,
+      "train_loss": 0.04350594609975815,
+      "elapsed_s": 2.7386818210070487,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 23,
+      "train_loss": 0.043641050681471824,
+      "elapsed_s": 2.7285306570120156,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 24,
+      "train_loss": 0.04395846739411354,
+      "elapsed_s": 2.7020248489861842,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 25,
+      "train_loss": 0.04698846489191055,
+      "elapsed_s": 2.70926099200733,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.6621006328689397,
+        "foreground_miou": 0.6356612938260928,
+        "pixel_accuracy": 0.9770872497558594,
+        "mean_accuracy": 0.7389720178352522,
+        "per_class_iou": {
+          "background": 0.9264940232974092,
+          "table": 0.9824813687030951,
+          "robot_gripper": 0.8530783810287577,
+          "metal_part": 0.5841666945382789,
+          "glass_object": 0.7969333278307815,
+          "plastic_object": 0.6077867141119442,
+          "screw": 0.08775705404112864,
+          "connector": 0.3445766694459183,
+          "cable": 0.5600476214097921,
+          "tool": 0.6724604901099218,
+          "box": 0.8673246170413094
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_025",
+        "elapsed_s": 1.5692946080234833
+      }
+    },
+    {
+      "epoch": 26,
+      "train_loss": 0.04156220242381096,
+      "elapsed_s": 2.7244133000203874,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 27,
+      "train_loss": 0.036611848995089534,
+      "elapsed_s": 2.7442841719894204,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 28,
+      "train_loss": 0.03316394783556462,
+      "elapsed_s": 2.733953647024464,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 29,
+      "train_loss": 0.03855587892234325,
+      "elapsed_s": 2.7372039619949646,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 30,
+      "train_loss": 0.032189135998487474,
+      "elapsed_s": 2.726785051985644,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.719802264279518,
+        "foreground_miou": 0.6974741301045857,
+        "pixel_accuracy": 0.9829419708251953,
+        "mean_accuracy": 0.8103269190217492,
+        "per_class_iou": {
+          "background": 0.9430836060288421,
+          "table": 0.987489205716373,
+          "robot_gripper": 0.9059702224468082,
+          "metal_part": 0.626736979077492,
+          "glass_object": 0.8891495836002562,
+          "plastic_object": 0.6605793825471418,
+          "screw": 0.2622191336576326,
+          "connector": 0.41188450069095933,
+          "cable": 0.5934889601300402,
+          "tool": 0.7154729304259961,
+          "box": 0.9217504027531571
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_030",
+        "elapsed_s": 1.565120222978294
+      }
+    }
+  ]
+}

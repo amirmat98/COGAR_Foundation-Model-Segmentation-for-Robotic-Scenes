@@ -1,0 +1,439 @@
+{
+  "dataset": "isaac_official_unitree_g1",
+  "status": "ok",
+  "epochs": 30,
+  "best_epoch": 30,
+  "best_metric": "foreground_miou",
+  "best_metrics": {
+    "miou": 0.6604725763556952,
+    "foreground_miou": 0.6367951650044571,
+    "pixel_accuracy": 0.9766741943359375,
+    "mean_accuracy": 0.7307280562119324,
+    "per_class_iou": {
+      "background": 0.991956335273028,
+      "robot": 0.826019051371164,
+      "workbench": 0.9666003266712891,
+      "background_fixture": 0.9800729615690156,
+      "storage_bin": 0.9432476369559338,
+      "metal_part": 0.44273563413471895,
+      "transparent_glass": 0.8971945616392538,
+      "screw": 0.2303289726818007,
+      "connector": 0.71329830043081,
+      "cable": 0.36784420715932076,
+      "moving_object": 0.8638363171355499,
+      "occluder": 0.9293690344084877,
+      "tool": 0.35376468716620074,
+      "pcb": null,
+      "rubber_part": 0.011708825803601016,
+      "sensor_module": 0.38911179293525294,
+      "fiducial_marker": null
+    },
+    "prediction_count": 50,
+    "predictions_dir": "results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_030",
+    "elapsed_s": 1.9406625840056222
+  },
+  "train_images": 100,
+  "val_images": 50,
+  "num_classes": 17,
+  "class_names": [
+    "background",
+    "robot",
+    "workbench",
+    "background_fixture",
+    "storage_bin",
+    "metal_part",
+    "transparent_glass",
+    "screw",
+    "connector",
+    "cable",
+    "moving_object",
+    "occluder",
+    "tool",
+    "pcb",
+    "rubber_part",
+    "sensor_module",
+    "fiducial_marker"
+  ],
+  "elapsed_s": 116.16754228901118,
+  "run_dir": "results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30",
+  "best_checkpoint": "results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt",
+  "last_checkpoint": "results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/checkpoints/last.pt",
+  "epochs_summary": [
+    {
+      "epoch": 1,
+      "train_loss": 1.2665721988677978,
+      "elapsed_s": 3.628239237004891,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.24670581965872806,
+        "foreground_miou": 0.2320789670899074,
+        "pixel_accuracy": 0.8881276702880859,
+        "mean_accuracy": 0.3043128461839243,
+        "per_class_iou": {
+          "background": 0.46610860819103767,
+          "robot": 9.613997981060424e-05,
+          "workbench": 0.8648927352009959,
+          "background_fixture": 0.8713745644380458,
+          "storage_bin": 0.7687661691964519,
+          "metal_part": 0.0,
+          "transparent_glass": 0.395424407248776,
+          "screw": 0.0,
+          "connector": 0.0,
+          "cable": 0.0,
+          "moving_object": 0.0,
+          "occluder": 0.5806304902845313,
+          "tool": 0.0,
+          "pcb": null,
+          "rubber_part": 0.0,
+          "sensor_module": 0.0,
+          "fiducial_marker": 0.0
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_001",
+        "elapsed_s": 1.9528258710051887
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.4438884818553925,
+      "elapsed_s": 3.0978437140001915,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.3006758916378021,
+      "elapsed_s": 3.145371458027512,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.23262458443641662,
+      "elapsed_s": 3.145818518998567,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.18662258446216584,
+      "elapsed_s": 3.135278047004249,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.4362926961020995,
+        "foreground_miou": 0.398026851097486,
+        "pixel_accuracy": 0.9562781524658203,
+        "mean_accuracy": 0.4681011216008761,
+        "per_class_iou": {
+          "background": 0.9720145261666893,
+          "robot": 0.5685842812682622,
+          "workbench": 0.9411245651098896,
+          "background_fixture": 0.9621159147635515,
+          "storage_bin": 0.8549607381921123,
+          "metal_part": 0.21980461014758934,
+          "transparent_glass": 0.7914749129060857,
+          "screw": 0.0,
+          "connector": 0.05399271652504354,
+          "cable": 0.0,
+          "moving_object": 0.31349389104109665,
+          "occluder": 0.8668242854111727,
+          "tool": 0.0,
+          "pcb": null,
+          "rubber_part": 0.0,
+          "sensor_module": 0.0,
+          "fiducial_marker": null
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_005",
+        "elapsed_s": 1.929617693007458
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.15436528980731964,
+      "elapsed_s": 3.1432044100074563,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.13578127175569535,
+      "elapsed_s": 3.122238665004261,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.11987693309783935,
+      "elapsed_s": 3.0789034369809087,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.10888175874948501,
+      "elapsed_s": 3.130290878005326,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.09928082704544067,
+      "elapsed_s": 3.102065291022882,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.5417445599339459,
+        "foreground_miou": 0.5098651806236013,
+        "pixel_accuracy": 0.9737576293945313,
+        "mean_accuracy": 0.5874076977687318,
+        "per_class_iou": {
+          "background": 0.988055870278768,
+          "robot": 0.7359623316113231,
+          "workbench": 0.9685392176760325,
+          "background_fixture": 0.9833547414966306,
+          "storage_bin": 0.9178900385223232,
+          "metal_part": 0.35542790115569706,
+          "transparent_glass": 0.868225734945653,
+          "screw": 0.0,
+          "connector": 0.5553024438792437,
+          "cable": 0.0,
+          "moving_object": 0.747435003486403,
+          "occluder": 0.9196045187136223,
+          "tool": 0.08637059724349158,
+          "pcb": null,
+          "rubber_part": 0.0,
+          "sensor_module": 0.0,
+          "fiducial_marker": null
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_010",
+        "elapsed_s": 1.9296022589842323
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.09187706917524338,
+      "elapsed_s": 3.1280275879835244,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.08829379454255104,
+      "elapsed_s": 3.098041730991099,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.08208939000964165,
+      "elapsed_s": 3.0805429089814425,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.0754334196448326,
+      "elapsed_s": 3.140168546990026,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.07055204659700394,
+      "elapsed_s": 3.1227808999828994,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.581879154051594,
+        "foreground_miou": 0.5527929096881845,
+        "pixel_accuracy": 0.9774751281738281,
+        "mean_accuracy": 0.6394644205785609,
+        "per_class_iou": {
+          "background": 0.9890865751393285,
+          "robot": 0.7766036632373661,
+          "workbench": 0.9747413325271789,
+          "background_fixture": 0.9867339162766399,
+          "storage_bin": 0.9296129095133153,
+          "metal_part": 0.4288711550709977,
+          "transparent_glass": 0.8788182105088208,
+          "screw": 0.06818068130658797,
+          "connector": 0.6267829852266938,
+          "cable": 0.14588297590680435,
+          "moving_object": 0.801236340626445,
+          "occluder": 0.9342984315387877,
+          "tool": 0.17685380341061507,
+          "pcb": null,
+          "rubber_part": 0.0,
+          "sensor_module": 0.010484330484330484,
+          "fiducial_marker": null
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_015",
+        "elapsed_s": 1.9197995020076632
+      }
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.06745760351419448,
+      "elapsed_s": 3.1298479060060345,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.0664398267865181,
+      "elapsed_s": 3.1338141759915743,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.06358976721763611,
+      "elapsed_s": 3.057901687017875,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.05985585480928421,
+      "elapsed_s": 3.1219836749951355,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.056925537884235385,
+      "elapsed_s": 3.0890588900074363,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.6323188982849091,
+        "foreground_miou": 0.606729961877303,
+        "pixel_accuracy": 0.9789244079589844,
+        "mean_accuracy": 0.6818759757594565,
+        "per_class_iou": {
+          "background": 0.9905640079913939,
+          "robot": 0.7810375491236625,
+          "workbench": 0.9756681499932608,
+          "background_fixture": 0.9853855872904356,
+          "storage_bin": 0.9338597111635127,
+          "metal_part": 0.4509600043025403,
+          "transparent_glass": 0.8908583963107507,
+          "screw": 0.17231075697211157,
+          "connector": 0.6879549808429118,
+          "cable": 0.2674022547373471,
+          "moving_object": 0.8429864369407482,
+          "occluder": 0.942287640392055,
+          "tool": 0.28399410932401603,
+          "pcb": null,
+          "rubber_part": 0.0,
+          "sensor_module": 0.2795138888888889,
+          "fiducial_marker": null
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_020",
+        "elapsed_s": 1.9437131710001267
+      }
+    },
+    {
+      "epoch": 21,
+      "train_loss": 0.054328373670578,
+      "elapsed_s": 3.090529067994794,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 22,
+      "train_loss": 0.05321741387248039,
+      "elapsed_s": 3.0995430589828175,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 23,
+      "train_loss": 0.05086526185274124,
+      "elapsed_s": 3.16420920699602,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 24,
+      "train_loss": 0.04925016671419144,
+      "elapsed_s": 3.1215518790122587,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 25,
+      "train_loss": 0.04704487815499306,
+      "elapsed_s": 3.0724043530062772,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.6562237290798374,
+        "foreground_miou": 0.6322025614317891,
+        "pixel_accuracy": 0.9807537841796875,
+        "mean_accuracy": 0.7163665384421889,
+        "per_class_iou": {
+          "background": 0.9925200761525141,
+          "robot": 0.8059611863786159,
+          "workbench": 0.9764565921688437,
+          "background_fixture": 0.9882670654997228,
+          "storage_bin": 0.9415568387044362,
+          "metal_part": 0.4582581638746582,
+          "transparent_glass": 0.9028564417372169,
+          "screw": 0.23526279759640983,
+          "connector": 0.7023950290974009,
+          "cable": 0.3373923239976548,
+          "moving_object": 0.84289867002804,
+          "occluder": 0.9501307023841734,
+          "tool": 0.3320405029023609,
+          "pcb": null,
+          "rubber_part": 0.0002222716159146477,
+          "sensor_module": 0.3771372740595994,
+          "fiducial_marker": null
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_025",
+        "elapsed_s": 1.9628369080019183
+      }
+    },
+    {
+      "epoch": 26,
+      "train_loss": 0.04753235757350922,
+      "elapsed_s": 3.173214267997537,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 27,
+      "train_loss": 0.04537886381149292,
+      "elapsed_s": 3.0886129940045066,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 28,
+      "train_loss": 0.045010568648576735,
+      "elapsed_s": 3.1168930960120633,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 29,
+      "train_loss": 0.04326154142618179,
+      "elapsed_s": 3.1028331039997283,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 30,
+      "train_loss": 0.04286472871899605,
+      "elapsed_s": 3.1338756429904606,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.6604725763556952,
+        "foreground_miou": 0.6367951650044571,
+        "pixel_accuracy": 0.9766741943359375,
+        "mean_accuracy": 0.7307280562119324,
+        "per_class_iou": {
+          "background": 0.991956335273028,
+          "robot": 0.826019051371164,
+          "workbench": 0.9666003266712891,
+          "background_fixture": 0.9800729615690156,
+          "storage_bin": 0.9432476369559338,
+          "metal_part": 0.44273563413471895,
+          "transparent_glass": 0.8971945616392538,
+          "screw": 0.2303289726818007,
+          "connector": 0.71329830043081,
+          "cable": 0.36784420715932076,
+          "moving_object": 0.8638363171355499,
+          "occluder": 0.9293690344084877,
+          "tool": 0.35376468716620074,
+          "pcb": null,
+          "rubber_part": 0.011708825803601016,
+          "sensor_module": 0.38911179293525294,
+          "fiducial_marker": null
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_030",
+        "elapsed_s": 1.9406625840056222
+      }
+    }
+  ]
+}

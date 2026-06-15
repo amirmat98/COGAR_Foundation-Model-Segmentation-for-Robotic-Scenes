@@ -1,0 +1,4 @@
+dataset,status,epochs,best_epoch,best_miou,best_foreground_miou,best_pixel_accuracy,best_mean_accuracy,elapsed_s,best_checkpoint
+isaac_official_unitree_g1,ok,30,30,0.6604725763556952,0.6367951650044571,0.9766741943359375,0.7307280562119324,116.16754228901118,results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+blenderproc_cogar_sim,ok,30,30,0.719802264279518,0.6974741301045857,0.9829419708251953,0.8103269190217492,102.7703896810126,results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+ocid,ok,30,30,0.9632376367955024,0.9914437919805986,0.9923818969726562,0.9737711613139998,99.11911605499336,results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt

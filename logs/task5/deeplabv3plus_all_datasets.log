@@ -1,0 +1,414 @@
+nohup: ignoring input
+[START] DeepLabV3+ dataset=isaac_official_unitree_g1 epochs=30 batch=4 train_images=100 val_images=50 classes=17 image_size=512x512 device=0 output=results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/baselines/train_deeplabv3plus.py:486: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler(enabled=use_amp)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/baselines/train_deeplabv3plus.py:505: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=use_amp):
+[PROGRESS] isaac_official_unitree_g1 epoch=1/30 batch=1/25 loss=2.8052
+[PROGRESS] isaac_official_unitree_g1 epoch=1/30 batch=10/25 loss=1.2386
+[PROGRESS] isaac_official_unitree_g1 epoch=1/30 batch=20/25 loss=0.6432
+[PROGRESS] isaac_official_unitree_g1 epoch=1/30 batch=25/25 loss=0.5395
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/baselines/train_deeplabv3plus.py:363: DeprecationWarning: 'mode' parameter for changing data types is deprecated and will be removed in Pillow 13 (2026-10-15)
+  output = Image.fromarray(prediction.astype(np.uint16), mode="I;16")
+[EVAL] isaac_official_unitree_g1 epoch=1 miou=0.2467 foreground_miou=0.2321 pixel_acc=0.8881
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] isaac_official_unitree_g1 epoch=2/30 batch=1/25 loss=0.5841
+[PROGRESS] isaac_official_unitree_g1 epoch=2/30 batch=10/25 loss=0.4325
+[PROGRESS] isaac_official_unitree_g1 epoch=2/30 batch=20/25 loss=0.3724
+[PROGRESS] isaac_official_unitree_g1 epoch=2/30 batch=25/25 loss=0.3217
+[PROGRESS] isaac_official_unitree_g1 epoch=3/30 batch=1/25 loss=0.3115
+[PROGRESS] isaac_official_unitree_g1 epoch=3/30 batch=10/25 loss=0.3304
+[PROGRESS] isaac_official_unitree_g1 epoch=3/30 batch=20/25 loss=0.2614
+[PROGRESS] isaac_official_unitree_g1 epoch=3/30 batch=25/25 loss=0.2608
+[PROGRESS] isaac_official_unitree_g1 epoch=4/30 batch=1/25 loss=0.2771
+[PROGRESS] isaac_official_unitree_g1 epoch=4/30 batch=10/25 loss=0.3245
+[PROGRESS] isaac_official_unitree_g1 epoch=4/30 batch=20/25 loss=0.2334
+[PROGRESS] isaac_official_unitree_g1 epoch=4/30 batch=25/25 loss=0.1755
+[PROGRESS] isaac_official_unitree_g1 epoch=5/30 batch=1/25 loss=0.1625
+[PROGRESS] isaac_official_unitree_g1 epoch=5/30 batch=10/25 loss=0.2404
+[PROGRESS] isaac_official_unitree_g1 epoch=5/30 batch=20/25 loss=0.1745
+[PROGRESS] isaac_official_unitree_g1 epoch=5/30 batch=25/25 loss=0.1731
+[EVAL] isaac_official_unitree_g1 epoch=5 miou=0.4363 foreground_miou=0.3980 pixel_acc=0.9563
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] isaac_official_unitree_g1 epoch=6/30 batch=1/25 loss=0.1391
+[PROGRESS] isaac_official_unitree_g1 epoch=6/30 batch=10/25 loss=0.1343
+[PROGRESS] isaac_official_unitree_g1 epoch=6/30 batch=20/25 loss=0.1229
+[PROGRESS] isaac_official_unitree_g1 epoch=6/30 batch=25/25 loss=0.1651
+[PROGRESS] isaac_official_unitree_g1 epoch=7/30 batch=1/25 loss=0.1630
+[PROGRESS] isaac_official_unitree_g1 epoch=7/30 batch=10/25 loss=0.1414
+[PROGRESS] isaac_official_unitree_g1 epoch=7/30 batch=20/25 loss=0.1102
+[PROGRESS] isaac_official_unitree_g1 epoch=7/30 batch=25/25 loss=0.1426
+[PROGRESS] isaac_official_unitree_g1 epoch=8/30 batch=1/25 loss=0.1363
+[PROGRESS] isaac_official_unitree_g1 epoch=8/30 batch=10/25 loss=0.1119
+[PROGRESS] isaac_official_unitree_g1 epoch=8/30 batch=20/25 loss=0.0735
+[PROGRESS] isaac_official_unitree_g1 epoch=8/30 batch=25/25 loss=0.1132
+[PROGRESS] isaac_official_unitree_g1 epoch=9/30 batch=1/25 loss=0.1000
+[PROGRESS] isaac_official_unitree_g1 epoch=9/30 batch=10/25 loss=0.0977
+[PROGRESS] isaac_official_unitree_g1 epoch=9/30 batch=20/25 loss=0.1029
+[PROGRESS] isaac_official_unitree_g1 epoch=9/30 batch=25/25 loss=0.1104
+[PROGRESS] isaac_official_unitree_g1 epoch=10/30 batch=1/25 loss=0.0901
+[PROGRESS] isaac_official_unitree_g1 epoch=10/30 batch=10/25 loss=0.1299
+[PROGRESS] isaac_official_unitree_g1 epoch=10/30 batch=20/25 loss=0.0862
+[PROGRESS] isaac_official_unitree_g1 epoch=10/30 batch=25/25 loss=0.0821
+[EVAL] isaac_official_unitree_g1 epoch=10 miou=0.5417 foreground_miou=0.5099 pixel_acc=0.9738
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] isaac_official_unitree_g1 epoch=11/30 batch=1/25 loss=0.0971
+[PROGRESS] isaac_official_unitree_g1 epoch=11/30 batch=10/25 loss=0.0869
+[PROGRESS] isaac_official_unitree_g1 epoch=11/30 batch=20/25 loss=0.1002
+[PROGRESS] isaac_official_unitree_g1 epoch=11/30 batch=25/25 loss=0.1164
+[PROGRESS] isaac_official_unitree_g1 epoch=12/30 batch=1/25 loss=0.1360
+[PROGRESS] isaac_official_unitree_g1 epoch=12/30 batch=10/25 loss=0.0990
+[PROGRESS] isaac_official_unitree_g1 epoch=12/30 batch=20/25 loss=0.0805
+[PROGRESS] isaac_official_unitree_g1 epoch=12/30 batch=25/25 loss=0.0621
+[PROGRESS] isaac_official_unitree_g1 epoch=13/30 batch=1/25 loss=0.0619
+[PROGRESS] isaac_official_unitree_g1 epoch=13/30 batch=10/25 loss=0.0972
+[PROGRESS] isaac_official_unitree_g1 epoch=13/30 batch=20/25 loss=0.0803
+[PROGRESS] isaac_official_unitree_g1 epoch=13/30 batch=25/25 loss=0.0841
+[PROGRESS] isaac_official_unitree_g1 epoch=14/30 batch=1/25 loss=0.0822
+[PROGRESS] isaac_official_unitree_g1 epoch=14/30 batch=10/25 loss=0.0759
+[PROGRESS] isaac_official_unitree_g1 epoch=14/30 batch=20/25 loss=0.0577
+[PROGRESS] isaac_official_unitree_g1 epoch=14/30 batch=25/25 loss=0.0578
+[PROGRESS] isaac_official_unitree_g1 epoch=15/30 batch=1/25 loss=0.0573
+[PROGRESS] isaac_official_unitree_g1 epoch=15/30 batch=10/25 loss=0.0656
+[PROGRESS] isaac_official_unitree_g1 epoch=15/30 batch=20/25 loss=0.0883
+[PROGRESS] isaac_official_unitree_g1 epoch=15/30 batch=25/25 loss=0.0631
+[EVAL] isaac_official_unitree_g1 epoch=15 miou=0.5819 foreground_miou=0.5528 pixel_acc=0.9775
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] isaac_official_unitree_g1 epoch=16/30 batch=1/25 loss=0.0663
+[PROGRESS] isaac_official_unitree_g1 epoch=16/30 batch=10/25 loss=0.0593
+[PROGRESS] isaac_official_unitree_g1 epoch=16/30 batch=20/25 loss=0.0709
+[PROGRESS] isaac_official_unitree_g1 epoch=16/30 batch=25/25 loss=0.0790
+[PROGRESS] isaac_official_unitree_g1 epoch=17/30 batch=1/25 loss=0.0728
+[PROGRESS] isaac_official_unitree_g1 epoch=17/30 batch=10/25 loss=0.0522
+[PROGRESS] isaac_official_unitree_g1 epoch=17/30 batch=20/25 loss=0.0470
+[PROGRESS] isaac_official_unitree_g1 epoch=17/30 batch=25/25 loss=0.0670
+[PROGRESS] isaac_official_unitree_g1 epoch=18/30 batch=1/25 loss=0.0500
+[PROGRESS] isaac_official_unitree_g1 epoch=18/30 batch=10/25 loss=0.0481
+[PROGRESS] isaac_official_unitree_g1 epoch=18/30 batch=20/25 loss=0.0858
+[PROGRESS] isaac_official_unitree_g1 epoch=18/30 batch=25/25 loss=0.0788
+[PROGRESS] isaac_official_unitree_g1 epoch=19/30 batch=1/25 loss=0.0533
+[PROGRESS] isaac_official_unitree_g1 epoch=19/30 batch=10/25 loss=0.0480
+[PROGRESS] isaac_official_unitree_g1 epoch=19/30 batch=20/25 loss=0.0768
+[PROGRESS] isaac_official_unitree_g1 epoch=19/30 batch=25/25 loss=0.0537
+[PROGRESS] isaac_official_unitree_g1 epoch=20/30 batch=1/25 loss=0.0684
+[PROGRESS] isaac_official_unitree_g1 epoch=20/30 batch=10/25 loss=0.0543
+[PROGRESS] isaac_official_unitree_g1 epoch=20/30 batch=20/25 loss=0.0552
+[PROGRESS] isaac_official_unitree_g1 epoch=20/30 batch=25/25 loss=0.0514
+[EVAL] isaac_official_unitree_g1 epoch=20 miou=0.6323 foreground_miou=0.6067 pixel_acc=0.9789
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] isaac_official_unitree_g1 epoch=21/30 batch=1/25 loss=0.0532
+[PROGRESS] isaac_official_unitree_g1 epoch=21/30 batch=10/25 loss=0.0753
+[PROGRESS] isaac_official_unitree_g1 epoch=21/30 batch=20/25 loss=0.0604
+[PROGRESS] isaac_official_unitree_g1 epoch=21/30 batch=25/25 loss=0.0385
+[PROGRESS] isaac_official_unitree_g1 epoch=22/30 batch=1/25 loss=0.0710
+[PROGRESS] isaac_official_unitree_g1 epoch=22/30 batch=10/25 loss=0.0443
+[PROGRESS] isaac_official_unitree_g1 epoch=22/30 batch=20/25 loss=0.0750
+[PROGRESS] isaac_official_unitree_g1 epoch=22/30 batch=25/25 loss=0.0493
+[PROGRESS] isaac_official_unitree_g1 epoch=23/30 batch=1/25 loss=0.0599
+[PROGRESS] isaac_official_unitree_g1 epoch=23/30 batch=10/25 loss=0.0450
+[PROGRESS] isaac_official_unitree_g1 epoch=23/30 batch=20/25 loss=0.0528
+[PROGRESS] isaac_official_unitree_g1 epoch=23/30 batch=25/25 loss=0.0471
+[PROGRESS] isaac_official_unitree_g1 epoch=24/30 batch=1/25 loss=0.0526
+[PROGRESS] isaac_official_unitree_g1 epoch=24/30 batch=10/25 loss=0.0530
+[PROGRESS] isaac_official_unitree_g1 epoch=24/30 batch=20/25 loss=0.0370
+[PROGRESS] isaac_official_unitree_g1 epoch=24/30 batch=25/25 loss=0.0574
+[PROGRESS] isaac_official_unitree_g1 epoch=25/30 batch=1/25 loss=0.0422
+[PROGRESS] isaac_official_unitree_g1 epoch=25/30 batch=10/25 loss=0.0389
+[PROGRESS] isaac_official_unitree_g1 epoch=25/30 batch=20/25 loss=0.0468
+[PROGRESS] isaac_official_unitree_g1 epoch=25/30 batch=25/25 loss=0.0417
+[EVAL] isaac_official_unitree_g1 epoch=25 miou=0.6562 foreground_miou=0.6322 pixel_acc=0.9808
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] isaac_official_unitree_g1 epoch=26/30 batch=1/25 loss=0.0491
+[PROGRESS] isaac_official_unitree_g1 epoch=26/30 batch=10/25 loss=0.0436
+[PROGRESS] isaac_official_unitree_g1 epoch=26/30 batch=20/25 loss=0.0512
+[PROGRESS] isaac_official_unitree_g1 epoch=26/30 batch=25/25 loss=0.0429
+[PROGRESS] isaac_official_unitree_g1 epoch=27/30 batch=1/25 loss=0.0511
+[PROGRESS] isaac_official_unitree_g1 epoch=27/30 batch=10/25 loss=0.0488
+[PROGRESS] isaac_official_unitree_g1 epoch=27/30 batch=20/25 loss=0.0365
+[PROGRESS] isaac_official_unitree_g1 epoch=27/30 batch=25/25 loss=0.0374
+[PROGRESS] isaac_official_unitree_g1 epoch=28/30 batch=1/25 loss=0.0486
+[PROGRESS] isaac_official_unitree_g1 epoch=28/30 batch=10/25 loss=0.0372
+[PROGRESS] isaac_official_unitree_g1 epoch=28/30 batch=20/25 loss=0.0532
+[PROGRESS] isaac_official_unitree_g1 epoch=28/30 batch=25/25 loss=0.0403
+[PROGRESS] isaac_official_unitree_g1 epoch=29/30 batch=1/25 loss=0.0394
+[PROGRESS] isaac_official_unitree_g1 epoch=29/30 batch=10/25 loss=0.0469
+[PROGRESS] isaac_official_unitree_g1 epoch=29/30 batch=20/25 loss=0.0382
+[PROGRESS] isaac_official_unitree_g1 epoch=29/30 batch=25/25 loss=0.0497
+[PROGRESS] isaac_official_unitree_g1 epoch=30/30 batch=1/25 loss=0.0393
+[PROGRESS] isaac_official_unitree_g1 epoch=30/30 batch=10/25 loss=0.0415
+[PROGRESS] isaac_official_unitree_g1 epoch=30/30 batch=20/25 loss=0.0448
+[PROGRESS] isaac_official_unitree_g1 epoch=30/30 batch=25/25 loss=0.0423
+[EVAL] isaac_official_unitree_g1 epoch=30 miou=0.6605 foreground_miou=0.6368 pixel_acc=0.9767
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/isaac_official_unitree_g1_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[DONE] isaac_official_unitree_g1: status=ok best_epoch=30 best_foreground_miou=0.6368 elapsed=1.9min
+[START] DeepLabV3+ dataset=blenderproc_cogar_sim epochs=30 batch=4 train_images=100 val_images=50 classes=11 image_size=512x512 device=0 output=results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30
+[PROGRESS] blenderproc_cogar_sim epoch=1/30 batch=1/25 loss=2.6799
+[PROGRESS] blenderproc_cogar_sim epoch=1/30 batch=10/25 loss=1.9221
+[PROGRESS] blenderproc_cogar_sim epoch=1/30 batch=20/25 loss=1.4871
+[PROGRESS] blenderproc_cogar_sim epoch=1/30 batch=25/25 loss=0.9080
+[EVAL] blenderproc_cogar_sim epoch=1 miou=0.2511 foreground_miou=0.2235 pixel_acc=0.8582
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] blenderproc_cogar_sim epoch=2/30 batch=1/25 loss=1.0886
+[PROGRESS] blenderproc_cogar_sim epoch=2/30 batch=10/25 loss=0.8379
+[PROGRESS] blenderproc_cogar_sim epoch=2/30 batch=20/25 loss=0.6455
+[PROGRESS] blenderproc_cogar_sim epoch=2/30 batch=25/25 loss=0.5929
+[PROGRESS] blenderproc_cogar_sim epoch=3/30 batch=1/25 loss=0.4821
+[PROGRESS] blenderproc_cogar_sim epoch=3/30 batch=10/25 loss=0.5006
+[PROGRESS] blenderproc_cogar_sim epoch=3/30 batch=20/25 loss=0.4235
+[PROGRESS] blenderproc_cogar_sim epoch=3/30 batch=25/25 loss=0.4089
+[PROGRESS] blenderproc_cogar_sim epoch=4/30 batch=1/25 loss=0.3466
+[PROGRESS] blenderproc_cogar_sim epoch=4/30 batch=10/25 loss=0.3315
+[PROGRESS] blenderproc_cogar_sim epoch=4/30 batch=20/25 loss=0.2641
+[PROGRESS] blenderproc_cogar_sim epoch=4/30 batch=25/25 loss=0.2769
+[PROGRESS] blenderproc_cogar_sim epoch=5/30 batch=1/25 loss=0.3507
+[PROGRESS] blenderproc_cogar_sim epoch=5/30 batch=10/25 loss=0.2164
+[PROGRESS] blenderproc_cogar_sim epoch=5/30 batch=20/25 loss=0.3640
+[PROGRESS] blenderproc_cogar_sim epoch=5/30 batch=25/25 loss=0.2191
+[EVAL] blenderproc_cogar_sim epoch=5 miou=0.4667 foreground_miou=0.4243 pixel_acc=0.9565
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] blenderproc_cogar_sim epoch=6/30 batch=1/25 loss=0.3213
+[PROGRESS] blenderproc_cogar_sim epoch=6/30 batch=10/25 loss=0.2679
+[PROGRESS] blenderproc_cogar_sim epoch=6/30 batch=20/25 loss=0.2016
+[PROGRESS] blenderproc_cogar_sim epoch=6/30 batch=25/25 loss=0.1877
+[PROGRESS] blenderproc_cogar_sim epoch=7/30 batch=1/25 loss=0.1511
+[PROGRESS] blenderproc_cogar_sim epoch=7/30 batch=10/25 loss=0.1681
+[PROGRESS] blenderproc_cogar_sim epoch=7/30 batch=20/25 loss=0.2143
+[PROGRESS] blenderproc_cogar_sim epoch=7/30 batch=25/25 loss=0.1511
+[PROGRESS] blenderproc_cogar_sim epoch=8/30 batch=1/25 loss=0.1340
+[PROGRESS] blenderproc_cogar_sim epoch=8/30 batch=10/25 loss=0.2229
+[PROGRESS] blenderproc_cogar_sim epoch=8/30 batch=20/25 loss=0.0842
+[PROGRESS] blenderproc_cogar_sim epoch=8/30 batch=25/25 loss=0.0890
+[PROGRESS] blenderproc_cogar_sim epoch=9/30 batch=1/25 loss=0.1246
+[PROGRESS] blenderproc_cogar_sim epoch=9/30 batch=10/25 loss=0.1831
+[PROGRESS] blenderproc_cogar_sim epoch=9/30 batch=20/25 loss=0.1915
+[PROGRESS] blenderproc_cogar_sim epoch=9/30 batch=25/25 loss=0.0951
+[PROGRESS] blenderproc_cogar_sim epoch=10/30 batch=1/25 loss=0.1080
+[PROGRESS] blenderproc_cogar_sim epoch=10/30 batch=10/25 loss=0.0972
+[PROGRESS] blenderproc_cogar_sim epoch=10/30 batch=20/25 loss=0.1140
+[PROGRESS] blenderproc_cogar_sim epoch=10/30 batch=25/25 loss=0.0907
+[EVAL] blenderproc_cogar_sim epoch=10 miou=0.5642 foreground_miou=0.5508 pixel_acc=0.9564
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] blenderproc_cogar_sim epoch=11/30 batch=1/25 loss=0.1113
+[PROGRESS] blenderproc_cogar_sim epoch=11/30 batch=10/25 loss=0.1054
+[PROGRESS] blenderproc_cogar_sim epoch=11/30 batch=20/25 loss=0.1125
+[PROGRESS] blenderproc_cogar_sim epoch=11/30 batch=25/25 loss=0.1877
+[PROGRESS] blenderproc_cogar_sim epoch=12/30 batch=1/25 loss=0.0967
+[PROGRESS] blenderproc_cogar_sim epoch=12/30 batch=10/25 loss=0.0849
+[PROGRESS] blenderproc_cogar_sim epoch=12/30 batch=20/25 loss=0.0768
+[PROGRESS] blenderproc_cogar_sim epoch=12/30 batch=25/25 loss=0.0987
+[PROGRESS] blenderproc_cogar_sim epoch=13/30 batch=1/25 loss=0.1028
+[PROGRESS] blenderproc_cogar_sim epoch=13/30 batch=10/25 loss=0.0706
+[PROGRESS] blenderproc_cogar_sim epoch=13/30 batch=20/25 loss=0.0989
+[PROGRESS] blenderproc_cogar_sim epoch=13/30 batch=25/25 loss=0.1557
+[PROGRESS] blenderproc_cogar_sim epoch=14/30 batch=1/25 loss=0.1670
+[PROGRESS] blenderproc_cogar_sim epoch=14/30 batch=10/25 loss=0.0644
+[PROGRESS] blenderproc_cogar_sim epoch=14/30 batch=20/25 loss=0.0709
+[PROGRESS] blenderproc_cogar_sim epoch=14/30 batch=25/25 loss=0.0800
+[PROGRESS] blenderproc_cogar_sim epoch=15/30 batch=1/25 loss=0.0794
+[PROGRESS] blenderproc_cogar_sim epoch=15/30 batch=10/25 loss=0.0523
+[PROGRESS] blenderproc_cogar_sim epoch=15/30 batch=20/25 loss=0.0777
+[PROGRESS] blenderproc_cogar_sim epoch=15/30 batch=25/25 loss=0.0879
+[EVAL] blenderproc_cogar_sim epoch=15 miou=0.6481 foreground_miou=0.6238 pixel_acc=0.9729
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] blenderproc_cogar_sim epoch=16/30 batch=1/25 loss=0.0509
+[PROGRESS] blenderproc_cogar_sim epoch=16/30 batch=10/25 loss=0.0636
+[PROGRESS] blenderproc_cogar_sim epoch=16/30 batch=20/25 loss=0.0559
+[PROGRESS] blenderproc_cogar_sim epoch=16/30 batch=25/25 loss=0.0883
+[PROGRESS] blenderproc_cogar_sim epoch=17/30 batch=1/25 loss=0.0469
+[PROGRESS] blenderproc_cogar_sim epoch=17/30 batch=10/25 loss=0.0780
+[PROGRESS] blenderproc_cogar_sim epoch=17/30 batch=20/25 loss=0.0533
+[PROGRESS] blenderproc_cogar_sim epoch=17/30 batch=25/25 loss=0.0562
+[PROGRESS] blenderproc_cogar_sim epoch=18/30 batch=1/25 loss=0.0845
+[PROGRESS] blenderproc_cogar_sim epoch=18/30 batch=10/25 loss=0.0354
+[PROGRESS] blenderproc_cogar_sim epoch=18/30 batch=20/25 loss=0.0765
+[PROGRESS] blenderproc_cogar_sim epoch=18/30 batch=25/25 loss=0.0309
+[PROGRESS] blenderproc_cogar_sim epoch=19/30 batch=1/25 loss=0.0651
+[PROGRESS] blenderproc_cogar_sim epoch=19/30 batch=10/25 loss=0.0786
+[PROGRESS] blenderproc_cogar_sim epoch=19/30 batch=20/25 loss=0.0466
+[PROGRESS] blenderproc_cogar_sim epoch=19/30 batch=25/25 loss=0.1191
+[PROGRESS] blenderproc_cogar_sim epoch=20/30 batch=1/25 loss=0.0871
+[PROGRESS] blenderproc_cogar_sim epoch=20/30 batch=10/25 loss=0.0535
+[PROGRESS] blenderproc_cogar_sim epoch=20/30 batch=20/25 loss=0.0370
+[PROGRESS] blenderproc_cogar_sim epoch=20/30 batch=25/25 loss=0.0871
+[EVAL] blenderproc_cogar_sim epoch=20 miou=0.6818 foreground_miou=0.6527 pixel_acc=0.9829
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] blenderproc_cogar_sim epoch=21/30 batch=1/25 loss=0.0629
+[PROGRESS] blenderproc_cogar_sim epoch=21/30 batch=10/25 loss=0.0504
+[PROGRESS] blenderproc_cogar_sim epoch=21/30 batch=20/25 loss=0.0338
+[PROGRESS] blenderproc_cogar_sim epoch=21/30 batch=25/25 loss=0.0422
+[PROGRESS] blenderproc_cogar_sim epoch=22/30 batch=1/25 loss=0.0507
+[PROGRESS] blenderproc_cogar_sim epoch=22/30 batch=10/25 loss=0.0493
+[PROGRESS] blenderproc_cogar_sim epoch=22/30 batch=20/25 loss=0.0485
+[PROGRESS] blenderproc_cogar_sim epoch=22/30 batch=25/25 loss=0.0282
+[PROGRESS] blenderproc_cogar_sim epoch=23/30 batch=1/25 loss=0.0434
+[PROGRESS] blenderproc_cogar_sim epoch=23/30 batch=10/25 loss=0.0301
+[PROGRESS] blenderproc_cogar_sim epoch=23/30 batch=20/25 loss=0.0513
+[PROGRESS] blenderproc_cogar_sim epoch=23/30 batch=25/25 loss=0.0460
+[PROGRESS] blenderproc_cogar_sim epoch=24/30 batch=1/25 loss=0.0383
+[PROGRESS] blenderproc_cogar_sim epoch=24/30 batch=10/25 loss=0.0414
+[PROGRESS] blenderproc_cogar_sim epoch=24/30 batch=20/25 loss=0.0397
+[PROGRESS] blenderproc_cogar_sim epoch=24/30 batch=25/25 loss=0.0415
+[PROGRESS] blenderproc_cogar_sim epoch=25/30 batch=1/25 loss=0.0335
+[PROGRESS] blenderproc_cogar_sim epoch=25/30 batch=10/25 loss=0.0273
+[PROGRESS] blenderproc_cogar_sim epoch=25/30 batch=20/25 loss=0.0443
+[PROGRESS] blenderproc_cogar_sim epoch=25/30 batch=25/25 loss=0.0434
+[EVAL] blenderproc_cogar_sim epoch=25 miou=0.6621 foreground_miou=0.6357 pixel_acc=0.9771
+[PROGRESS] blenderproc_cogar_sim epoch=26/30 batch=1/25 loss=0.0579
+[PROGRESS] blenderproc_cogar_sim epoch=26/30 batch=10/25 loss=0.0589
+[PROGRESS] blenderproc_cogar_sim epoch=26/30 batch=20/25 loss=0.0457
+[PROGRESS] blenderproc_cogar_sim epoch=26/30 batch=25/25 loss=0.0332
+[PROGRESS] blenderproc_cogar_sim epoch=27/30 batch=1/25 loss=0.0395
+[PROGRESS] blenderproc_cogar_sim epoch=27/30 batch=10/25 loss=0.0365
+[PROGRESS] blenderproc_cogar_sim epoch=27/30 batch=20/25 loss=0.0356
+[PROGRESS] blenderproc_cogar_sim epoch=27/30 batch=25/25 loss=0.0338
+[PROGRESS] blenderproc_cogar_sim epoch=28/30 batch=1/25 loss=0.0227
+[PROGRESS] blenderproc_cogar_sim epoch=28/30 batch=10/25 loss=0.0556
+[PROGRESS] blenderproc_cogar_sim epoch=28/30 batch=20/25 loss=0.0264
+[PROGRESS] blenderproc_cogar_sim epoch=28/30 batch=25/25 loss=0.0421
+[PROGRESS] blenderproc_cogar_sim epoch=29/30 batch=1/25 loss=0.0325
+[PROGRESS] blenderproc_cogar_sim epoch=29/30 batch=10/25 loss=0.0428
+[PROGRESS] blenderproc_cogar_sim epoch=29/30 batch=20/25 loss=0.0459
+[PROGRESS] blenderproc_cogar_sim epoch=29/30 batch=25/25 loss=0.0291
+[PROGRESS] blenderproc_cogar_sim epoch=30/30 batch=1/25 loss=0.0337
+[PROGRESS] blenderproc_cogar_sim epoch=30/30 batch=10/25 loss=0.0448
+[PROGRESS] blenderproc_cogar_sim epoch=30/30 batch=20/25 loss=0.0351
+[PROGRESS] blenderproc_cogar_sim epoch=30/30 batch=25/25 loss=0.0301
+[EVAL] blenderproc_cogar_sim epoch=30 miou=0.7198 foreground_miou=0.6975 pixel_acc=0.9829
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[DONE] blenderproc_cogar_sim: status=ok best_epoch=30 best_foreground_miou=0.6975 elapsed=1.7min
+[START] DeepLabV3+ dataset=ocid epochs=30 batch=4 train_images=100 val_images=50 classes=2 image_size=512x512 device=0 output=results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30
+[PROGRESS] ocid epoch=1/30 batch=1/25 loss=0.6342
+[PROGRESS] ocid epoch=1/30 batch=10/25 loss=0.3247
+[PROGRESS] ocid epoch=1/30 batch=20/25 loss=0.1740
+[PROGRESS] ocid epoch=1/30 batch=25/25 loss=0.1876
+[EVAL] ocid epoch=1 miou=0.8720 foreground_miou=0.9674 pixel_acc=0.9707
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] ocid epoch=2/30 batch=1/25 loss=0.1600
+[PROGRESS] ocid epoch=2/30 batch=10/25 loss=0.1360
+[PROGRESS] ocid epoch=2/30 batch=20/25 loss=0.1198
+[PROGRESS] ocid epoch=2/30 batch=25/25 loss=0.1364
+[PROGRESS] ocid epoch=3/30 batch=1/25 loss=0.0898
+[PROGRESS] ocid epoch=3/30 batch=10/25 loss=0.0813
+[PROGRESS] ocid epoch=3/30 batch=20/25 loss=0.0644
+[PROGRESS] ocid epoch=3/30 batch=25/25 loss=0.0654
+[PROGRESS] ocid epoch=4/30 batch=1/25 loss=0.0914
+[PROGRESS] ocid epoch=4/30 batch=10/25 loss=0.0511
+[PROGRESS] ocid epoch=4/30 batch=20/25 loss=0.0563
+[PROGRESS] ocid epoch=4/30 batch=25/25 loss=0.0497
+[PROGRESS] ocid epoch=5/30 batch=1/25 loss=0.0526
+[PROGRESS] ocid epoch=5/30 batch=10/25 loss=0.0599
+[PROGRESS] ocid epoch=5/30 batch=20/25 loss=0.0463
+[PROGRESS] ocid epoch=5/30 batch=25/25 loss=0.0473
+[EVAL] ocid epoch=5 miou=0.9154 foreground_miou=0.9792 pixel_acc=0.9815
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] ocid epoch=6/30 batch=1/25 loss=0.0453
+[PROGRESS] ocid epoch=6/30 batch=10/25 loss=0.0492
+[PROGRESS] ocid epoch=6/30 batch=20/25 loss=0.0420
+[PROGRESS] ocid epoch=6/30 batch=25/25 loss=0.0463
+[PROGRESS] ocid epoch=7/30 batch=1/25 loss=0.0359
+[PROGRESS] ocid epoch=7/30 batch=10/25 loss=0.0351
+[PROGRESS] ocid epoch=7/30 batch=20/25 loss=0.0954
+[PROGRESS] ocid epoch=7/30 batch=25/25 loss=0.0493
+[PROGRESS] ocid epoch=8/30 batch=1/25 loss=0.0316
+[PROGRESS] ocid epoch=8/30 batch=10/25 loss=0.0376
+[PROGRESS] ocid epoch=8/30 batch=20/25 loss=0.0499
+[PROGRESS] ocid epoch=8/30 batch=25/25 loss=0.0370
+[PROGRESS] ocid epoch=9/30 batch=1/25 loss=0.0589
+[PROGRESS] ocid epoch=9/30 batch=10/25 loss=0.0354
+[PROGRESS] ocid epoch=9/30 batch=20/25 loss=0.0437
+[PROGRESS] ocid epoch=9/30 batch=25/25 loss=0.0318
+[PROGRESS] ocid epoch=10/30 batch=1/25 loss=0.0352
+[PROGRESS] ocid epoch=10/30 batch=10/25 loss=0.0336
+[PROGRESS] ocid epoch=10/30 batch=20/25 loss=0.0268
+[PROGRESS] ocid epoch=10/30 batch=25/25 loss=0.0268
+[EVAL] ocid epoch=10 miou=0.9449 foreground_miou=0.9870 pixel_acc=0.9884
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] ocid epoch=11/30 batch=1/25 loss=0.0283
+[PROGRESS] ocid epoch=11/30 batch=10/25 loss=0.0318
+[PROGRESS] ocid epoch=11/30 batch=20/25 loss=0.0267
+[PROGRESS] ocid epoch=11/30 batch=25/25 loss=0.0355
+[PROGRESS] ocid epoch=12/30 batch=1/25 loss=0.0306
+[PROGRESS] ocid epoch=12/30 batch=10/25 loss=0.0272
+[PROGRESS] ocid epoch=12/30 batch=20/25 loss=0.0632
+[PROGRESS] ocid epoch=12/30 batch=25/25 loss=0.0364
+[PROGRESS] ocid epoch=13/30 batch=1/25 loss=0.0264
+[PROGRESS] ocid epoch=13/30 batch=10/25 loss=0.0250
+[PROGRESS] ocid epoch=13/30 batch=20/25 loss=0.0316
+[PROGRESS] ocid epoch=13/30 batch=25/25 loss=0.0205
+[PROGRESS] ocid epoch=14/30 batch=1/25 loss=0.0496
+[PROGRESS] ocid epoch=14/30 batch=10/25 loss=0.0417
+[PROGRESS] ocid epoch=14/30 batch=20/25 loss=0.0330
+[PROGRESS] ocid epoch=14/30 batch=25/25 loss=0.0362
+[PROGRESS] ocid epoch=15/30 batch=1/25 loss=0.0314
+[PROGRESS] ocid epoch=15/30 batch=10/25 loss=0.0306
+[PROGRESS] ocid epoch=15/30 batch=20/25 loss=0.0282
+[PROGRESS] ocid epoch=15/30 batch=25/25 loss=0.0197
+[EVAL] ocid epoch=15 miou=0.9356 foreground_miou=0.9850 pixel_acc=0.9866
+[PROGRESS] ocid epoch=16/30 batch=1/25 loss=0.0231
+[PROGRESS] ocid epoch=16/30 batch=10/25 loss=0.0181
+[PROGRESS] ocid epoch=16/30 batch=20/25 loss=0.0191
+[PROGRESS] ocid epoch=16/30 batch=25/25 loss=0.0284
+[PROGRESS] ocid epoch=17/30 batch=1/25 loss=0.0196
+[PROGRESS] ocid epoch=17/30 batch=10/25 loss=0.0286
+[PROGRESS] ocid epoch=17/30 batch=20/25 loss=0.0279
+[PROGRESS] ocid epoch=17/30 batch=25/25 loss=0.0193
+[PROGRESS] ocid epoch=18/30 batch=1/25 loss=0.0163
+[PROGRESS] ocid epoch=18/30 batch=10/25 loss=0.0203
+[PROGRESS] ocid epoch=18/30 batch=20/25 loss=0.0183
+[PROGRESS] ocid epoch=18/30 batch=25/25 loss=0.0180
+[PROGRESS] ocid epoch=19/30 batch=1/25 loss=0.0279
+[PROGRESS] ocid epoch=19/30 batch=10/25 loss=0.0266
+[PROGRESS] ocid epoch=19/30 batch=20/25 loss=0.0173
+[PROGRESS] ocid epoch=19/30 batch=25/25 loss=0.0158
+[PROGRESS] ocid epoch=20/30 batch=1/25 loss=0.0188
+[PROGRESS] ocid epoch=20/30 batch=10/25 loss=0.0309
+[PROGRESS] ocid epoch=20/30 batch=20/25 loss=0.0124
+[PROGRESS] ocid epoch=20/30 batch=25/25 loss=0.0170
+[EVAL] ocid epoch=20 miou=0.9597 foreground_miou=0.9906 pixel_acc=0.9916
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] ocid epoch=21/30 batch=1/25 loss=0.0206
+[PROGRESS] ocid epoch=21/30 batch=10/25 loss=0.0161
+[PROGRESS] ocid epoch=21/30 batch=20/25 loss=0.0127
+[PROGRESS] ocid epoch=21/30 batch=25/25 loss=0.0149
+[PROGRESS] ocid epoch=22/30 batch=1/25 loss=0.0284
+[PROGRESS] ocid epoch=22/30 batch=10/25 loss=0.0136
+[PROGRESS] ocid epoch=22/30 batch=20/25 loss=0.0134
+[PROGRESS] ocid epoch=22/30 batch=25/25 loss=0.0135
+[PROGRESS] ocid epoch=23/30 batch=1/25 loss=0.0116
+[PROGRESS] ocid epoch=23/30 batch=10/25 loss=0.0128
+[PROGRESS] ocid epoch=23/30 batch=20/25 loss=0.0160
+[PROGRESS] ocid epoch=23/30 batch=25/25 loss=0.0121
+[PROGRESS] ocid epoch=24/30 batch=1/25 loss=0.0128
+[PROGRESS] ocid epoch=24/30 batch=10/25 loss=0.0254
+[PROGRESS] ocid epoch=24/30 batch=20/25 loss=0.0144
+[PROGRESS] ocid epoch=24/30 batch=25/25 loss=0.0141
+[PROGRESS] ocid epoch=25/30 batch=1/25 loss=0.0152
+[PROGRESS] ocid epoch=25/30 batch=10/25 loss=0.0152
+[PROGRESS] ocid epoch=25/30 batch=20/25 loss=0.0238
+[PROGRESS] ocid epoch=25/30 batch=25/25 loss=0.0096
+[EVAL] ocid epoch=25 miou=0.9616 foreground_miou=0.9911 pixel_acc=0.9920
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[PROGRESS] ocid epoch=26/30 batch=1/25 loss=0.0151
+[PROGRESS] ocid epoch=26/30 batch=10/25 loss=0.0129
+[PROGRESS] ocid epoch=26/30 batch=20/25 loss=0.0131
+[PROGRESS] ocid epoch=26/30 batch=25/25 loss=0.0126
+[PROGRESS] ocid epoch=27/30 batch=1/25 loss=0.0143
+[PROGRESS] ocid epoch=27/30 batch=10/25 loss=0.0112
+[PROGRESS] ocid epoch=27/30 batch=20/25 loss=0.0157
+[PROGRESS] ocid epoch=27/30 batch=25/25 loss=0.0130
+[PROGRESS] ocid epoch=28/30 batch=1/25 loss=0.0091
+[PROGRESS] ocid epoch=28/30 batch=10/25 loss=0.0135
+[PROGRESS] ocid epoch=28/30 batch=20/25 loss=0.0162
+[PROGRESS] ocid epoch=28/30 batch=25/25 loss=0.0128
+[PROGRESS] ocid epoch=29/30 batch=1/25 loss=0.0090
+[PROGRESS] ocid epoch=29/30 batch=10/25 loss=0.0098
+[PROGRESS] ocid epoch=29/30 batch=20/25 loss=0.0119
+[PROGRESS] ocid epoch=29/30 batch=25/25 loss=0.0101
+[PROGRESS] ocid epoch=30/30 batch=1/25 loss=0.0102
+[PROGRESS] ocid epoch=30/30 batch=10/25 loss=0.0144
+[PROGRESS] ocid epoch=30/30 batch=20/25 loss=0.0088
+[PROGRESS] ocid epoch=30/30 batch=25/25 loss=0.0116
+[EVAL] ocid epoch=30 miou=0.9632 foreground_miou=0.9914 pixel_acc=0.9924
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt
+[DONE] ocid: status=ok best_epoch=30 best_foreground_miou=0.9914 elapsed=1.7min
+[DONE] DeepLabV3+ training wrapper

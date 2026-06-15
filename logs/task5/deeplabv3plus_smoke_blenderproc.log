@@ -1,0 +1,16 @@
+nohup: ignoring input
+[START] DeepLabV3+ dataset=blenderproc_cogar_sim epochs=1 batch=4 train_images=100 val_images=50 classes=11 image_size=512x512 device=0 output=results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_smoke
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/baselines/train_deeplabv3plus.py:486: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler(enabled=use_amp)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/baselines/train_deeplabv3plus.py:505: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=use_amp):
+[PROGRESS] blenderproc_cogar_sim epoch=1/1 batch=1/25 loss=2.2941
+[PROGRESS] blenderproc_cogar_sim epoch=1/1 batch=10/25 loss=1.4944
+[PROGRESS] blenderproc_cogar_sim epoch=1/1 batch=20/25 loss=1.0385
+[PROGRESS] blenderproc_cogar_sim epoch=1/1 batch=25/25 loss=0.7439
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/baselines/train_deeplabv3plus.py:363: DeprecationWarning: 'mode' parameter for changing data types is deprecated and will be removed in Pillow 13 (2026-10-15)
+  output = Image.fromarray(prediction.astype(np.uint16), mode="I;16")
+[EVAL] blenderproc_cogar_sim epoch=1 miou=0.3065 foreground_miou=0.2655 pixel_acc=0.9108
+[CHECKPOINT] best=results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_smoke/checkpoints/best.pt
+[DONE] blenderproc_cogar_sim: status=ok best_epoch=1 best_foreground_miou=0.2655 elapsed=0.1min
+[DONE] DeepLabV3+ training wrapper

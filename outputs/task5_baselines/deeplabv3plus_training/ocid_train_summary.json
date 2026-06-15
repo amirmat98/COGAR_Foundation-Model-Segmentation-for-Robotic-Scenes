@@ -1,0 +1,304 @@
+{
+  "dataset": "ocid",
+  "status": "ok",
+  "epochs": 30,
+  "best_epoch": 30,
+  "best_metric": "foreground_miou",
+  "best_metrics": {
+    "miou": 0.9632376367955024,
+    "foreground_miou": 0.9914437919805986,
+    "pixel_accuracy": 0.9923818969726562,
+    "mean_accuracy": 0.9737711613139998,
+    "per_class_iou": {
+      "background": 0.9350314816104062,
+      "object": 0.9914437919805986
+    },
+    "prediction_count": 50,
+    "predictions_dir": "results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_030",
+    "elapsed_s": 1.531475476018386
+  },
+  "train_images": 100,
+  "val_images": 50,
+  "num_classes": 2,
+  "class_names": [
+    "background",
+    "object"
+  ],
+  "elapsed_s": 99.11911605499336,
+  "run_dir": "results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30",
+  "best_checkpoint": "results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/checkpoints/best.pt",
+  "last_checkpoint": "results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/checkpoints/last.pt",
+  "epochs_summary": [
+    {
+      "epoch": 1,
+      "train_loss": 0.319287810921669,
+      "elapsed_s": 2.719307295017643,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.8720315360842603,
+        "foreground_miou": 0.9673626717460688,
+        "pixel_accuracy": 0.9706900024414062,
+        "mean_accuracy": 0.932549364552002,
+        "per_class_iou": {
+          "background": 0.7767004004224518,
+          "object": 0.9673626717460688
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_001",
+        "elapsed_s": 1.5577100049995352
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.12888263940811157,
+      "elapsed_s": 2.6845902549976017,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.07914226487278939,
+      "elapsed_s": 2.6808228290174156,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.05780481144785881,
+      "elapsed_s": 2.67294416599907,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.05181989848613739,
+      "elapsed_s": 2.7158053899765946,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.9154030183300571,
+        "foreground_miou": 0.9792475682151384,
+        "pixel_accuracy": 0.9814553070068359,
+        "mean_accuracy": 0.955336609247494,
+        "per_class_iou": {
+          "background": 0.8515584684449758,
+          "object": 0.9792475682151384
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_005",
+        "elapsed_s": 1.5256447849969845
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.04540389269590378,
+      "elapsed_s": 2.694829326996114,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.0433514803647995,
+      "elapsed_s": 2.6970705339917913,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.03920646741986275,
+      "elapsed_s": 2.7074969650129788,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.04129474326968193,
+      "elapsed_s": 2.695242785004666,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.033953253924846646,
+      "elapsed_s": 2.7184111129899975,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.9448787563873097,
+        "foreground_miou": 0.9869628087015309,
+        "pixel_accuracy": 0.9883708953857422,
+        "mean_accuracy": 0.9653482480710334,
+        "per_class_iou": {
+          "background": 0.9027947040730885,
+          "object": 0.9869628087015309
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_010",
+        "elapsed_s": 1.5673255159927066
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.03408780239522457,
+      "elapsed_s": 2.7263514410005882,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.03238676682114601,
+      "elapsed_s": 2.7408846099860966,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.030475901365280153,
+      "elapsed_s": 2.6883469269960187,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.029645649790763853,
+      "elapsed_s": 2.688707256980706,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.027957468181848525,
+      "elapsed_s": 2.687992671999382,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.9355998270518027,
+        "foreground_miou": 0.9850099060952945,
+        "pixel_accuracy": 0.9865766906738281,
+        "mean_accuracy": 0.9512161757531488,
+        "per_class_iou": {
+          "background": 0.8861897480083109,
+          "object": 0.9850099060952945
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_015",
+        "elapsed_s": 1.5555137770134024
+      }
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.024158323034644127,
+      "elapsed_s": 2.6934564230032265,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.025883213356137275,
+      "elapsed_s": 2.662039901013486,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.021590959131717682,
+      "elapsed_s": 2.6989222909905948,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.01958574492484331,
+      "elapsed_s": 2.6816001670085825,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.018857296593487262,
+      "elapsed_s": 2.684861343994271,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.9596999498775467,
+        "foreground_miou": 0.9905576878975717,
+        "pixel_accuracy": 0.9915937805175781,
+        "mean_accuracy": 0.9736585953925927,
+        "per_class_iou": {
+          "background": 0.9288422118575217,
+          "object": 0.9905576878975717
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_020",
+        "elapsed_s": 1.5510446900152601
+      }
+    },
+    {
+      "epoch": 21,
+      "train_loss": 0.017547186240553857,
+      "elapsed_s": 2.753331371990498,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 22,
+      "train_loss": 0.016243596151471137,
+      "elapsed_s": 2.7005906449921895,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 23,
+      "train_loss": 0.015428830161690712,
+      "elapsed_s": 2.7244842019863427,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 24,
+      "train_loss": 0.014790422879159451,
+      "elapsed_s": 2.72969021301833,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 25,
+      "train_loss": 0.014214902967214584,
+      "elapsed_s": 2.7017013909935486,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.9616244432335181,
+        "foreground_miou": 0.9910710255245101,
+        "pixel_accuracy": 0.9920470428466797,
+        "mean_accuracy": 0.9723346103791646,
+        "per_class_iou": {
+          "background": 0.9321778609425261,
+          "object": 0.9910710255245101
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_025",
+        "elapsed_s": 1.5247669630043674
+      }
+    },
+    {
+      "epoch": 26,
+      "train_loss": 0.013755093477666378,
+      "elapsed_s": 2.7029258310212754,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 27,
+      "train_loss": 0.013188037052750588,
+      "elapsed_s": 2.6591024109802675,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 28,
+      "train_loss": 0.012877983413636685,
+      "elapsed_s": 2.7137498750234954,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 29,
+      "train_loss": 0.01219790507107973,
+      "elapsed_s": 2.717678042012267,
+      "learning_rate": 0.0003
+    },
+    {
+      "epoch": 30,
+      "train_loss": 0.011754039488732815,
+      "elapsed_s": 2.71429172201897,
+      "learning_rate": 0.0003,
+      "metrics": {
+        "miou": 0.9632376367955024,
+        "foreground_miou": 0.9914437919805986,
+        "pixel_accuracy": 0.9923818969726562,
+        "mean_accuracy": 0.9737711613139998,
+        "per_class_iou": {
+          "background": 0.9350314816104062,
+          "object": 0.9914437919805986
+        },
+        "prediction_count": 50,
+        "predictions_dir": "results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_030",
+        "elapsed_s": 1.531475476018386
+      }
+    }
+  ]
+}
