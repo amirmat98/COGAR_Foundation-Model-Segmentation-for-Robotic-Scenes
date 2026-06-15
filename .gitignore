@@ -43,3 +43,6 @@ configs/local_paths.yaml
 .DS_Store
 .idea/
 .vscode/
+
+# Large raw benchmark outputs are kept local / release assets.
+results/
