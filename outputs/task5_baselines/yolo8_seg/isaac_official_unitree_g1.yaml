@@ -1,0 +1,20 @@
+path: /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/data/task5_baselines/yolo8_seg/isaac_official_unitree_g1
+train: images/train
+val: images/val
+names:
+  0: robot
+  1: workbench
+  2: background_fixture
+  3: storage_bin
+  4: metal_part
+  5: transparent_glass
+  6: screw
+  7: connector
+  8: cable
+  9: moving_object
+  10: occluder
+  11: tool
+  12: pcb
+  13: rubber_part
+  14: sensor_module
+  15: fiducial_marker

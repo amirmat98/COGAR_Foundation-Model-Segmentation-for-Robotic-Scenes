@@ -1,0 +1,131 @@
+[
+  {
+    "dataset": "isaac_official_unitree_g1",
+    "seed": 5884715,
+    "train_images": 100,
+    "val_images": 50,
+    "test_remaining_images": 850,
+    "split_files": {
+      "train": "outputs/task5_baselines/splits/isaac_official_unitree_g1/train_image_ids.txt",
+      "val": "outputs/task5_baselines/splits/isaac_official_unitree_g1/val_image_ids.txt",
+      "test": "outputs/task5_baselines/splits/isaac_official_unitree_g1/test_image_ids.txt"
+    },
+    "formats": [
+      {
+        "format": "coco_instance",
+        "files": {
+          "train": {
+            "path": "outputs/task5_baselines/coco/isaac_official_unitree_g1/instances_train_small.json",
+            "images": 100,
+            "annotations": 7163
+          },
+          "val": {
+            "path": "outputs/task5_baselines/coco/isaac_official_unitree_g1/instances_val_small.json",
+            "images": 50,
+            "annotations": 3643
+          }
+        }
+      },
+      {
+        "format": "yolo8_seg",
+        "config": "outputs/task5_baselines/yolo8_seg/isaac_official_unitree_g1.yaml",
+        "images": 150,
+        "labels": 10783,
+        "skipped_annotations": 23
+      },
+      {
+        "format": "deeplabv3plus",
+        "config": "outputs/task5_baselines/deeplabv3plus/isaac_official_unitree_g1.yaml",
+        "images": 150,
+        "masks": 150
+      }
+    ],
+    "dry_run": false
+  },
+  {
+    "dataset": "blenderproc_cogar_sim",
+    "seed": 5884715,
+    "train_images": 100,
+    "val_images": 50,
+    "test_remaining_images": 850,
+    "split_files": {
+      "train": "outputs/task5_baselines/splits/blenderproc_cogar_sim/train_image_ids.txt",
+      "val": "outputs/task5_baselines/splits/blenderproc_cogar_sim/val_image_ids.txt",
+      "test": "outputs/task5_baselines/splits/blenderproc_cogar_sim/test_image_ids.txt"
+    },
+    "formats": [
+      {
+        "format": "coco_instance",
+        "files": {
+          "train": {
+            "path": "outputs/task5_baselines/coco/blenderproc_cogar_sim/instances_train_small.json",
+            "images": 100,
+            "annotations": 894
+          },
+          "val": {
+            "path": "outputs/task5_baselines/coco/blenderproc_cogar_sim/instances_val_small.json",
+            "images": 50,
+            "annotations": 366
+          }
+        }
+      },
+      {
+        "format": "yolo8_seg",
+        "config": "outputs/task5_baselines/yolo8_seg/blenderproc_cogar_sim.yaml",
+        "images": 150,
+        "labels": 1257,
+        "skipped_annotations": 3
+      },
+      {
+        "format": "deeplabv3plus",
+        "config": "outputs/task5_baselines/deeplabv3plus/blenderproc_cogar_sim.yaml",
+        "images": 150,
+        "masks": 150
+      }
+    ],
+    "dry_run": false
+  },
+  {
+    "dataset": "ocid",
+    "seed": 5884715,
+    "train_images": 100,
+    "val_images": 50,
+    "test_remaining_images": 2240,
+    "split_files": {
+      "train": "outputs/task5_baselines/splits/ocid/train_image_ids.txt",
+      "val": "outputs/task5_baselines/splits/ocid/val_image_ids.txt",
+      "test": "outputs/task5_baselines/splits/ocid/test_image_ids.txt"
+    },
+    "formats": [
+      {
+        "format": "coco_instance",
+        "files": {
+          "train": {
+            "path": "outputs/task5_baselines/coco/ocid/instances_train_small.json",
+            "images": 100,
+            "annotations": 863
+          },
+          "val": {
+            "path": "outputs/task5_baselines/coco/ocid/instances_val_small.json",
+            "images": 50,
+            "annotations": 531
+          }
+        }
+      },
+      {
+        "format": "yolo8_seg",
+        "config": "outputs/task5_baselines/yolo8_seg/ocid.yaml",
+        "images": 150,
+        "labels": 1394,
+        "skipped_annotations": 0
+      },
+      {
+        "format": "deeplabv3plus",
+        "config": "outputs/task5_baselines/deeplabv3plus/ocid.yaml",
+        "images": 150,
+        "masks": 150
+      }
+    ],
+    "dry_run": false
+  }
+]

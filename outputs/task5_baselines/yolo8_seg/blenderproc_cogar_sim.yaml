@@ -1,0 +1,14 @@
+path: /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/data/task5_baselines/yolo8_seg/blenderproc_cogar_sim
+train: images/train
+val: images/val
+names:
+  0: table
+  1: robot_gripper
+  2: metal_part
+  3: glass_object
+  4: plastic_object
+  5: screw
+  6: connector
+  7: cable
+  8: tool
+  9: box

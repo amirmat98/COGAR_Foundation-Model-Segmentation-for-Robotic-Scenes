@@ -1,0 +1,8 @@
+root: /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/data/task5_baselines/deeplabv3plus/blenderproc_cogar_sim
+train_images: images/train
+train_masks: masks/train
+val_images: images/val
+val_masks: masks/val
+num_classes: 11
+background_label: 0
+class_map: /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/outputs/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_class_map.json

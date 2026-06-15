@@ -1,0 +1,5 @@
+path: /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/data/task5_baselines/yolo8_seg/ocid
+train: images/train
+val: images/val
+names:
+  0: object

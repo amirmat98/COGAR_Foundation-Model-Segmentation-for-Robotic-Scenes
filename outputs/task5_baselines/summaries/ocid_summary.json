@@ -1,0 +1,43 @@
+{
+  "dataset": "ocid",
+  "seed": 5884715,
+  "train_images": 100,
+  "val_images": 50,
+  "test_remaining_images": 2240,
+  "split_files": {
+    "train": "outputs/task5_baselines/splits/ocid/train_image_ids.txt",
+    "val": "outputs/task5_baselines/splits/ocid/val_image_ids.txt",
+    "test": "outputs/task5_baselines/splits/ocid/test_image_ids.txt"
+  },
+  "formats": [
+    {
+      "format": "coco_instance",
+      "files": {
+        "train": {
+          "path": "outputs/task5_baselines/coco/ocid/instances_train_small.json",
+          "images": 100,
+          "annotations": 863
+        },
+        "val": {
+          "path": "outputs/task5_baselines/coco/ocid/instances_val_small.json",
+          "images": 50,
+          "annotations": 531
+        }
+      }
+    },
+    {
+      "format": "yolo8_seg",
+      "config": "outputs/task5_baselines/yolo8_seg/ocid.yaml",
+      "images": 150,
+      "labels": 1394,
+      "skipped_annotations": 0
+    },
+    {
+      "format": "deeplabv3plus",
+      "config": "outputs/task5_baselines/deeplabv3plus/ocid.yaml",
+      "images": 150,
+      "masks": 150
+    }
+  ],
+  "dry_run": false
+}

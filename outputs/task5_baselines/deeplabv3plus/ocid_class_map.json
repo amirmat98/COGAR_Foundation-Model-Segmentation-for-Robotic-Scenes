@@ -1,0 +1,14 @@
+{
+  "background": {
+    "semantic_id": 0,
+    "name": "background"
+  },
+  "categories": [
+    {
+      "category_id": 1,
+      "name": "object",
+      "yolo_class_id": 0,
+      "semantic_id": 1
+    }
+  ]
+}
