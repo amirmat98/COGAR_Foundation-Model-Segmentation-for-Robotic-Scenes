@@ -97,6 +97,15 @@ Then run all enabled datasets:
 python scripts/baselines/train_yolov8_seg.py
 ```
 
+After training, collect compact validation metrics from the YOLOv8 run folders:
+
+```text
+python scripts/baselines/collect_yolov8_seg_metrics.py
+```
+
+This writes `metrics_summary.json` and `metrics_summary.csv` under
+`outputs/task5_baselines/yolo8_seg_training`.
+
 ## Closure Criteria
 
 Task 5 is complete when YOLOv8-seg, Mask R-CNN, and DeepLabV3+ have trained on
