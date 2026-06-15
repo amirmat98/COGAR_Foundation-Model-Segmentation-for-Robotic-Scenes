@@ -1,0 +1,48 @@
+task:
+  name: task5_mask_rcnn
+  description: Mask R-CNN baseline fine-tuned on Task 5A COCO subsets
+  source_dataset_config: configs/task5_baselines.yaml
+  output_root: outputs/task5_baselines/mask_rcnn_training
+  results_root: results/task5_baselines/mask_rcnn
+  seed: 5884715
+
+model:
+  name: maskrcnn_resnet50_fpn
+  weights: DEFAULT
+  run_suffix: maskrcnn_resnet50_fpn_small_subset
+  trainable_backbone_layers: 3
+  min_size: 640
+  max_size: 1024
+  box_score_thresh: 0.05
+
+training:
+  epochs: 20
+  batch_size: 1
+  workers: 2
+  learning_rate: 0.005
+  momentum: 0.9
+  weight_decay: 0.0005
+  step_size: 8
+  gamma: 0.1
+  device: 0
+  amp: true
+  eval_every: 5
+  score_threshold: 0.05
+  mask_threshold: 0.5
+  log_every: 10
+
+datasets:
+  isaac_official_unitree_g1:
+    enabled: true
+    train_annotations: outputs/task5_baselines/coco/isaac_official_unitree_g1/instances_train_small.json
+    val_annotations: outputs/task5_baselines/coco/isaac_official_unitree_g1/instances_val_small.json
+
+  blenderproc_cogar_sim:
+    enabled: true
+    train_annotations: outputs/task5_baselines/coco/blenderproc_cogar_sim/instances_train_small.json
+    val_annotations: outputs/task5_baselines/coco/blenderproc_cogar_sim/instances_val_small.json
+
+  ocid:
+    enabled: true
+    train_annotations: outputs/task5_baselines/coco/ocid/instances_train_small.json
+    val_annotations: outputs/task5_baselines/coco/ocid/instances_val_small.json

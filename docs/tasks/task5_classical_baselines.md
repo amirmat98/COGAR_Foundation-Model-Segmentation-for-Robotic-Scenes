@@ -106,6 +106,36 @@ python scripts/baselines/collect_yolov8_seg_metrics.py
 This writes `metrics_summary.json` and `metrics_summary.csv` under
 `outputs/task5_baselines/yolo8_seg_training`.
 
+## Mask R-CNN Training
+
+Mask R-CNN is trained with TorchVision's `maskrcnn_resnet50_fpn` implementation
+initialized from COCO weights. It uses the COCO train/validation subset files
+prepared in Task 5A.
+
+Training outputs are written under:
+
+```text
+results/task5_baselines/mask_rcnn
+```
+
+Compact training summaries and validation AP metrics are written under:
+
+```text
+outputs/task5_baselines/mask_rcnn_training
+```
+
+Use a smoke run first:
+
+```text
+python scripts/baselines/train_mask_rcnn.py --datasets blenderproc_cogar_sim --smoke
+```
+
+Then run all enabled datasets:
+
+```text
+python scripts/baselines/train_mask_rcnn.py
+```
+
 ## Closure Criteria
 
 Task 5 is complete when YOLOv8-seg, Mask R-CNN, and DeepLabV3+ have trained on

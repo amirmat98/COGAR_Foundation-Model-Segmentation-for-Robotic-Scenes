@@ -5,6 +5,7 @@
 # reused.
 
 opencv-python-headless
+Pillow
 pycocotools>=2.0.8
 PyYAML
 tqdm
