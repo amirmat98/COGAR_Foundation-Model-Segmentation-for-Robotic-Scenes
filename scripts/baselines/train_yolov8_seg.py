@@ -60,6 +60,13 @@ def run_name(dataset_name: str, config: dict[str, Any], epochs: int, smoke: bool
     return f"{dataset_name}_{suffix}_e{epochs}"
 
 
+def resolve_repo_path(path: str | Path) -> Path:
+    resolved = Path(path)
+    if resolved.is_absolute():
+        return resolved
+    return REPO_ROOT / resolved
+
+
 def expected_best_weight(results_root: Path, name: str) -> Path:
     return results_root / name / "weights" / "best.pt"
 
@@ -76,11 +83,11 @@ def build_train_kwargs(
     image_size = int(args.image_size or training["image_size"])
     workers = int(args.workers or training["workers"])
     device = args.device if args.device is not None else training["device"]
-    results_root = Path(config["task"]["results_root"])
+    results_root = resolve_repo_path(config["task"]["results_root"])
     name = run_name(dataset_name, config, epochs, args.smoke)
 
     return {
-        "data": str(Path(dataset_config["data_yaml"])),
+        "data": str(resolve_repo_path(dataset_config["data_yaml"])),
         "epochs": epochs,
         "imgsz": image_size,
         "batch": batch,
@@ -105,7 +112,7 @@ def train_dataset(
 ) -> dict[str, Any]:
     checkpoint = config["model"]["checkpoint"]
     kwargs = build_train_kwargs(args, config, dataset_name, dataset_config)
-    results_root = Path(config["task"]["results_root"])
+    results_root = Path(kwargs["project"])
     best_weight = expected_best_weight(results_root, kwargs["name"])
 
     print(
@@ -148,6 +155,11 @@ def train_dataset(
     train_result = model.train(**kwargs)
     elapsed_s = time.perf_counter() - started_at
 
+    actual_save_dir = Path(str(getattr(train_result, "save_dir", "")))
+    actual_best_weight = actual_save_dir / "weights" / "best.pt"
+    if actual_best_weight.exists():
+        best_weight = actual_best_weight
+
     status = "ok" if best_weight.exists() else "missing_best_weight"
     summary = {
         "dataset": dataset_name,
@@ -155,7 +167,7 @@ def train_dataset(
         "elapsed_s": elapsed_s,
         "best_weight": str(best_weight),
         "train_kwargs": kwargs,
-        "result_save_dir": str(getattr(train_result, "save_dir", "")),
+        "result_save_dir": str(actual_save_dir),
     }
     print(
         f"[DONE] {dataset_name}: status={status} elapsed={elapsed_s / 60.0:.1f}min "
@@ -168,7 +180,7 @@ def train_dataset(
 def main() -> None:
     args = parse_args()
     config = load_yaml(args.config)
-    output_root = Path(config["task"]["output_root"])
+    output_root = resolve_repo_path(config["task"]["output_root"])
     summaries = []
 
     for dataset_name, dataset_config in selected_datasets(config, args.datasets):
