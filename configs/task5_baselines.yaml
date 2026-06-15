@@ -1,0 +1,51 @@
+task:
+  name: task5_classical_baselines
+  description: small-subset supervised baselines for robotic segmentation
+  output_root: outputs/task5_baselines
+  data_root: data/task5_baselines
+  seed: 5884715
+
+split_policy:
+  train_images: 100
+  val_images: 50
+  min_area: 1.0
+  require_annotations: true
+
+datasets:
+  isaac_official_unitree_g1:
+    enabled: true
+    root: /mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000
+    annotation_file: /mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000/annotations/instances_coco.json
+    image_path:
+      mode: coco_file_name_relative_to_root
+
+  blenderproc_cogar_sim:
+    enabled: true
+    root: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000
+    annotation_file: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/annotations/instances_all.json
+    image_path:
+      mode: basename_in_image_dir
+      image_dir: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/rgb
+
+  ocid:
+    enabled: true
+    root: /mnt/Info/COGAR_DATASETs/OCID-dataset
+    annotation_file: /mnt/Info/COGAR_DATASETs/OCID-dataset/annotations/instances_all.json
+    image_path:
+      mode: coco_file_name_relative_to_root
+
+baselines:
+  yolo8_seg:
+    enabled: true
+    format: yolo_segmentation
+    image_strategy: symlink
+    min_contour_points: 3
+
+  mask_rcnn:
+    enabled: true
+    format: coco_instance
+
+  deeplabv3plus:
+    enabled: true
+    format: semantic_masks
+    background_label: 0
