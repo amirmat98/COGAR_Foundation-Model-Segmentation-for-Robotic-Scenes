@@ -13,6 +13,9 @@ tasks 1-3. Model benchmarking is handled after the datasets are fixed.
 - [Task 1: Dataset creation and curation](docs/tasks/task1_dataset_creation.md)
 - [Task 2: Simulation environment](docs/tasks/task2_simulation_environment.md)
 - [Task 3: Robotic platform](docs/tasks/task3_robotic_platform.md)
+- [Task 4: Zero-shot SAM-family inference](docs/tasks/task4_zero_shot_sam.md)
+- [Task 5: Classical baselines](docs/tasks/task5_classical_baselines.md)
+- [Task 6: Evaluation metrics](docs/tasks/task6_evaluation.md)
 
 ## Datasets
 

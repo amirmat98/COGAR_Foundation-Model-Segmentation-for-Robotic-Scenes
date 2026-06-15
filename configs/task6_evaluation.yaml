@@ -1,0 +1,42 @@
+task:
+  name: task6_evaluation
+  description: Standard metric evaluation for zero-shot and supervised segmentation runs
+  output_root: outputs/task6_evaluation
+  results_root: results/task6_evaluation
+  seed: 5884715
+
+metrics:
+  boundary_tolerance_px: 2
+  prediction_selection: highest_score
+  score_default: 1.0
+
+zero_shot:
+  config: configs/task4_zero_shot_sam.yaml
+  models:
+    - sam_vit_h
+    - sam_vit_b
+    - sam2_hiera_large
+    - fastsam_x
+  prompt_modes:
+    - point
+    - box
+    - automatic
+
+baselines:
+  yolo8_seg:
+    enabled: true
+    summary: outputs/task5_baselines/yolo8_seg_training/summary.json
+    class_map_dir: outputs/task5_baselines/yolo8_seg
+    results_root: results/task5_baselines/yolo8_seg
+    prediction_output_root: results/task6_evaluation/baselines/yolo8_seg_predictions
+    image_size: 640
+    confidence: 0.001
+
+  mask_rcnn:
+    enabled: true
+    summary: outputs/task5_baselines/mask_rcnn_training/summary.json
+
+  deeplabv3plus:
+    enabled: true
+    summary: outputs/task5_baselines/deeplabv3plus_training/summary.json
+    data_config_dir: outputs/task5_baselines/deeplabv3plus
