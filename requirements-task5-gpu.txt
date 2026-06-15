@@ -1,0 +1,11 @@
+# Task 5 supervised baseline dependencies.
+#
+# Install PyTorch/TorchVision with the CUDA wheel that matches the GPU machine
+# before installing this file. The existing Task 4 GPU environment can be
+# reused.
+
+opencv-python-headless
+pycocotools>=2.0.8
+PyYAML
+tqdm
+ultralytics

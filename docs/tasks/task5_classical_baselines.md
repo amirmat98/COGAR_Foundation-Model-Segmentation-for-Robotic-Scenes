@@ -61,6 +61,42 @@ python scripts/baselines/prepare_task5_splits.py
 The command only prepares small supervised training data. It does not train any
 model.
 
+## YOLOv8-Seg Training
+
+YOLOv8-seg is the first supervised baseline because it is the simplest
+instance-segmentation baseline to fine-tune on the prepared subsets.
+
+The first configured model is:
+
+```text
+yolov8n-seg.pt
+```
+
+Training uses the 100-image train split and 50-image validation split generated
+by Task 5A. Training outputs are written under:
+
+```text
+results/task5_baselines/yolo8_seg
+```
+
+Compact training summaries are written under:
+
+```text
+outputs/task5_baselines/yolo8_seg_training
+```
+
+Use a smoke run first:
+
+```text
+python scripts/baselines/train_yolov8_seg.py --datasets blenderproc_cogar_sim --smoke
+```
+
+Then run all enabled datasets:
+
+```text
+python scripts/baselines/train_yolov8_seg.py
+```
+
 ## Closure Criteria
 
 Task 5 is complete when YOLOv8-seg, Mask R-CNN, and DeepLabV3+ have trained on

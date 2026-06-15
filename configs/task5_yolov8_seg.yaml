@@ -1,0 +1,36 @@
+task:
+  name: task5_yolov8_seg
+  description: YOLOv8 segmentation baseline fine-tuned on Task 5A subsets
+  output_root: outputs/task5_baselines/yolo8_seg_training
+  results_root: results/task5_baselines/yolo8_seg
+  seed: 5884715
+
+model:
+  # YOLOv8-nano segmentation is the first supervised baseline because it is
+  # fast enough for repeated runs on a single T4 while still using the YOLOv8
+  # segmentation training path.
+  checkpoint: yolov8n-seg.pt
+  run_suffix: yolov8n_seg_small_subset
+
+training:
+  epochs: 50
+  image_size: 640
+  batch: 8
+  workers: 4
+  patience: 15
+  device: 0
+  optimizer: auto
+  cache: false
+
+datasets:
+  isaac_official_unitree_g1:
+    enabled: true
+    data_yaml: outputs/task5_baselines/yolo8_seg/isaac_official_unitree_g1.yaml
+
+  blenderproc_cogar_sim:
+    enabled: true
+    data_yaml: outputs/task5_baselines/yolo8_seg/blenderproc_cogar_sim.yaml
+
+  ocid:
+    enabled: true
+    data_yaml: outputs/task5_baselines/yolo8_seg/ocid.yaml
