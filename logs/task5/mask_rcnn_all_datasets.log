@@ -1,0 +1,880 @@
+nohup: ignoring input
+[START] Mask R-CNN dataset=isaac_official_unitree_g1 epochs=20 batch=1 train_images=100 val_images=50 classes=17 device=0 output=results/task5_baselines/mask_rcnn/isaac_official_unitree_g1_maskrcnn_resnet50_fpn_small_subset_e20
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/baselines/train_mask_rcnn.py:533: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler(enabled=use_amp)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/baselines/train_mask_rcnn.py:555: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=use_amp):
+[PROGRESS] isaac_official_unitree_g1 epoch=1/20 batch=1/100 loss=10.3910
+[PROGRESS] isaac_official_unitree_g1 epoch=1/20 batch=10/100 loss=3.2854
+[PROGRESS] isaac_official_unitree_g1 epoch=1/20 batch=20/100 loss=3.4241
+[PROGRESS] isaac_official_unitree_g1 epoch=1/20 batch=30/100 loss=3.0142
+[PROGRESS] isaac_official_unitree_g1 epoch=1/20 batch=40/100 loss=2.6455
+[PROGRESS] isaac_official_unitree_g1 epoch=1/20 batch=50/100 loss=2.4382
+[PROGRESS] isaac_official_unitree_g1 epoch=1/20 batch=60/100 loss=2.6551
+[PROGRESS] isaac_official_unitree_g1 epoch=1/20 batch=70/100 loss=2.8039
+[PROGRESS] isaac_official_unitree_g1 epoch=1/20 batch=80/100 loss=2.5070
+[PROGRESS] isaac_official_unitree_g1 epoch=1/20 batch=90/100 loss=2.3292
+[PROGRESS] isaac_official_unitree_g1 epoch=1/20 batch=100/100 loss=1.9357
+loading annotations into memory...
+Done (t=0.16s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] isaac_official_unitree_g1 epoch=1 segm_AP=0.1717 segm_AP50=0.2586 bbox_AP=0.1798
+[CHECKPOINT] best=results/task5_baselines/mask_rcnn/isaac_official_unitree_g1_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
+[PROGRESS] isaac_official_unitree_g1 epoch=2/20 batch=1/100 loss=2.0532
+[PROGRESS] isaac_official_unitree_g1 epoch=2/20 batch=10/100 loss=1.9991
+[PROGRESS] isaac_official_unitree_g1 epoch=2/20 batch=20/100 loss=2.1436
+[PROGRESS] isaac_official_unitree_g1 epoch=2/20 batch=30/100 loss=1.7017
+[PROGRESS] isaac_official_unitree_g1 epoch=2/20 batch=40/100 loss=2.0810
+[PROGRESS] isaac_official_unitree_g1 epoch=2/20 batch=50/100 loss=1.8121
+[PROGRESS] isaac_official_unitree_g1 epoch=2/20 batch=60/100 loss=1.7612
+[PROGRESS] isaac_official_unitree_g1 epoch=2/20 batch=70/100 loss=1.6427
+[PROGRESS] isaac_official_unitree_g1 epoch=2/20 batch=80/100 loss=1.6783
+[PROGRESS] isaac_official_unitree_g1 epoch=2/20 batch=90/100 loss=1.9819
+[PROGRESS] isaac_official_unitree_g1 epoch=2/20 batch=100/100 loss=1.9109
+[PROGRESS] isaac_official_unitree_g1 epoch=3/20 batch=1/100 loss=1.7367
+[PROGRESS] isaac_official_unitree_g1 epoch=3/20 batch=10/100 loss=2.1241
+[PROGRESS] isaac_official_unitree_g1 epoch=3/20 batch=20/100 loss=1.8184
+[PROGRESS] isaac_official_unitree_g1 epoch=3/20 batch=30/100 loss=1.5055
+[PROGRESS] isaac_official_unitree_g1 epoch=3/20 batch=40/100 loss=2.0217
+[PROGRESS] isaac_official_unitree_g1 epoch=3/20 batch=50/100 loss=1.6438
+[PROGRESS] isaac_official_unitree_g1 epoch=3/20 batch=60/100 loss=1.6655
+[PROGRESS] isaac_official_unitree_g1 epoch=3/20 batch=70/100 loss=1.8957
+[PROGRESS] isaac_official_unitree_g1 epoch=3/20 batch=80/100 loss=1.4680
+[PROGRESS] isaac_official_unitree_g1 epoch=3/20 batch=90/100 loss=1.3719
+[PROGRESS] isaac_official_unitree_g1 epoch=3/20 batch=100/100 loss=1.5851
+[PROGRESS] isaac_official_unitree_g1 epoch=4/20 batch=1/100 loss=1.8778
+[PROGRESS] isaac_official_unitree_g1 epoch=4/20 batch=10/100 loss=1.9691
+[PROGRESS] isaac_official_unitree_g1 epoch=4/20 batch=20/100 loss=1.8197
+[PROGRESS] isaac_official_unitree_g1 epoch=4/20 batch=30/100 loss=1.5006
+[PROGRESS] isaac_official_unitree_g1 epoch=4/20 batch=40/100 loss=1.8587
+[PROGRESS] isaac_official_unitree_g1 epoch=4/20 batch=50/100 loss=1.5848
+[PROGRESS] isaac_official_unitree_g1 epoch=4/20 batch=60/100 loss=1.8195
+[PROGRESS] isaac_official_unitree_g1 epoch=4/20 batch=70/100 loss=1.3329
+[PROGRESS] isaac_official_unitree_g1 epoch=4/20 batch=80/100 loss=1.9280
+[PROGRESS] isaac_official_unitree_g1 epoch=4/20 batch=90/100 loss=1.5848
+[PROGRESS] isaac_official_unitree_g1 epoch=4/20 batch=100/100 loss=1.4840
+[PROGRESS] isaac_official_unitree_g1 epoch=5/20 batch=1/100 loss=1.7286
+[PROGRESS] isaac_official_unitree_g1 epoch=5/20 batch=10/100 loss=1.3926
+[PROGRESS] isaac_official_unitree_g1 epoch=5/20 batch=20/100 loss=1.3249
+[PROGRESS] isaac_official_unitree_g1 epoch=5/20 batch=30/100 loss=1.2578
+[PROGRESS] isaac_official_unitree_g1 epoch=5/20 batch=40/100 loss=1.5869
+[PROGRESS] isaac_official_unitree_g1 epoch=5/20 batch=50/100 loss=1.0596
+[PROGRESS] isaac_official_unitree_g1 epoch=5/20 batch=60/100 loss=1.6535
+[PROGRESS] isaac_official_unitree_g1 epoch=5/20 batch=70/100 loss=1.2457
+[PROGRESS] isaac_official_unitree_g1 epoch=5/20 batch=80/100 loss=1.3757
+[PROGRESS] isaac_official_unitree_g1 epoch=5/20 batch=90/100 loss=1.3247
+[PROGRESS] isaac_official_unitree_g1 epoch=5/20 batch=100/100 loss=1.1988
+loading annotations into memory...
+Done (t=0.16s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] isaac_official_unitree_g1 epoch=5 segm_AP=0.3393 segm_AP50=0.5087 bbox_AP=0.3673
+[CHECKPOINT] best=results/task5_baselines/mask_rcnn/isaac_official_unitree_g1_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
+[PROGRESS] isaac_official_unitree_g1 epoch=6/20 batch=1/100 loss=1.4193
+[PROGRESS] isaac_official_unitree_g1 epoch=6/20 batch=10/100 loss=1.4203
+[PROGRESS] isaac_official_unitree_g1 epoch=6/20 batch=20/100 loss=1.2878
+[PROGRESS] isaac_official_unitree_g1 epoch=6/20 batch=30/100 loss=1.1284
+[PROGRESS] isaac_official_unitree_g1 epoch=6/20 batch=40/100 loss=1.1907
+[PROGRESS] isaac_official_unitree_g1 epoch=6/20 batch=50/100 loss=1.6770
+[PROGRESS] isaac_official_unitree_g1 epoch=6/20 batch=60/100 loss=1.5240
+[PROGRESS] isaac_official_unitree_g1 epoch=6/20 batch=70/100 loss=1.0930
+[PROGRESS] isaac_official_unitree_g1 epoch=6/20 batch=80/100 loss=1.2723
+[PROGRESS] isaac_official_unitree_g1 epoch=6/20 batch=90/100 loss=1.3171
+[PROGRESS] isaac_official_unitree_g1 epoch=6/20 batch=100/100 loss=1.3772
+[PROGRESS] isaac_official_unitree_g1 epoch=7/20 batch=1/100 loss=1.2329
+[PROGRESS] isaac_official_unitree_g1 epoch=7/20 batch=10/100 loss=1.1736
+[PROGRESS] isaac_official_unitree_g1 epoch=7/20 batch=20/100 loss=1.5262
+[PROGRESS] isaac_official_unitree_g1 epoch=7/20 batch=30/100 loss=1.2657
+[PROGRESS] isaac_official_unitree_g1 epoch=7/20 batch=40/100 loss=1.2685
+[PROGRESS] isaac_official_unitree_g1 epoch=7/20 batch=50/100 loss=1.0904
+[PROGRESS] isaac_official_unitree_g1 epoch=7/20 batch=60/100 loss=1.3590
+[PROGRESS] isaac_official_unitree_g1 epoch=7/20 batch=70/100 loss=1.5788
+[PROGRESS] isaac_official_unitree_g1 epoch=7/20 batch=80/100 loss=0.9832
+[PROGRESS] isaac_official_unitree_g1 epoch=7/20 batch=90/100 loss=1.1960
+[PROGRESS] isaac_official_unitree_g1 epoch=7/20 batch=100/100 loss=1.1914
+[PROGRESS] isaac_official_unitree_g1 epoch=8/20 batch=1/100 loss=1.0566
+[PROGRESS] isaac_official_unitree_g1 epoch=8/20 batch=10/100 loss=1.2946
+[PROGRESS] isaac_official_unitree_g1 epoch=8/20 batch=20/100 loss=1.1671
+[PROGRESS] isaac_official_unitree_g1 epoch=8/20 batch=30/100 loss=1.1783
+[PROGRESS] isaac_official_unitree_g1 epoch=8/20 batch=40/100 loss=1.3424
+[PROGRESS] isaac_official_unitree_g1 epoch=8/20 batch=50/100 loss=1.1887
+[PROGRESS] isaac_official_unitree_g1 epoch=8/20 batch=60/100 loss=1.3164
+[PROGRESS] isaac_official_unitree_g1 epoch=8/20 batch=70/100 loss=1.2076
+[PROGRESS] isaac_official_unitree_g1 epoch=8/20 batch=80/100 loss=1.0027
+[PROGRESS] isaac_official_unitree_g1 epoch=8/20 batch=90/100 loss=1.1572
+[PROGRESS] isaac_official_unitree_g1 epoch=8/20 batch=100/100 loss=1.1314
+[PROGRESS] isaac_official_unitree_g1 epoch=9/20 batch=1/100 loss=0.6621
+[PROGRESS] isaac_official_unitree_g1 epoch=9/20 batch=10/100 loss=1.4507
+[PROGRESS] isaac_official_unitree_g1 epoch=9/20 batch=20/100 loss=1.0968
+[PROGRESS] isaac_official_unitree_g1 epoch=9/20 batch=30/100 loss=1.0508
+[PROGRESS] isaac_official_unitree_g1 epoch=9/20 batch=40/100 loss=1.2886
+[PROGRESS] isaac_official_unitree_g1 epoch=9/20 batch=50/100 loss=0.8834
+[PROGRESS] isaac_official_unitree_g1 epoch=9/20 batch=60/100 loss=1.1242
+[PROGRESS] isaac_official_unitree_g1 epoch=9/20 batch=70/100 loss=1.0156
+[PROGRESS] isaac_official_unitree_g1 epoch=9/20 batch=80/100 loss=1.0647
+[PROGRESS] isaac_official_unitree_g1 epoch=9/20 batch=90/100 loss=0.9722
+[PROGRESS] isaac_official_unitree_g1 epoch=9/20 batch=100/100 loss=1.3753
+[PROGRESS] isaac_official_unitree_g1 epoch=10/20 batch=1/100 loss=1.1984
+[PROGRESS] isaac_official_unitree_g1 epoch=10/20 batch=10/100 loss=0.9820
+[PROGRESS] isaac_official_unitree_g1 epoch=10/20 batch=20/100 loss=0.9901
+[PROGRESS] isaac_official_unitree_g1 epoch=10/20 batch=30/100 loss=1.0036
+[PROGRESS] isaac_official_unitree_g1 epoch=10/20 batch=40/100 loss=1.1037
+[PROGRESS] isaac_official_unitree_g1 epoch=10/20 batch=50/100 loss=0.9200
+[PROGRESS] isaac_official_unitree_g1 epoch=10/20 batch=60/100 loss=1.0361
+[PROGRESS] isaac_official_unitree_g1 epoch=10/20 batch=70/100 loss=0.9215
+[PROGRESS] isaac_official_unitree_g1 epoch=10/20 batch=80/100 loss=0.8712
+[PROGRESS] isaac_official_unitree_g1 epoch=10/20 batch=90/100 loss=1.0323
+[PROGRESS] isaac_official_unitree_g1 epoch=10/20 batch=100/100 loss=0.8742
+loading annotations into memory...
+Done (t=0.16s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] isaac_official_unitree_g1 epoch=10 segm_AP=0.3769 segm_AP50=0.5487 bbox_AP=0.4225
+[CHECKPOINT] best=results/task5_baselines/mask_rcnn/isaac_official_unitree_g1_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
+[PROGRESS] isaac_official_unitree_g1 epoch=11/20 batch=1/100 loss=0.7900
+[PROGRESS] isaac_official_unitree_g1 epoch=11/20 batch=10/100 loss=0.8960
+[PROGRESS] isaac_official_unitree_g1 epoch=11/20 batch=20/100 loss=1.3389
+[PROGRESS] isaac_official_unitree_g1 epoch=11/20 batch=30/100 loss=0.9317
+[PROGRESS] isaac_official_unitree_g1 epoch=11/20 batch=40/100 loss=0.9861
+[PROGRESS] isaac_official_unitree_g1 epoch=11/20 batch=50/100 loss=1.0026
+[PROGRESS] isaac_official_unitree_g1 epoch=11/20 batch=60/100 loss=0.8496
+[PROGRESS] isaac_official_unitree_g1 epoch=11/20 batch=70/100 loss=1.3184
+[PROGRESS] isaac_official_unitree_g1 epoch=11/20 batch=80/100 loss=1.0217
+[PROGRESS] isaac_official_unitree_g1 epoch=11/20 batch=90/100 loss=0.9092
+[PROGRESS] isaac_official_unitree_g1 epoch=11/20 batch=100/100 loss=1.0714
+[PROGRESS] isaac_official_unitree_g1 epoch=12/20 batch=1/100 loss=0.9913
+[PROGRESS] isaac_official_unitree_g1 epoch=12/20 batch=10/100 loss=1.1498
+[PROGRESS] isaac_official_unitree_g1 epoch=12/20 batch=20/100 loss=0.9825
+[PROGRESS] isaac_official_unitree_g1 epoch=12/20 batch=30/100 loss=0.8676
+[PROGRESS] isaac_official_unitree_g1 epoch=12/20 batch=40/100 loss=0.8274
+[PROGRESS] isaac_official_unitree_g1 epoch=12/20 batch=50/100 loss=1.2692
+[PROGRESS] isaac_official_unitree_g1 epoch=12/20 batch=60/100 loss=0.8203
+[PROGRESS] isaac_official_unitree_g1 epoch=12/20 batch=70/100 loss=0.8331
+[PROGRESS] isaac_official_unitree_g1 epoch=12/20 batch=80/100 loss=0.9273
+[PROGRESS] isaac_official_unitree_g1 epoch=12/20 batch=90/100 loss=1.3527
+[PROGRESS] isaac_official_unitree_g1 epoch=12/20 batch=100/100 loss=0.9837
+[PROGRESS] isaac_official_unitree_g1 epoch=13/20 batch=1/100 loss=0.9097
+[PROGRESS] isaac_official_unitree_g1 epoch=13/20 batch=10/100 loss=1.2499
+[PROGRESS] isaac_official_unitree_g1 epoch=13/20 batch=20/100 loss=1.0294
+[PROGRESS] isaac_official_unitree_g1 epoch=13/20 batch=30/100 loss=1.0418
+[PROGRESS] isaac_official_unitree_g1 epoch=13/20 batch=40/100 loss=0.7985
+[PROGRESS] isaac_official_unitree_g1 epoch=13/20 batch=50/100 loss=1.0655
+[PROGRESS] isaac_official_unitree_g1 epoch=13/20 batch=60/100 loss=1.2688
+[PROGRESS] isaac_official_unitree_g1 epoch=13/20 batch=70/100 loss=0.8898
+[PROGRESS] isaac_official_unitree_g1 epoch=13/20 batch=80/100 loss=0.9400
+[PROGRESS] isaac_official_unitree_g1 epoch=13/20 batch=90/100 loss=1.0299
+[PROGRESS] isaac_official_unitree_g1 epoch=13/20 batch=100/100 loss=1.2009
+[PROGRESS] isaac_official_unitree_g1 epoch=14/20 batch=1/100 loss=0.8714
+[PROGRESS] isaac_official_unitree_g1 epoch=14/20 batch=10/100 loss=0.9653
+[PROGRESS] isaac_official_unitree_g1 epoch=14/20 batch=20/100 loss=0.7703
+[PROGRESS] isaac_official_unitree_g1 epoch=14/20 batch=30/100 loss=0.8705
+[PROGRESS] isaac_official_unitree_g1 epoch=14/20 batch=40/100 loss=1.2525
+[PROGRESS] isaac_official_unitree_g1 epoch=14/20 batch=50/100 loss=1.2731
+[PROGRESS] isaac_official_unitree_g1 epoch=14/20 batch=60/100 loss=0.9290
+[PROGRESS] isaac_official_unitree_g1 epoch=14/20 batch=70/100 loss=0.9281
+[PROGRESS] isaac_official_unitree_g1 epoch=14/20 batch=80/100 loss=0.9214
+[PROGRESS] isaac_official_unitree_g1 epoch=14/20 batch=90/100 loss=1.0996
+[PROGRESS] isaac_official_unitree_g1 epoch=14/20 batch=100/100 loss=1.1202
+[PROGRESS] isaac_official_unitree_g1 epoch=15/20 batch=1/100 loss=0.9108
+[PROGRESS] isaac_official_unitree_g1 epoch=15/20 batch=10/100 loss=0.8851
+[PROGRESS] isaac_official_unitree_g1 epoch=15/20 batch=20/100 loss=0.9933
+[PROGRESS] isaac_official_unitree_g1 epoch=15/20 batch=30/100 loss=0.9579
+[PROGRESS] isaac_official_unitree_g1 epoch=15/20 batch=40/100 loss=0.9765
+[PROGRESS] isaac_official_unitree_g1 epoch=15/20 batch=50/100 loss=0.9916
+[PROGRESS] isaac_official_unitree_g1 epoch=15/20 batch=60/100 loss=1.0828
+[PROGRESS] isaac_official_unitree_g1 epoch=15/20 batch=70/100 loss=0.8118
+[PROGRESS] isaac_official_unitree_g1 epoch=15/20 batch=80/100 loss=0.9338
+[PROGRESS] isaac_official_unitree_g1 epoch=15/20 batch=90/100 loss=1.0254
+[PROGRESS] isaac_official_unitree_g1 epoch=15/20 batch=100/100 loss=0.8458
+loading annotations into memory...
+Done (t=0.16s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] isaac_official_unitree_g1 epoch=15 segm_AP=0.3807 segm_AP50=0.5541 bbox_AP=0.4243
+[CHECKPOINT] best=results/task5_baselines/mask_rcnn/isaac_official_unitree_g1_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
+[PROGRESS] isaac_official_unitree_g1 epoch=16/20 batch=1/100 loss=1.0149
+[PROGRESS] isaac_official_unitree_g1 epoch=16/20 batch=10/100 loss=0.7397
+[PROGRESS] isaac_official_unitree_g1 epoch=16/20 batch=20/100 loss=0.7803
+[PROGRESS] isaac_official_unitree_g1 epoch=16/20 batch=30/100 loss=0.8769
+[PROGRESS] isaac_official_unitree_g1 epoch=16/20 batch=40/100 loss=0.8320
+[PROGRESS] isaac_official_unitree_g1 epoch=16/20 batch=50/100 loss=1.0274
+[PROGRESS] isaac_official_unitree_g1 epoch=16/20 batch=60/100 loss=1.1115
+[PROGRESS] isaac_official_unitree_g1 epoch=16/20 batch=70/100 loss=0.8404
+[PROGRESS] isaac_official_unitree_g1 epoch=16/20 batch=80/100 loss=0.8166
+[PROGRESS] isaac_official_unitree_g1 epoch=16/20 batch=90/100 loss=0.9700
+[PROGRESS] isaac_official_unitree_g1 epoch=16/20 batch=100/100 loss=1.2649
+[PROGRESS] isaac_official_unitree_g1 epoch=17/20 batch=1/100 loss=0.9979
+[PROGRESS] isaac_official_unitree_g1 epoch=17/20 batch=10/100 loss=1.0609
+[PROGRESS] isaac_official_unitree_g1 epoch=17/20 batch=20/100 loss=0.8594
+[PROGRESS] isaac_official_unitree_g1 epoch=17/20 batch=30/100 loss=1.0706
+[PROGRESS] isaac_official_unitree_g1 epoch=17/20 batch=40/100 loss=0.8161
+[PROGRESS] isaac_official_unitree_g1 epoch=17/20 batch=50/100 loss=0.8044
+[PROGRESS] isaac_official_unitree_g1 epoch=17/20 batch=60/100 loss=0.9593
+[PROGRESS] isaac_official_unitree_g1 epoch=17/20 batch=70/100 loss=0.7711
+[PROGRESS] isaac_official_unitree_g1 epoch=17/20 batch=80/100 loss=0.8918
+[PROGRESS] isaac_official_unitree_g1 epoch=17/20 batch=90/100 loss=0.8947
+[PROGRESS] isaac_official_unitree_g1 epoch=17/20 batch=100/100 loss=1.1495
+[PROGRESS] isaac_official_unitree_g1 epoch=18/20 batch=1/100 loss=0.9285
+[PROGRESS] isaac_official_unitree_g1 epoch=18/20 batch=10/100 loss=0.9155
+[PROGRESS] isaac_official_unitree_g1 epoch=18/20 batch=20/100 loss=0.9442
+[PROGRESS] isaac_official_unitree_g1 epoch=18/20 batch=30/100 loss=0.9888
+[PROGRESS] isaac_official_unitree_g1 epoch=18/20 batch=40/100 loss=0.6451
+[PROGRESS] isaac_official_unitree_g1 epoch=18/20 batch=50/100 loss=0.8429
+[PROGRESS] isaac_official_unitree_g1 epoch=18/20 batch=60/100 loss=0.9569
+[PROGRESS] isaac_official_unitree_g1 epoch=18/20 batch=70/100 loss=0.8142
+[PROGRESS] isaac_official_unitree_g1 epoch=18/20 batch=80/100 loss=0.9545
+[PROGRESS] isaac_official_unitree_g1 epoch=18/20 batch=90/100 loss=1.0128
+[PROGRESS] isaac_official_unitree_g1 epoch=18/20 batch=100/100 loss=1.0940
+[PROGRESS] isaac_official_unitree_g1 epoch=19/20 batch=1/100 loss=0.9318
+[PROGRESS] isaac_official_unitree_g1 epoch=19/20 batch=10/100 loss=1.0764
+[PROGRESS] isaac_official_unitree_g1 epoch=19/20 batch=20/100 loss=0.9250
+[PROGRESS] isaac_official_unitree_g1 epoch=19/20 batch=30/100 loss=1.2582
+[PROGRESS] isaac_official_unitree_g1 epoch=19/20 batch=40/100 loss=0.9024
+[PROGRESS] isaac_official_unitree_g1 epoch=19/20 batch=50/100 loss=0.6731
+[PROGRESS] isaac_official_unitree_g1 epoch=19/20 batch=60/100 loss=0.9023
+[PROGRESS] isaac_official_unitree_g1 epoch=19/20 batch=70/100 loss=0.7800
+[PROGRESS] isaac_official_unitree_g1 epoch=19/20 batch=80/100 loss=0.9979
+[PROGRESS] isaac_official_unitree_g1 epoch=19/20 batch=90/100 loss=0.6746
+[PROGRESS] isaac_official_unitree_g1 epoch=19/20 batch=100/100 loss=0.9405
+[PROGRESS] isaac_official_unitree_g1 epoch=20/20 batch=1/100 loss=0.9552
+[PROGRESS] isaac_official_unitree_g1 epoch=20/20 batch=10/100 loss=1.1853
+[PROGRESS] isaac_official_unitree_g1 epoch=20/20 batch=20/100 loss=0.9689
+[PROGRESS] isaac_official_unitree_g1 epoch=20/20 batch=30/100 loss=0.9582
+[PROGRESS] isaac_official_unitree_g1 epoch=20/20 batch=40/100 loss=0.9034
+[PROGRESS] isaac_official_unitree_g1 epoch=20/20 batch=50/100 loss=0.8790
+[PROGRESS] isaac_official_unitree_g1 epoch=20/20 batch=60/100 loss=1.0707
+[PROGRESS] isaac_official_unitree_g1 epoch=20/20 batch=70/100 loss=0.8729
+[PROGRESS] isaac_official_unitree_g1 epoch=20/20 batch=80/100 loss=0.9525
+[PROGRESS] isaac_official_unitree_g1 epoch=20/20 batch=90/100 loss=0.8705
+[PROGRESS] isaac_official_unitree_g1 epoch=20/20 batch=100/100 loss=0.9622
+loading annotations into memory...
+Done (t=0.16s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] isaac_official_unitree_g1 epoch=20 segm_AP=0.3818 segm_AP50=0.5529 bbox_AP=0.4277
+[CHECKPOINT] best=results/task5_baselines/mask_rcnn/isaac_official_unitree_g1_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
+[DONE] isaac_official_unitree_g1: status=ok best_epoch=20 best_segm_AP=0.3818 elapsed=8.8min
+[START] Mask R-CNN dataset=blenderproc_cogar_sim epochs=20 batch=1 train_images=100 val_images=50 classes=11 device=0 output=results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20
+[PROGRESS] blenderproc_cogar_sim epoch=1/20 batch=1/100 loss=5.4749
+[PROGRESS] blenderproc_cogar_sim epoch=1/20 batch=10/100 loss=2.6918
+[PROGRESS] blenderproc_cogar_sim epoch=1/20 batch=20/100 loss=2.2611
+[PROGRESS] blenderproc_cogar_sim epoch=1/20 batch=30/100 loss=1.8677
+[PROGRESS] blenderproc_cogar_sim epoch=1/20 batch=40/100 loss=1.8903
+[PROGRESS] blenderproc_cogar_sim epoch=1/20 batch=50/100 loss=0.5391
+[PROGRESS] blenderproc_cogar_sim epoch=1/20 batch=60/100 loss=1.8817
+[PROGRESS] blenderproc_cogar_sim epoch=1/20 batch=70/100 loss=0.9027
+[PROGRESS] blenderproc_cogar_sim epoch=1/20 batch=80/100 loss=1.6448
+[PROGRESS] blenderproc_cogar_sim epoch=1/20 batch=90/100 loss=1.5293
+[PROGRESS] blenderproc_cogar_sim epoch=1/20 batch=100/100 loss=3.1363
+loading annotations into memory...
+Done (t=0.02s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] blenderproc_cogar_sim epoch=1 segm_AP=0.2379 segm_AP50=0.3987 bbox_AP=0.2714
+[CHECKPOINT] best=results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
+[PROGRESS] blenderproc_cogar_sim epoch=2/20 batch=1/100 loss=1.4980
+[PROGRESS] blenderproc_cogar_sim epoch=2/20 batch=10/100 loss=1.8484
+[PROGRESS] blenderproc_cogar_sim epoch=2/20 batch=20/100 loss=1.3102
+[PROGRESS] blenderproc_cogar_sim epoch=2/20 batch=30/100 loss=1.2171
+[PROGRESS] blenderproc_cogar_sim epoch=2/20 batch=40/100 loss=2.8353
+[PROGRESS] blenderproc_cogar_sim epoch=2/20 batch=50/100 loss=0.3359
+[PROGRESS] blenderproc_cogar_sim epoch=2/20 batch=60/100 loss=0.3750
+[PROGRESS] blenderproc_cogar_sim epoch=2/20 batch=70/100 loss=1.4097
+[PROGRESS] blenderproc_cogar_sim epoch=2/20 batch=80/100 loss=1.0634
+[PROGRESS] blenderproc_cogar_sim epoch=2/20 batch=90/100 loss=0.8906
+[PROGRESS] blenderproc_cogar_sim epoch=2/20 batch=100/100 loss=1.0431
+[PROGRESS] blenderproc_cogar_sim epoch=3/20 batch=1/100 loss=0.9702
+[PROGRESS] blenderproc_cogar_sim epoch=3/20 batch=10/100 loss=0.8070
+[PROGRESS] blenderproc_cogar_sim epoch=3/20 batch=20/100 loss=0.2636
+[PROGRESS] blenderproc_cogar_sim epoch=3/20 batch=30/100 loss=0.7743
+[PROGRESS] blenderproc_cogar_sim epoch=3/20 batch=40/100 loss=1.8226
+[PROGRESS] blenderproc_cogar_sim epoch=3/20 batch=50/100 loss=0.3108
+[PROGRESS] blenderproc_cogar_sim epoch=3/20 batch=60/100 loss=1.0723
+[PROGRESS] blenderproc_cogar_sim epoch=3/20 batch=70/100 loss=0.8837
+[PROGRESS] blenderproc_cogar_sim epoch=3/20 batch=80/100 loss=0.8709
+[PROGRESS] blenderproc_cogar_sim epoch=3/20 batch=90/100 loss=1.0254
+[PROGRESS] blenderproc_cogar_sim epoch=3/20 batch=100/100 loss=0.8630
+[PROGRESS] blenderproc_cogar_sim epoch=4/20 batch=1/100 loss=0.7607
+[PROGRESS] blenderproc_cogar_sim epoch=4/20 batch=10/100 loss=1.2459
+[PROGRESS] blenderproc_cogar_sim epoch=4/20 batch=20/100 loss=1.7023
+[PROGRESS] blenderproc_cogar_sim epoch=4/20 batch=30/100 loss=0.9109
+[PROGRESS] blenderproc_cogar_sim epoch=4/20 batch=40/100 loss=1.6331
+[PROGRESS] blenderproc_cogar_sim epoch=4/20 batch=50/100 loss=0.6975
+[PROGRESS] blenderproc_cogar_sim epoch=4/20 batch=60/100 loss=0.9739
+[PROGRESS] blenderproc_cogar_sim epoch=4/20 batch=70/100 loss=0.9175
+[PROGRESS] blenderproc_cogar_sim epoch=4/20 batch=80/100 loss=0.7780
+[PROGRESS] blenderproc_cogar_sim epoch=4/20 batch=90/100 loss=0.6881
+[PROGRESS] blenderproc_cogar_sim epoch=4/20 batch=100/100 loss=0.7475
+[PROGRESS] blenderproc_cogar_sim epoch=5/20 batch=1/100 loss=0.6649
+[PROGRESS] blenderproc_cogar_sim epoch=5/20 batch=10/100 loss=0.7480
+[PROGRESS] blenderproc_cogar_sim epoch=5/20 batch=20/100 loss=1.0926
+[PROGRESS] blenderproc_cogar_sim epoch=5/20 batch=30/100 loss=0.5902
+[PROGRESS] blenderproc_cogar_sim epoch=5/20 batch=40/100 loss=0.5786
+[PROGRESS] blenderproc_cogar_sim epoch=5/20 batch=50/100 loss=0.8004
+[PROGRESS] blenderproc_cogar_sim epoch=5/20 batch=60/100 loss=0.1913
+[PROGRESS] blenderproc_cogar_sim epoch=5/20 batch=70/100 loss=0.6226
+[PROGRESS] blenderproc_cogar_sim epoch=5/20 batch=80/100 loss=0.6449
+[PROGRESS] blenderproc_cogar_sim epoch=5/20 batch=90/100 loss=0.4006
+[PROGRESS] blenderproc_cogar_sim epoch=5/20 batch=100/100 loss=0.4950
+loading annotations into memory...
+Done (t=0.02s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] blenderproc_cogar_sim epoch=5 segm_AP=0.5541 segm_AP50=0.7641 bbox_AP=0.5348
+[CHECKPOINT] best=results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
+[PROGRESS] blenderproc_cogar_sim epoch=6/20 batch=1/100 loss=0.5260
+[PROGRESS] blenderproc_cogar_sim epoch=6/20 batch=10/100 loss=0.5818
+[PROGRESS] blenderproc_cogar_sim epoch=6/20 batch=20/100 loss=0.6657
+[PROGRESS] blenderproc_cogar_sim epoch=6/20 batch=30/100 loss=0.9126
+[PROGRESS] blenderproc_cogar_sim epoch=6/20 batch=40/100 loss=0.1067
+[PROGRESS] blenderproc_cogar_sim epoch=6/20 batch=50/100 loss=0.5947
+[PROGRESS] blenderproc_cogar_sim epoch=6/20 batch=60/100 loss=0.5217
+[PROGRESS] blenderproc_cogar_sim epoch=6/20 batch=70/100 loss=1.0213
+[PROGRESS] blenderproc_cogar_sim epoch=6/20 batch=80/100 loss=1.4099
+[PROGRESS] blenderproc_cogar_sim epoch=6/20 batch=90/100 loss=0.7855
+[PROGRESS] blenderproc_cogar_sim epoch=6/20 batch=100/100 loss=0.7338
+[PROGRESS] blenderproc_cogar_sim epoch=7/20 batch=1/100 loss=0.6853
+[PROGRESS] blenderproc_cogar_sim epoch=7/20 batch=10/100 loss=0.1869
+[PROGRESS] blenderproc_cogar_sim epoch=7/20 batch=20/100 loss=0.9628
+[PROGRESS] blenderproc_cogar_sim epoch=7/20 batch=30/100 loss=0.8104
+[PROGRESS] blenderproc_cogar_sim epoch=7/20 batch=40/100 loss=0.9623
+[PROGRESS] blenderproc_cogar_sim epoch=7/20 batch=50/100 loss=1.0959
+[PROGRESS] blenderproc_cogar_sim epoch=7/20 batch=60/100 loss=0.4988
+[PROGRESS] blenderproc_cogar_sim epoch=7/20 batch=70/100 loss=0.2274
+[PROGRESS] blenderproc_cogar_sim epoch=7/20 batch=80/100 loss=0.5732
+[PROGRESS] blenderproc_cogar_sim epoch=7/20 batch=90/100 loss=1.0206
+[PROGRESS] blenderproc_cogar_sim epoch=7/20 batch=100/100 loss=0.5483
+[PROGRESS] blenderproc_cogar_sim epoch=8/20 batch=1/100 loss=0.5586
+[PROGRESS] blenderproc_cogar_sim epoch=8/20 batch=10/100 loss=0.5096
+[PROGRESS] blenderproc_cogar_sim epoch=8/20 batch=20/100 loss=0.7395
+[PROGRESS] blenderproc_cogar_sim epoch=8/20 batch=30/100 loss=0.0417
+[PROGRESS] blenderproc_cogar_sim epoch=8/20 batch=40/100 loss=0.7610
+[PROGRESS] blenderproc_cogar_sim epoch=8/20 batch=50/100 loss=0.4653
+[PROGRESS] blenderproc_cogar_sim epoch=8/20 batch=60/100 loss=0.3900
+[PROGRESS] blenderproc_cogar_sim epoch=8/20 batch=70/100 loss=0.7000
+[PROGRESS] blenderproc_cogar_sim epoch=8/20 batch=80/100 loss=0.1084
+[PROGRESS] blenderproc_cogar_sim epoch=8/20 batch=90/100 loss=0.8312
+[PROGRESS] blenderproc_cogar_sim epoch=8/20 batch=100/100 loss=0.4415
+[PROGRESS] blenderproc_cogar_sim epoch=9/20 batch=1/100 loss=0.5797
+[PROGRESS] blenderproc_cogar_sim epoch=9/20 batch=10/100 loss=0.3632
+[PROGRESS] blenderproc_cogar_sim epoch=9/20 batch=20/100 loss=0.5902
+[PROGRESS] blenderproc_cogar_sim epoch=9/20 batch=30/100 loss=0.1042
+[PROGRESS] blenderproc_cogar_sim epoch=9/20 batch=40/100 loss=0.2844
+[PROGRESS] blenderproc_cogar_sim epoch=9/20 batch=50/100 loss=0.0960
+[PROGRESS] blenderproc_cogar_sim epoch=9/20 batch=60/100 loss=0.0987
+[PROGRESS] blenderproc_cogar_sim epoch=9/20 batch=70/100 loss=0.3172
+[PROGRESS] blenderproc_cogar_sim epoch=9/20 batch=80/100 loss=0.4366
+[PROGRESS] blenderproc_cogar_sim epoch=9/20 batch=90/100 loss=0.0650
+[PROGRESS] blenderproc_cogar_sim epoch=9/20 batch=100/100 loss=0.3200
+[PROGRESS] blenderproc_cogar_sim epoch=10/20 batch=1/100 loss=0.3517
+[PROGRESS] blenderproc_cogar_sim epoch=10/20 batch=10/100 loss=0.5458
+[PROGRESS] blenderproc_cogar_sim epoch=10/20 batch=20/100 loss=0.3370
+[PROGRESS] blenderproc_cogar_sim epoch=10/20 batch=30/100 loss=0.4981
+[PROGRESS] blenderproc_cogar_sim epoch=10/20 batch=40/100 loss=0.3524
+[PROGRESS] blenderproc_cogar_sim epoch=10/20 batch=50/100 loss=0.0886
+[PROGRESS] blenderproc_cogar_sim epoch=10/20 batch=60/100 loss=0.2322
+[PROGRESS] blenderproc_cogar_sim epoch=10/20 batch=70/100 loss=0.3895
+[PROGRESS] blenderproc_cogar_sim epoch=10/20 batch=80/100 loss=0.3327
+[PROGRESS] blenderproc_cogar_sim epoch=10/20 batch=90/100 loss=0.3029
+[PROGRESS] blenderproc_cogar_sim epoch=10/20 batch=100/100 loss=0.0259
+loading annotations into memory...
+Done (t=0.02s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] blenderproc_cogar_sim epoch=10 segm_AP=0.5639 segm_AP50=0.7482 bbox_AP=0.5805
+[CHECKPOINT] best=results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
+[PROGRESS] blenderproc_cogar_sim epoch=11/20 batch=1/100 loss=0.8067
+[PROGRESS] blenderproc_cogar_sim epoch=11/20 batch=10/100 loss=0.3105
+[PROGRESS] blenderproc_cogar_sim epoch=11/20 batch=20/100 loss=0.3595
+[PROGRESS] blenderproc_cogar_sim epoch=11/20 batch=30/100 loss=0.4453
+[PROGRESS] blenderproc_cogar_sim epoch=11/20 batch=40/100 loss=0.3466
+[PROGRESS] blenderproc_cogar_sim epoch=11/20 batch=50/100 loss=0.3170
+[PROGRESS] blenderproc_cogar_sim epoch=11/20 batch=60/100 loss=0.2609
+[PROGRESS] blenderproc_cogar_sim epoch=11/20 batch=70/100 loss=0.1343
+[PROGRESS] blenderproc_cogar_sim epoch=11/20 batch=80/100 loss=0.5063
+[PROGRESS] blenderproc_cogar_sim epoch=11/20 batch=90/100 loss=0.4363
+[PROGRESS] blenderproc_cogar_sim epoch=11/20 batch=100/100 loss=0.6678
+[PROGRESS] blenderproc_cogar_sim epoch=12/20 batch=1/100 loss=0.3754
+[PROGRESS] blenderproc_cogar_sim epoch=12/20 batch=10/100 loss=0.5370
+[PROGRESS] blenderproc_cogar_sim epoch=12/20 batch=20/100 loss=0.3215
+[PROGRESS] blenderproc_cogar_sim epoch=12/20 batch=30/100 loss=0.3027
+[PROGRESS] blenderproc_cogar_sim epoch=12/20 batch=40/100 loss=0.5769
+[PROGRESS] blenderproc_cogar_sim epoch=12/20 batch=50/100 loss=0.3953
+[PROGRESS] blenderproc_cogar_sim epoch=12/20 batch=60/100 loss=0.3764
+[PROGRESS] blenderproc_cogar_sim epoch=12/20 batch=70/100 loss=0.4396
+[PROGRESS] blenderproc_cogar_sim epoch=12/20 batch=80/100 loss=0.3322
+[PROGRESS] blenderproc_cogar_sim epoch=12/20 batch=90/100 loss=0.2687
+[PROGRESS] blenderproc_cogar_sim epoch=12/20 batch=100/100 loss=0.0514
+[PROGRESS] blenderproc_cogar_sim epoch=13/20 batch=1/100 loss=0.4264
+[PROGRESS] blenderproc_cogar_sim epoch=13/20 batch=10/100 loss=0.3725
+[PROGRESS] blenderproc_cogar_sim epoch=13/20 batch=20/100 loss=0.5841
+[PROGRESS] blenderproc_cogar_sim epoch=13/20 batch=30/100 loss=0.0604
+[PROGRESS] blenderproc_cogar_sim epoch=13/20 batch=40/100 loss=0.2137
+[PROGRESS] blenderproc_cogar_sim epoch=13/20 batch=50/100 loss=0.3068
+[PROGRESS] blenderproc_cogar_sim epoch=13/20 batch=60/100 loss=0.4990
+[PROGRESS] blenderproc_cogar_sim epoch=13/20 batch=70/100 loss=0.2098
+[PROGRESS] blenderproc_cogar_sim epoch=13/20 batch=80/100 loss=0.3287
+[PROGRESS] blenderproc_cogar_sim epoch=13/20 batch=90/100 loss=0.5794
+[PROGRESS] blenderproc_cogar_sim epoch=13/20 batch=100/100 loss=0.1637
+[PROGRESS] blenderproc_cogar_sim epoch=14/20 batch=1/100 loss=0.4591
+[PROGRESS] blenderproc_cogar_sim epoch=14/20 batch=10/100 loss=0.2339
+[PROGRESS] blenderproc_cogar_sim epoch=14/20 batch=20/100 loss=0.1921
+[PROGRESS] blenderproc_cogar_sim epoch=14/20 batch=30/100 loss=0.2470
+[PROGRESS] blenderproc_cogar_sim epoch=14/20 batch=40/100 loss=0.3312
+[PROGRESS] blenderproc_cogar_sim epoch=14/20 batch=50/100 loss=0.2748
+[PROGRESS] blenderproc_cogar_sim epoch=14/20 batch=60/100 loss=0.3123
+[PROGRESS] blenderproc_cogar_sim epoch=14/20 batch=70/100 loss=0.0886
+[PROGRESS] blenderproc_cogar_sim epoch=14/20 batch=80/100 loss=0.1798
+[PROGRESS] blenderproc_cogar_sim epoch=14/20 batch=90/100 loss=0.3683
+[PROGRESS] blenderproc_cogar_sim epoch=14/20 batch=100/100 loss=0.3170
+[PROGRESS] blenderproc_cogar_sim epoch=15/20 batch=1/100 loss=0.2513
+[PROGRESS] blenderproc_cogar_sim epoch=15/20 batch=10/100 loss=0.2746
+[PROGRESS] blenderproc_cogar_sim epoch=15/20 batch=20/100 loss=0.3687
+[PROGRESS] blenderproc_cogar_sim epoch=15/20 batch=30/100 loss=0.5471
+[PROGRESS] blenderproc_cogar_sim epoch=15/20 batch=40/100 loss=0.2892
+[PROGRESS] blenderproc_cogar_sim epoch=15/20 batch=50/100 loss=0.0654
+[PROGRESS] blenderproc_cogar_sim epoch=15/20 batch=60/100 loss=0.0420
+[PROGRESS] blenderproc_cogar_sim epoch=15/20 batch=70/100 loss=0.2754
+[PROGRESS] blenderproc_cogar_sim epoch=15/20 batch=80/100 loss=0.3618
+[PROGRESS] blenderproc_cogar_sim epoch=15/20 batch=90/100 loss=0.4441
+[PROGRESS] blenderproc_cogar_sim epoch=15/20 batch=100/100 loss=0.3566
+loading annotations into memory...
+Done (t=0.02s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] blenderproc_cogar_sim epoch=15 segm_AP=0.5735 segm_AP50=0.7666 bbox_AP=0.5831
+[CHECKPOINT] best=results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
+[PROGRESS] blenderproc_cogar_sim epoch=16/20 batch=1/100 loss=0.0615
+[PROGRESS] blenderproc_cogar_sim epoch=16/20 batch=10/100 loss=0.4860
+[PROGRESS] blenderproc_cogar_sim epoch=16/20 batch=20/100 loss=0.3418
+[PROGRESS] blenderproc_cogar_sim epoch=16/20 batch=30/100 loss=0.3706
+[PROGRESS] blenderproc_cogar_sim epoch=16/20 batch=40/100 loss=0.3111
+[PROGRESS] blenderproc_cogar_sim epoch=16/20 batch=50/100 loss=0.2808
+[PROGRESS] blenderproc_cogar_sim epoch=16/20 batch=60/100 loss=0.3555
+[PROGRESS] blenderproc_cogar_sim epoch=16/20 batch=70/100 loss=0.1828
+[PROGRESS] blenderproc_cogar_sim epoch=16/20 batch=80/100 loss=0.4558
+[PROGRESS] blenderproc_cogar_sim epoch=16/20 batch=90/100 loss=0.1412
+[PROGRESS] blenderproc_cogar_sim epoch=16/20 batch=100/100 loss=0.3311
+[PROGRESS] blenderproc_cogar_sim epoch=17/20 batch=1/100 loss=0.4071
+[PROGRESS] blenderproc_cogar_sim epoch=17/20 batch=10/100 loss=0.3831
+[PROGRESS] blenderproc_cogar_sim epoch=17/20 batch=20/100 loss=0.0254
+[PROGRESS] blenderproc_cogar_sim epoch=17/20 batch=30/100 loss=0.4279
+[PROGRESS] blenderproc_cogar_sim epoch=17/20 batch=40/100 loss=0.3629
+[PROGRESS] blenderproc_cogar_sim epoch=17/20 batch=50/100 loss=0.2654
+[PROGRESS] blenderproc_cogar_sim epoch=17/20 batch=60/100 loss=0.4031
+[PROGRESS] blenderproc_cogar_sim epoch=17/20 batch=70/100 loss=0.2229
+[PROGRESS] blenderproc_cogar_sim epoch=17/20 batch=80/100 loss=0.3471
+[PROGRESS] blenderproc_cogar_sim epoch=17/20 batch=90/100 loss=0.2801
+[PROGRESS] blenderproc_cogar_sim epoch=17/20 batch=100/100 loss=0.3441
+[PROGRESS] blenderproc_cogar_sim epoch=18/20 batch=1/100 loss=0.4981
+[PROGRESS] blenderproc_cogar_sim epoch=18/20 batch=10/100 loss=0.2059
+[PROGRESS] blenderproc_cogar_sim epoch=18/20 batch=20/100 loss=0.6858
+[PROGRESS] blenderproc_cogar_sim epoch=18/20 batch=30/100 loss=0.3330
+[PROGRESS] blenderproc_cogar_sim epoch=18/20 batch=40/100 loss=0.2004
+[PROGRESS] blenderproc_cogar_sim epoch=18/20 batch=50/100 loss=0.2262
+[PROGRESS] blenderproc_cogar_sim epoch=18/20 batch=60/100 loss=0.3597
+[PROGRESS] blenderproc_cogar_sim epoch=18/20 batch=70/100 loss=0.2344
+[PROGRESS] blenderproc_cogar_sim epoch=18/20 batch=80/100 loss=0.2862
+[PROGRESS] blenderproc_cogar_sim epoch=18/20 batch=90/100 loss=0.2502
+[PROGRESS] blenderproc_cogar_sim epoch=18/20 batch=100/100 loss=0.2498
+[PROGRESS] blenderproc_cogar_sim epoch=19/20 batch=1/100 loss=0.3066
+[PROGRESS] blenderproc_cogar_sim epoch=19/20 batch=10/100 loss=0.1697
+[PROGRESS] blenderproc_cogar_sim epoch=19/20 batch=20/100 loss=0.2473
+[PROGRESS] blenderproc_cogar_sim epoch=19/20 batch=30/100 loss=0.0725
+[PROGRESS] blenderproc_cogar_sim epoch=19/20 batch=40/100 loss=0.2030
+[PROGRESS] blenderproc_cogar_sim epoch=19/20 batch=50/100 loss=0.2163
+[PROGRESS] blenderproc_cogar_sim epoch=19/20 batch=60/100 loss=0.2541
+[PROGRESS] blenderproc_cogar_sim epoch=19/20 batch=70/100 loss=0.2493
+[PROGRESS] blenderproc_cogar_sim epoch=19/20 batch=80/100 loss=0.3731
+[PROGRESS] blenderproc_cogar_sim epoch=19/20 batch=90/100 loss=0.3079
+[PROGRESS] blenderproc_cogar_sim epoch=19/20 batch=100/100 loss=0.3787
+[PROGRESS] blenderproc_cogar_sim epoch=20/20 batch=1/100 loss=0.2717
+[PROGRESS] blenderproc_cogar_sim epoch=20/20 batch=10/100 loss=0.1899
+[PROGRESS] blenderproc_cogar_sim epoch=20/20 batch=20/100 loss=0.2274
+[PROGRESS] blenderproc_cogar_sim epoch=20/20 batch=30/100 loss=0.2743
+[PROGRESS] blenderproc_cogar_sim epoch=20/20 batch=40/100 loss=0.3085
+[PROGRESS] blenderproc_cogar_sim epoch=20/20 batch=50/100 loss=0.0525
+[PROGRESS] blenderproc_cogar_sim epoch=20/20 batch=60/100 loss=0.2887
+[PROGRESS] blenderproc_cogar_sim epoch=20/20 batch=70/100 loss=0.1760
+[PROGRESS] blenderproc_cogar_sim epoch=20/20 batch=80/100 loss=0.4693
+[PROGRESS] blenderproc_cogar_sim epoch=20/20 batch=90/100 loss=0.0703
+[PROGRESS] blenderproc_cogar_sim epoch=20/20 batch=100/100 loss=0.2636
+loading annotations into memory...
+Done (t=0.02s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] blenderproc_cogar_sim epoch=20 segm_AP=0.5740 segm_AP50=0.7586 bbox_AP=0.5853
+[CHECKPOINT] best=results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
+[DONE] blenderproc_cogar_sim: status=ok best_epoch=20 best_segm_AP=0.5740 elapsed=5.2min
+[START] Mask R-CNN dataset=ocid epochs=20 batch=1 train_images=100 val_images=50 classes=2 device=0 output=results/task5_baselines/mask_rcnn/ocid_maskrcnn_resnet50_fpn_small_subset_e20
+[PROGRESS] ocid epoch=1/20 batch=1/100 loss=4.1858
+[PROGRESS] ocid epoch=1/20 batch=10/100 loss=2.0591
+[PROGRESS] ocid epoch=1/20 batch=20/100 loss=1.4191
+[PROGRESS] ocid epoch=1/20 batch=30/100 loss=0.9734
+[PROGRESS] ocid epoch=1/20 batch=40/100 loss=1.2667
+[PROGRESS] ocid epoch=1/20 batch=50/100 loss=0.5560
+[PROGRESS] ocid epoch=1/20 batch=60/100 loss=1.3307
+[PROGRESS] ocid epoch=1/20 batch=70/100 loss=0.5676
+[PROGRESS] ocid epoch=1/20 batch=80/100 loss=0.5007
+[PROGRESS] ocid epoch=1/20 batch=90/100 loss=0.2788
+[PROGRESS] ocid epoch=1/20 batch=100/100 loss=0.5899
+loading annotations into memory...
+Done (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] ocid epoch=1 segm_AP=0.5719 segm_AP50=0.8671 bbox_AP=0.6235
+[CHECKPOINT] best=results/task5_baselines/mask_rcnn/ocid_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
+[PROGRESS] ocid epoch=2/20 batch=1/100 loss=0.3841
+[PROGRESS] ocid epoch=2/20 batch=10/100 loss=0.6166
+[PROGRESS] ocid epoch=2/20 batch=20/100 loss=0.5655
+[PROGRESS] ocid epoch=2/20 batch=30/100 loss=0.5790
+[PROGRESS] ocid epoch=2/20 batch=40/100 loss=0.3492
+[PROGRESS] ocid epoch=2/20 batch=50/100 loss=0.3169
+[PROGRESS] ocid epoch=2/20 batch=60/100 loss=0.6570
+[PROGRESS] ocid epoch=2/20 batch=70/100 loss=0.3197
+[PROGRESS] ocid epoch=2/20 batch=80/100 loss=0.7291
+[PROGRESS] ocid epoch=2/20 batch=90/100 loss=0.5642
+[PROGRESS] ocid epoch=2/20 batch=100/100 loss=0.4241
+[PROGRESS] ocid epoch=3/20 batch=1/100 loss=0.5298
+[PROGRESS] ocid epoch=3/20 batch=10/100 loss=0.3487
+[PROGRESS] ocid epoch=3/20 batch=20/100 loss=0.3786
+[PROGRESS] ocid epoch=3/20 batch=30/100 loss=0.4815
+[PROGRESS] ocid epoch=3/20 batch=40/100 loss=0.2301
+[PROGRESS] ocid epoch=3/20 batch=50/100 loss=0.2918
+[PROGRESS] ocid epoch=3/20 batch=60/100 loss=0.6366
+[PROGRESS] ocid epoch=3/20 batch=70/100 loss=0.6761
+[PROGRESS] ocid epoch=3/20 batch=80/100 loss=0.3829
+[PROGRESS] ocid epoch=3/20 batch=90/100 loss=0.3440
+[PROGRESS] ocid epoch=3/20 batch=100/100 loss=0.9572
+[PROGRESS] ocid epoch=4/20 batch=1/100 loss=0.4918
+[PROGRESS] ocid epoch=4/20 batch=10/100 loss=0.4706
+[PROGRESS] ocid epoch=4/20 batch=20/100 loss=0.5030
+[PROGRESS] ocid epoch=4/20 batch=30/100 loss=0.2691
+[PROGRESS] ocid epoch=4/20 batch=40/100 loss=0.2150
+[PROGRESS] ocid epoch=4/20 batch=50/100 loss=0.4178
+[PROGRESS] ocid epoch=4/20 batch=60/100 loss=0.3511
+[PROGRESS] ocid epoch=4/20 batch=70/100 loss=0.2675
+[PROGRESS] ocid epoch=4/20 batch=80/100 loss=0.3120
+[PROGRESS] ocid epoch=4/20 batch=90/100 loss=0.1763
+[PROGRESS] ocid epoch=4/20 batch=100/100 loss=0.3231
+[PROGRESS] ocid epoch=5/20 batch=1/100 loss=0.1216
+[PROGRESS] ocid epoch=5/20 batch=10/100 loss=0.5362
+[PROGRESS] ocid epoch=5/20 batch=20/100 loss=0.4039
+[PROGRESS] ocid epoch=5/20 batch=30/100 loss=0.6043
+[PROGRESS] ocid epoch=5/20 batch=40/100 loss=0.3299
+[PROGRESS] ocid epoch=5/20 batch=50/100 loss=0.3583
+[PROGRESS] ocid epoch=5/20 batch=60/100 loss=0.2478
+[PROGRESS] ocid epoch=5/20 batch=70/100 loss=0.2565
+[PROGRESS] ocid epoch=5/20 batch=80/100 loss=0.2114
+[PROGRESS] ocid epoch=5/20 batch=90/100 loss=0.4106
+[PROGRESS] ocid epoch=5/20 batch=100/100 loss=0.3571
+loading annotations into memory...
+Done (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] ocid epoch=5 segm_AP=0.6275 segm_AP50=0.8606 bbox_AP=0.6915
+[CHECKPOINT] best=results/task5_baselines/mask_rcnn/ocid_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
+[PROGRESS] ocid epoch=6/20 batch=1/100 loss=0.3166
+[PROGRESS] ocid epoch=6/20 batch=10/100 loss=0.1327
+[PROGRESS] ocid epoch=6/20 batch=20/100 loss=0.3266
+[PROGRESS] ocid epoch=6/20 batch=30/100 loss=0.3470
+[PROGRESS] ocid epoch=6/20 batch=40/100 loss=0.2858
+[PROGRESS] ocid epoch=6/20 batch=50/100 loss=0.3644
+[PROGRESS] ocid epoch=6/20 batch=60/100 loss=0.3590
+[PROGRESS] ocid epoch=6/20 batch=70/100 loss=0.2950
+[PROGRESS] ocid epoch=6/20 batch=80/100 loss=0.4007
+[PROGRESS] ocid epoch=6/20 batch=90/100 loss=0.3657
+[PROGRESS] ocid epoch=6/20 batch=100/100 loss=0.4318
+[PROGRESS] ocid epoch=7/20 batch=1/100 loss=0.2482
+[PROGRESS] ocid epoch=7/20 batch=10/100 loss=0.2764
+[PROGRESS] ocid epoch=7/20 batch=20/100 loss=0.2915
+[PROGRESS] ocid epoch=7/20 batch=30/100 loss=0.4344
+[PROGRESS] ocid epoch=7/20 batch=40/100 loss=0.2605
+[PROGRESS] ocid epoch=7/20 batch=50/100 loss=0.3160
+[PROGRESS] ocid epoch=7/20 batch=60/100 loss=0.3434
+[PROGRESS] ocid epoch=7/20 batch=70/100 loss=0.1074
+[PROGRESS] ocid epoch=7/20 batch=80/100 loss=0.2675
+[PROGRESS] ocid epoch=7/20 batch=90/100 loss=0.3304
+[PROGRESS] ocid epoch=7/20 batch=100/100 loss=0.1876
+[PROGRESS] ocid epoch=8/20 batch=1/100 loss=0.2395
+[PROGRESS] ocid epoch=8/20 batch=10/100 loss=0.2756
+[PROGRESS] ocid epoch=8/20 batch=20/100 loss=0.3213
+[PROGRESS] ocid epoch=8/20 batch=30/100 loss=0.7448
+[PROGRESS] ocid epoch=8/20 batch=40/100 loss=0.5755
+[PROGRESS] ocid epoch=8/20 batch=50/100 loss=0.3007
+[PROGRESS] ocid epoch=8/20 batch=60/100 loss=0.2884
+[PROGRESS] ocid epoch=8/20 batch=70/100 loss=0.2218
+[PROGRESS] ocid epoch=8/20 batch=80/100 loss=0.3557
+[PROGRESS] ocid epoch=8/20 batch=90/100 loss=0.3568
+[PROGRESS] ocid epoch=8/20 batch=100/100 loss=0.3525
+[PROGRESS] ocid epoch=9/20 batch=1/100 loss=0.1413
+[PROGRESS] ocid epoch=9/20 batch=10/100 loss=0.2779
+[PROGRESS] ocid epoch=9/20 batch=20/100 loss=0.3058
+[PROGRESS] ocid epoch=9/20 batch=30/100 loss=0.1549
+[PROGRESS] ocid epoch=9/20 batch=40/100 loss=0.2664
+[PROGRESS] ocid epoch=9/20 batch=50/100 loss=0.3336
+[PROGRESS] ocid epoch=9/20 batch=60/100 loss=0.2011
+[PROGRESS] ocid epoch=9/20 batch=70/100 loss=0.2513
+[PROGRESS] ocid epoch=9/20 batch=80/100 loss=0.2409
+[PROGRESS] ocid epoch=9/20 batch=90/100 loss=0.2161
+[PROGRESS] ocid epoch=9/20 batch=100/100 loss=0.2513
+[PROGRESS] ocid epoch=10/20 batch=1/100 loss=0.2019
+[PROGRESS] ocid epoch=10/20 batch=10/100 loss=0.3084
+[PROGRESS] ocid epoch=10/20 batch=20/100 loss=0.2255
+[PROGRESS] ocid epoch=10/20 batch=30/100 loss=0.1307
+[PROGRESS] ocid epoch=10/20 batch=40/100 loss=0.3192
+[PROGRESS] ocid epoch=10/20 batch=50/100 loss=0.0736
+[PROGRESS] ocid epoch=10/20 batch=60/100 loss=0.4405
+[PROGRESS] ocid epoch=10/20 batch=70/100 loss=0.2626
+[PROGRESS] ocid epoch=10/20 batch=80/100 loss=0.2143
+[PROGRESS] ocid epoch=10/20 batch=90/100 loss=0.2389
+[PROGRESS] ocid epoch=10/20 batch=100/100 loss=0.6143
+loading annotations into memory...
+Done (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] ocid epoch=10 segm_AP=0.6620 segm_AP50=0.8875 bbox_AP=0.7309
+[CHECKPOINT] best=results/task5_baselines/mask_rcnn/ocid_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
+[PROGRESS] ocid epoch=11/20 batch=1/100 loss=0.2310
+[PROGRESS] ocid epoch=11/20 batch=10/100 loss=0.2198
+[PROGRESS] ocid epoch=11/20 batch=20/100 loss=0.0860
+[PROGRESS] ocid epoch=11/20 batch=30/100 loss=0.1894
+[PROGRESS] ocid epoch=11/20 batch=40/100 loss=0.1590
+[PROGRESS] ocid epoch=11/20 batch=50/100 loss=0.2366
+[PROGRESS] ocid epoch=11/20 batch=60/100 loss=0.3098
+[PROGRESS] ocid epoch=11/20 batch=70/100 loss=0.1777
+[PROGRESS] ocid epoch=11/20 batch=80/100 loss=0.2070
+[PROGRESS] ocid epoch=11/20 batch=90/100 loss=0.1371
+[PROGRESS] ocid epoch=11/20 batch=100/100 loss=0.4685
+[PROGRESS] ocid epoch=12/20 batch=1/100 loss=0.1657
+[PROGRESS] ocid epoch=12/20 batch=10/100 loss=0.2097
+[PROGRESS] ocid epoch=12/20 batch=20/100 loss=0.2509
+[PROGRESS] ocid epoch=12/20 batch=30/100 loss=0.2668
+[PROGRESS] ocid epoch=12/20 batch=40/100 loss=0.2276
+[PROGRESS] ocid epoch=12/20 batch=50/100 loss=0.3582
+[PROGRESS] ocid epoch=12/20 batch=60/100 loss=0.2527
+[PROGRESS] ocid epoch=12/20 batch=70/100 loss=0.3132
+[PROGRESS] ocid epoch=12/20 batch=80/100 loss=0.1480
+[PROGRESS] ocid epoch=12/20 batch=90/100 loss=0.2264
+[PROGRESS] ocid epoch=12/20 batch=100/100 loss=0.2303
+[PROGRESS] ocid epoch=13/20 batch=1/100 loss=0.1997
+[PROGRESS] ocid epoch=13/20 batch=10/100 loss=0.2998
+[PROGRESS] ocid epoch=13/20 batch=20/100 loss=0.2080
+[PROGRESS] ocid epoch=13/20 batch=30/100 loss=0.1228
+[PROGRESS] ocid epoch=13/20 batch=40/100 loss=0.2899
+[PROGRESS] ocid epoch=13/20 batch=50/100 loss=0.1106
+[PROGRESS] ocid epoch=13/20 batch=60/100 loss=0.1763
+[PROGRESS] ocid epoch=13/20 batch=70/100 loss=0.2343
+[PROGRESS] ocid epoch=13/20 batch=80/100 loss=0.2084
+[PROGRESS] ocid epoch=13/20 batch=90/100 loss=0.4389
+[PROGRESS] ocid epoch=13/20 batch=100/100 loss=0.1744
+[PROGRESS] ocid epoch=14/20 batch=1/100 loss=0.2713
+[PROGRESS] ocid epoch=14/20 batch=10/100 loss=0.2338
+[PROGRESS] ocid epoch=14/20 batch=20/100 loss=0.1976
+[PROGRESS] ocid epoch=14/20 batch=30/100 loss=0.1676
+[PROGRESS] ocid epoch=14/20 batch=40/100 loss=0.2601
+[PROGRESS] ocid epoch=14/20 batch=50/100 loss=0.1679
+[PROGRESS] ocid epoch=14/20 batch=60/100 loss=0.1476
+[PROGRESS] ocid epoch=14/20 batch=70/100 loss=0.2688
+[PROGRESS] ocid epoch=14/20 batch=80/100 loss=0.3297
+[PROGRESS] ocid epoch=14/20 batch=90/100 loss=0.1160
+[PROGRESS] ocid epoch=14/20 batch=100/100 loss=0.2803
+[PROGRESS] ocid epoch=15/20 batch=1/100 loss=0.1797
+[PROGRESS] ocid epoch=15/20 batch=10/100 loss=0.2894
+[PROGRESS] ocid epoch=15/20 batch=20/100 loss=0.2368
+[PROGRESS] ocid epoch=15/20 batch=30/100 loss=0.2857
+[PROGRESS] ocid epoch=15/20 batch=40/100 loss=0.1346
+[PROGRESS] ocid epoch=15/20 batch=50/100 loss=0.2259
+[PROGRESS] ocid epoch=15/20 batch=60/100 loss=0.1284
+[PROGRESS] ocid epoch=15/20 batch=70/100 loss=0.0764
+[PROGRESS] ocid epoch=15/20 batch=80/100 loss=0.2634
+[PROGRESS] ocid epoch=15/20 batch=90/100 loss=0.1907
+[PROGRESS] ocid epoch=15/20 batch=100/100 loss=0.2776
+loading annotations into memory...
+Done (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] ocid epoch=15 segm_AP=0.6478 segm_AP50=0.8775 bbox_AP=0.7377
+[PROGRESS] ocid epoch=16/20 batch=1/100 loss=0.1212
+[PROGRESS] ocid epoch=16/20 batch=10/100 loss=0.2641
+[PROGRESS] ocid epoch=16/20 batch=20/100 loss=0.2567
+[PROGRESS] ocid epoch=16/20 batch=30/100 loss=0.2860
+[PROGRESS] ocid epoch=16/20 batch=40/100 loss=0.2721
+[PROGRESS] ocid epoch=16/20 batch=50/100 loss=0.3972
+[PROGRESS] ocid epoch=16/20 batch=60/100 loss=0.2757
+[PROGRESS] ocid epoch=16/20 batch=70/100 loss=0.1249
+[PROGRESS] ocid epoch=16/20 batch=80/100 loss=0.2398
+[PROGRESS] ocid epoch=16/20 batch=90/100 loss=0.3670
+[PROGRESS] ocid epoch=16/20 batch=100/100 loss=0.2904
+[PROGRESS] ocid epoch=17/20 batch=1/100 loss=0.1914
+[PROGRESS] ocid epoch=17/20 batch=10/100 loss=0.3044
+[PROGRESS] ocid epoch=17/20 batch=20/100 loss=0.5223
+[PROGRESS] ocid epoch=17/20 batch=30/100 loss=0.1791
+[PROGRESS] ocid epoch=17/20 batch=40/100 loss=0.2749
+[PROGRESS] ocid epoch=17/20 batch=50/100 loss=0.2641
+[PROGRESS] ocid epoch=17/20 batch=60/100 loss=0.2375
+[PROGRESS] ocid epoch=17/20 batch=70/100 loss=0.2314
+[PROGRESS] ocid epoch=17/20 batch=80/100 loss=0.1223
+[PROGRESS] ocid epoch=17/20 batch=90/100 loss=0.1416
+[PROGRESS] ocid epoch=17/20 batch=100/100 loss=0.1161
+[PROGRESS] ocid epoch=18/20 batch=1/100 loss=0.2201
+[PROGRESS] ocid epoch=18/20 batch=10/100 loss=0.2063
+[PROGRESS] ocid epoch=18/20 batch=20/100 loss=0.2440
+[PROGRESS] ocid epoch=18/20 batch=30/100 loss=0.2756
+[PROGRESS] ocid epoch=18/20 batch=40/100 loss=0.2662
+[PROGRESS] ocid epoch=18/20 batch=50/100 loss=0.2603
+[PROGRESS] ocid epoch=18/20 batch=60/100 loss=0.0731
+[PROGRESS] ocid epoch=18/20 batch=70/100 loss=0.2010
+[PROGRESS] ocid epoch=18/20 batch=80/100 loss=0.1547
+[PROGRESS] ocid epoch=18/20 batch=90/100 loss=0.2251
+[PROGRESS] ocid epoch=18/20 batch=100/100 loss=0.2702
+[PROGRESS] ocid epoch=19/20 batch=1/100 loss=0.2235
+[PROGRESS] ocid epoch=19/20 batch=10/100 loss=0.1653
+[PROGRESS] ocid epoch=19/20 batch=20/100 loss=0.1659
+[PROGRESS] ocid epoch=19/20 batch=30/100 loss=0.0772
+[PROGRESS] ocid epoch=19/20 batch=40/100 loss=0.2488
+[PROGRESS] ocid epoch=19/20 batch=50/100 loss=0.1950
+[PROGRESS] ocid epoch=19/20 batch=60/100 loss=0.2014
+[PROGRESS] ocid epoch=19/20 batch=70/100 loss=0.0896
+[PROGRESS] ocid epoch=19/20 batch=80/100 loss=0.2629
+[PROGRESS] ocid epoch=19/20 batch=90/100 loss=0.2020
+[PROGRESS] ocid epoch=19/20 batch=100/100 loss=0.1786
+[PROGRESS] ocid epoch=20/20 batch=1/100 loss=0.2263
+[PROGRESS] ocid epoch=20/20 batch=10/100 loss=0.2006
+[PROGRESS] ocid epoch=20/20 batch=20/100 loss=0.2194
+[PROGRESS] ocid epoch=20/20 batch=30/100 loss=0.0977
+[PROGRESS] ocid epoch=20/20 batch=40/100 loss=0.0782
+[PROGRESS] ocid epoch=20/20 batch=50/100 loss=0.2074
+[PROGRESS] ocid epoch=20/20 batch=60/100 loss=0.0761
+[PROGRESS] ocid epoch=20/20 batch=70/100 loss=0.2120
+[PROGRESS] ocid epoch=20/20 batch=80/100 loss=0.2156
+[PROGRESS] ocid epoch=20/20 batch=90/100 loss=0.2505
+[PROGRESS] ocid epoch=20/20 batch=100/100 loss=0.1055
+loading annotations into memory...
+Done (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] ocid epoch=20 segm_AP=0.6567 segm_AP50=0.8830 bbox_AP=0.7358
+[DONE] ocid: status=ok best_epoch=10 best_segm_AP=0.6620 elapsed=4.9min
+[DONE] Mask R-CNN training wrapper

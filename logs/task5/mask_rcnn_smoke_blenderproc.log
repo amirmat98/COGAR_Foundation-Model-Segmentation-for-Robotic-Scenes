@@ -1,0 +1,35 @@
+nohup: ignoring input
+[START] Mask R-CNN dataset=blenderproc_cogar_sim epochs=1 batch=1 train_images=100 val_images=50 classes=11 device=0 output=results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_smoke
+Downloading: "https://download.pytorch.org/models/maskrcnn_resnet50_fpn_coco-bf2d0c1e.pth" to /home/ubuntu/.cache/torch/hub/checkpoints/maskrcnn_resnet50_fpn_coco-bf2d0c1e.pth
+  0%|          | 0.00/170M [00:00<?, ?B/s] 14%|█▍        | 24.1M/170M [00:00<00:00, 252MB/s] 28%|██▊       | 48.2M/170M [00:00<00:00, 239MB/s] 43%|████▎     | 72.5M/170M [00:00<00:00, 246MB/s] 58%|█████▊    | 98.9M/170M [00:00<00:00, 257MB/s] 73%|███████▎  | 124M/170M [00:00<00:00, 254MB/s]  88%|████████▊ | 150M/170M [00:00<00:00, 261MB/s]100%|██████████| 170M/170M [00:00<00:00, 258MB/s]
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/baselines/train_mask_rcnn.py:533: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler(enabled=use_amp)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/baselines/train_mask_rcnn.py:555: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=use_amp):
+[PROGRESS] blenderproc_cogar_sim epoch=1/1 batch=1/100 loss=6.0591
+[PROGRESS] blenderproc_cogar_sim epoch=1/1 batch=10/100 loss=2.6437
+[PROGRESS] blenderproc_cogar_sim epoch=1/1 batch=20/100 loss=2.2166
+[PROGRESS] blenderproc_cogar_sim epoch=1/1 batch=30/100 loss=1.8655
+[PROGRESS] blenderproc_cogar_sim epoch=1/1 batch=40/100 loss=2.1621
+[PROGRESS] blenderproc_cogar_sim epoch=1/1 batch=50/100 loss=0.3796
+[PROGRESS] blenderproc_cogar_sim epoch=1/1 batch=60/100 loss=2.0279
+[PROGRESS] blenderproc_cogar_sim epoch=1/1 batch=70/100 loss=0.7822
+[PROGRESS] blenderproc_cogar_sim epoch=1/1 batch=80/100 loss=1.5997
+[PROGRESS] blenderproc_cogar_sim epoch=1/1 batch=90/100 loss=1.4455
+[PROGRESS] blenderproc_cogar_sim epoch=1/1 batch=100/100 loss=3.4876
+loading annotations into memory...
+Done (t=0.02s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[EVAL] blenderproc_cogar_sim epoch=1 segm_AP=0.2189 segm_AP50=0.3718 bbox_AP=0.2346
+[CHECKPOINT] best=results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_smoke/checkpoints/best.pt
+[DONE] blenderproc_cogar_sim: status=ok best_epoch=1 best_segm_AP=0.2189 elapsed=0.5min
+[DONE] Mask R-CNN training wrapper

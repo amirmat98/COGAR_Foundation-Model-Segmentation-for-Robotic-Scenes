@@ -1,0 +1,346 @@
+{
+  "dataset": "blenderproc_cogar_sim",
+  "status": "ok",
+  "epochs": 20,
+  "best_epoch": 20,
+  "best_metric": "segm.AP",
+  "best_metrics": {
+    "bbox": {
+      "AP": 0.5852865080733956,
+      "AP50": 0.7457061034019442,
+      "AP75": 0.643937708138793,
+      "AP_small": 0.28077207944008686,
+      "AP_medium": 0.6123894224220856,
+      "AP_large": 0.8800256285680027,
+      "AR1": 0.41263683115665484,
+      "AR10": 0.6670573180377619,
+      "AR100": 0.6670573180377619,
+      "AR_small": 0.3405427631578947,
+      "AR_medium": 0.6893221223221223,
+      "AR_large": 0.9123347974279652
+    },
+    "segm": {
+      "AP": 0.5740391159591088,
+      "AP50": 0.7585945721731661,
+      "AP75": 0.6332997060332645,
+      "AP_small": 0.3219008887495893,
+      "AP_medium": 0.6407484500662675,
+      "AP_large": 0.8580370700734887,
+      "AR1": 0.41120912243635793,
+      "AR10": 0.6635522615976448,
+      "AR100": 0.6635522615976448,
+      "AR_small": 0.39396929824561405,
+      "AR_medium": 0.7098416583416584,
+      "AR_large": 0.8915885887935577
+    },
+    "predictions": "results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20/predictions/val_epoch_020.json",
+    "prediction_count": 885,
+    "elapsed_s": 6.185263825987931
+  },
+  "train_images": 100,
+  "val_images": 50,
+  "num_classes": 11,
+  "category_id_to_label": {
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+    "10": 10
+  },
+  "elapsed_s": 312.6898639400024,
+  "run_dir": "results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20",
+  "best_checkpoint": "results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt",
+  "last_checkpoint": "results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/last.pt",
+  "epochs_summary": [
+    {
+      "epoch": 1,
+      "train_loss": 2.080736482143402,
+      "elapsed_s": 13.194861623022007,
+      "learning_rate": 0.005,
+      "metrics": {
+        "bbox": {
+          "AP": 0.2714434772148705,
+          "AP50": 0.44901485889035525,
+          "AP75": 0.2901719762164655,
+          "AP_small": 0.1778875421167131,
+          "AP_medium": 0.2848476176099154,
+          "AP_large": 0.3410619109749674,
+          "AR1": 0.2564336100903515,
+          "AR10": 0.5165028537701631,
+          "AR100": 0.5195925361473228,
+          "AR_small": 0.23286732456140352,
+          "AR_medium": 0.49862907462907463,
+          "AR_large": 0.7738390086216173
+        },
+        "segm": {
+          "AP": 0.23792416184616247,
+          "AP50": 0.3986566242101573,
+          "AP75": 0.25615892649326183,
+          "AP_small": 0.18881627996274533,
+          "AP_medium": 0.26923005843075015,
+          "AP_large": 0.2936927429705507,
+          "AR1": 0.22857676862473383,
+          "AR10": 0.490173705710704,
+          "AR100": 0.4952192859794394,
+          "AR_small": 0.26565241228070174,
+          "AR_medium": 0.4980563510563511,
+          "AR_large": 0.6895787330569939
+        },
+        "predictions": "results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20/predictions/val_epoch_001.json",
+        "prediction_count": 3244,
+        "elapsed_s": 12.056015858979663
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 1.2452664513885976,
+      "elapsed_s": 13.137642118992517,
+      "learning_rate": 0.005
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.9257806387543678,
+      "elapsed_s": 13.190170921996469,
+      "learning_rate": 0.005
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.7814461895078421,
+      "elapsed_s": 13.24644804300624,
+      "learning_rate": 0.005
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.6573139324039221,
+      "elapsed_s": 13.165544631978264,
+      "learning_rate": 0.005,
+      "metrics": {
+        "bbox": {
+          "AP": 0.5347580957467863,
+          "AP50": 0.7455318379764301,
+          "AP75": 0.6454728269716719,
+          "AP_small": 0.30931269152247926,
+          "AP_medium": 0.5591285979623535,
+          "AP_large": 0.7921354555724193,
+          "AR1": 0.3705511253460536,
+          "AR10": 0.6395394899830438,
+          "AR100": 0.6403614077912629,
+          "AR_small": 0.3592379385964913,
+          "AR_medium": 0.677569227069227,
+          "AR_large": 0.8179939751368323
+        },
+        "segm": {
+          "AP": 0.5541264120344239,
+          "AP50": 0.7641303437467766,
+          "AP75": 0.600706987242456,
+          "AP_small": 0.33845270763081486,
+          "AP_medium": 0.6144738611881472,
+          "AP_large": 0.8107515437481713,
+          "AR1": 0.3806597847655825,
+          "AR10": 0.6597729356149945,
+          "AR100": 0.6607318397245835,
+          "AR_small": 0.4150493421052632,
+          "AR_medium": 0.7181185851185851,
+          "AR_large": 0.8690696019888566
+        },
+        "predictions": "results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20/predictions/val_epoch_005.json",
+        "prediction_count": 1581,
+        "elapsed_s": 8.036901109007886
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.7040512561425567,
+      "elapsed_s": 13.273690063972026,
+      "learning_rate": 0.005
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.6327545790374279,
+      "elapsed_s": 13.29427255000337,
+      "learning_rate": 0.005
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.5089021918177604,
+      "elapsed_s": 13.197375006013317,
+      "learning_rate": 0.0005
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.43424786057323217,
+      "elapsed_s": 13.219222906016512,
+      "learning_rate": 0.0005
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.3676932163536549,
+      "elapsed_s": 13.207308967976132,
+      "learning_rate": 0.0005,
+      "metrics": {
+        "bbox": {
+          "AP": 0.580542030350425,
+          "AP50": 0.7464455347297635,
+          "AP75": 0.6390330565423115,
+          "AP_small": 0.29236787374948736,
+          "AP_medium": 0.615925265474333,
+          "AP_large": 0.8542851212109049,
+          "AR1": 0.40770990907908156,
+          "AR10": 0.6796758563072026,
+          "AR100": 0.6796758563072026,
+          "AR_small": 0.40709978070175434,
+          "AR_medium": 0.6972007067007068,
+          "AR_large": 0.8934907742361158
+        },
+        "segm": {
+          "AP": 0.5638655737674603,
+          "AP50": 0.7482000167042754,
+          "AP75": 0.611772827383723,
+          "AP_small": 0.30518007551805604,
+          "AP_medium": 0.6370351124127107,
+          "AP_large": 0.8330856257362487,
+          "AR1": 0.4035726316953871,
+          "AR10": 0.6737647726054362,
+          "AR100": 0.6737647726054362,
+          "AR_small": 0.43719846491228065,
+          "AR_medium": 0.7152756872756871,
+          "AR_large": 0.8903289201425847
+        },
+        "predictions": "results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20/predictions/val_epoch_010.json",
+        "prediction_count": 992,
+        "elapsed_s": 6.508824746997561
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.3412457938492298,
+      "elapsed_s": 13.295173596998211,
+      "learning_rate": 0.0005
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.32244367139413954,
+      "elapsed_s": 13.223155221989146,
+      "learning_rate": 0.0005
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.31093034584075213,
+      "elapsed_s": 13.199735124013387,
+      "learning_rate": 0.0005
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.30029615487903355,
+      "elapsed_s": 13.253323187993374,
+      "learning_rate": 0.0005
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.28665098899975416,
+      "elapsed_s": 13.230064072005916,
+      "learning_rate": 0.0005,
+      "metrics": {
+        "bbox": {
+          "AP": 0.5830654649034889,
+          "AP50": 0.7462422358384924,
+          "AP75": 0.6541120305416307,
+          "AP_small": 0.2913385112549716,
+          "AP_medium": 0.6162203628573607,
+          "AP_large": 0.8655511260326317,
+          "AR1": 0.413355399509779,
+          "AR10": 0.669580295948904,
+          "AR100": 0.669580295948904,
+          "AR_small": 0.35915570175438594,
+          "AR_medium": 0.6907660117660117,
+          "AR_large": 0.8992130414490663
+        },
+        "segm": {
+          "AP": 0.5734731237718106,
+          "AP50": 0.7665502416759163,
+          "AP75": 0.6217936241469962,
+          "AP_small": 0.31985820302497286,
+          "AP_medium": 0.6356351487252484,
+          "AP_large": 0.8502861011281966,
+          "AR1": 0.41219808571240646,
+          "AR10": 0.6664757431807057,
+          "AR100": 0.6664757431807057,
+          "AR_small": 0.387719298245614,
+          "AR_medium": 0.7105750915750915,
+          "AR_large": 0.8945166243302889
+        },
+        "predictions": "results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20/predictions/val_epoch_015.json",
+        "prediction_count": 898,
+        "elapsed_s": 6.189456271997187
+      }
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.2833042297232896,
+      "elapsed_s": 13.335256379999919,
+      "learning_rate": 5e-05
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.2732696151919663,
+      "elapsed_s": 13.253727800998604,
+      "learning_rate": 5e-05
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.2723744776286185,
+      "elapsed_s": 13.247715173987672,
+      "learning_rate": 5e-05
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.27333960343152286,
+      "elapsed_s": 13.21568025200395,
+      "learning_rate": 5e-05
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.2751071245595813,
+      "elapsed_s": 13.21739293099381,
+      "learning_rate": 5e-05,
+      "metrics": {
+        "bbox": {
+          "AP": 0.5852865080733956,
+          "AP50": 0.7457061034019442,
+          "AP75": 0.643937708138793,
+          "AP_small": 0.28077207944008686,
+          "AP_medium": 0.6123894224220856,
+          "AP_large": 0.8800256285680027,
+          "AR1": 0.41263683115665484,
+          "AR10": 0.6670573180377619,
+          "AR100": 0.6670573180377619,
+          "AR_small": 0.3405427631578947,
+          "AR_medium": 0.6893221223221223,
+          "AR_large": 0.9123347974279652
+        },
+        "segm": {
+          "AP": 0.5740391159591088,
+          "AP50": 0.7585945721731661,
+          "AP75": 0.6332997060332645,
+          "AP_small": 0.3219008887495893,
+          "AP_medium": 0.6407484500662675,
+          "AP_large": 0.8580370700734887,
+          "AR1": 0.41120912243635793,
+          "AR10": 0.6635522615976448,
+          "AR100": 0.6635522615976448,
+          "AR_small": 0.39396929824561405,
+          "AR_medium": 0.7098416583416584,
+          "AR_large": 0.8915885887935577
+        },
+        "predictions": "results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20/predictions/val_epoch_020.json",
+        "prediction_count": 885,
+        "elapsed_s": 6.185263825987931
+      }
+    }
+  ]
+}

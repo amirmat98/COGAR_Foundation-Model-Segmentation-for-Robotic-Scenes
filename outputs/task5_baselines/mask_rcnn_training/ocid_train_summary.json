@@ -1,0 +1,337 @@
+{
+  "dataset": "ocid",
+  "status": "ok",
+  "epochs": 20,
+  "best_epoch": 10,
+  "best_metric": "segm.AP",
+  "best_metrics": {
+    "bbox": {
+      "AP": 0.7308968957861383,
+      "AP50": 0.9017930752634661,
+      "AP75": 0.8214698303158459,
+      "AP_small": 0.7130936327298623,
+      "AP_medium": 0.7378853459273981,
+      "AP_large": 0.7243890900679845,
+      "AR1": 0.08606403013182676,
+      "AR10": 0.6199623352165725,
+      "AR100": 0.7708097928436912,
+      "AR_small": 0.7243243243243243,
+      "AR_medium": 0.7815384615384616,
+      "AR_large": 0.7603550295857988
+    },
+    "segm": {
+      "AP": 0.6619717416807416,
+      "AP50": 0.8874887707244264,
+      "AP75": 0.7420527909917737,
+      "AP_small": 0.6639108910891088,
+      "AP_medium": 0.7216472494213101,
+      "AP_large": 0.5855028507062165,
+      "AR1": 0.07947269303201507,
+      "AR10": 0.5824858757062147,
+      "AR100": 0.7235404896421845,
+      "AR_small": 0.6675675675675675,
+      "AR_medium": 0.7596923076923077,
+      "AR_large": 0.6662721893491124
+    },
+    "predictions": "results/task5_baselines/mask_rcnn/ocid_maskrcnn_resnet50_fpn_small_subset_e20/predictions/val_epoch_010.json",
+    "prediction_count": 603,
+    "elapsed_s": 5.0652969570073765
+  },
+  "train_images": 100,
+  "val_images": 50,
+  "num_classes": 2,
+  "category_id_to_label": {
+    "1": 1
+  },
+  "elapsed_s": 293.9573741249915,
+  "run_dir": "results/task5_baselines/mask_rcnn/ocid_maskrcnn_resnet50_fpn_small_subset_e20",
+  "best_checkpoint": "results/task5_baselines/mask_rcnn/ocid_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt",
+  "last_checkpoint": "results/task5_baselines/mask_rcnn/ocid_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/last.pt",
+  "epochs_summary": [
+    {
+      "epoch": 1,
+      "train_loss": 1.1212638761103153,
+      "elapsed_s": 13.089113823982188,
+      "learning_rate": 0.005,
+      "metrics": {
+        "bbox": {
+          "AP": 0.6235321489757686,
+          "AP50": 0.8842594699173204,
+          "AP75": 0.7517980601574651,
+          "AP_small": 0.6113446688841284,
+          "AP_medium": 0.6434083067184225,
+          "AP_large": 0.6007253371467932,
+          "AR1": 0.07551789077212805,
+          "AR10": 0.5425612052730696,
+          "AR100": 0.6888888888888889,
+          "AR_small": 0.6216216216216216,
+          "AR_medium": 0.7135384615384616,
+          "AR_large": 0.6568047337278107
+        },
+        "segm": {
+          "AP": 0.5719141523307997,
+          "AP50": 0.8671148190528682,
+          "AP75": 0.6277333414337835,
+          "AP_small": 0.6232601159275591,
+          "AP_medium": 0.6545437417896941,
+          "AP_large": 0.45841650243764864,
+          "AR1": 0.07193973634651601,
+          "AR10": 0.5193973634651601,
+          "AR100": 0.651789077212806,
+          "AR_small": 0.6270270270270271,
+          "AR_medium": 0.7101538461538461,
+          "AR_large": 0.5449704142011834
+        },
+        "predictions": "results/task5_baselines/mask_rcnn/ocid_maskrcnn_resnet50_fpn_small_subset_e20/predictions/val_epoch_001.json",
+        "prediction_count": 1601,
+        "elapsed_s": 8.003272086993093
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.5424968978762627,
+      "elapsed_s": 13.07187083698227,
+      "learning_rate": 0.005
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.4580420799553394,
+      "elapsed_s": 13.001258603006136,
+      "learning_rate": 0.005
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.39561720661818983,
+      "elapsed_s": 13.085903413011692,
+      "learning_rate": 0.005
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.3608625165373087,
+      "elapsed_s": 13.04262153300806,
+      "learning_rate": 0.005,
+      "metrics": {
+        "bbox": {
+          "AP": 0.691465522410108,
+          "AP50": 0.9009421003453926,
+          "AP75": 0.8197194921046738,
+          "AP_small": 0.680796027455052,
+          "AP_medium": 0.7022423097512236,
+          "AP_large": 0.6801355140312081,
+          "AR1": 0.07947269303201507,
+          "AR10": 0.5902071563088512,
+          "AR100": 0.740677966101695,
+          "AR_small": 0.6891891891891893,
+          "AR_medium": 0.7569230769230769,
+          "AR_large": 0.7207100591715976
+        },
+        "segm": {
+          "AP": 0.627528601639479,
+          "AP50": 0.8605939087961102,
+          "AP75": 0.7080156636906516,
+          "AP_small": 0.669994244598205,
+          "AP_medium": 0.7107925187693235,
+          "AP_large": 0.4903160147491995,
+          "AR1": 0.07156308851224105,
+          "AR10": 0.5619585687382297,
+          "AR100": 0.6998116760828625,
+          "AR_small": 0.672972972972973,
+          "AR_medium": 0.7547692307692306,
+          "AR_large": 0.6
+        },
+        "predictions": "results/task5_baselines/mask_rcnn/ocid_maskrcnn_resnet50_fpn_small_subset_e20/predictions/val_epoch_005.json",
+        "prediction_count": 702,
+        "elapsed_s": 5.357146868016571
+      }
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.328348341062665,
+      "elapsed_s": 13.095635853998829,
+      "learning_rate": 0.005
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.30591459952294825,
+      "elapsed_s": 12.941277082980378,
+      "learning_rate": 0.005
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.29991589665412904,
+      "elapsed_s": 12.884320173994638,
+      "learning_rate": 0.0005
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.25720915213227274,
+      "elapsed_s": 12.978415671997936,
+      "learning_rate": 0.0005
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.23423142306506634,
+      "elapsed_s": 12.899984012998175,
+      "learning_rate": 0.0005,
+      "metrics": {
+        "bbox": {
+          "AP": 0.7308968957861383,
+          "AP50": 0.9017930752634661,
+          "AP75": 0.8214698303158459,
+          "AP_small": 0.7130936327298623,
+          "AP_medium": 0.7378853459273981,
+          "AP_large": 0.7243890900679845,
+          "AR1": 0.08606403013182676,
+          "AR10": 0.6199623352165725,
+          "AR100": 0.7708097928436912,
+          "AR_small": 0.7243243243243243,
+          "AR_medium": 0.7815384615384616,
+          "AR_large": 0.7603550295857988
+        },
+        "segm": {
+          "AP": 0.6619717416807416,
+          "AP50": 0.8874887707244264,
+          "AP75": 0.7420527909917737,
+          "AP_small": 0.6639108910891088,
+          "AP_medium": 0.7216472494213101,
+          "AP_large": 0.5855028507062165,
+          "AR1": 0.07947269303201507,
+          "AR10": 0.5824858757062147,
+          "AR100": 0.7235404896421845,
+          "AR_small": 0.6675675675675675,
+          "AR_medium": 0.7596923076923077,
+          "AR_large": 0.6662721893491124
+        },
+        "predictions": "results/task5_baselines/mask_rcnn/ocid_maskrcnn_resnet50_fpn_small_subset_e20/predictions/val_epoch_010.json",
+        "prediction_count": 603,
+        "elapsed_s": 5.0652969570073765
+      }
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.2285672952234745,
+      "elapsed_s": 13.06296371598728,
+      "learning_rate": 0.0005
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.22092603892087936,
+      "elapsed_s": 13.053315956000006,
+      "learning_rate": 0.0005
+    },
+    {
+      "epoch": 13,
+      "train_loss": 0.21695578537881374,
+      "elapsed_s": 12.98022755899001,
+      "learning_rate": 0.0005
+    },
+    {
+      "epoch": 14,
+      "train_loss": 0.21365998305380343,
+      "elapsed_s": 13.014357079024194,
+      "learning_rate": 0.0005
+    },
+    {
+      "epoch": 15,
+      "train_loss": 0.21251801922917365,
+      "elapsed_s": 12.982668618002208,
+      "learning_rate": 0.0005,
+      "metrics": {
+        "bbox": {
+          "AP": 0.7377487799941176,
+          "AP50": 0.9073438202240881,
+          "AP75": 0.8200270767803702,
+          "AP_small": 0.7178354979490682,
+          "AP_medium": 0.7442662575103675,
+          "AP_large": 0.733305277736744,
+          "AR1": 0.0871939736346516,
+          "AR10": 0.6271186440677966,
+          "AR100": 0.7779661016949153,
+          "AR_small": 0.727027027027027,
+          "AR_medium": 0.7889230769230771,
+          "AR_large": 0.7680473372781066
+        },
+        "segm": {
+          "AP": 0.6478068349365784,
+          "AP50": 0.877508770876624,
+          "AP75": 0.7223284688404211,
+          "AP_small": 0.6660891089108911,
+          "AP_medium": 0.7145668735962557,
+          "AP_large": 0.5585815080155757,
+          "AR1": 0.07570621468926553,
+          "AR10": 0.57984934086629,
+          "AR100": 0.7169491525423728,
+          "AR_small": 0.6702702702702703,
+          "AR_medium": 0.7535384615384616,
+          "AR_large": 0.6568047337278107
+        },
+        "predictions": "results/task5_baselines/mask_rcnn/ocid_maskrcnn_resnet50_fpn_small_subset_e20/predictions/val_epoch_015.json",
+        "prediction_count": 597,
+        "elapsed_s": 5.1666638489987236
+      }
+    },
+    {
+      "epoch": 16,
+      "train_loss": 0.20605166718363763,
+      "elapsed_s": 12.973641110002063,
+      "learning_rate": 5e-05
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.20342226929962634,
+      "elapsed_s": 13.039646589983022,
+      "learning_rate": 5e-05
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.20333509027957916,
+      "elapsed_s": 13.010472826979822,
+      "learning_rate": 5e-05
+    },
+    {
+      "epoch": 19,
+      "train_loss": 0.20190595678985118,
+      "elapsed_s": 13.03311940500862,
+      "learning_rate": 5e-05
+    },
+    {
+      "epoch": 20,
+      "train_loss": 0.20241672687232495,
+      "elapsed_s": 12.961911256017629,
+      "learning_rate": 5e-05,
+      "metrics": {
+        "bbox": {
+          "AP": 0.7358327239451423,
+          "AP50": 0.8997973855471932,
+          "AP75": 0.8120419837693025,
+          "AP_small": 0.7097982279026673,
+          "AP_medium": 0.7450338430672326,
+          "AP_large": 0.7350610902531044,
+          "AR1": 0.08700564971751414,
+          "AR10": 0.6274952919020715,
+          "AR100": 0.7768361581920903,
+          "AR_small": 0.7189189189189189,
+          "AR_medium": 0.7873846153846153,
+          "AR_large": 0.7692307692307692
+        },
+        "segm": {
+          "AP": 0.656707336851148,
+          "AP50": 0.8830242920648649,
+          "AP75": 0.7378098931722883,
+          "AP_small": 0.6671570014144271,
+          "AP_medium": 0.7179089597377387,
+          "AP_large": 0.5774352513631843,
+          "AR1": 0.07758945386064028,
+          "AR10": 0.5822975517890772,
+          "AR100": 0.7192090395480225,
+          "AR_small": 0.6702702702702703,
+          "AR_medium": 0.7538461538461538,
+          "AR_large": 0.6633136094674557
+        },
+        "predictions": "results/task5_baselines/mask_rcnn/ocid_maskrcnn_resnet50_fpn_small_subset_e20/predictions/val_epoch_020.json",
+        "prediction_count": 591,
+        "elapsed_s": 5.136272244009888
+      }
+    }
+  ]
+}

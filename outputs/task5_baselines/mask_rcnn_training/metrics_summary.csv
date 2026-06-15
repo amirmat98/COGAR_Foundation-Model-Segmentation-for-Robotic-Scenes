@@ -1,0 +1,4 @@
+dataset,status,epochs,best_epoch,best_segm_AP,best_segm_AP50,best_bbox_AP,best_bbox_AP50,elapsed_s,best_checkpoint
+isaac_official_unitree_g1,ok,20,20,0.3818439466456059,0.5529405053059628,0.42773133242901845,0.599405038157501,530.344776804006,results/task5_baselines/mask_rcnn/isaac_official_unitree_g1_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
+blenderproc_cogar_sim,ok,20,20,0.5740391159591088,0.7585945721731661,0.5852865080733956,0.7457061034019442,312.6898639400024,results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
+ocid,ok,20,10,0.6619717416807416,0.8874887707244264,0.7308968957861383,0.9017930752634661,293.9573741249915,results/task5_baselines/mask_rcnn/ocid_maskrcnn_resnet50_fpn_small_subset_e20/checkpoints/best.pt
