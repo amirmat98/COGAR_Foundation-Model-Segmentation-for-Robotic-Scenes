@@ -344,6 +344,9 @@ def run_timed_loop(
 ) -> dict[str, Any]:
     torch = get_torch()
     warmup_samples = samples[: min(warmup_count, len(samples))]
+    timed_samples = samples[len(warmup_samples) :]
+    if not timed_samples:
+        raise ValueError(f"{label}: no timed samples remain after warmup")
     print(f"[WARMUP] {label}: {len(warmup_samples)} images", flush=True)
     with torch.inference_mode():
         for sample in warmup_samples:
@@ -353,9 +356,9 @@ def run_timed_loop(
     latencies_ms = []
     output_counts = []
     started_at = time.perf_counter()
-    print(f"[TIMING] {label}: {len(samples)} images", flush=True)
+    print(f"[TIMING] {label}: {len(timed_samples)} images", flush=True)
     with torch.inference_mode():
-        for index, sample in enumerate(samples, start=1):
+        for index, sample in enumerate(timed_samples, start=1):
             synchronize(device)
             start = time.perf_counter()
             output = runner(sample)
@@ -368,9 +371,13 @@ def run_timed_loop(
                 output_counts.append(len(output))
             else:
                 output_counts.append(1 if output is not None else 0)
-            if index == 1 or index == len(samples) or (log_every > 0 and index % log_every == 0):
+            if (
+                index == 1
+                or index == len(timed_samples)
+                or (log_every > 0 and index % log_every == 0)
+            ):
                 print(
-                    f"[PROGRESS] {label}: {index}/{len(samples)} images, "
+                    f"[PROGRESS] {label}: {index}/{len(timed_samples)} images, "
                     f"last={elapsed_ms:.1f}ms, elapsed={time.perf_counter() - started_at:.1f}s",
                     flush=True,
                 )
@@ -684,7 +691,8 @@ def run_one(
         return load_json(out_path)
 
     count = selected_image_count(device, prompt_mode, config, args)
-    selected_records = select_one_prompt_per_image(records, count)
+    warmup_count = int(args.warmup_images or config["sampling"].get("warmup_images", 0))
+    selected_records = select_one_prompt_per_image(records, count + warmup_count)
     label = f"{dataset}/{model_name}/{prompt_mode}/{device}"
     dry_summary = {
         "dataset": dataset,
@@ -693,12 +701,16 @@ def run_one(
         "prompt_mode": prompt_mode,
         "device": device,
         "status": "dry_run",
-        "sample_images": len(selected_records),
+        "sample_images": max(0, len(selected_records) - min(warmup_count, len(selected_records))),
+        "selected_images_including_warmup": len(selected_records),
+        "requested_timed_images": count,
         "metrics_file": relative_to_repo(out_path),
     }
     if args.dry_run:
         print(
-            f"[DRY RUN] {label}: images={len(selected_records)} output={relative_to_repo(out_path)}",
+            f"[DRY RUN] {label}: timed_images={dry_summary['sample_images']} "
+            f"warmup_images={min(warmup_count, len(selected_records))} "
+            f"selected_images={len(selected_records)} output={relative_to_repo(out_path)}",
             flush=True,
         )
         return dry_summary
@@ -717,7 +729,6 @@ def run_one(
     else:
         runner = build_baseline_runner(model_name, dataset, config, device)
 
-    warmup_count = int(args.warmup_images or config["sampling"].get("warmup_images", 0))
     log_every = int(args.log_every or config["runtime"].get("log_every", 5))
     timing = run_timed_loop(runner, samples, device, label, warmup_count, log_every)
     elapsed_wall_s = time.perf_counter() - started_at
@@ -728,7 +739,9 @@ def run_one(
         "prompt_mode": prompt_mode,
         "device": device,
         "status": "ok",
-        "sample_images": len(samples),
+        "sample_images": timing["timed_units"],
+        "selected_images_including_warmup": len(samples),
+        "requested_timed_images": count,
         "timing": timing,
         "environment": environment_summary(device),
         "elapsed_wall_s": elapsed_wall_s,
