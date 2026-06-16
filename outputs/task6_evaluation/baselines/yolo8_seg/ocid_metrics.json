@@ -1,0 +1,43 @@
+{
+  "baseline": "yolo8_seg",
+  "dataset": "ocid",
+  "status": "ok",
+  "evaluation_type": "instance_segmentation",
+  "annotation_file": "outputs/task5_baselines/coco/ocid/instances_val_small.json",
+  "prediction_file": "results/task6_evaluation/baselines/yolo8_seg_predictions/ocid_val_predictions.json",
+  "instance_metrics": {
+    "instances": 531,
+    "mIoU": 0.8475484078632534,
+    "boundary_f1": 0.7841866739947979,
+    "per_category_iou": {
+      "object": 0.8475484078632534
+    },
+    "per_category_boundary_f1": {
+      "object": 0.7841866739947979
+    },
+    "per_category_count": {
+      "object": 531
+    }
+  },
+  "mIoU": 0.8475484078632534,
+  "boundary_f1": 0.7841866739947979,
+  "mask_AP": 0.6605893027397538,
+  "mask_AP50": 0.935115879777684,
+  "mask_AP75": 0.7557109286915273,
+  "mask_AP_stats": {
+    "AP": 0.6605893027397538,
+    "AP50": 0.935115879777684,
+    "AP75": 0.7557109286915273,
+    "AP_small": 0.6426994899704366,
+    "AP_medium": 0.7056125747040667,
+    "AP_large": 0.635156512580765,
+    "AR1": 0.07645951035781544,
+    "AR10": 0.5836158192090395,
+    "AR100": 0.7444444444444445,
+    "AR_small": 0.6567567567567568,
+    "AR_medium": 0.7593846153846153,
+    "AR_large": 0.7349112426035502
+  },
+  "elapsed_s": 4.388177298009396,
+  "metrics_file": "outputs/task6_evaluation/baselines/yolo8_seg/ocid_metrics.json"
+}

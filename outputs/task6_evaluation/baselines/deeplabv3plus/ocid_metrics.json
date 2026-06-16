@@ -1,0 +1,36 @@
+{
+  "baseline": "deeplabv3plus",
+  "dataset": "ocid",
+  "status": "ok",
+  "evaluation_type": "semantic_segmentation",
+  "prediction_count": 50,
+  "predictions_dir": "results/task5_baselines/deeplabv3plus/ocid_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_030",
+  "mIoU": 0.9632376367955024,
+  "foreground_mIoU": 0.9914437919805986,
+  "boundary_f1": 0.8801406183427867,
+  "foreground_boundary_f1": 0.8721840109371035,
+  "mask_AP": null,
+  "mask_AP50": null,
+  "mask_AP75": null,
+  "mask_AP_note": "not_applicable_for_semantic_segmentation",
+  "semantic_metrics": {
+    "mIoU": 0.9632376367955024,
+    "foreground_mIoU": 0.9914437919805986,
+    "pixel_accuracy": 0.9923818969726562,
+    "mean_accuracy": 0.9737711613139998,
+    "per_category_iou": {
+      "background": 0.9350314816104062,
+      "object": 0.9914437919805986
+    }
+  },
+  "boundary_metrics": {
+    "boundary_f1": 0.8801406183427867,
+    "foreground_boundary_f1": 0.8721840109371035,
+    "per_category_boundary_f1": {
+      "background": 0.8880972257484697,
+      "object": 0.8721840109371035
+    }
+  },
+  "elapsed_s": 0.5827924810000695,
+  "metrics_file": "outputs/task6_evaluation/baselines/deeplabv3plus/ocid_metrics.json"
+}

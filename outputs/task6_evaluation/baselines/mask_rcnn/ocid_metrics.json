@@ -1,0 +1,43 @@
+{
+  "baseline": "mask_rcnn",
+  "dataset": "ocid",
+  "status": "ok",
+  "evaluation_type": "instance_segmentation",
+  "annotation_file": "outputs/task5_baselines/coco/ocid/instances_val_small.json",
+  "prediction_file": "results/task5_baselines/mask_rcnn/ocid_maskrcnn_resnet50_fpn_small_subset_e20/predictions/val_epoch_010.json",
+  "instance_metrics": {
+    "instances": 531,
+    "mIoU": 0.8123703626805883,
+    "boundary_f1": 0.7343935367651694,
+    "per_category_iou": {
+      "object": 0.8123703626805883
+    },
+    "per_category_boundary_f1": {
+      "object": 0.7343935367651694
+    },
+    "per_category_count": {
+      "object": 531
+    }
+  },
+  "mIoU": 0.8123703626805883,
+  "boundary_f1": 0.7343935367651694,
+  "mask_AP": 0.6619717416807416,
+  "mask_AP50": 0.8874887707244264,
+  "mask_AP75": 0.7420527909917737,
+  "mask_AP_stats": {
+    "AP": 0.6619717416807416,
+    "AP50": 0.8874887707244264,
+    "AP75": 0.7420527909917737,
+    "AP_small": 0.6639108910891088,
+    "AP_medium": 0.7216472494213101,
+    "AP_large": 0.5855028507062165,
+    "AR1": 0.07947269303201507,
+    "AR10": 0.5824858757062147,
+    "AR100": 0.7235404896421845,
+    "AR_small": 0.6675675675675675,
+    "AR_medium": 0.7596923076923077,
+    "AR_large": 0.6662721893491124
+  },
+  "elapsed_s": 2.11469458299689,
+  "metrics_file": "outputs/task6_evaluation/baselines/mask_rcnn/ocid_metrics.json"
+}

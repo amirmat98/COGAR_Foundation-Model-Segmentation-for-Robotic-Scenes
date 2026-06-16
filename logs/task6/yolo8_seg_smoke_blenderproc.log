@@ -1,0 +1,18 @@
+nohup: ignoring input
+[START] evaluating yolo8_seg/blenderproc_cogar_sim
+[PROGRESS] yolo8_seg/blenderproc_cogar_sim: predicted 10/50 images
+[PROGRESS] yolo8_seg/blenderproc_cogar_sim: predicted 20/50 images
+[PROGRESS] yolo8_seg/blenderproc_cogar_sim: predicted 30/50 images
+[PROGRESS] yolo8_seg/blenderproc_cogar_sim: predicted 40/50 images
+[PROGRESS] yolo8_seg/blenderproc_cogar_sim: predicted 50/50 images
+[OK] yolo8_seg/blenderproc_cogar_sim: wrote 11056 predictions in 12.3s
+loading annotations into memory...
+Done (t=0.02s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.01s)
+creating index...
+index created!
+[DONE] wrote outputs/task6_evaluation/baselines/summary.csv
+[DONE] Task 6 baseline evaluation

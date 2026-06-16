@@ -1,0 +1,68 @@
+{
+  "dataset": "blenderproc_cogar_sim",
+  "model": "sam2_hiera_large",
+  "prompt_mode": "automatic",
+  "status": "ok",
+  "records": 1000,
+  "prediction_file": "results/task4_zero_shot_sam/blenderproc_cogar_sim/sam2_hiera_large/automatic_predictions.jsonl",
+  "annotation_file": "/mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/annotations/instances_all.json",
+  "evaluation_type": "automatic_class_agnostic_proposal",
+  "instance_metrics": {
+    "instances": 8768,
+    "mIoU": 0.8018799442904379,
+    "boundary_f1": 0.79348218977422,
+    "per_category_iou": {
+      "box": 0.9235206270865817,
+      "cable": 0.5438136679779697,
+      "connector": 0.8726901340181501,
+      "glass_object": 0.7036065609145917,
+      "metal_part": 0.8919237408146978,
+      "plastic_object": 0.9150283045675531,
+      "robot_gripper": 0.6595721584066077,
+      "screw": 0.6770792498742992,
+      "table": 0.9083854839398062,
+      "tool": 0.7763484432550218
+    },
+    "per_category_boundary_f1": {
+      "box": 0.9317708323531342,
+      "cable": 0.6144501435987761,
+      "connector": 0.9125895396864211,
+      "glass_object": 0.7189808302664626,
+      "metal_part": 0.9173316738812195,
+      "plastic_object": 0.9389052283660538,
+      "robot_gripper": 0.697197534188698,
+      "screw": 0.7474730111805227,
+      "table": 0.7184834259781941,
+      "tool": 0.8132844149205778
+    },
+    "per_category_count": {
+      "box": 576,
+      "cable": 408,
+      "connector": 786,
+      "glass_object": 634,
+      "metal_part": 869,
+      "plastic_object": 995,
+      "robot_gripper": 1633,
+      "screw": 674,
+      "table": 1693,
+      "tool": 500
+    }
+  },
+  "mask_AP": {
+    "AP": 0.5754954930922115,
+    "AP50": 0.6535906852307507,
+    "AP75": 0.588502531527928,
+    "AP_small": 0.41949739254071716,
+    "AP_medium": 0.658474691571118,
+    "AP_large": 0.6526338455491116,
+    "AR1": 0.09917883211678832,
+    "AR10": 0.6404197080291972,
+    "AR100": 0.7648266423357665,
+    "AR_small": 0.5576134699853588,
+    "AR_medium": 0.772243177279787,
+    "AR_large": 0.8511049723756907
+  },
+  "mask_AP_note": "class_agnostic_AP_all_categories_mapped_to_object",
+  "elapsed_s": 37.687866569991456,
+  "metrics_file": "outputs/task6_evaluation/zero_shot/blenderproc_cogar_sim/sam2_hiera_large/automatic_metrics.json"
+}

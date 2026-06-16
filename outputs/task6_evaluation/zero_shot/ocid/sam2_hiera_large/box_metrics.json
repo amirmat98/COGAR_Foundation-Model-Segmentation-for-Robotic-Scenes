@@ -1,0 +1,40 @@
+{
+  "dataset": "ocid",
+  "model": "sam2_hiera_large",
+  "prompt_mode": "box",
+  "status": "ok",
+  "records": 21487,
+  "prediction_file": "results/task4_zero_shot_sam/ocid/sam2_hiera_large/box_predictions.jsonl",
+  "annotation_file": "/mnt/Info/COGAR_DATASETs/OCID-dataset/annotations/instances_all.json",
+  "evaluation_type": "prompted_instance",
+  "instance_metrics": {
+    "instances": 21487,
+    "mIoU": 0.8659770273605177,
+    "boundary_f1": 0.7872642061143948,
+    "per_category_iou": {
+      "object": 0.8659770273605177
+    },
+    "per_category_boundary_f1": {
+      "object": 0.7872642061143948
+    },
+    "per_category_count": {
+      "object": 21487
+    }
+  },
+  "mask_AP": {
+    "AP": 0.7756979963789858,
+    "AP50": 0.9694568004367208,
+    "AP75": 0.9049055174932888,
+    "AP_small": 0.6952240427284312,
+    "AP_medium": 0.8156247027731821,
+    "AP_large": 0.7167329872156428,
+    "AR1": 0.1032670917298832,
+    "AR10": 0.6687206217713035,
+    "AR100": 0.7943035323684089,
+    "AR_small": 0.7041410184667041,
+    "AR_medium": 0.8328827779072476,
+    "AR_large": 0.7452189193146873
+  },
+  "elapsed_s": 91.68238661100622,
+  "metrics_file": "outputs/task6_evaluation/zero_shot/ocid/sam2_hiera_large/box_metrics.json"
+}

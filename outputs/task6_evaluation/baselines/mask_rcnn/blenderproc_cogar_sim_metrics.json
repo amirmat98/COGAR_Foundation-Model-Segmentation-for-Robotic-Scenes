@@ -1,0 +1,70 @@
+{
+  "baseline": "mask_rcnn",
+  "dataset": "blenderproc_cogar_sim",
+  "status": "ok",
+  "evaluation_type": "instance_segmentation",
+  "annotation_file": "outputs/task5_baselines/coco/blenderproc_cogar_sim/instances_val_small.json",
+  "prediction_file": "results/task5_baselines/mask_rcnn/blenderproc_cogar_sim_maskrcnn_resnet50_fpn_small_subset_e20/predictions/val_epoch_020.json",
+  "instance_metrics": {
+    "instances": 366,
+    "mIoU": 0.7895191007664695,
+    "boundary_f1": 0.6443972972871164,
+    "per_category_iou": {
+      "box": 0.8758709489600709,
+      "cable": 0.5002480309286169,
+      "connector": 0.8207027297274211,
+      "glass_object": 0.782292483610666,
+      "metal_part": 0.7372258032863788,
+      "plastic_object": 0.7564298067347813,
+      "robot_gripper": 0.7933141177208219,
+      "screw": 0.6143058950952069,
+      "table": 0.8695269461093009,
+      "tool": 0.7381166202639007
+    },
+    "per_category_boundary_f1": {
+      "box": 0.8032538498121623,
+      "cable": 0.5434500088039955,
+      "connector": 0.8713713905017992,
+      "glass_object": 0.6618620465445235,
+      "metal_part": 0.7640890879091393,
+      "plastic_object": 0.7774577654712387,
+      "robot_gripper": 0.7278928174264476,
+      "screw": 0.7068743902842458,
+      "table": 0.2808025724484184,
+      "tool": 0.7279509077707572
+    },
+    "per_category_count": {
+      "box": 31,
+      "cable": 10,
+      "connector": 34,
+      "glass_object": 25,
+      "metal_part": 33,
+      "plastic_object": 32,
+      "robot_gripper": 73,
+      "screw": 19,
+      "table": 82,
+      "tool": 27
+    }
+  },
+  "mIoU": 0.7895191007664695,
+  "boundary_f1": 0.6443972972871164,
+  "mask_AP": 0.5740391159591088,
+  "mask_AP50": 0.7585945721731661,
+  "mask_AP75": 0.6332997060332645,
+  "mask_AP_stats": {
+    "AP": 0.5740391159591088,
+    "AP50": 0.7585945721731661,
+    "AP75": 0.6332997060332645,
+    "AP_small": 0.3219008887495893,
+    "AP_medium": 0.6407484500662675,
+    "AP_large": 0.8580370700734887,
+    "AR1": 0.41120912243635793,
+    "AR10": 0.6635522615976448,
+    "AR100": 0.6635522615976448,
+    "AR_small": 0.39396929824561405,
+    "AR_medium": 0.7098416583416584,
+    "AR_large": 0.8915885887935577
+  },
+  "elapsed_s": 1.5005813539901283,
+  "metrics_file": "outputs/task6_evaluation/baselines/mask_rcnn/blenderproc_cogar_sim_metrics.json"
+}

@@ -1,0 +1,103 @@
+nohup: ignoring input
+[START] evaluating isaac_official_unitree_g1/sam_vit_h/point from results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_h/point_predictions.jsonl
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/point: 5000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/point: 10000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/point: 15000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/point: 20000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/point: 25000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/point: 30000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/point: 35000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/point: 40000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/point: 45000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/point: 50000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/point: 55000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/point: 60000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/point: 65000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/point: 70000 prompted records
+loading annotations into memory...
+Done (t=2.67s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.06s)
+creating index...
+index created!
+[START] evaluating isaac_official_unitree_g1/sam_vit_h/box from results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_h/box_predictions.jsonl
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/box: 5000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/box: 10000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/box: 15000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/box: 20000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/box: 25000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/box: 30000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/box: 35000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/box: 40000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/box: 45000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/box: 50000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/box: 55000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/box: 60000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/box: 65000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_h/box: 70000 prompted records
+loading annotations into memory...
+Done (t=2.70s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.07s)
+creating index...
+index created!
+[START] evaluating isaac_official_unitree_g1/sam_vit_h/automatic from results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_h/automatic_predictions.jsonl
+loading annotations into memory...
+Done (t=2.67s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.05s)
+creating index...
+index created!
+[START] evaluating isaac_official_unitree_g1/sam_vit_b/point from results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_b/point_predictions.jsonl
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/point: 5000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/point: 10000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/point: 15000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/point: 20000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/point: 25000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/point: 30000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/point: 35000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/point: 40000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/point: 45000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/point: 50000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/point: 55000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/point: 60000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/point: 65000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/point: 70000 prompted records
+loading annotations into memory...
+Done (t=2.62s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.07s)
+creating index...
+index created!
+[START] evaluating isaac_official_unitree_g1/sam_vit_b/box from results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_b/box_predictions.jsonl
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/box: 5000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/box: 10000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/box: 15000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/box: 20000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/box: 25000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/box: 30000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/box: 35000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/box: 40000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/box: 45000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/box: 50000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/box: 55000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/box: 60000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/box: 65000 prompted records
+[PROGRESS] isaac_official_unitree_g1/sam_vit_b/box: 70000 prompted records
+loading annotations into memory...
+Done (t=2.70s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.07s)
+creating index...
+index created!
+[START] evaluating isaac_official_unitree_g1/sam_vit_b/automatic from results/task4_zero_shot_sam/isaac_official_unitree_g1/sam_vit_b/automatic_predictions.jsonl

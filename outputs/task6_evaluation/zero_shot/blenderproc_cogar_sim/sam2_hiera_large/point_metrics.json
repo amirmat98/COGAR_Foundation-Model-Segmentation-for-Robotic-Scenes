@@ -1,0 +1,67 @@
+{
+  "dataset": "blenderproc_cogar_sim",
+  "model": "sam2_hiera_large",
+  "prompt_mode": "point",
+  "status": "ok",
+  "records": 8768,
+  "prediction_file": "results/task4_zero_shot_sam/blenderproc_cogar_sim/sam2_hiera_large/point_predictions.jsonl",
+  "annotation_file": "/mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/annotations/instances_all.json",
+  "evaluation_type": "prompted_instance",
+  "instance_metrics": {
+    "instances": 8768,
+    "mIoU": 0.827318364394468,
+    "boundary_f1": 0.822151141728766,
+    "per_category_iou": {
+      "box": 0.9351990782506575,
+      "cable": 0.7972553053759518,
+      "connector": 0.9112053621335928,
+      "glass_object": 0.7888980677150311,
+      "metal_part": 0.9081963993382518,
+      "plastic_object": 0.9367449326315707,
+      "robot_gripper": 0.7280819470537473,
+      "screw": 0.8432962649360337,
+      "table": 0.7527528147901238,
+      "tool": 0.841139798475812
+    },
+    "per_category_boundary_f1": {
+      "box": 0.9365335312109492,
+      "cable": 0.861161461198223,
+      "connector": 0.9584685238931548,
+      "glass_object": 0.7337054132717842,
+      "metal_part": 0.9235155202267326,
+      "plastic_object": 0.9592412624125839,
+      "robot_gripper": 0.7499598627983789,
+      "screw": 0.9319894288647409,
+      "table": 0.6230593534783069,
+      "tool": 0.8692673382323883
+    },
+    "per_category_count": {
+      "box": 576,
+      "cable": 408,
+      "connector": 786,
+      "glass_object": 634,
+      "metal_part": 869,
+      "plastic_object": 995,
+      "robot_gripper": 1633,
+      "screw": 674,
+      "table": 1693,
+      "tool": 500
+    }
+  },
+  "mask_AP": {
+    "AP": 0.7510721480435437,
+    "AP50": 0.8899820149974988,
+    "AP75": 0.7776358345412229,
+    "AP_small": 0.615278069762106,
+    "AP_medium": 0.7619489341225595,
+    "AP_large": 0.7111811535077706,
+    "AR1": 0.4682653021992029,
+    "AR10": 0.7931517623422509,
+    "AR100": 0.7931517623422509,
+    "AR_small": 0.6686623320958904,
+    "AR_medium": 0.8228794095060159,
+    "AR_large": 0.8451352924115365
+  },
+  "elapsed_s": 38.20702778399573,
+  "metrics_file": "outputs/task6_evaluation/zero_shot/blenderproc_cogar_sim/sam2_hiera_large/point_metrics.json"
+}

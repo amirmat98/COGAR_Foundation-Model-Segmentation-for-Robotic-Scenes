@@ -1,0 +1,67 @@
+{
+  "dataset": "blenderproc_cogar_sim",
+  "model": "fastsam_x",
+  "prompt_mode": "box",
+  "status": "ok",
+  "records": 8768,
+  "prediction_file": "results/task4_zero_shot_sam/blenderproc_cogar_sim/fastsam_x/box_predictions.jsonl",
+  "annotation_file": "/mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/annotations/instances_all.json",
+  "evaluation_type": "prompted_instance",
+  "instance_metrics": {
+    "instances": 8768,
+    "mIoU": 0.7481621436264929,
+    "boundary_f1": 0.7734238949714399,
+    "per_category_iou": {
+      "box": 0.8618405103007718,
+      "cable": 0.4910853903208547,
+      "connector": 0.8431179135581455,
+      "glass_object": 0.8202626408302369,
+      "metal_part": 0.8800035529329474,
+      "plastic_object": 0.8922433869325922,
+      "robot_gripper": 0.6411921433740151,
+      "screw": 0.7043313755602623,
+      "table": 0.685265772272144,
+      "tool": 0.6918383611581599
+    },
+    "per_category_boundary_f1": {
+      "box": 0.8765401365187786,
+      "cable": 0.5818846771651058,
+      "connector": 0.8952945865696161,
+      "glass_object": 0.8218211046369375,
+      "metal_part": 0.9092534525826759,
+      "plastic_object": 0.9267136164918218,
+      "robot_gripper": 0.6795359229430107,
+      "screw": 0.8196145490402147,
+      "table": 0.6319659190304913,
+      "tool": 0.7402131019329958
+    },
+    "per_category_count": {
+      "box": 576,
+      "cable": 408,
+      "connector": 786,
+      "glass_object": 634,
+      "metal_part": 869,
+      "plastic_object": 995,
+      "robot_gripper": 1633,
+      "screw": 674,
+      "table": 1693,
+      "tool": 500
+    }
+  },
+  "mask_AP": {
+    "AP": 0.5319313001881917,
+    "AP50": 0.6803482949320553,
+    "AP75": 0.5537881870934604,
+    "AP_small": 0.39065120764592814,
+    "AP_medium": 0.63772830266521,
+    "AP_large": 0.4258543970289581,
+    "AR1": 0.38386160929933183,
+    "AR10": 0.6868522710568387,
+    "AR100": 0.6868522710568387,
+    "AR_small": 0.4168397186064571,
+    "AR_medium": 0.7325526176477107,
+    "AR_large": 0.7735852453888833
+  },
+  "elapsed_s": 36.096086409990676,
+  "metrics_file": "outputs/task6_evaluation/zero_shot/blenderproc_cogar_sim/fastsam_x/box_metrics.json"
+}

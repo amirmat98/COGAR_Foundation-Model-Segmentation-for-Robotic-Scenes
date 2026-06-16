@@ -1,0 +1,10 @@
+baseline,dataset,status,evaluation_type,mIoU,boundary_f1,mask_AP,mask_AP50,mask_AP75,elapsed_s,metrics_file
+yolo8_seg,isaac_official_unitree_g1,ok,instance_segmentation,0.5395833657336907,0.6041984705850798,0.3313627295095101,0.48968900763879897,0.35104801278886016,35.52514613702078,outputs/task6_evaluation/baselines/yolo8_seg/isaac_official_unitree_g1_metrics.json
+yolo8_seg,blenderproc_cogar_sim,ok,instance_segmentation,0.8611940808512567,0.8143763235304756,0.6426217107948822,0.8134320382094417,0.6905199651940719,2.1811640369996894,outputs/task6_evaluation/baselines/yolo8_seg/blenderproc_cogar_sim_metrics.json
+yolo8_seg,ocid,ok,instance_segmentation,0.8475484078632534,0.7841866739947979,0.6605893027397538,0.935115879777684,0.7557109286915273,4.388177298009396,outputs/task6_evaluation/baselines/yolo8_seg/ocid_metrics.json
+mask_rcnn,isaac_official_unitree_g1,ok,instance_segmentation,0.5643601089104575,0.6199106425200137,0.3818439466456059,0.5529405053059628,0.4042400726378671,33.735564275993966,outputs/task6_evaluation/baselines/mask_rcnn/isaac_official_unitree_g1_metrics.json
+mask_rcnn,blenderproc_cogar_sim,ok,instance_segmentation,0.7895191007664695,0.6443972972871164,0.5740391159591088,0.7585945721731661,0.6332997060332645,1.5005813539901283,outputs/task6_evaluation/baselines/mask_rcnn/blenderproc_cogar_sim_metrics.json
+mask_rcnn,ocid,ok,instance_segmentation,0.8123703626805883,0.7343935367651694,0.6619717416807416,0.8874887707244264,0.7420527909917737,2.11469458299689,outputs/task6_evaluation/baselines/mask_rcnn/ocid_metrics.json
+deeplabv3plus,isaac_official_unitree_g1,ok,semantic_segmentation,0.6604725763556952,0.6642246344275081,,,,1.859739695006283,outputs/task6_evaluation/baselines/deeplabv3plus/isaac_official_unitree_g1_metrics.json
+deeplabv3plus,blenderproc_cogar_sim,ok,semantic_segmentation,0.719802264279518,0.6803827488914189,,,,0.9254921079846099,outputs/task6_evaluation/baselines/deeplabv3plus/blenderproc_cogar_sim_metrics.json
+deeplabv3plus,ocid,ok,semantic_segmentation,0.9632376367955024,0.8801406183427867,,,,0.5827924810000695,outputs/task6_evaluation/baselines/deeplabv3plus/ocid_metrics.json

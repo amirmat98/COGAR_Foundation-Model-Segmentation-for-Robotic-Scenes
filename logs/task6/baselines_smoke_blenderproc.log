@@ -1,0 +1,17 @@
+nohup: ignoring input
+[START] evaluating mask_rcnn/blenderproc_cogar_sim
+loading annotations into memory...
+Done (t=0.02s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.00s)
+creating index...
+index created!
+[START] evaluating deeplabv3plus/blenderproc_cogar_sim
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/evaluation/evaluate_task6_baselines.py:432: DeprecationWarning: 'mode' parameter for changing data types is deprecated and will be removed in Pillow 13 (2026-10-15)
+  target_image = Image.fromarray(target.astype(np.uint16), mode="I;16")
+[PROGRESS] deeplabv3plus/blenderproc_cogar_sim: evaluated 25/50 masks
+[PROGRESS] deeplabv3plus/blenderproc_cogar_sim: evaluated 50/50 masks
+[DONE] wrote outputs/task6_evaluation/baselines/summary.csv
+[DONE] Task 6 baseline evaluation

@@ -1,0 +1,54 @@
+{
+  "baseline": "deeplabv3plus",
+  "dataset": "blenderproc_cogar_sim",
+  "status": "ok",
+  "evaluation_type": "semantic_segmentation",
+  "prediction_count": 50,
+  "predictions_dir": "results/task5_baselines/deeplabv3plus/blenderproc_cogar_sim_deeplabv3plus_resnet34_small_subset_e30/predictions/val_epoch_030",
+  "mIoU": 0.719802264279518,
+  "foreground_mIoU": 0.6974741301045857,
+  "boundary_f1": 0.6803827488914189,
+  "foreground_boundary_f1": 0.38824928008271165,
+  "mask_AP": null,
+  "mask_AP50": null,
+  "mask_AP75": null,
+  "mask_AP_note": "not_applicable_for_semantic_segmentation",
+  "semantic_metrics": {
+    "mIoU": 0.719802264279518,
+    "foreground_mIoU": 0.6974741301045857,
+    "pixel_accuracy": 0.9829419708251953,
+    "mean_accuracy": 0.8103269190217492,
+    "per_category_iou": {
+      "background": 0.9430836060288421,
+      "table": 0.987489205716373,
+      "robot_gripper": 0.9059702224468082,
+      "metal_part": 0.626736979077492,
+      "glass_object": 0.8891495836002562,
+      "plastic_object": 0.6605793825471418,
+      "screw": 0.2622191336576326,
+      "connector": 0.41188450069095933,
+      "cable": 0.5934889601300402,
+      "tool": 0.7154729304259961,
+      "box": 0.9217504027531571
+    }
+  },
+  "boundary_metrics": {
+    "boundary_f1": 0.6803827488914189,
+    "foreground_boundary_f1": 0.38824928008271165,
+    "per_category_boundary_f1": {
+      "background": 0.8380268089824476,
+      "box": 0.7994698323475091,
+      "cable": 0.2518800479937991,
+      "connector": 0.44234376473776427,
+      "glass_object": 0.689342926290638,
+      "metal_part": 0.3868457753844401,
+      "plastic_object": 0.5075409654267556,
+      "robot_gripper": 0.6533899835548742,
+      "screw": 0.22267510687618325,
+      "table": 0.8726166112276047,
+      "tool": 0.42683945888328106
+    }
+  },
+  "elapsed_s": 0.9254921079846099,
+  "metrics_file": "outputs/task6_evaluation/baselines/deeplabv3plus/blenderproc_cogar_sim_metrics.json"
+}

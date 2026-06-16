@@ -1,0 +1,70 @@
+{
+  "baseline": "yolo8_seg",
+  "dataset": "blenderproc_cogar_sim",
+  "status": "ok",
+  "evaluation_type": "instance_segmentation",
+  "annotation_file": "outputs/task5_baselines/coco/blenderproc_cogar_sim/instances_val_small.json",
+  "prediction_file": "results/task6_evaluation/baselines/yolo8_seg_predictions/blenderproc_cogar_sim_val_predictions.json",
+  "instance_metrics": {
+    "instances": 366,
+    "mIoU": 0.8611940808512567,
+    "boundary_f1": 0.8143763235304756,
+    "per_category_iou": {
+      "box": 0.9168901254102941,
+      "cable": 0.6328129573850056,
+      "connector": 0.8605059875041648,
+      "glass_object": 0.8613772347831996,
+      "metal_part": 0.8545107969501609,
+      "plastic_object": 0.8016522947330887,
+      "robot_gripper": 0.8328621140384417,
+      "screw": 0.7244242153372088,
+      "table": 0.9580765759951628,
+      "tool": 0.8398767520977204
+    },
+    "per_category_boundary_f1": {
+      "box": 0.9028201883614162,
+      "cable": 0.7218309881605853,
+      "connector": 0.9046283248814987,
+      "glass_object": 0.7876187461067106,
+      "metal_part": 0.8963378967192233,
+      "plastic_object": 0.8384991216318698,
+      "robot_gripper": 0.8361415712775668,
+      "screw": 0.8621264240450501,
+      "table": 0.6777633754662415,
+      "tool": 0.851915220755603
+    },
+    "per_category_count": {
+      "box": 31,
+      "cable": 10,
+      "connector": 34,
+      "glass_object": 25,
+      "metal_part": 33,
+      "plastic_object": 32,
+      "robot_gripper": 73,
+      "screw": 19,
+      "table": 82,
+      "tool": 27
+    }
+  },
+  "mIoU": 0.8611940808512567,
+  "boundary_f1": 0.8143763235304756,
+  "mask_AP": 0.6426217107948822,
+  "mask_AP50": 0.8134320382094417,
+  "mask_AP75": 0.6905199651940719,
+  "mask_AP_stats": {
+    "AP": 0.6426217107948822,
+    "AP50": 0.8134320382094417,
+    "AP75": 0.6905199651940719,
+    "AP_small": 0.3998129039236778,
+    "AP_medium": 0.693469358939345,
+    "AP_large": 0.896472843146812,
+    "AR1": 0.44316275486725604,
+    "AR10": 0.7454643572041103,
+    "AR100": 0.7542905632953749,
+    "AR_small": 0.5276864035087719,
+    "AR_medium": 0.7875387760387761,
+    "AR_large": 0.9588784026672226
+  },
+  "elapsed_s": 2.1811640369996894,
+  "metrics_file": "outputs/task6_evaluation/baselines/yolo8_seg/blenderproc_cogar_sim_metrics.json"
+}
