@@ -1,0 +1,39 @@
+{
+  "dataset": "ocid",
+  "model": "fastsam_x",
+  "model_family": "zero_shot",
+  "prompt_mode": "box",
+  "device": "cuda",
+  "status": "ok",
+  "sample_images": 50,
+  "selected_images_including_warmup": 51,
+  "requested_timed_images": 50,
+  "timing": {
+    "timed_units": 50,
+    "total_timed_s": 15.628458759996647,
+    "fps": 3.19929180271969,
+    "latency_mean_ms": 312.56917519993294,
+    "latency_median_ms": 312.58993150004244,
+    "latency_p95_ms": 317.28072579999207,
+    "latency_min_ms": 305.2751860004719,
+    "latency_max_ms": 318.5160470002302,
+    "warmup_units": 1,
+    "output_count_mean": 0.96,
+    "output_count_min": 0,
+    "output_count_max": 1
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true,
+    "cuda_device": "Tesla T4",
+    "cuda_total_memory_gb": 15.64
+  },
+  "elapsed_wall_s": 17.1693199070005,
+  "metrics_file": "outputs/task7_inference_speed/cuda/ocid/fastsam_x/box_speed.json"
+}

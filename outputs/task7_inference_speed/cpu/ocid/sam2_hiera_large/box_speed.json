@@ -1,0 +1,37 @@
+{
+  "dataset": "ocid",
+  "model": "sam2_hiera_large",
+  "model_family": "zero_shot",
+  "prompt_mode": "box",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 3,
+  "selected_images_including_warmup": 4,
+  "requested_timed_images": 3,
+  "timing": {
+    "timed_units": 3,
+    "total_timed_s": 34.50989387899972,
+    "fps": 0.0869315915754116,
+    "latency_mean_ms": 11503.297959666574,
+    "latency_median_ms": 11497.682430999703,
+    "latency_p95_ms": 11524.684434399569,
+    "latency_min_ms": 11484.526791000462,
+    "latency_max_ms": 11527.684656999554,
+    "warmup_units": 1,
+    "output_count_mean": 3.0,
+    "output_count_min": 3,
+    "output_count_max": 3
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 48.0465534140003,
+  "metrics_file": "outputs/task7_inference_speed/cpu/ocid/sam2_hiera_large/box_speed.json"
+}

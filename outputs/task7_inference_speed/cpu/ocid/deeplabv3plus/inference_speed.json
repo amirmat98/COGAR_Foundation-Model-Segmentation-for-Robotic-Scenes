@@ -1,0 +1,37 @@
+{
+  "dataset": "ocid",
+  "model": "deeplabv3plus",
+  "model_family": "baseline",
+  "prompt_mode": "inference",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 3,
+  "selected_images_including_warmup": 4,
+  "requested_timed_images": 3,
+  "timing": {
+    "timed_units": 3,
+    "total_timed_s": 1.5358074880005006,
+    "fps": 1.9533698223504312,
+    "latency_mean_ms": 511.9358293335002,
+    "latency_median_ms": 511.6365150006459,
+    "latency_p95_ms": 516.7709717990874,
+    "latency_min_ms": 506.82950600094046,
+    "latency_max_ms": 517.3414669989143,
+    "warmup_units": 1,
+    "output_count_mean": 1.0,
+    "output_count_min": 1,
+    "output_count_max": 1
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 3.4973622819998127,
+  "metrics_file": "outputs/task7_inference_speed/cpu/ocid/deeplabv3plus/inference_speed.json"
+}

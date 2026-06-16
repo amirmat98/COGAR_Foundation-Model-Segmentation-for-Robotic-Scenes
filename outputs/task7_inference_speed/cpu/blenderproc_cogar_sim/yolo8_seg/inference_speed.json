@@ -1,0 +1,37 @@
+{
+  "dataset": "blenderproc_cogar_sim",
+  "model": "yolo8_seg",
+  "model_family": "baseline",
+  "prompt_mode": "inference",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 3,
+  "selected_images_including_warmup": 4,
+  "requested_timed_images": 3,
+  "timing": {
+    "timed_units": 3,
+    "total_timed_s": 2.2964591879999716,
+    "fps": 1.30635894409809,
+    "latency_mean_ms": 765.4863959999906,
+    "latency_median_ms": 791.0795399993731,
+    "latency_p95_ms": 815.5880051999702,
+    "latency_min_ms": 687.068480000562,
+    "latency_max_ms": 818.3111680000366,
+    "warmup_units": 1,
+    "output_count_mean": 1.0,
+    "output_count_min": 1,
+    "output_count_max": 1
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 3.204149072000291,
+  "metrics_file": "outputs/task7_inference_speed/cpu/blenderproc_cogar_sim/yolo8_seg/inference_speed.json"
+}

@@ -1,0 +1,39 @@
+{
+  "dataset": "isaac_official_unitree_g1",
+  "model": "mask_rcnn",
+  "model_family": "baseline",
+  "prompt_mode": "inference",
+  "device": "cuda",
+  "status": "ok",
+  "sample_images": 50,
+  "selected_images_including_warmup": 51,
+  "requested_timed_images": 50,
+  "timing": {
+    "timed_units": 50,
+    "total_timed_s": 6.054019282002628,
+    "fps": 8.258976007664836,
+    "latency_mean_ms": 121.08038564005255,
+    "latency_median_ms": 123.16542700000355,
+    "latency_p95_ms": 125.72068414981459,
+    "latency_min_ms": 106.40965900029187,
+    "latency_max_ms": 135.98894599999767,
+    "warmup_units": 1,
+    "output_count_mean": 1.0,
+    "output_count_min": 1,
+    "output_count_max": 1
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true,
+    "cuda_device": "Tesla T4",
+    "cuda_total_memory_gb": 15.64
+  },
+  "elapsed_wall_s": 9.825243536000016,
+  "metrics_file": "outputs/task7_inference_speed/cuda/isaac_official_unitree_g1/mask_rcnn/inference_speed.json"
+}

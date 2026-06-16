@@ -1,0 +1,37 @@
+{
+  "dataset": "blenderproc_cogar_sim",
+  "model": "sam_vit_h",
+  "model_family": "zero_shot",
+  "prompt_mode": "point",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 3,
+  "selected_images_including_warmup": 4,
+  "requested_timed_images": 3,
+  "timing": {
+    "timed_units": 3,
+    "total_timed_s": 127.61048400300024,
+    "fps": 0.023509040212789,
+    "latency_mean_ms": 42536.82800100008,
+    "latency_median_ms": 42583.503226000175,
+    "latency_p95_ms": 42611.53679319959,
+    "latency_min_ms": 42412.329143000534,
+    "latency_max_ms": 42614.65163399953,
+    "warmup_units": 1,
+    "output_count_mean": 3.0,
+    "output_count_min": 3,
+    "output_count_max": 3
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 175.47918628099978,
+  "metrics_file": "outputs/task7_inference_speed/cpu/blenderproc_cogar_sim/sam_vit_h/point_speed.json"
+}

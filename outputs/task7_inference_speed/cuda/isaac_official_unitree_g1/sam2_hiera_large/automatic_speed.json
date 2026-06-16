@@ -1,0 +1,39 @@
+{
+  "dataset": "isaac_official_unitree_g1",
+  "model": "sam2_hiera_large",
+  "model_family": "zero_shot",
+  "prompt_mode": "automatic",
+  "device": "cuda",
+  "status": "ok",
+  "sample_images": 20,
+  "selected_images_including_warmup": 21,
+  "requested_timed_images": 20,
+  "timing": {
+    "timed_units": 20,
+    "total_timed_s": 108.16042899200055,
+    "fps": 0.1849105091981392,
+    "latency_mean_ms": 5408.021449600028,
+    "latency_median_ms": 5388.288666500102,
+    "latency_p95_ms": 5518.934959099988,
+    "latency_min_ms": 5268.984812000326,
+    "latency_max_ms": 5536.366568000176,
+    "warmup_units": 1,
+    "output_count_mean": 46.8,
+    "output_count_min": 31,
+    "output_count_max": 72
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true,
+    "cuda_device": "Tesla T4",
+    "cuda_total_memory_gb": 15.64
+  },
+  "elapsed_wall_s": 116.16084041899967,
+  "metrics_file": "outputs/task7_inference_speed/cuda/isaac_official_unitree_g1/sam2_hiera_large/automatic_speed.json"
+}

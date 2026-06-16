@@ -1,0 +1,37 @@
+{
+  "dataset": "isaac_official_unitree_g1",
+  "model": "yolo8_seg",
+  "model_family": "baseline",
+  "prompt_mode": "inference",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 3,
+  "selected_images_including_warmup": 4,
+  "requested_timed_images": 3,
+  "timing": {
+    "timed_units": 3,
+    "total_timed_s": 6.156654933999562,
+    "fps": 0.4872775934595222,
+    "latency_mean_ms": 2052.218311333187,
+    "latency_median_ms": 2087.6281659993765,
+    "latency_p95_ms": 2089.556389000063,
+    "latency_min_ms": 1979.256132000046,
+    "latency_max_ms": 2089.7706360001393,
+    "warmup_units": 1,
+    "output_count_mean": 1.0,
+    "output_count_min": 1,
+    "output_count_max": 1
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 8.555805424000027,
+  "metrics_file": "outputs/task7_inference_speed/cpu/isaac_official_unitree_g1/yolo8_seg/inference_speed.json"
+}

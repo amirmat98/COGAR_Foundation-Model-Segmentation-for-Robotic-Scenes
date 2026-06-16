@@ -1,0 +1,37 @@
+{
+  "dataset": "isaac_official_unitree_g1",
+  "model": "deeplabv3plus",
+  "model_family": "baseline",
+  "prompt_mode": "inference",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 3,
+  "selected_images_including_warmup": 4,
+  "requested_timed_images": 3,
+  "timing": {
+    "timed_units": 3,
+    "total_timed_s": 1.5875228120003158,
+    "fps": 1.8897366244582843,
+    "latency_mean_ms": 529.1742706667719,
+    "latency_median_ms": 528.3942010000828,
+    "latency_p95_ms": 534.6398005000083,
+    "latency_min_ms": 523.7948550002329,
+    "latency_max_ms": 535.333756,
+    "warmup_units": 1,
+    "output_count_mean": 1.0,
+    "output_count_min": 1,
+    "output_count_max": 1
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 3.6423487820002265,
+  "metrics_file": "outputs/task7_inference_speed/cpu/isaac_official_unitree_g1/deeplabv3plus/inference_speed.json"
+}

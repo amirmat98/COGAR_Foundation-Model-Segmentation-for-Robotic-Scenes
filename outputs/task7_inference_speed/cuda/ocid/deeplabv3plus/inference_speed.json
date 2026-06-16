@@ -1,0 +1,39 @@
+{
+  "dataset": "ocid",
+  "model": "deeplabv3plus",
+  "model_family": "baseline",
+  "prompt_mode": "inference",
+  "device": "cuda",
+  "status": "ok",
+  "sample_images": 50,
+  "selected_images_including_warmup": 51,
+  "requested_timed_images": 50,
+  "timing": {
+    "timed_units": 50,
+    "total_timed_s": 1.3223608870030148,
+    "fps": 37.81116069858924,
+    "latency_mean_ms": 26.447217740060296,
+    "latency_median_ms": 24.623584500204743,
+    "latency_p95_ms": 36.01637649985605,
+    "latency_min_ms": 24.11248499993235,
+    "latency_max_ms": 41.65405500043562,
+    "warmup_units": 1,
+    "output_count_mean": 1.0,
+    "output_count_min": 1,
+    "output_count_max": 1
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true,
+    "cuda_device": "Tesla T4",
+    "cuda_total_memory_gb": 15.64
+  },
+  "elapsed_wall_s": 3.2485068319992934,
+  "metrics_file": "outputs/task7_inference_speed/cuda/ocid/deeplabv3plus/inference_speed.json"
+}

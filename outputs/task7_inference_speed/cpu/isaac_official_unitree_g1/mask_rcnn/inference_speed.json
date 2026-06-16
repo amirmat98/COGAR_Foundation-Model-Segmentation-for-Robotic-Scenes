@@ -1,0 +1,37 @@
+{
+  "dataset": "isaac_official_unitree_g1",
+  "model": "mask_rcnn",
+  "model_family": "baseline",
+  "prompt_mode": "inference",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 3,
+  "selected_images_including_warmup": 4,
+  "requested_timed_images": 3,
+  "timing": {
+    "timed_units": 3,
+    "total_timed_s": 7.344805636000274,
+    "fps": 0.4084519248944613,
+    "latency_mean_ms": 2448.2685453334248,
+    "latency_median_ms": 2445.634990000144,
+    "latency_p95_ms": 2461.0174786002062,
+    "latency_min_ms": 2436.4440019999165,
+    "latency_max_ms": 2462.726644000213,
+    "warmup_units": 1,
+    "output_count_mean": 1.0,
+    "output_count_min": 1,
+    "output_count_max": 1
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 12.71147343299981,
+  "metrics_file": "outputs/task7_inference_speed/cpu/isaac_official_unitree_g1/mask_rcnn/inference_speed.json"
+}

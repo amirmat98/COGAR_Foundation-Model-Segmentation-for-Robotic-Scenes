@@ -1,0 +1,37 @@
+{
+  "dataset": "ocid",
+  "model": "sam_vit_b",
+  "model_family": "zero_shot",
+  "prompt_mode": "box",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 3,
+  "selected_images_including_warmup": 4,
+  "requested_timed_images": 3,
+  "timing": {
+    "timed_units": 3,
+    "total_timed_s": 25.076250366999375,
+    "fps": 0.11963511115473761,
+    "latency_mean_ms": 8358.750122333126,
+    "latency_median_ms": 8362.530036999487,
+    "latency_p95_ms": 8365.593455199814,
+    "latency_min_ms": 8347.786495000037,
+    "latency_max_ms": 8365.93383499985,
+    "warmup_units": 1,
+    "output_count_mean": 3.0,
+    "output_count_min": 3,
+    "output_count_max": 3
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 34.131201365999914,
+  "metrics_file": "outputs/task7_inference_speed/cpu/ocid/sam_vit_b/box_speed.json"
+}

@@ -1,0 +1,37 @@
+{
+  "dataset": "blenderproc_cogar_sim",
+  "model": "fastsam_x",
+  "model_family": "zero_shot",
+  "prompt_mode": "automatic",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 1,
+  "selected_images_including_warmup": 2,
+  "requested_timed_images": 1,
+  "timing": {
+    "timed_units": 1,
+    "total_timed_s": 3.9686438440003258,
+    "fps": 0.2519752437628711,
+    "latency_mean_ms": 3968.6438440003258,
+    "latency_median_ms": 3968.6438440003258,
+    "latency_p95_ms": 3968.6438440003258,
+    "latency_min_ms": 3968.6438440003258,
+    "latency_max_ms": 3968.6438440003258,
+    "warmup_units": 1,
+    "output_count_mean": 16.0,
+    "output_count_min": 16,
+    "output_count_max": 16
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 8.934145838999939,
+  "metrics_file": "outputs/task7_inference_speed/cpu/blenderproc_cogar_sim/fastsam_x/automatic_speed.json"
+}

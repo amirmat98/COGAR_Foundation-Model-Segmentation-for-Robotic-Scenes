@@ -1,0 +1,39 @@
+{
+  "dataset": "blenderproc_cogar_sim",
+  "model": "mask_rcnn",
+  "model_family": "baseline",
+  "prompt_mode": "inference",
+  "device": "cuda",
+  "status": "ok",
+  "sample_images": 50,
+  "selected_images_including_warmup": 51,
+  "requested_timed_images": 50,
+  "timing": {
+    "timed_units": 50,
+    "total_timed_s": 3.865554845001043,
+    "fps": 12.934753742961448,
+    "latency_mean_ms": 77.31109690002086,
+    "latency_median_ms": 77.79917850007223,
+    "latency_p95_ms": 85.43416370002888,
+    "latency_min_ms": 63.07940499982578,
+    "latency_max_ms": 97.45536900027219,
+    "warmup_units": 1,
+    "output_count_mean": 1.0,
+    "output_count_min": 1,
+    "output_count_max": 1
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true,
+    "cuda_device": "Tesla T4",
+    "cuda_total_memory_gb": 15.64
+  },
+  "elapsed_wall_s": 5.106701308999618,
+  "metrics_file": "outputs/task7_inference_speed/cuda/blenderproc_cogar_sim/mask_rcnn/inference_speed.json"
+}

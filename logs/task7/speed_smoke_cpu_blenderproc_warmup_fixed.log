@@ -1,0 +1,41 @@
+nohup: ignoring input
+[PLAN] datasets=['blenderproc_cogar_sim'] models=['sam_vit_b', 'yolo8_seg', 'mask_rcnn', 'deeplabv3plus'] prompt_modes=['point'] devices=['cpu']
+[START] blenderproc_cogar_sim/sam_vit_b/point/cpu: loading 3 images
+[LOAD] blenderproc_cogar_sim/sam_vit_b/point/cpu: building model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/segment_anything/build_sam.py:105: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[WARMUP] blenderproc_cogar_sim/sam_vit_b/point/cpu: 1 images
+[TIMING] blenderproc_cogar_sim/sam_vit_b/point/cpu: 2 images
+[PROGRESS] blenderproc_cogar_sim/sam_vit_b/point/cpu: 1/2 images, last=11896.5ms, elapsed=11.9s
+[PROGRESS] blenderproc_cogar_sim/sam_vit_b/point/cpu: 2/2 images, last=11878.3ms, elapsed=23.8s
+[DONE] blenderproc_cogar_sim/sam_vit_b/point/cpu: fps=0.084 mean=11887.4ms output=outputs/task7_inference_speed/cpu/blenderproc_cogar_sim/sam_vit_b/point_speed.json
+[START] blenderproc_cogar_sim/yolo8_seg/inference/cpu: loading 3 images
+[LOAD] blenderproc_cogar_sim/yolo8_seg/inference/cpu: building model
+[LOAD] yolo8_seg/blenderproc_cogar_sim: ultralytics=/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/ultralytics/__init__.py
+[WARMUP] blenderproc_cogar_sim/yolo8_seg/inference/cpu: 1 images
+[TIMING] blenderproc_cogar_sim/yolo8_seg/inference/cpu: 2 images
+[PROGRESS] blenderproc_cogar_sim/yolo8_seg/inference/cpu: 1/2 images, last=1083.1ms, elapsed=1.1s
+[PROGRESS] blenderproc_cogar_sim/yolo8_seg/inference/cpu: 2/2 images, last=931.4ms, elapsed=2.0s
+[DONE] blenderproc_cogar_sim/yolo8_seg/inference/cpu: fps=0.993 mean=1007.2ms output=outputs/task7_inference_speed/cpu/blenderproc_cogar_sim/yolo8_seg/inference_speed.json
+[START] blenderproc_cogar_sim/mask_rcnn/inference/cpu: loading 3 images
+[LOAD] blenderproc_cogar_sim/mask_rcnn/inference/cpu: building model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/measure_task7_inference_speed.py:510: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=device_obj)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/torchvision/models/detection/backbone_utils.py:162: UserWarning: Changing trainable_backbone_layers has no effect if neither pretrained nor pretrained_backbone have been set to True, falling back to trainable_backbone_layers=5 so that all layers are trainable
+  warnings.warn(
+[WARMUP] blenderproc_cogar_sim/mask_rcnn/inference/cpu: 1 images
+[TIMING] blenderproc_cogar_sim/mask_rcnn/inference/cpu: 2 images
+[PROGRESS] blenderproc_cogar_sim/mask_rcnn/inference/cpu: 1/2 images, last=2060.6ms, elapsed=2.1s
+[PROGRESS] blenderproc_cogar_sim/mask_rcnn/inference/cpu: 2/2 images, last=2068.7ms, elapsed=4.1s
+[DONE] blenderproc_cogar_sim/mask_rcnn/inference/cpu: fps=0.484 mean=2064.7ms output=outputs/task7_inference_speed/cpu/blenderproc_cogar_sim/mask_rcnn/inference_speed.json
+[START] blenderproc_cogar_sim/deeplabv3plus/inference/cpu: loading 3 images
+[LOAD] blenderproc_cogar_sim/deeplabv3plus/inference/cpu: building model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/measure_task7_inference_speed.py:557: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  checkpoint = torch.load(checkpoint_path, map_location=device_obj)
+[WARMUP] blenderproc_cogar_sim/deeplabv3plus/inference/cpu: 1 images
+[TIMING] blenderproc_cogar_sim/deeplabv3plus/inference/cpu: 2 images
+[PROGRESS] blenderproc_cogar_sim/deeplabv3plus/inference/cpu: 1/2 images, last=514.2ms, elapsed=0.5s
+[PROGRESS] blenderproc_cogar_sim/deeplabv3plus/inference/cpu: 2/2 images, last=508.8ms, elapsed=1.0s
+[DONE] blenderproc_cogar_sim/deeplabv3plus/inference/cpu: fps=1.955 mean=511.5ms output=outputs/task7_inference_speed/cpu/blenderproc_cogar_sim/deeplabv3plus/inference_speed.json
+[DONE] wrote outputs/task7_inference_speed/summary.csv
+[DONE] Task 7 inference-speed benchmark

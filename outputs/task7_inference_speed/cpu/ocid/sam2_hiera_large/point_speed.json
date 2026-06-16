@@ -1,0 +1,37 @@
+{
+  "dataset": "ocid",
+  "model": "sam2_hiera_large",
+  "model_family": "zero_shot",
+  "prompt_mode": "point",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 3,
+  "selected_images_including_warmup": 4,
+  "requested_timed_images": 3,
+  "timing": {
+    "timed_units": 3,
+    "total_timed_s": 34.50912359599897,
+    "fps": 0.08693353198769219,
+    "latency_mean_ms": 11503.041198666324,
+    "latency_median_ms": 11500.165751000168,
+    "latency_p95_ms": 11509.314714499487,
+    "latency_min_ms": 11498.626578999392,
+    "latency_max_ms": 11510.331265999412,
+    "warmup_units": 1,
+    "output_count_mean": 3.0,
+    "output_count_min": 3,
+    "output_count_max": 3
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 48.82513462699899,
+  "metrics_file": "outputs/task7_inference_speed/cpu/ocid/sam2_hiera_large/point_speed.json"
+}

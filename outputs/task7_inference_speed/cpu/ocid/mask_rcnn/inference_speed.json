@@ -1,0 +1,37 @@
+{
+  "dataset": "ocid",
+  "model": "mask_rcnn",
+  "model_family": "baseline",
+  "prompt_mode": "inference",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 3,
+  "selected_images_including_warmup": 4,
+  "requested_timed_images": 3,
+  "timing": {
+    "timed_units": 3,
+    "total_timed_s": 5.449250781002775,
+    "fps": 0.5505343983174028,
+    "latency_mean_ms": 1816.416927000925,
+    "latency_median_ms": 1810.5395230013528,
+    "latency_p95_ms": 1842.2869105006612,
+    "latency_min_ms": 1792.8968600008375,
+    "latency_max_ms": 1845.8143980005843,
+    "warmup_units": 1,
+    "output_count_mean": 1.0,
+    "output_count_min": 1,
+    "output_count_max": 1
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 9.58855906899953,
+  "metrics_file": "outputs/task7_inference_speed/cpu/ocid/mask_rcnn/inference_speed.json"
+}

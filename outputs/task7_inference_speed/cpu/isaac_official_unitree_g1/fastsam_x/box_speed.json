@@ -1,0 +1,37 @@
+{
+  "dataset": "isaac_official_unitree_g1",
+  "model": "fastsam_x",
+  "model_family": "zero_shot",
+  "prompt_mode": "box",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 3,
+  "selected_images_including_warmup": 4,
+  "requested_timed_images": 3,
+  "timing": {
+    "timed_units": 3,
+    "total_timed_s": 10.49091483599932,
+    "fps": 0.2859617151504817,
+    "latency_mean_ms": 3496.9716119997734,
+    "latency_median_ms": 3498.6577640001997,
+    "latency_p95_ms": 3521.9280379992597,
+    "latency_min_ms": 3467.7434479999647,
+    "latency_max_ms": 3524.5136239991552,
+    "warmup_units": 1,
+    "output_count_mean": 1.0,
+    "output_count_min": 1,
+    "output_count_max": 1
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 14.954391069999474,
+  "metrics_file": "outputs/task7_inference_speed/cpu/isaac_official_unitree_g1/fastsam_x/box_speed.json"
+}

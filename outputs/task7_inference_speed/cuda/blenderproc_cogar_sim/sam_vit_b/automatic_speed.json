@@ -1,0 +1,39 @@
+{
+  "dataset": "blenderproc_cogar_sim",
+  "model": "sam_vit_b",
+  "model_family": "zero_shot",
+  "prompt_mode": "automatic",
+  "device": "cuda",
+  "status": "ok",
+  "sample_images": 20,
+  "selected_images_including_warmup": 21,
+  "requested_timed_images": 20,
+  "timing": {
+    "timed_units": 20,
+    "total_timed_s": 102.99727159900021,
+    "fps": 0.19417990097704818,
+    "latency_mean_ms": 5149.863579950011,
+    "latency_median_ms": 5131.961429000057,
+    "latency_p95_ms": 6006.548208750223,
+    "latency_min_ms": 4348.891456999809,
+    "latency_max_ms": 6197.114556000088,
+    "warmup_units": 1,
+    "output_count_mean": 21.6,
+    "output_count_min": 2,
+    "output_count_max": 29
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true,
+    "cuda_device": "Tesla T4",
+    "cuda_total_memory_gb": 15.64
+  },
+  "elapsed_wall_s": 108.66239833400004,
+  "metrics_file": "outputs/task7_inference_speed/cuda/blenderproc_cogar_sim/sam_vit_b/automatic_speed.json"
+}

@@ -1,0 +1,39 @@
+{
+  "dataset": "ocid",
+  "model": "sam2_hiera_large",
+  "model_family": "zero_shot",
+  "prompt_mode": "point",
+  "device": "cuda",
+  "status": "ok",
+  "sample_images": 50,
+  "selected_images_including_warmup": 51,
+  "requested_timed_images": 50,
+  "timing": {
+    "timed_units": 50,
+    "total_timed_s": 29.905143673000566,
+    "fps": 1.6719531779123933,
+    "latency_mean_ms": 598.1028734600113,
+    "latency_median_ms": 597.8140180000082,
+    "latency_p95_ms": 602.6429888001076,
+    "latency_min_ms": 593.3555560004606,
+    "latency_max_ms": 605.1892010000302,
+    "warmup_units": 1,
+    "output_count_mean": 3.0,
+    "output_count_min": 3,
+    "output_count_max": 3
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true,
+    "cuda_device": "Tesla T4",
+    "cuda_total_memory_gb": 15.64
+  },
+  "elapsed_wall_s": 33.06281607300025,
+  "metrics_file": "outputs/task7_inference_speed/cuda/ocid/sam2_hiera_large/point_speed.json"
+}

@@ -1,0 +1,39 @@
+{
+  "dataset": "ocid",
+  "model": "sam_vit_h",
+  "model_family": "zero_shot",
+  "prompt_mode": "point",
+  "device": "cuda",
+  "status": "ok",
+  "sample_images": 50,
+  "selected_images_including_warmup": 51,
+  "requested_timed_images": 50,
+  "timing": {
+    "timed_units": 50,
+    "total_timed_s": 87.17258173799928,
+    "fps": 0.573574844327509,
+    "latency_mean_ms": 1743.4516347599856,
+    "latency_median_ms": 1746.2640425001155,
+    "latency_p95_ms": 1753.671165050082,
+    "latency_min_ms": 1721.070069000234,
+    "latency_max_ms": 1754.689922000125,
+    "warmup_units": 1,
+    "output_count_mean": 3.0,
+    "output_count_min": 3,
+    "output_count_max": 3
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true,
+    "cuda_device": "Tesla T4",
+    "cuda_total_memory_gb": 15.64
+  },
+  "elapsed_wall_s": 95.46550557199998,
+  "metrics_file": "outputs/task7_inference_speed/cuda/ocid/sam_vit_h/point_speed.json"
+}

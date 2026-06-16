@@ -1,0 +1,37 @@
+{
+  "dataset": "isaac_official_unitree_g1",
+  "model": "sam_vit_b",
+  "model_family": "zero_shot",
+  "prompt_mode": "box",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 3,
+  "selected_images_including_warmup": 4,
+  "requested_timed_images": 3,
+  "timing": {
+    "timed_units": 3,
+    "total_timed_s": 25.176020992001213,
+    "fps": 0.11916100645742007,
+    "latency_mean_ms": 8392.006997333738,
+    "latency_median_ms": 8381.84040700071,
+    "latency_p95_ms": 8413.781848000326,
+    "latency_min_ms": 8376.84968800022,
+    "latency_max_ms": 8417.330897000284,
+    "warmup_units": 1,
+    "output_count_mean": 3.0,
+    "output_count_min": 3,
+    "output_count_max": 3
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 34.37826557799963,
+  "metrics_file": "outputs/task7_inference_speed/cpu/isaac_official_unitree_g1/sam_vit_b/box_speed.json"
+}

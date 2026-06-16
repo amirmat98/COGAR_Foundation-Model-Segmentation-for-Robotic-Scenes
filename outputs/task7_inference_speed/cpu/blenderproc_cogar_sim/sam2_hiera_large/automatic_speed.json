@@ -1,0 +1,37 @@
+{
+  "dataset": "blenderproc_cogar_sim",
+  "model": "sam2_hiera_large",
+  "model_family": "zero_shot",
+  "prompt_mode": "automatic",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 1,
+  "selected_images_including_warmup": 2,
+  "requested_timed_images": 1,
+  "timing": {
+    "timed_units": 1,
+    "total_timed_s": 133.17555264400016,
+    "fps": 0.007508885678688806,
+    "latency_mean_ms": 133175.55264400016,
+    "latency_median_ms": 133175.55264400016,
+    "latency_p95_ms": 133175.55264400016,
+    "latency_min_ms": 133175.55264400016,
+    "latency_max_ms": 133175.55264400016,
+    "warmup_units": 1,
+    "output_count_mean": 6.0,
+    "output_count_min": 6,
+    "output_count_max": 6
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 269.55674058599925,
+  "metrics_file": "outputs/task7_inference_speed/cpu/blenderproc_cogar_sim/sam2_hiera_large/automatic_speed.json"
+}

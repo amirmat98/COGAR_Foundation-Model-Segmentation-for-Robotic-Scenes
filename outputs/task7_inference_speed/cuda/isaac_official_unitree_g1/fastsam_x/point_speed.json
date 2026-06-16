@@ -1,0 +1,39 @@
+{
+  "dataset": "isaac_official_unitree_g1",
+  "model": "fastsam_x",
+  "model_family": "zero_shot",
+  "prompt_mode": "point",
+  "device": "cuda",
+  "status": "ok",
+  "sample_images": 50,
+  "selected_images_including_warmup": 51,
+  "requested_timed_images": 50,
+  "timing": {
+    "timed_units": 50,
+    "total_timed_s": 19.891732161000164,
+    "fps": 2.5136071406606946,
+    "latency_mean_ms": 397.8346432200033,
+    "latency_median_ms": 397.1676925000338,
+    "latency_p95_ms": 419.8363895999137,
+    "latency_min_ms": 376.4406609998332,
+    "latency_max_ms": 426.05026299997917,
+    "warmup_units": 1,
+    "output_count_mean": 1.0,
+    "output_count_min": 1,
+    "output_count_max": 1
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true,
+    "cuda_device": "Tesla T4",
+    "cuda_total_memory_gb": 15.64
+  },
+  "elapsed_wall_s": 24.05505262199995,
+  "metrics_file": "outputs/task7_inference_speed/cuda/isaac_official_unitree_g1/fastsam_x/point_speed.json"
+}
