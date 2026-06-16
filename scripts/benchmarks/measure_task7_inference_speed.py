@@ -26,12 +26,11 @@ from PIL import Image
 REPO_ROOT = Path(__file__).resolve().parents[2]
 SCRIPT_DIR = Path(__file__).resolve().parent
 BASELINE_DIR = REPO_ROOT / "scripts" / "baselines"
+FASTSAM_SRC_DIR = REPO_ROOT / "external" / "FastSAM"
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 if str(BASELINE_DIR) not in sys.path:
     sys.path.insert(0, str(BASELINE_DIR))
-
-from run_zero_shot_sam import build_adapter, load_jsonl, unique_image_records  # noqa: E402
 
 
 IMAGENET_MEAN = np.asarray([0.485, 0.456, 0.406], dtype=np.float32)
@@ -78,6 +77,15 @@ def load_yaml(path: str | Path) -> dict[str, Any]:
 
 def load_json(path: str | Path) -> Any:
     return json.loads(resolve_repo_path(path).read_text(encoding="utf-8"))
+
+
+def load_jsonl(path: str | Path) -> list[dict[str, Any]]:
+    records = []
+    with resolve_repo_path(path).open("r", encoding="utf-8") as handle:
+        for line in handle:
+            if line.strip():
+                records.append(json.loads(line))
+    return records
 
 
 def write_json(path: str | Path, data: Any) -> None:
@@ -132,6 +140,63 @@ def load_dataset_records(task4_config: dict[str, Any], dataset: str) -> list[dic
 
 def select_one_prompt_per_image(records: list[dict[str, Any]], max_images: int) -> list[dict[str, Any]]:
     return unique_image_records(records)[:max_images]
+
+
+def unique_image_records(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    images: OrderedDict[Any, dict[str, Any]] = OrderedDict()
+    for record in records:
+        images.setdefault(record["image_id"], record)
+    return list(images.values())
+
+
+def purge_modules(module_roots: list[str]) -> None:
+    for module_name in list(sys.modules):
+        if any(module_name == root or module_name.startswith(f"{root}.") for root in module_roots):
+            del sys.modules[module_name]
+
+
+def module_file(module_name: str) -> str:
+    module = sys.modules.get(module_name)
+    if module is None:
+        return ""
+    return str(getattr(module, "__file__", "") or "")
+
+
+def path_contains(path: str, root: Path) -> bool:
+    if not path:
+        return False
+    try:
+        Path(path).resolve().relative_to(root.resolve())
+        return True
+    except ValueError:
+        return False
+
+
+def remove_path_from_sys_path(path: Path) -> None:
+    resolved = path.resolve()
+    sys.path[:] = [
+        item
+        for item in sys.path
+        if not item or Path(item).resolve() != resolved
+    ]
+
+
+def prepare_fastsam_imports() -> None:
+    if not FASTSAM_SRC_DIR.exists():
+        return
+    fastsam_path = str(FASTSAM_SRC_DIR.resolve())
+    if fastsam_path not in [str(Path(item).resolve()) for item in sys.path if item]:
+        sys.path.insert(0, fastsam_path)
+    ultralytics_file = module_file("ultralytics")
+    if ultralytics_file and not path_contains(ultralytics_file, FASTSAM_SRC_DIR):
+        purge_modules(["ultralytics"])
+
+
+def prepare_official_ultralytics_import() -> None:
+    remove_path_from_sys_path(FASTSAM_SRC_DIR)
+    ultralytics_file = module_file("ultralytics")
+    if ultralytics_file and path_contains(ultralytics_file, FASTSAM_SRC_DIR):
+        purge_modules(["ultralytics"])
 
 
 def selected_image_count(
@@ -324,6 +389,10 @@ def build_zero_shot_runner(
     model_config: dict[str, Any],
     device: str,
 ) -> Callable[[dict[str, Any]], Any]:
+    if model_config["family"] == "fastsam":
+        prepare_fastsam_imports()
+    from run_zero_shot_sam import build_adapter
+
     adapter = build_adapter(model_config, normalize_device(device))
 
     def runner(sample: dict[str, Any]) -> Any:
@@ -381,10 +450,12 @@ def build_yolo_runner(
     config: dict[str, Any],
     device: str,
 ) -> Callable[[dict[str, Any]], Any]:
+    prepare_official_ultralytics_import()
     try:
         from ultralytics import YOLO
     except ImportError as exc:
         raise ImportError("Missing ultralytics. Install requirements-task5-gpu.txt.") from exc
+    print(f"[LOAD] yolo8_seg/{dataset_name}: ultralytics={module_file('ultralytics')}", flush=True)
 
     baseline_config = config["baselines"]["yolo8_seg"]
     record = resolve_summary_record(baseline_config["summary"], dataset_name)
