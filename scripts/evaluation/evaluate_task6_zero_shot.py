@@ -181,6 +181,7 @@ def evaluate_prompted(
     detections = []
     processed = 0
     started_at = time.perf_counter()
+    progress_every = args.log_every or 1000
 
     for row in iter_jsonl(prediction_file):
         if args.max_records is not None and processed >= args.max_records:
@@ -211,10 +212,19 @@ def evaluate_prompted(
                 "boundary_f1": bf1,
             }
         )
-        if args.log_every and processed % args.log_every == 0:
-            print(f"[PROGRESS] {metadata['run_name']}: {processed} prompted records", flush=True)
+        if progress_every and processed % progress_every == 0:
+            print(
+                f"[PROGRESS] {metadata['run_name']}: {processed} prompted records, "
+                f"elapsed={time.perf_counter() - started_at:.1f}s",
+                flush=True,
+            )
 
     image_ids = sorted({item["image_id"] for item in matches})
+    print(
+        f"[AP] {metadata['run_name']}: evaluating COCO mask AP with "
+        f"{len(detections)} detections on {len(image_ids)} images",
+        flush=True,
+    )
     mask_ap = evaluate_coco_predictions(annotation_file, detections, iou_type="segm", image_ids=image_ids)
     summary = {
         "dataset": metadata["dataset"],
@@ -252,6 +262,7 @@ def evaluate_automatic(
     detections = []
     processed = 0
     started_at = time.perf_counter()
+    progress_every = min(args.log_every, 100) if args.log_every else 100
 
     for row in iter_jsonl(prediction_file):
         if args.max_records is not None and processed >= args.max_records:
@@ -298,8 +309,13 @@ def evaluate_automatic(
                 }
             )
 
-        if args.log_every and processed % args.log_every == 0:
-            print(f"[PROGRESS] {metadata['run_name']}: {processed} automatic images", flush=True)
+        if progress_every and processed % progress_every == 0:
+            print(
+                f"[PROGRESS] {metadata['run_name']}: {processed} automatic images, "
+                f"matches={len(matches)}, detections={len(detections)}, "
+                f"elapsed={time.perf_counter() - started_at:.1f}s",
+                flush=True,
+            )
 
     image_ids = sorted({item["image_id"] for item in matches})
     class_agnostic = class_agnostic_coco(coco)
@@ -307,6 +323,11 @@ def evaluate_automatic(
         detection["category_id"] = 1
     with tempfile.TemporaryDirectory() as tmpdir:
         temp_annotation_file = write_temp_coco(Path(tmpdir) / "class_agnostic_gt.json", class_agnostic)
+        print(
+            f"[AP] {metadata['run_name']}: evaluating class-agnostic COCO mask AP "
+            f"with {len(detections)} detections on {len(image_ids)} images",
+            flush=True,
+        )
         mask_ap = evaluate_coco_predictions(
             temp_annotation_file,
             detections,

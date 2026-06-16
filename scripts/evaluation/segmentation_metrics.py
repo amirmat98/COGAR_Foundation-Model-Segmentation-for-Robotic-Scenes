@@ -126,6 +126,14 @@ def binary_boundary(mask: np.ndarray) -> np.ndarray:
     binary = (mask > 0).astype(np.uint8)
     if binary.max() == 0:
         return np.zeros_like(binary, dtype=bool)
+    try:
+        import cv2
+
+        kernel = np.ones((3, 3), dtype=np.uint8)
+        eroded = cv2.erode(binary, kernel, iterations=1)
+        return (binary - eroded).astype(bool)
+    except ImportError:
+        pass
     eroded = binary_erode(binary)
     return np.logical_and(binary.astype(bool), ~eroded)
 
@@ -141,8 +149,16 @@ def boundary_f1(gt_mask: np.ndarray, pred_mask: np.ndarray, tolerance_px: int) -
     if gt_count == 0 or pred_count == 0:
         return 0.0
 
-    gt_dilated = binary_dilate(gt_boundary, int(tolerance_px))
-    pred_dilated = binary_dilate(pred_boundary, int(tolerance_px))
+    try:
+        import cv2
+
+        kernel_size = max(1, int(tolerance_px) * 2 + 1)
+        kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (kernel_size, kernel_size))
+        gt_dilated = cv2.dilate(gt_boundary.astype(np.uint8), kernel, iterations=1).astype(bool)
+        pred_dilated = cv2.dilate(pred_boundary.astype(np.uint8), kernel, iterations=1).astype(bool)
+    except ImportError:
+        gt_dilated = binary_dilate(gt_boundary, int(tolerance_px))
+        pred_dilated = binary_dilate(pred_boundary, int(tolerance_px))
 
     precision = float(np.logical_and(pred_boundary, gt_dilated).sum()) / float(pred_count)
     recall = float(np.logical_and(gt_boundary, pred_dilated).sum()) / float(gt_count)
