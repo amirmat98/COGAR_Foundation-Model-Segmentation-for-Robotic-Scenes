@@ -24,6 +24,12 @@ if str(SRC_DIR) not in sys.path:
 FASTSAM_SRC_DIR = REPO_ROOT / "external" / "FastSAM"
 if FASTSAM_SRC_DIR.exists() and str(FASTSAM_SRC_DIR) not in sys.path:
     sys.path.insert(0, str(FASTSAM_SRC_DIR))
+MOBILE_SAM_SRC_DIR = REPO_ROOT / "external" / "MobileSAM"
+if MOBILE_SAM_SRC_DIR.exists() and str(MOBILE_SAM_SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(MOBILE_SAM_SRC_DIR))
+EFFICIENT_SAM_SRC_DIR = REPO_ROOT / "external" / "EfficientSAM"
+if EFFICIENT_SAM_SRC_DIR.exists() and str(EFFICIENT_SAM_SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(EFFICIENT_SAM_SRC_DIR))
 
 
 def parse_args() -> argparse.Namespace:
@@ -271,6 +277,184 @@ class FastSamAdapter:
         return fastsam_annotations_to_predictions(ann)
 
 
+class MobileSamAdapter:
+    """Adapter for ChaoningZhang/MobileSAM."""
+
+    def __init__(self, model_config: dict[str, Any], device: str) -> None:
+        from mobile_sam import (  # type: ignore[import-not-found]
+            SamAutomaticMaskGenerator,
+            SamPredictor,
+            sam_model_registry,
+        )
+
+        checkpoint = model_config["checkpoint"]
+        model_type = model_config.get("model_type", "vit_t")
+        mobile_sam = sam_model_registry[model_type](checkpoint=checkpoint)
+        mobile_sam.to(device=device)
+        mobile_sam.eval()
+        self.predictor = SamPredictor(mobile_sam)
+        self.mask_generator = SamAutomaticMaskGenerator(mobile_sam)
+        self.image_key: str | None = None
+
+    def set_image(self, image: np.ndarray, image_path: str) -> None:
+        if self.image_key != image_path:
+            self.predictor.set_image(image)
+            self.image_key = image_path
+
+    def predict_point(self, record: dict[str, Any]) -> list[dict[str, Any]]:
+        masks, scores, _ = self.predictor.predict(
+            point_coords=np.asarray(record["point_prompt"]["points"], dtype=np.float32),
+            point_labels=np.asarray(record["point_prompt"]["labels"], dtype=np.int32),
+            multimask_output=True,
+        )
+        return masks_to_predictions(masks, scores)
+
+    def predict_box(self, record: dict[str, Any]) -> list[dict[str, Any]]:
+        masks, scores, _ = self.predictor.predict(
+            box=np.asarray(record["box_prompt"]["box_xyxy"], dtype=np.float32),
+            multimask_output=True,
+        )
+        return masks_to_predictions(masks, scores)
+
+    def predict_automatic(self, image: np.ndarray) -> list[dict[str, Any]]:
+        return automatic_masks_to_predictions(self.mask_generator.generate(image))
+
+
+class EfficientSamAdapter:
+    """Adapter for yformer/EfficientSAM point, box, and grid automatic prompts."""
+
+    VARIANTS = {
+        "vitt": {"encoder_patch_embed_dim": 192, "encoder_num_heads": 3},
+        "vits": {"encoder_patch_embed_dim": 384, "encoder_num_heads": 6},
+    }
+
+    def __init__(self, model_config: dict[str, Any], device: str) -> None:
+        import torch
+        from efficient_sam.efficient_sam import (  # type: ignore[import-not-found]
+            build_efficient_sam,
+        )
+
+        variant = str(model_config.get("variant", "vitt"))
+        if variant not in self.VARIANTS:
+            raise ValueError(f"Unsupported EfficientSAM variant: {variant}")
+
+        self.device = torch.device(device)
+        self.model = build_efficient_sam(
+            checkpoint=model_config["checkpoint"],
+            **self.VARIANTS[variant],
+        )
+        self.model.to(self.device)
+        self.model.eval()
+        self.image_key: str | None = None
+        self.image_embeddings: Any | None = None
+        self.input_h = 0
+        self.input_w = 0
+        self.automatic_points_per_side = int(model_config.get("automatic_points_per_side", 8))
+        self.automatic_batch_queries = int(model_config.get("automatic_batch_queries", 64))
+        self.automatic_multimask_output = bool(model_config.get("automatic_multimask_output", False))
+
+    def set_image(self, image: np.ndarray, image_path: str) -> None:
+        if self.image_key == image_path:
+            return
+        import torch
+
+        image_array = np.ascontiguousarray(image)
+        self.input_h, self.input_w = int(image_array.shape[0]), int(image_array.shape[1])
+        tensor = (
+            torch.from_numpy(image_array)
+            .permute(2, 0, 1)
+            .unsqueeze(0)
+            .to(device=self.device, dtype=torch.float32)
+            / 255.0
+        )
+        self.image_embeddings = self.model.get_image_embeddings(tensor)
+        self.image_key = image_path
+
+    def _predict_queries(
+        self,
+        points: np.ndarray,
+        labels: np.ndarray,
+        multimask_output: bool,
+    ) -> list[dict[str, Any]]:
+        import torch
+
+        if self.image_embeddings is None:
+            raise RuntimeError("set_image must be called before EfficientSAM prediction.")
+
+        point_tensor = torch.as_tensor(points, dtype=torch.float32, device=self.device)
+        label_tensor = torch.as_tensor(labels, dtype=torch.float32, device=self.device)
+        masks, scores = self.model.predict_masks(
+            self.image_embeddings,
+            point_tensor.unsqueeze(0),
+            label_tensor.unsqueeze(0),
+            multimask_output=multimask_output,
+            input_h=self.input_h,
+            input_w=self.input_w,
+            output_h=self.input_h,
+            output_w=self.input_w,
+        )
+        sorted_ids = torch.argsort(scores, dim=-1, descending=True)
+        scores = torch.take_along_dim(scores, sorted_ids, dim=2)
+        masks = torch.take_along_dim(masks, sorted_ids[..., None, None], dim=2)
+
+        masks_np = (masks[0] >= 0).detach().cpu().numpy()
+        scores_np = scores[0].detach().cpu().numpy()
+        predictions: list[dict[str, Any]] = []
+        for query_index in range(masks_np.shape[0]):
+            for candidate_index in range(masks_np.shape[1]):
+                encoded = encode_mask(masks_np[query_index, candidate_index])
+                encoded["score"] = float(scores_np[query_index, candidate_index])
+                encoded["query_index"] = query_index
+                encoded["candidate_index"] = candidate_index
+                predictions.append(encoded)
+        return predictions
+
+    def predict_point(self, record: dict[str, Any]) -> list[dict[str, Any]]:
+        points = np.asarray(record["point_prompt"]["points"], dtype=np.float32)[None, :, :]
+        labels = np.asarray(record["point_prompt"]["labels"], dtype=np.float32)[None, :]
+        return self._predict_queries(points, labels, multimask_output=True)
+
+    def predict_box(self, record: dict[str, Any]) -> list[dict[str, Any]]:
+        x1, y1, x2, y2 = record["box_prompt"]["box_xyxy"]
+        points = np.asarray([[[x1, y1], [x2, y2]]], dtype=np.float32)
+        labels = np.asarray([[2, 3]], dtype=np.float32)
+        return self._predict_queries(points, labels, multimask_output=True)
+
+    def predict_automatic(self, image: np.ndarray) -> list[dict[str, Any]]:
+        del image
+        grid_points, grid_labels = self._automatic_grid_prompts()
+        predictions: list[dict[str, Any]] = []
+        for start in range(0, len(grid_points), self.automatic_batch_queries):
+            stop = start + self.automatic_batch_queries
+            batch_predictions = self._predict_queries(
+                grid_points[start:stop],
+                grid_labels[start:stop],
+                multimask_output=self.automatic_multimask_output,
+            )
+            for prediction in batch_predictions:
+                prediction["query_index"] = int(prediction["query_index"]) + start
+            predictions.extend(batch_predictions)
+        return predictions
+
+    def _automatic_grid_prompts(self) -> tuple[np.ndarray, np.ndarray]:
+        points_per_side = max(1, self.automatic_points_per_side)
+        xs = np.linspace(
+            0.5 * self.input_w / points_per_side,
+            self.input_w - 0.5 * self.input_w / points_per_side,
+            points_per_side,
+            dtype=np.float32,
+        )
+        ys = np.linspace(
+            0.5 * self.input_h / points_per_side,
+            self.input_h - 0.5 * self.input_h / points_per_side,
+            points_per_side,
+            dtype=np.float32,
+        )
+        query_points = np.asarray([[[x, y]] for y in ys for x in xs], dtype=np.float32)
+        query_labels = np.ones((query_points.shape[0], 1), dtype=np.float32)
+        return query_points, query_labels
+
+
 def masks_to_predictions(masks: Any, scores: Any) -> list[dict[str, Any]]:
     masks_np = np.asarray(masks)
     scores_np = np.asarray(scores).reshape(-1)
@@ -328,6 +512,10 @@ def build_adapter(model_config: dict[str, Any], device: str) -> Any:
         return Sam2Adapter(model_config, device)
     if family == "fastsam":
         return FastSamAdapter(model_config, device)
+    if family == "mobile_sam":
+        return MobileSamAdapter(model_config, device)
+    if family == "efficient_sam":
+        return EfficientSamAdapter(model_config, device)
     raise ValueError(f"Unsupported model family: {family}")
 
 

@@ -19,6 +19,7 @@ segmentation benchmark.
 - [Task 6: Evaluation metrics](docs/tasks/task6_evaluation.md)
 - [Task 7: Inference speed](docs/tasks/task7_inference_speed.md)
 - [Task 8: Failure mode analysis](docs/tasks/task8_failure_analysis.md)
+- [Task 9: Lightweight SAM edge-deployment trade-off](docs/tasks/task9_lightweight_sam.md)
 
 ## Datasets
 

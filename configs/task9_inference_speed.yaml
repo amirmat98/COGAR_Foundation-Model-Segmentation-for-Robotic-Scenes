@@ -1,0 +1,34 @@
+task:
+  name: task9_lightweight_sam_inference_speed
+  description: GPU and CPU inference-speed benchmark for lightweight SAM-family models
+  output_root: outputs/task9_lightweight_sam/inference_speed
+  seed: 5884715
+
+datasets:
+  source_config: configs/task9_lightweight_sam.yaml
+
+zero_shot:
+  config: configs/task9_lightweight_sam.yaml
+  models:
+    - mobile_sam_vit_t
+    - efficient_sam_ti
+    - efficient_sam_s
+  prompt_modes:
+    - point
+    - box
+    - automatic
+
+baselines: {}
+
+sampling:
+  max_images_per_dataset: 50
+  automatic_max_images_per_dataset: 20
+  cpu_max_images_per_dataset: 10
+  cpu_automatic_max_images_per_dataset: 1
+  warmup_images: 3
+
+runtime:
+  devices:
+    - cuda
+    - cpu
+  log_every: 5

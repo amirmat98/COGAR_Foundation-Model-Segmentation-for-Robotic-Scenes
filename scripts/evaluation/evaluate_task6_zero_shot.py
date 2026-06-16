@@ -367,12 +367,9 @@ def evaluate_run(
     if out_path.exists() and not args.rerun_complete:
         print(f"[SKIP] existing metrics {relative_to_repo(out_path)}", flush=True)
         return load_json(out_path)
-    if not pred_path.exists():
-        raise FileNotFoundError(f"Missing prediction file: {pred_path}")
 
     dataset_config = task4_config["datasets"][dataset]
     annotation_file = Path(dataset_config["annotation_file"])
-    coco = load_json(annotation_file)
     metadata = {
         "dataset": dataset,
         "model": model,
@@ -391,6 +388,9 @@ def evaluate_run(
             "prediction_file": relative_to_repo(pred_path),
             "metrics_file": relative_to_repo(out_path),
         }
+    if not pred_path.exists():
+        raise FileNotFoundError(f"Missing prediction file: {pred_path}")
+    coco = load_json(annotation_file)
     if prompt_mode == "automatic":
         return evaluate_automatic(pred_path, coco, annotation_file, metadata, args, out_path)
     return evaluate_prompted(pred_path, coco, annotation_file, metadata, args, out_path)

@@ -1,0 +1,74 @@
+task:
+  name: task9_lightweight_sam
+  description: lightweight SAM-family zero-shot inference for edge-deployment trade-off analysis
+  output_root: results/task9_lightweight_sam
+  prompt_manifest_dir: outputs/task4_zero_shot_sam/prompts
+  seed: 5884715
+
+datasets:
+  isaac_official_unitree_g1:
+    enabled: true
+    root: /mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000
+    annotation_file: /mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000/annotations/instances_coco.json
+    image_path:
+      mode: coco_file_name_relative_to_root
+
+  blenderproc_cogar_sim:
+    enabled: true
+    root: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000
+    annotation_file: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/annotations/instances_all.json
+    image_path:
+      mode: basename_in_image_dir
+      image_dir: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/rgb
+
+  ocid:
+    enabled: true
+    root: /mnt/Info/COGAR_DATASETs/OCID-dataset
+    annotation_file: /mnt/Info/COGAR_DATASETs/OCID-dataset/annotations/instances_all.json
+    image_path:
+      mode: coco_file_name_relative_to_root
+
+prompt_modes:
+  point:
+    enabled: true
+    source: mask_pixel_nearest_centroid
+    point_labels:
+      - 1
+  box:
+    enabled: true
+    source: coco_bbox_xywh
+    output_format: xyxy
+  automatic:
+    enabled: true
+    source: no_prompt
+
+models:
+  mobile_sam_vit_t:
+    enabled: true
+    family: mobile_sam
+    model_type: vit_t
+    checkpoint: checkpoints/mobile_sam/mobile_sam.pt
+
+  efficient_sam_ti:
+    enabled: true
+    family: efficient_sam
+    variant: vitt
+    checkpoint: checkpoints/efficient_sam/efficient_sam_vitt.pt
+    automatic_points_per_side: 8
+    automatic_batch_queries: 64
+    automatic_multimask_output: false
+
+  efficient_sam_s:
+    enabled: true
+    family: efficient_sam
+    variant: vits
+    checkpoint: checkpoints/efficient_sam/efficient_sam_vits.pt
+    automatic_points_per_side: 8
+    automatic_batch_queries: 64
+    automatic_multimask_output: false
+
+runtime:
+  device: cuda
+  smoke_images_per_dataset: 5
+  prediction_format: coco_rle_jsonl
+  keep_multimask_candidates: true

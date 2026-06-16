@@ -1,0 +1,22 @@
+task:
+  name: task9_lightweight_sam_evaluation
+  description: Standard metric evaluation for lightweight SAM-family Task 9 runs
+  output_root: outputs/task9_lightweight_sam/evaluation
+  results_root: results/task9_lightweight_sam/evaluation
+  seed: 5884715
+
+metrics:
+  boundary_tolerance_px: 2
+  prediction_selection: highest_score
+  score_default: 1.0
+
+zero_shot:
+  config: configs/task9_lightweight_sam.yaml
+  models:
+    - mobile_sam_vit_t
+    - efficient_sam_ti
+    - efficient_sam_s
+  prompt_modes:
+    - point
+    - box
+    - automatic
