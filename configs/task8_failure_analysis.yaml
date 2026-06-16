@@ -1,0 +1,95 @@
+task:
+  name: task8_failure_analysis
+  description: Qualitative failure-mode analysis for robotic segmentation scenarios
+  output_root: outputs/task8_failure_analysis
+  seed: 5884715
+
+inputs:
+  task4_config: configs/task4_zero_shot_sam.yaml
+  task6_zero_shot_summary: outputs/task6_evaluation/zero_shot/summary.csv
+  task6_baseline_summary: outputs/task6_evaluation/baselines/summary.csv
+  task7_speed_summary: outputs/task7_inference_speed/summary.csv
+
+challenge_groups:
+  small_parts_thin_structures:
+    - cable
+    - connector
+    - fiducial_marker
+    - pcb
+    - rubber_part
+    - screw
+    - sensor_module
+    - tool
+
+  transparent_reflective_surfaces:
+    - glass_object
+    - metal_part
+    - transparent_glass
+
+  robot_and_occlusion:
+    - moving_object
+    - occluder
+    - robot
+    - robot_gripper
+
+  scene_support_and_background:
+    - background
+    - background_fixture
+    - box
+    - storage_bin
+    - table
+    - workbench
+
+visual_mining:
+  max_records_per_case: 25000
+  max_examples_per_case: 2
+  default_score: 1.0
+  overlay_alpha: 0.45
+  cases:
+    - label: FastSAM prompted failures on Isaac robot and small parts
+      dataset: isaac_official_unitree_g1
+      model: fastsam_x
+      prompt_mode: point
+      categories:
+        - robot
+        - screw
+        - cable
+        - rubber_part
+
+    - label: SAM ViT-B automatic proposal failures on Isaac clutter
+      dataset: isaac_official_unitree_g1
+      model: sam_vit_b
+      prompt_mode: automatic
+      categories:
+        - robot
+        - screw
+        - cable
+        - transparent_glass
+
+    - label: FastSAM prompted failures on BlenderProc thin objects
+      dataset: blenderproc_cogar_sim
+      model: fastsam_x
+      prompt_mode: point
+      categories:
+        - cable
+        - screw
+        - robot_gripper
+
+    - label: SAM ViT-H automatic glass and small-part failures on BlenderProc
+      dataset: blenderproc_cogar_sim
+      model: sam_vit_h
+      prompt_mode: automatic
+      categories:
+        - glass_object
+        - cable
+        - screw
+
+    - label: FastSAM automatic proposal failures on OCID clutter
+      dataset: ocid
+      model: fastsam_x
+      prompt_mode: automatic
+      categories:
+        - cup
+        - box
+        - can
+        - pitcher

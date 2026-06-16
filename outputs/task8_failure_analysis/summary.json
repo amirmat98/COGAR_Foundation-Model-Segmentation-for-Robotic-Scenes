@@ -1,0 +1,15 @@
+{
+  "category_rows": 378,
+  "challenge_rows": 151,
+  "prompt_rows": 12,
+  "speed_quality_rows": 90,
+  "visual_examples": 8,
+  "outputs": {
+    "category_failures": "outputs/task8_failure_analysis/category_failures.csv",
+    "challenge_group_summary": "outputs/task8_failure_analysis/challenge_group_summary.csv",
+    "prompt_mode_comparison": "outputs/task8_failure_analysis/prompt_mode_comparison.csv",
+    "speed_quality_tradeoff": "outputs/task8_failure_analysis/speed_quality_tradeoff.csv",
+    "representative_failures": "outputs/task8_failure_analysis/representative_failures.csv",
+    "report": "outputs/task8_failure_analysis/task8_failure_analysis.md"
+  }
+}

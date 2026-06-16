@@ -18,6 +18,7 @@ segmentation benchmark.
 - [Task 5: Classical baselines](docs/tasks/task5_classical_baselines.md)
 - [Task 6: Evaluation metrics](docs/tasks/task6_evaluation.md)
 - [Task 7: Inference speed](docs/tasks/task7_inference_speed.md)
+- [Task 8: Failure mode analysis](docs/tasks/task8_failure_analysis.md)
 
 ## Datasets
 

@@ -1,0 +1,152 @@
+run_type,dataset,model,prompt_mode,challenge_group,categories,weighted_iou,mean_iou,mean_boundary_f1,category_count,instance_count
+zero_shot,isaac_official_unitree_g1,fastsam_x,point,robot_and_occlusion,"moving_object, occluder, robot",0.17397393578300324,0.5222798666789809,0.5764792779122426,3,23007
+zero_shot,isaac_official_unitree_g1,sam2_hiera_large,automatic,robot_and_occlusion,"moving_object, occluder, robot",0.18105428630740142,0.57379734278109,0.6111207268108748,3,23007
+zero_shot,blenderproc_cogar_sim,fastsam_x,point,robot_and_occlusion,robot_gripper,0.19197224176296118,0.19197224176296118,0.22799154616646924,1,1633
+zero_shot,isaac_official_unitree_g1,sam_vit_b,automatic,robot_and_occlusion,"moving_object, occluder, robot",0.2086784143313221,0.5930229781971126,0.6294153433565676,3,23007
+zero_shot,blenderproc_cogar_sim,fastsam_x,point,small_parts_thin_structures,"cable, connector, screw, tool",0.24470756786705847,0.24847631698095277,0.2991353439999099,4,2368
+zero_shot,isaac_official_unitree_g1,fastsam_x,box,robot_and_occlusion,"moving_object, occluder, robot",0.2689143580223882,0.6232647806744717,0.6897048385825849,3,23007
+zero_shot,isaac_official_unitree_g1,sam_vit_h,automatic,robot_and_occlusion,"moving_object, occluder, robot",0.27568448041308363,0.6390912602950725,0.6814180772250774,3,23007
+zero_shot,isaac_official_unitree_g1,fastsam_x,automatic,robot_and_occlusion,"moving_object, occluder, robot",0.27767689857606564,0.6453809790783037,0.7028852651337255,3,23007
+zero_shot,isaac_official_unitree_g1,sam_vit_b,automatic,small_parts_thin_structures,"cable, connector, rubber_part, screw, sensor_module, tool",0.27797921261240954,0.3173697290819364,0.3827758403710877,6,22014
+zero_shot,isaac_official_unitree_g1,sam2_hiera_large,automatic,small_parts_thin_structures,"cable, connector, rubber_part, screw, sensor_module, tool",0.29485096448788506,0.3278007219543722,0.4007948996642405,6,22014
+zero_shot,blenderproc_cogar_sim,fastsam_x,point,transparent_reflective_surfaces,"glass_object, metal_part",0.3166800710412628,0.32855074896873754,0.3418334137775144,2,1503
+zero_shot,isaac_official_unitree_g1,sam_vit_h,point,robot_and_occlusion,"moving_object, occluder, robot",0.3239057070281186,0.6709125570101384,0.723406521215923,3,23007
+zero_shot,blenderproc_cogar_sim,fastsam_x,point,other,plastic_object,0.32734122539137,0.32734122539137,0.34633223874548713,1,995
+zero_shot,isaac_official_unitree_g1,sam2_hiera_large,point,robot_and_occlusion,"moving_object, occluder, robot",0.3344258900434936,0.682165477107436,0.7359202443134519,3,23007
+baseline,isaac_official_unitree_g1,yolo8_seg,inference,small_parts_thin_structures,"cable, connector, rubber_part, screw, sensor_module, tool",0.33898687433509367,0.26149668158038897,0.34817199500136936,6,1026
+baseline,isaac_official_unitree_g1,deeplabv3plus,inference,small_parts_thin_structures,"cable, connector, rubber_part, screw, sensor_module, tool",0.3443427976961644,0.3443427976961644,0.4297360649055209,6,0
+zero_shot,isaac_official_unitree_g1,fastsam_x,point,small_parts_thin_structures,"cable, connector, rubber_part, screw, sensor_module, tool",0.36487570308745537,0.3849974879066253,0.5018506199474638,6,22014
+zero_shot,isaac_official_unitree_g1,sam_vit_h,automatic,small_parts_thin_structures,"cable, connector, rubber_part, screw, sensor_module, tool",0.37615013889215143,0.4193931644121986,0.5074365175063362,6,22014
+zero_shot,isaac_official_unitree_g1,sam_vit_b,point,robot_and_occlusion,"moving_object, occluder, robot",0.37922934809507586,0.6941613715088231,0.7526001909978642,3,23007
+baseline,isaac_official_unitree_g1,mask_rcnn,inference,small_parts_thin_structures,"cable, connector, rubber_part, screw, sensor_module, tool",0.4311801298968299,0.4329668987933794,0.531155224851298,6,1026
+baseline,isaac_official_unitree_g1,yolo8_seg,inference,robot_and_occlusion,"moving_object, occluder, robot",0.4712851562900251,0.6910998840045476,0.746750985098886,3,1157
+zero_shot,ocid,fastsam_x,point,other,object,0.4848588969528927,0.4848588969528927,0.4591698757723701,1,21487
+zero_shot,isaac_official_unitree_g1,fastsam_x,box,small_parts_thin_structures,"cable, connector, rubber_part, screw, sensor_module, tool",0.4922640330694076,0.517481661340659,0.6604188023107117,6,22014
+baseline,isaac_official_unitree_g1,mask_rcnn,inference,robot_and_occlusion,"moving_object, occluder, robot",0.49441951864671996,0.6915561716546467,0.7565532032220464,3,1157
+baseline,blenderproc_cogar_sim,deeplabv3plus,inference,small_parts_thin_structures,"cable, connector, screw, tool",0.49576638122615707,0.49576638122615707,0.33593459462275693,4,0
+zero_shot,isaac_official_unitree_g1,fastsam_x,automatic,small_parts_thin_structures,"cable, connector, rubber_part, screw, sensor_module, tool",0.5094632256403941,0.5379607221327128,0.6812125268647712,6,22014
+zero_shot,blenderproc_cogar_sim,fastsam_x,point,scene_support_and_background,"box, table",0.510354154057566,0.468210887375922,0.40636841584341094,2,2269
+zero_shot,isaac_official_unitree_g1,sam2_hiera_large,automatic,transparent_reflective_surfaces,"metal_part, transparent_glass",0.5157180731393283,0.5307880154982696,0.5932760913489096,2,9991
+zero_shot,isaac_official_unitree_g1,sam_vit_b,automatic,transparent_reflective_surfaces,"metal_part, transparent_glass",0.5189100390335377,0.5362107267388726,0.594152737830066,2,9991
+zero_shot,isaac_official_unitree_g1,fastsam_x,point,transparent_reflective_surfaces,"metal_part, transparent_glass",0.5361485466256998,0.5464238535656798,0.6178494691969221,2,9991
+zero_shot,isaac_official_unitree_g1,sam2_hiera_large,box,robot_and_occlusion,"moving_object, occluder, robot",0.5590249632595411,0.7813641432810209,0.8592702222889939,3,23007
+zero_shot,isaac_official_unitree_g1,fastsam_x,point,scene_support_and_background,"background_fixture, storage_bin, workbench",0.5905339910399924,0.5866486981343529,0.5742833145658061,3,17683
+baseline,isaac_official_unitree_g1,mask_rcnn,inference,transparent_reflective_surfaces,"metal_part, transparent_glass",0.5975517050525475,0.6073621508979866,0.6252545868187166,2,549
+baseline,isaac_official_unitree_g1,yolo8_seg,inference,transparent_reflective_surfaces,"metal_part, transparent_glass",0.5988409741951742,0.6125020353966335,0.6151719129111526,2,549
+zero_shot,isaac_official_unitree_g1,sam_vit_b,box,robot_and_occlusion,"moving_object, occluder, robot",0.6141032413659137,0.8044838655434319,0.898105863119628,3,23007
+zero_shot,ocid,sam_vit_b,point,other,object,0.6160080035250245,0.6160080035250245,0.5710157578748937,1,21487
+zero_shot,isaac_official_unitree_g1,sam_vit_h,box,robot_and_occlusion,"moving_object, occluder, robot",0.6165098150884978,0.8095405383175911,0.9025536504430299,3,23007
+zero_shot,blenderproc_cogar_sim,fastsam_x,box,robot_and_occlusion,robot_gripper,0.6411921433740151,0.6411921433740151,0.6795359229430107,1,1633
+zero_shot,isaac_official_unitree_g1,fastsam_x,box,scene_support_and_background,"background_fixture, storage_bin, workbench",0.6499332459914041,0.6012506899954672,0.6177697656340416,3,17683
+zero_shot,blenderproc_cogar_sim,sam2_hiera_large,automatic,robot_and_occlusion,robot_gripper,0.6595721584066077,0.6595721584066077,0.697197534188698,1,1633
+baseline,blenderproc_cogar_sim,deeplabv3plus,inference,other,plastic_object,0.6605793825471418,0.6605793825471418,0.5075409654267556,1,0
+zero_shot,isaac_official_unitree_g1,sam_vit_h,automatic,transparent_reflective_surfaces,"metal_part, transparent_glass",0.6617064494016971,0.6757230091899022,0.7304655923375859,2,9991
+zero_shot,isaac_official_unitree_g1,sam_vit_h,point,small_parts_thin_structures,"cable, connector, rubber_part, screw, sensor_module, tool",0.662672850161151,0.6791705286054234,0.8096865639752359,6,22014
+zero_shot,ocid,sam_vit_h,point,other,object,0.6646683849177094,0.6646683849177094,0.6318061573507465,1,21487
+zero_shot,isaac_official_unitree_g1,fastsam_x,box,transparent_reflective_surfaces,"metal_part, transparent_glass",0.6668056317563856,0.6765159238735899,0.7585211566645711,2,9991
+zero_shot,isaac_official_unitree_g1,sam_vit_b,point,small_parts_thin_structures,"cable, connector, rubber_part, screw, sensor_module, tool",0.6675882023317404,0.6824561951392855,0.8172465995916683,6,22014
+baseline,isaac_official_unitree_g1,deeplabv3plus,inference,transparent_reflective_surfaces,"metal_part, transparent_glass",0.6699650978869864,0.6699650978869864,0.7111361344161247,2,0
+zero_shot,isaac_official_unitree_g1,sam2_hiera_large,automatic,scene_support_and_background,"background_fixture, storage_bin, workbench",0.6727849812768446,0.6710867427797053,0.6460866627996072,3,17683
+zero_shot,blenderproc_cogar_sim,sam_vit_h,point,robot_and_occlusion,robot_gripper,0.6738442868658578,0.6738442868658578,0.7108287635525528,1,1633
+zero_shot,blenderproc_cogar_sim,sam_vit_b,point,robot_and_occlusion,robot_gripper,0.6801007566727088,0.6801007566727088,0.7091148823597224,1,1633
+zero_shot,isaac_official_unitree_g1,sam2_hiera_large,point,small_parts_thin_structures,"cable, connector, rubber_part, screw, sensor_module, tool",0.6831355016585526,0.6944379631998551,0.8469250769053972,6,22014
+zero_shot,blenderproc_cogar_sim,sam_vit_b,automatic,robot_and_occlusion,robot_gripper,0.6832567391622317,0.6832567391622317,0.7223549156174777,1,1633
+zero_shot,isaac_official_unitree_g1,sam_vit_b,automatic,scene_support_and_background,"background_fixture, storage_bin, workbench",0.6875586492507727,0.6707477886235204,0.6460763991451083,3,17683
+zero_shot,isaac_official_unitree_g1,sam_vit_h,point,scene_support_and_background,"background_fixture, storage_bin, workbench",0.6933093571825948,0.6865776769936044,0.6951475350926078,3,17683
+zero_shot,isaac_official_unitree_g1,fastsam_x,automatic,transparent_reflective_surfaces,"metal_part, transparent_glass",0.7076443080238346,0.7183123458158119,0.7899545024836958,2,9991
+zero_shot,blenderproc_cogar_sim,fastsam_x,box,small_parts_thin_structures,"cable, connector, screw, tool",0.7110186009350962,0.6825932601493556,0.7592517286769831,4,2368
+zero_shot,blenderproc_cogar_sim,fastsam_x,automatic,robot_and_occlusion,robot_gripper,0.7126139292655833,0.7126139292655833,0.7391487725280875,1,1633
+baseline,blenderproc_cogar_sim,mask_rcnn,inference,small_parts_thin_structures,"cable, connector, screw, tool",0.7167481541550305,0.6683433190037864,0.7124116743401994,4,90
+zero_shot,isaac_official_unitree_g1,sam_vit_b,point,transparent_reflective_surfaces,"metal_part, transparent_glass",0.7250206302083072,0.7285314106321734,0.786456612368464,2,9991
+zero_shot,isaac_official_unitree_g1,sam2_hiera_large,box,small_parts_thin_structures,"cable, connector, rubber_part, screw, sensor_module, tool",0.7258283572894366,0.7358515667094284,0.9257046346764106,6,22014
+zero_shot,blenderproc_cogar_sim,sam2_hiera_large,point,robot_and_occlusion,robot_gripper,0.7280819470537473,0.7280819470537473,0.7499598627983789,1,1633
+zero_shot,blenderproc_cogar_sim,fastsam_x,box,scene_support_and_background,"box, table",0.730090386245035,0.7735531412864579,0.7542530277746349,2,2269
+zero_shot,ocid,sam_vit_b,automatic,other,object,0.7305978965807334,0.7305978965807334,0.6764823544850559,1,21487
+zero_shot,isaac_official_unitree_g1,sam2_hiera_large,point,scene_support_and_background,"background_fixture, storage_bin, workbench",0.7387423156790002,0.7160637424599997,0.6819809501782174,3,17683
+zero_shot,blenderproc_cogar_sim,sam2_hiera_large,automatic,small_parts_thin_structures,"cable, connector, screw, tool",0.740006781214555,0.7174828737813601,0.7719492773465744,4,2368
+zero_shot,isaac_official_unitree_g1,sam_vit_b,point,scene_support_and_background,"background_fixture, storage_bin, workbench",0.7422481832269574,0.7214612682244265,0.6911846692951276,3,17683
+zero_shot,isaac_official_unitree_g1,sam_vit_h,point,transparent_reflective_surfaces,"metal_part, transparent_glass",0.7425291047939885,0.7468303602177584,0.807821702739157,2,9991
+zero_shot,isaac_official_unitree_g1,sam2_hiera_large,point,transparent_reflective_surfaces,"metal_part, transparent_glass",0.7477495306608368,0.7519714845828569,0.8188292529058725,2,9991
+zero_shot,blenderproc_cogar_sim,fastsam_x,automatic,scene_support_and_background,"box, table",0.752311261722859,0.8097776598942044,0.7708252098499793,2,2269
+zero_shot,isaac_official_unitree_g1,sam_vit_b,box,small_parts_thin_structures,"cable, connector, rubber_part, screw, sensor_module, tool",0.7539313316604783,0.7628254040587304,0.9367770252266423,6,22014
+zero_shot,isaac_official_unitree_g1,fastsam_x,automatic,scene_support_and_background,"background_fixture, storage_bin, workbench",0.7553893416261793,0.7418482273449788,0.7151331047549054,3,17683
+baseline,blenderproc_cogar_sim,mask_rcnn,inference,other,plastic_object,0.7564298067347813,0.7564298067347813,0.7774577654712387,1,32
+baseline,blenderproc_cogar_sim,mask_rcnn,inference,transparent_reflective_surfaces,"glass_object, metal_part",0.756651096529606,0.7597591434485224,0.7129755672268314,2,58
+baseline,blenderproc_cogar_sim,deeplabv3plus,inference,transparent_reflective_surfaces,"glass_object, metal_part",0.7579432813388741,0.7579432813388741,0.5380943508375391,2,0
+zero_shot,ocid,sam2_hiera_large,point,other,object,0.7585420059070903,0.7585420059070903,0.737490971945824,1,21487
+zero_shot,ocid,fastsam_x,box,other,object,0.7643104971739735,0.7643104971739735,0.7373700285300642,1,21487
+zero_shot,blenderproc_cogar_sim,sam_vit_h,automatic,robot_and_occlusion,robot_gripper,0.7761327641077882,0.7761327641077882,0.8024266584235241,1,1633
+zero_shot,isaac_official_unitree_g1,sam_vit_h,box,small_parts_thin_structures,"cable, connector, rubber_part, screw, sensor_module, tool",0.7763742665795526,0.7848606536680215,0.9488447449809136,6,22014
+zero_shot,blenderproc_cogar_sim,sam_vit_b,automatic,small_parts_thin_structures,"cable, connector, screw, tool",0.7769210803094213,0.7686088247621015,0.8157716673567637,4,2368
+baseline,isaac_official_unitree_g1,mask_rcnn,inference,scene_support_and_background,"background_fixture, storage_bin, workbench",0.7831765031158571,0.7147356588052641,0.5552774155933197,3,911
+zero_shot,blenderproc_cogar_sim,sam_vit_b,point,transparent_reflective_surfaces,"glass_object, metal_part",0.7904401869822898,0.7790618880360657,0.762406162505373,2,1503
+baseline,blenderproc_cogar_sim,mask_rcnn,inference,robot_and_occlusion,robot_gripper,0.7933141177208219,0.7933141177208219,0.7278928174264476,1,73
+zero_shot,ocid,sam2_hiera_large,automatic,other,object,0.7938377895836044,0.7938377895836044,0.7483256512304591,1,21487
+zero_shot,blenderproc_cogar_sim,sam_vit_b,point,scene_support_and_background,"box, table",0.7958779488596787,0.8270683821412974,0.7195158970058808,2,2269
+zero_shot,isaac_official_unitree_g1,sam_vit_h,automatic,scene_support_and_background,"background_fixture, storage_bin, workbench",0.7980589905302138,0.7906331722904784,0.7684500613947313,3,17683
+zero_shot,ocid,fastsam_x,automatic,other,object,0.7982308704892809,0.7982308704892809,0.7489893482313883,1,21487
+zero_shot,blenderproc_cogar_sim,sam2_hiera_large,point,scene_support_and_background,"box, table",0.7990679526276149,0.8439759465203907,0.779796442344628,2,2269
+zero_shot,blenderproc_cogar_sim,fastsam_x,automatic,small_parts_thin_structures,"cable, connector, screw, tool",0.7992245002336897,0.7945426424061562,0.8500658779799867,4,2368
+baseline,blenderproc_cogar_sim,yolo8_seg,inference,small_parts_thin_structures,"cable, connector, screw, tool",0.800289617189301,0.7644049780810249,0.8351252394606843,4,90
+baseline,blenderproc_cogar_sim,yolo8_seg,inference,other,plastic_object,0.8016522947330887,0.8016522947330887,0.8384991216318698,1,32
+zero_shot,blenderproc_cogar_sim,sam_vit_h,point,transparent_reflective_surfaces,"glass_object, metal_part",0.8060570019569099,0.798583518698041,0.7892865095720671,2,1503
+baseline,ocid,mask_rcnn,inference,other,object,0.8123703626805883,0.8123703626805883,0.7343935367651694,1,531
+zero_shot,blenderproc_cogar_sim,sam2_hiera_large,automatic,transparent_reflective_surfaces,"glass_object, metal_part",0.8124872191535752,0.7977651508646448,0.818156252073841,2,1503
+zero_shot,blenderproc_cogar_sim,sam_vit_b,point,small_parts_thin_structures,"cable, connector, screw, tool",0.8136609073419373,0.8024079781570368,0.8562177864227576,4,2368
+zero_shot,isaac_official_unitree_g1,sam2_hiera_large,box,transparent_reflective_surfaces,"metal_part, transparent_glass",0.8158721989848626,0.8215462422245821,0.8961938919954231,2,9991
+baseline,isaac_official_unitree_g1,yolo8_seg,inference,scene_support_and_background,"background_fixture, storage_bin, workbench",0.8165324342912396,0.805082146736391,0.7295096932437737,3,911
+zero_shot,blenderproc_cogar_sim,sam_vit_h,point,small_parts_thin_structures,"cable, connector, screw, tool",0.82084628021183,0.8124082967043122,0.8720449024780098,4,2368
+zero_shot,isaac_official_unitree_g1,sam_vit_b,box,transparent_reflective_surfaces,"metal_part, transparent_glass",0.8213105583800083,0.8263104774201353,0.9022817312629479,2,9991
+zero_shot,blenderproc_cogar_sim,sam_vit_b,automatic,transparent_reflective_surfaces,"glass_object, metal_part",0.8282853433052028,0.8160348573116125,0.82947207531464,2,1503
+baseline,blenderproc_cogar_sim,yolo8_seg,inference,robot_and_occlusion,robot_gripper,0.8328621140384417,0.8328621140384417,0.8361415712775668,1,73
+zero_shot,blenderproc_cogar_sim,sam_vit_h,automatic,small_parts_thin_structures,"cable, connector, screw, tool",0.8329831126482636,0.8351659677004967,0.8839847399211862,4,2368
+zero_shot,ocid,sam_vit_b,box,other,object,0.8339219829882085,0.8339219829882085,0.7514250642879597,1,21487
+zero_shot,blenderproc_cogar_sim,sam_vit_h,point,scene_support_and_background,"box, table",0.8377474987241441,0.8576232534704671,0.7652834804359776,2,2269
+zero_shot,ocid,sam_vit_h,automatic,other,object,0.8382905606713064,0.8382905606713064,0.7762349661080024,1,21487
+zero_shot,blenderproc_cogar_sim,sam_vit_b,box,robot_and_occlusion,robot_gripper,0.841486604578983,0.841486604578983,0.8681948452203898,1,1633
+zero_shot,isaac_official_unitree_g1,sam2_hiera_large,box,scene_support_and_background,"background_fixture, storage_bin, workbench",0.8421077783519829,0.8160902448687448,0.7491872907172302,3,17683
+zero_shot,isaac_official_unitree_g1,sam_vit_h,box,transparent_reflective_surfaces,"metal_part, transparent_glass",0.8443900099294895,0.8491202231166242,0.9224821312797059,2,9991
+zero_shot,ocid,sam_vit_h,box,other,object,0.8452409639470332,0.8452409639470332,0.7754535484397148,1,21487
+zero_shot,isaac_official_unitree_g1,sam_vit_h,box,scene_support_and_background,"background_fixture, storage_bin, workbench",0.8458179149881517,0.8180065419377792,0.8044080601652958,3,17683
+baseline,ocid,yolo8_seg,inference,other,object,0.8475484078632534,0.8475484078632534,0.7841866739947979,1,531
+zero_shot,isaac_official_unitree_g1,sam_vit_b,box,scene_support_and_background,"background_fixture, storage_bin, workbench",0.8489992076249111,0.8147265826520586,0.7726080047232009,3,17683
+zero_shot,blenderproc_cogar_sim,fastsam_x,box,transparent_reflective_surfaces,"glass_object, metal_part",0.8548034609348646,0.8501330968815921,0.8655372786098067,2,1503
+zero_shot,blenderproc_cogar_sim,sam2_hiera_large,point,small_parts_thin_structures,"cable, connector, screw, tool",0.8574489700317505,0.8482241827303476,0.9052216880471267,4,2368
+baseline,blenderproc_cogar_sim,yolo8_seg,inference,transparent_reflective_surfaces,"glass_object, metal_part",0.8574704684299189,0.8579440158666802,0.8419783214129669,2,58
+zero_shot,blenderproc_cogar_sim,sam2_hiera_large,point,transparent_reflective_surfaces,"glass_object, metal_part",0.8578736167373724,0.8485472335266415,0.8286104667492584,2,1503
+zero_shot,blenderproc_cogar_sim,sam2_hiera_large,box,robot_and_occlusion,robot_gripper,0.8657056241219825,0.8657056241219825,0.8514846102721706,1,1633
+zero_shot,ocid,sam2_hiera_large,box,other,object,0.8659770273605177,0.8659770273605177,0.7872642061143948,1,21487
+zero_shot,blenderproc_cogar_sim,sam_vit_h,box,robot_and_occlusion,robot_gripper,0.8681885922551384,0.8681885922551384,0.8954740523059281,1,1633
+zero_shot,blenderproc_cogar_sim,sam_vit_b,box,small_parts_thin_structures,"cable, connector, screw, tool",0.8694325155384385,0.8575345947150075,0.9109804932025034,4,2368
+baseline,blenderproc_cogar_sim,mask_rcnn,inference,scene_support_and_background,"box, table",0.8712673362719016,0.8726989475346859,0.5420282111302903,2,113
+baseline,isaac_official_unitree_g1,deeplabv3plus,inference,robot_and_occlusion,"moving_object, occluder, robot",0.8730748009717338,0.8730748009717338,0.7675580350736307,3,0
+zero_shot,blenderproc_cogar_sim,fastsam_x,automatic,transparent_reflective_surfaces,"glass_object, metal_part",0.8832305183844951,0.8785620957889027,0.8850054085456383,2,1503
+zero_shot,blenderproc_cogar_sim,sam_vit_b,point,other,plastic_object,0.8842462665151852,0.8842462665151852,0.9017352735209733,1,995
+zero_shot,blenderproc_cogar_sim,sam2_hiera_large,box,small_parts_thin_structures,"cable, connector, screw, tool",0.8873096511127482,0.8845778834511693,0.9389955013521898,4,2368
+zero_shot,blenderproc_cogar_sim,fastsam_x,box,other,plastic_object,0.8922433869325922,0.8922433869325922,0.9267136164918218,1,995
+zero_shot,blenderproc_cogar_sim,sam_vit_h,box,small_parts_thin_structures,"cable, connector, screw, tool",0.8979259945939283,0.8923416356395458,0.9556373488774765,4,2368
+zero_shot,blenderproc_cogar_sim,sam_vit_h,point,other,plastic_object,0.8988328459359957,0.8988328459359957,0.9210975434926815,1,995
+zero_shot,blenderproc_cogar_sim,sam_vit_b,automatic,scene_support_and_background,"box, table",0.8994573171579212,0.9063628938307329,0.782565567924544,2,2269
+baseline,blenderproc_cogar_sim,deeplabv3plus,inference,robot_and_occlusion,robot_gripper,0.9059702224468082,0.9059702224468082,0.6533899835548742,1,0
+zero_shot,blenderproc_cogar_sim,sam_vit_h,automatic,transparent_reflective_surfaces,"glass_object, metal_part",0.906625778462174,0.9036033054972924,0.9069218574992607,2,1503
+zero_shot,blenderproc_cogar_sim,sam_vit_b,automatic,other,plastic_object,0.9094187718732523,0.9094187718732523,0.9277418788293326,1,995
+zero_shot,blenderproc_cogar_sim,sam2_hiera_large,automatic,scene_support_and_background,"box, table",0.9122276357478901,0.915953055513194,0.8251271291656641,2,2269
+zero_shot,blenderproc_cogar_sim,sam2_hiera_large,automatic,other,plastic_object,0.9150283045675531,0.9150283045675531,0.9389052283660538,1,995
+zero_shot,blenderproc_cogar_sim,fastsam_x,automatic,other,plastic_object,0.9179945897099763,0.9179945897099763,0.9471524907349974,1,995
+zero_shot,blenderproc_cogar_sim,sam_vit_h,automatic,other,plastic_object,0.9228520216648457,0.9228520216648457,0.9410803647251478,1,995
+zero_shot,blenderproc_cogar_sim,sam_vit_b,box,transparent_reflective_surfaces,"glass_object, metal_part",0.9275200248032838,0.926022086939285,0.9308591760591642,2,1503
+baseline,ocid,deeplabv3plus,inference,scene_support_and_background,background,0.9350314816104062,0.9350314816104062,0.8880972257484697,1,0
+zero_shot,blenderproc_cogar_sim,sam_vit_h,box,transparent_reflective_surfaces,"glass_object, metal_part",0.9358783196959922,0.9339777555082132,0.9458131729623429,2,1503
+zero_shot,blenderproc_cogar_sim,sam2_hiera_large,point,other,plastic_object,0.9367449326315707,0.9367449326315707,0.9592412624125839,1,995
+zero_shot,blenderproc_cogar_sim,sam2_hiera_large,box,transparent_reflective_surfaces,"glass_object, metal_part",0.9378992183381759,0.935312021242914,0.9255814024150453,2,1503
+baseline,blenderproc_cogar_sim,yolo8_seg,inference,scene_support_and_background,"box, table",0.9467776382240927,0.9374833507027285,0.7902917819138289,2,113
+zero_shot,blenderproc_cogar_sim,sam_vit_b,box,scene_support_and_background,"box, table",0.9502407931201072,0.9484322106285152,0.8058596727703203,2,2269
+baseline,blenderproc_cogar_sim,deeplabv3plus,inference,scene_support_and_background,"background, box, table",0.9507744048327907,0.9507744048327907,0.8367044175191872,3,0
+zero_shot,blenderproc_cogar_sim,sam_vit_b,box,other,plastic_object,0.9509263860246258,0.9509263860246258,0.9788812766390634,1,995
+zero_shot,blenderproc_cogar_sim,sam2_hiera_large,box,other,plastic_object,0.9550998733013548,0.9550998733013548,0.9826789992302019,1,995
+zero_shot,blenderproc_cogar_sim,sam_vit_h,box,other,plastic_object,0.9559582061680088,0.9559582061680088,0.9845971117328871,1,995
+zero_shot,blenderproc_cogar_sim,sam_vit_h,automatic,scene_support_and_background,"box, table",0.9598924741227428,0.9576775427443021,0.8399743635281751,2,2269
+zero_shot,blenderproc_cogar_sim,sam2_hiera_large,box,scene_support_and_background,"box, table",0.9624217071767341,0.9611216214667166,0.8459436367565263,2,2269
+zero_shot,blenderproc_cogar_sim,sam_vit_h,box,scene_support_and_background,"box, table",0.9640903771985867,0.9617204539266542,0.8442188703115293,2,2269
+baseline,isaac_official_unitree_g1,deeplabv3plus,inference,scene_support_and_background,"background, background_fixture, storage_bin, workbench",0.9704693151173166,0.9704693151173166,0.8564184561842543,4,0
+baseline,ocid,deeplabv3plus,inference,other,object,0.9914437919805986,0.9914437919805986,0.8721840109371035,1,0

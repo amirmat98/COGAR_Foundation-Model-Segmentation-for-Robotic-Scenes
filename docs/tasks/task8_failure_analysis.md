@@ -1,0 +1,60 @@
+# Task 8 - Failure Mode Analysis
+
+Task 8 identifies where and why the segmentation models fail in robotic scenes.
+
+## Inputs
+
+The analysis uses existing benchmark artifacts:
+
+- Task 4 prediction JSONL files in `results/task4_zero_shot_sam/`
+- Task 6 metric summaries in `outputs/task6_evaluation/`
+- Task 7 speed summaries in `outputs/task7_inference_speed/`
+- COCO annotations and source images from the configured datasets
+
+## Method
+
+The analysis is metric-driven first, then qualitative:
+
+1. Expand Task 6 per-category IoU and boundary F1 into a single failure table.
+2. Group categories into robotic challenge groups:
+   - small parts and thin structures
+   - transparent or reflective surfaces
+   - robot body, moving objects, and occlusion
+   - scene support/background objects
+3. Compare point, box, and automatic prompt modes for each zero-shot model.
+4. Join Task 6 quality metrics with Task 7 FPS to separate segmentation quality from real-time feasibility.
+5. Mine representative low-IoU examples from selected Task 4 prediction files.
+6. Save overlay images where green is ground truth, red is prediction, and yellow is overlap.
+
+## Command
+
+```bash
+cd ~/Desktop/COGAR/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes
+source .venv/bin/activate
+
+.venv/bin/python scripts/analysis/analyze_task8_failure_modes.py
+```
+
+The script prints progress while mining visual examples.
+
+## Outputs
+
+Compact outputs are written to:
+
+```text
+outputs/task8_failure_analysis/
+```
+
+Important files:
+
+```text
+outputs/task8_failure_analysis/task8_failure_analysis.md
+outputs/task8_failure_analysis/category_failures.csv
+outputs/task8_failure_analysis/challenge_group_summary.csv
+outputs/task8_failure_analysis/prompt_mode_comparison.csv
+outputs/task8_failure_analysis/speed_quality_tradeoff.csv
+outputs/task8_failure_analysis/representative_failures.csv
+outputs/task8_failure_analysis/figures/
+```
+
+The generated report is intended to be copied into the final project report after review.
