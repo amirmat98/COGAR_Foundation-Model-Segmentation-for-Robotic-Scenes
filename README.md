@@ -4,8 +4,9 @@ Student id: 5884715
 
 Assignment 2: Zero-Shot Segmentation Benchmark for Robotic Perception.
 
-This repository contains the dataset preparation code and documentation for
-tasks 1-3. Model benchmarking is handled after the datasets are fixed.
+This repository contains the dataset preparation, model benchmarking, baseline
+training, metric evaluation, and inference-speed tooling for the robotic
+segmentation benchmark.
 
 ## Reports
 
@@ -16,6 +17,7 @@ tasks 1-3. Model benchmarking is handled after the datasets are fixed.
 - [Task 4: Zero-shot SAM-family inference](docs/tasks/task4_zero_shot_sam.md)
 - [Task 5: Classical baselines](docs/tasks/task5_classical_baselines.md)
 - [Task 6: Evaluation metrics](docs/tasks/task6_evaluation.md)
+- [Task 7: Inference speed](docs/tasks/task7_inference_speed.md)
 
 ## Datasets
 

@@ -1,0 +1,58 @@
+task:
+  name: task7_inference_speed
+  description: GPU and CPU inference-speed benchmark for zero-shot and supervised segmentation models
+  output_root: outputs/task7_inference_speed
+  seed: 5884715
+
+datasets:
+  source_config: configs/task4_zero_shot_sam.yaml
+
+zero_shot:
+  config: configs/task4_zero_shot_sam.yaml
+  models:
+    - sam_vit_h
+    - sam_vit_b
+    - sam2_hiera_large
+    - fastsam_x
+  prompt_modes:
+    - point
+    - box
+    - automatic
+
+baselines:
+  yolo8_seg:
+    enabled: true
+    summary: outputs/task5_baselines/yolo8_seg_training/summary.json
+    image_size: 640
+    confidence: 0.001
+    iou: 0.7
+
+  mask_rcnn:
+    enabled: true
+    config: configs/task5_mask_rcnn.yaml
+    summary: outputs/task5_baselines/mask_rcnn_training/summary.json
+
+  deeplabv3plus:
+    enabled: true
+    config: configs/task5_deeplabv3plus.yaml
+    summary: outputs/task5_baselines/deeplabv3plus_training/summary.json
+
+sampling:
+  # Full GPU timing is measured on a moderate image subset so all models are
+  # comparable without repeating the full Task 4 prediction workload.
+  max_images_per_dataset: 50
+  automatic_max_images_per_dataset: 20
+
+  # CPU runs are intentionally smaller. Large SAM automatic-mask generators on
+  # CPU are not expected to be real-time, and the sample count is recorded in
+  # every output row.
+  cpu_max_images_per_dataset: 10
+  cpu_automatic_max_images_per_dataset: 1
+
+  warmup_images: 3
+
+runtime:
+  devices:
+    - cuda
+    - cpu
+  log_every: 5

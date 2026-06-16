@@ -290,10 +290,16 @@ def build_model(num_classes: int, config: dict[str, Any]) -> Any:
         weights = torchvision.models.detection.MaskRCNN_ResNet50_FPN_Weights.DEFAULT
     elif isinstance(weights, str) and weights.lower() in {"none", "null", "false"}:
         weights = None
+    weights_backbone = model_config.get("weights_backbone", "DEFAULT")
+    if isinstance(weights_backbone, str) and weights_backbone.upper() == "DEFAULT":
+        weights_backbone = torchvision.models.ResNet50_Weights.IMAGENET1K_V1
+    elif isinstance(weights_backbone, str) and weights_backbone.lower() in {"none", "null", "false"}:
+        weights_backbone = None
     trainable_backbone_layers = int(model_config.get("trainable_backbone_layers", 3))
 
     model = torchvision.models.detection.maskrcnn_resnet50_fpn(
         weights=weights,
+        weights_backbone=weights_backbone,
         trainable_backbone_layers=trainable_backbone_layers,
         min_size=int(model_config.get("min_size", 800)),
         max_size=int(model_config.get("max_size", 1333)),
