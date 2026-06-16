@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_HOST = "ubuntu@ec2-3-76-38-19.eu-central-1.compute.amazonaws.com"
+DEFAULT_HOST = "ubuntu@ec2-18-195-101-224.eu-central-1.compute.amazonaws.com"
 DEFAULT_REMOTE_ROOT = "~/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes"
 DEFAULT_PATHS = (
     "outputs/task4_zero_shot_sam",
