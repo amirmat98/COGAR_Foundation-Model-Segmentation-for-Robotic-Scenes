@@ -106,6 +106,8 @@ Overlay convention: green = ground truth only, red = prediction only, yellow = o
 | FastSAM prompted failures on BlenderProc thin objects | blenderproc_cogar_sim | fastsam_x | point | cable | 0.000 | outputs/task8_failure_analysis/figures/03_02_blenderproc_cogar_sim_fastsam_x_point_cable_iou_0.000.png |
 | SAM ViT-H automatic glass and small-part failures on BlenderProc | blenderproc_cogar_sim | sam_vit_h | automatic | screw | 0.000 | outputs/task8_failure_analysis/figures/04_01_blenderproc_cogar_sim_sam_vit_h_automatic_screw_iou_0.000.png |
 | SAM ViT-H automatic glass and small-part failures on BlenderProc | blenderproc_cogar_sim | sam_vit_h | automatic | glass_object | 0.000 | outputs/task8_failure_analysis/figures/04_02_blenderproc_cogar_sim_sam_vit_h_automatic_glass_object_iou_0.000.png |
+| FastSAM automatic proposal failures on OCID clutter | ocid | fastsam_x | automatic | object | 0.000 | outputs/task8_failure_analysis/figures/05_01_ocid_fastsam_x_automatic_object_iou_0.000.png |
+| FastSAM automatic proposal failures on OCID clutter | ocid | fastsam_x | automatic | object | 0.000 | outputs/task8_failure_analysis/figures/05_02_ocid_fastsam_x_automatic_object_iou_0.000.png |
 
 ## Interpretation
 

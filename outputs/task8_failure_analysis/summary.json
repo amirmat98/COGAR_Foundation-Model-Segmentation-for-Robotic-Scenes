@@ -3,7 +3,7 @@
   "challenge_rows": 151,
   "prompt_rows": 12,
   "speed_quality_rows": 90,
-  "visual_examples": 8,
+  "visual_examples": 10,
   "outputs": {
     "category_failures": "outputs/task8_failure_analysis/category_failures.csv",
     "challenge_group_summary": "outputs/task8_failure_analysis/challenge_group_summary.csv",

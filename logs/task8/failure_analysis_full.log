@@ -1,0 +1,24 @@
+nohup: ignoring input
+[START] expanding category metrics
+[START] visual mining case 1: isaac_official_unitree_g1/fastsam_x/point
+[PROGRESS] mined isaac_official_unitree_g1/fastsam_x/point: 1 rows, candidates=1
+[PROGRESS] mined isaac_official_unitree_g1/fastsam_x/point: 5000 rows, candidates=2102
+[PROGRESS] mined isaac_official_unitree_g1/fastsam_x/point: 10000 rows, candidates=4306
+[PROGRESS] mined isaac_official_unitree_g1/fastsam_x/point: 15000 rows, candidates=6541
+[PROGRESS] mined isaac_official_unitree_g1/fastsam_x/point: 20000 rows, candidates=8793
+[PROGRESS] mined isaac_official_unitree_g1/fastsam_x/point: 25000 rows, candidates=11030
+[OK] case 1: selected 2 examples
+[START] visual mining case 2: isaac_official_unitree_g1/sam_vit_b/automatic
+[PROGRESS] mined isaac_official_unitree_g1/sam_vit_b/automatic: 1 rows, candidates=43
+[OK] case 2: selected 2 examples
+[START] visual mining case 3: blenderproc_cogar_sim/fastsam_x/point
+[PROGRESS] mined blenderproc_cogar_sim/fastsam_x/point: 1 rows, candidates=0
+[PROGRESS] mined blenderproc_cogar_sim/fastsam_x/point: 5000 rows, candidates=1574
+[OK] case 3: selected 2 examples
+[START] visual mining case 4: blenderproc_cogar_sim/sam_vit_h/automatic
+[PROGRESS] mined blenderproc_cogar_sim/sam_vit_h/automatic: 1 rows, candidates=0
+[OK] case 4: selected 2 examples
+[START] visual mining case 5: ocid/fastsam_x/automatic
+[PROGRESS] mined ocid/fastsam_x/automatic: 1 rows, candidates=2
+[OK] case 5: selected 2 examples
+[DONE] wrote outputs/task8_failure_analysis
