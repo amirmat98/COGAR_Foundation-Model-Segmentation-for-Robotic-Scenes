@@ -18,6 +18,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from PIL import Image, ImageDraw, ImageOps
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -47,6 +48,18 @@ PROMPT_LABELS = {
     "box": "Box",
     "automatic": "Automatic",
     "inference": "Inference",
+}
+
+DATASET_EXAMPLE_IMAGES = {
+    "Isaac official Unitree G1": Path(
+        "/mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000/isaac/rgb_0000.png"
+    ),
+    "BlenderProc COGAR-SimRobotics-1000": Path(
+        "/mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/rgb/000000.png"
+    ),
+    "OCID": Path(
+        "/mnt/Info/COGAR_DATASETs/OCID-dataset/ARID10/floor/bottom/box/seq03/rgb/result_2018-08-27-15-54-17.png"
+    ),
 }
 
 
@@ -97,6 +110,54 @@ def savefig(path: Path) -> None:
     plt.tight_layout()
     plt.savefig(path, dpi=180)
     plt.close()
+
+
+def fit_image(image: Image.Image, size: tuple[int, int]) -> Image.Image:
+    image = ImageOps.exif_transpose(image.convert("RGB"))
+    return ImageOps.fit(image, size, method=Image.Resampling.LANCZOS, centering=(0.5, 0.5))
+
+
+def draw_centered_text(draw: ImageDraw.ImageDraw, box: tuple[int, int, int, int], text: str) -> None:
+    bbox = draw.textbbox((0, 0), text)
+    text_width = bbox[2] - bbox[0]
+    text_height = bbox[3] - bbox[1]
+    x0, y0, x1, y1 = box
+    draw.text(
+        (x0 + (x1 - x0 - text_width) / 2, y0 + (y1 - y0 - text_height) / 2),
+        text,
+        fill=(30, 30, 30),
+    )
+
+
+def create_dataset_montage(output: Path) -> None:
+    tile_size = (420, 315)
+    label_height = 44
+    gap = 18
+    margin = 24
+    width = margin * 2 + len(DATASET_EXAMPLE_IMAGES) * tile_size[0] + (len(DATASET_EXAMPLE_IMAGES) - 1) * gap
+    height = margin * 2 + label_height + tile_size[1]
+    canvas = Image.new("RGB", (width, height), "white")
+    draw = ImageDraw.Draw(canvas)
+
+    x = margin
+    for label, path in DATASET_EXAMPLE_IMAGES.items():
+        if path.exists():
+            tile = fit_image(Image.open(path), tile_size)
+        else:
+            tile = Image.new("RGB", tile_size, (235, 235, 235))
+            draw_missing = ImageDraw.Draw(tile)
+            draw_centered_text(draw_missing, (0, 0, tile_size[0], tile_size[1]), "missing local image")
+        canvas.paste(tile, (x, margin + label_height))
+        draw.rectangle(
+            (x, margin + label_height, x + tile_size[0] - 1, margin + label_height + tile_size[1] - 1),
+            outline=(215, 215, 215),
+            width=1,
+        )
+        draw_centered_text(draw, (x, margin, x + tile_size[0], margin + label_height), label)
+        x += tile_size[0] + gap
+
+    output.parent.mkdir(parents=True, exist_ok=True)
+    canvas.save(output)
 
 
 def annotate_bars(ax: plt.Axes, fmt: str = "{:.2f}") -> None:
@@ -371,7 +432,10 @@ def write_recommendation_guide(
         "",
     ]
     for name, path in plots.items():
-        lines.append(f"- {name}: `{path}`")
+        guide_path = Path(path)
+        if guide_path.parts[:2] == ("outputs", "final_benchmark_assets"):
+            guide_path = Path(*guide_path.parts[2:])
+        lines.extend([f"### {name}", "", f"![{name}]({guide_path.as_posix()})", ""])
 
     lines.extend(
         [
@@ -526,6 +590,7 @@ def main() -> None:
     )
 
     plots = {
+        "Dataset examples": rel(plot_root / "dataset_examples.png"),
         "Zero-shot mIoU heatmap": rel(plot_root / "zero_shot_miou_heatmap.png"),
         "Baseline mIoU bars": rel(plot_root / "baseline_miou_bars.png"),
         "CUDA speed-quality scatter": rel(plot_root / "cuda_speed_quality_scatter.png"),
@@ -534,6 +599,7 @@ def main() -> None:
         "Zero-shot winners": rel(plot_root / "zero_shot_dataset_prompt_winners.png"),
     }
 
+    create_dataset_montage(plot_root / "dataset_examples.png")
     plot_zero_shot_heatmap(zero_shot_all, plot_root / "zero_shot_miou_heatmap.png")
     plot_baseline_bars(baseline, plot_root / "baseline_miou_bars.png")
     plot_speed_quality(tradeoff, plot_root / "cuda_speed_quality_scatter.png")

@@ -15,6 +15,16 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
+CHECKPOINT_SIZE_MB_FALLBACK = {
+    "sam_vit_h": 2564.55,
+    "sam_vit_b": 375.04,
+    "sam2_hiera_large": 898.08,
+    "fastsam_x": 144.94,
+    "mobile_sam_vit_t": 40.73,
+    "efficient_sam_ti": 40.98,
+    "efficient_sam_s": 105.74,
+}
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
@@ -102,10 +112,14 @@ def model_size_mb(configs: list[dict[str, Any]]) -> dict[str, float | None]:
         for model_name, model_config in config.get("models", {}).items():
             checkpoint = model_config.get("checkpoint")
             if not checkpoint:
-                sizes[model_name] = None
+                sizes[model_name] = CHECKPOINT_SIZE_MB_FALLBACK.get(model_name)
                 continue
             path = resolve(checkpoint)
-            sizes[model_name] = round(path.stat().st_size / 1e6, 2) if path.exists() else None
+            sizes[model_name] = (
+                round(path.stat().st_size / 1e6, 2)
+                if path.exists()
+                else CHECKPOINT_SIZE_MB_FALLBACK.get(model_name)
+            )
     return sizes
 
 
@@ -267,6 +281,10 @@ def write_report(path: Path, tradeoff_rows: list[dict[str, Any]], recommendation
         "- `lightweight_quality.csv`: Task 9 quality metrics only.",
         "- `speed_quality_tradeoff.csv`: quality joined with GPU/CPU speed and checkpoint size.",
         "- `recommendations.csv`: best lightweight model per dataset, prompt mode, and device by mIoU and by mIoU-FPS product.",
+        "",
+        "## Figure",
+        "",
+        "![Lightweight SAM CUDA speed-quality trade-off](../../final_benchmark_assets/plots/lightweight_sam_tradeoff_cuda.png)",
         "",
         "## Compact Summary",
         "",

@@ -11,6 +11,8 @@ This is the active route for Assignment 2 tasks 1-3.
   manifest metadata, and COCO instance JSON.
 - Hardware: AWS or another NVIDIA GPU machine.
 
+![Dataset examples](../../../outputs/final_benchmark_assets/plots/dataset_examples.png)
+
 ## Local Preconditions
 
 From this folder:

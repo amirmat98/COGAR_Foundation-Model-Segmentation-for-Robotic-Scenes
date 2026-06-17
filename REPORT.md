@@ -34,6 +34,8 @@ item is publishing external download links for the generated datasets.
 | BlenderProc COGAR-SimRobotics-1000 | Synthetic, BlenderProc | Available locally | 1000 | `blenderproc_cogar_sim` |
 | OCID | Real RGB-D clutter dataset | Available locally, external source | 2390 | `ocid` |
 
+![Dataset examples](outputs/final_benchmark_assets/plots/dataset_examples.png)
+
 Configured paths are in [configs/datasets.yaml](configs/datasets.yaml).
 
 The Isaac dataset validation passed on 2026-06-13. The COCO export contains
@@ -76,14 +78,19 @@ https://www.acin.tuwien.ac.at/object-clutter-indoor-dataset/
 The final recommendation guide is stored at
 `outputs/final_benchmark_assets/recommendation_guide.md`.
 
-The generated aggregate plots are:
+The generated aggregate plots are embedded below.
 
-- `outputs/final_benchmark_assets/plots/zero_shot_miou_heatmap.png`
-- `outputs/final_benchmark_assets/plots/baseline_miou_bars.png`
-- `outputs/final_benchmark_assets/plots/cuda_speed_quality_scatter.png`
-- `outputs/final_benchmark_assets/plots/lightweight_sam_tradeoff_cuda.png`
-- `outputs/final_benchmark_assets/plots/challenge_group_weighted_iou.png`
-- `outputs/final_benchmark_assets/plots/zero_shot_dataset_prompt_winners.png`
+![Zero-shot mIoU heatmap](outputs/final_benchmark_assets/plots/zero_shot_miou_heatmap.png)
+
+![Classical baseline mIoU bars](outputs/final_benchmark_assets/plots/baseline_miou_bars.png)
+
+![GPU speed-quality trade-off](outputs/final_benchmark_assets/plots/cuda_speed_quality_scatter.png)
+
+![Lightweight SAM trade-off](outputs/final_benchmark_assets/plots/lightweight_sam_tradeoff_cuda.png)
+
+![Robotic challenge group performance](outputs/final_benchmark_assets/plots/challenge_group_weighted_iou.png)
+
+![Best zero-shot model by dataset and prompt](outputs/final_benchmark_assets/plots/zero_shot_dataset_prompt_winners.png)
 
 ## Task Reports
 

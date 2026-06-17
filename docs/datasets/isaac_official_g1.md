@@ -9,6 +9,10 @@
 - Main challenges: reflective metal, transparent glass, partial occlusion,
   small parts, dynamic scenes, robot close range
 
+## Figure
+
+![Dataset examples](../../outputs/final_benchmark_assets/plots/dataset_examples.png)
+
 ## Local Path
 
 Current local copy:

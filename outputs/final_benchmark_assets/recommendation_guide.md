@@ -14,12 +14,34 @@ This guide summarizes which segmentation model to use under the benchmark condit
 
 ## Plots
 
-- Zero-shot mIoU heatmap: `outputs/final_benchmark_assets/plots/zero_shot_miou_heatmap.png`
-- Baseline mIoU bars: `outputs/final_benchmark_assets/plots/baseline_miou_bars.png`
-- CUDA speed-quality scatter: `outputs/final_benchmark_assets/plots/cuda_speed_quality_scatter.png`
-- Lightweight SAM trade-off: `outputs/final_benchmark_assets/plots/lightweight_sam_tradeoff_cuda.png`
-- Challenge group summary: `outputs/final_benchmark_assets/plots/challenge_group_weighted_iou.png`
-- Zero-shot winners: `outputs/final_benchmark_assets/plots/zero_shot_dataset_prompt_winners.png`
+### Dataset examples
+
+![Dataset examples](plots/dataset_examples.png)
+
+### Zero-shot mIoU heatmap
+
+![Zero-shot mIoU heatmap](plots/zero_shot_miou_heatmap.png)
+
+### Baseline mIoU bars
+
+![Baseline mIoU bars](plots/baseline_miou_bars.png)
+
+### CUDA speed-quality scatter
+
+![CUDA speed-quality scatter](plots/cuda_speed_quality_scatter.png)
+
+### Lightweight SAM trade-off
+
+![Lightweight SAM trade-off](plots/lightweight_sam_tradeoff_cuda.png)
+
+### Challenge group summary
+
+![Challenge group summary](plots/challenge_group_weighted_iou.png)
+
+### Zero-shot winners
+
+![Zero-shot winners](plots/zero_shot_dataset_prompt_winners.png)
+
 
 ## Best Overall CUDA Quality by Dataset
 

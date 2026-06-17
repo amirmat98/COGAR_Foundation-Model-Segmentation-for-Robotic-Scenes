@@ -9,6 +9,10 @@
 - Classes: table, robot gripper, metal part, glass object, plastic object,
   screw, connector, cable, tool, box
 
+## Figure
+
+![Dataset examples](../../outputs/final_benchmark_assets/plots/dataset_examples.png)
+
 ## Output Paths
 
 Generation target on this machine:

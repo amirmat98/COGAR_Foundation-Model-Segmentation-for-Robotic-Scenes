@@ -2,6 +2,10 @@
 
 Task 7 measures segmentation inference speed on GPU and CPU for the models used in Tasks 4 and 5.
 
+## Figure
+
+![GPU speed-quality trade-off](../../outputs/final_benchmark_assets/plots/cuda_speed_quality_scatter.png)
+
 ## Scope
 
 The benchmark covers:

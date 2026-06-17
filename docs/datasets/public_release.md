@@ -5,6 +5,8 @@ This project publishes only the generated datasets:
 - Isaac official Unitree G1 synthetic dataset
 - BlenderProc COGAR-SimRobotics-1000 synthetic dataset
 
+![Generated and external dataset examples](../../outputs/final_benchmark_assets/plots/dataset_examples.png)
+
 OCID is an external dataset. Do not re-host OCID unless its upstream license
 explicitly permits redistribution. Link to the upstream OCID project page
 instead: https://www.acin.tuwien.ac.at/object-clutter-indoor-dataset/

@@ -704,6 +704,22 @@ def write_report(
                 20,
             ),
             "",
+            "### Visual Overlays",
+            "",
+        ]
+    )
+    for row in visual_rows[:10]:
+        figure = Path(str(row.get("figure", "")))
+        report_lines.extend(
+            [
+                f"**{row.get('case_label', 'Failure case')} - {row.get('category', '')}**",
+                "",
+                f"![{row.get('case_label', 'Failure case')}]({Path('figures') / figure.name})",
+                "",
+            ]
+        )
+    report_lines.extend(
+        [
             "## Interpretation",
             "",
             "- Small screws, connectors, cables, rubber parts, and sensor modules fail because their "

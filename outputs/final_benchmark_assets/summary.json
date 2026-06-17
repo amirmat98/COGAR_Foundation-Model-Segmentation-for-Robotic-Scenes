@@ -1,5 +1,6 @@
 {
   "plots": {
+    "Dataset examples": "outputs/final_benchmark_assets/plots/dataset_examples.png",
     "Zero-shot mIoU heatmap": "outputs/final_benchmark_assets/plots/zero_shot_miou_heatmap.png",
     "Baseline mIoU bars": "outputs/final_benchmark_assets/plots/baseline_miou_bars.png",
     "CUDA speed-quality scatter": "outputs/final_benchmark_assets/plots/cuda_speed_quality_scatter.png",

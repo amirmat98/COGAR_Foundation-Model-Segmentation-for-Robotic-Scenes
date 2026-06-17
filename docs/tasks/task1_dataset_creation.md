@@ -6,6 +6,10 @@ small parts, and dynamic scenes.
 
 Status: complete, audited on 2026-06-13.
 
+## Figure
+
+![Dataset examples](../../outputs/final_benchmark_assets/plots/dataset_examples.png)
+
 ## Dataset Set
 
 | Dataset | Role | Annotation type |

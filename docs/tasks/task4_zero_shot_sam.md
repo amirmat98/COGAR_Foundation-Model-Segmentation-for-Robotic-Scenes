@@ -6,6 +6,12 @@ the models.
 
 Status: complete.
 
+## Figures
+
+![Zero-shot mIoU heatmap](../../outputs/final_benchmark_assets/plots/zero_shot_miou_heatmap.png)
+
+![Best zero-shot model by dataset and prompt](../../outputs/final_benchmark_assets/plots/zero_shot_dataset_prompt_winners.png)
+
 ## Models
 
 The benchmark includes:

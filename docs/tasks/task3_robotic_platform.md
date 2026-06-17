@@ -5,6 +5,10 @@ AS2 EDU.
 
 Status: complete, audited on 2026-06-13.
 
+## Figure
+
+![Dataset examples including the Isaac Unitree G1 scene](../../outputs/final_benchmark_assets/plots/dataset_examples.png)
+
 ## Platform Used
 
 The main dataset uses the official Unitree G1 USD asset in Isaac Sim.

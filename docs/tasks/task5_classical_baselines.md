@@ -5,6 +5,10 @@ segmentation baselines trained on small labeled subsets.
 
 Status: complete.
 
+## Figure
+
+![Classical baseline mIoU by dataset](../../outputs/final_benchmark_assets/plots/baseline_miou_bars.png)
+
 ## Baselines
 
 The baseline set is:

@@ -4,6 +4,10 @@ Task 2 requires simulation-based dataset generation.
 
 Status: complete, audited on 2026-06-13.
 
+## Figure
+
+![Simulation dataset examples](../../outputs/final_benchmark_assets/plots/dataset_examples.png)
+
 ## Isaac Sim
 
 Isaac Sim is the primary simulator. The official Unitree G1 dataset was

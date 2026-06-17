@@ -3,6 +3,12 @@
 Task 6 evaluates the zero-shot SAM-family predictions and the supervised
 baseline outputs with a common metric layer.
 
+## Figures
+
+![Zero-shot mIoU heatmap](../../outputs/final_benchmark_assets/plots/zero_shot_miou_heatmap.png)
+
+![Classical baseline mIoU by dataset](../../outputs/final_benchmark_assets/plots/baseline_miou_bars.png)
+
 ## Metrics
 
 The reported metrics are:

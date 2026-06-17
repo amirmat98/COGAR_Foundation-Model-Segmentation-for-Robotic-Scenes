@@ -109,6 +109,28 @@ Overlay convention: green = ground truth only, red = prediction only, yellow = o
 | FastSAM automatic proposal failures on OCID clutter | ocid | fastsam_x | automatic | object | 0.000 | outputs/task8_failure_analysis/figures/05_01_ocid_fastsam_x_automatic_object_iou_0.000.png |
 | FastSAM automatic proposal failures on OCID clutter | ocid | fastsam_x | automatic | object | 0.000 | outputs/task8_failure_analysis/figures/05_02_ocid_fastsam_x_automatic_object_iou_0.000.png |
 
+### Visual Overlays
+
+**FastSAM prompted failures on Isaac robot and small parts - screw**
+
+![FastSAM prompted failures on Isaac robot and small parts](figures/01_01_isaac_official_unitree_g1_fastsam_x_point_screw_iou_0.000.png)
+
+**SAM ViT-B automatic proposal failures on Isaac clutter - robot**
+
+![SAM ViT-B automatic proposal failures on Isaac clutter](figures/02_02_isaac_official_unitree_g1_sam_vit_b_automatic_robot_iou_0.000.png)
+
+**FastSAM prompted failures on BlenderProc thin objects - cable**
+
+![FastSAM prompted failures on BlenderProc thin objects](figures/03_02_blenderproc_cogar_sim_fastsam_x_point_cable_iou_0.000.png)
+
+**SAM ViT-H automatic glass and small-part failures on BlenderProc - glass object**
+
+![SAM ViT-H automatic glass and small-part failures on BlenderProc](figures/04_02_blenderproc_cogar_sim_sam_vit_h_automatic_glass_object_iou_0.000.png)
+
+**FastSAM automatic proposal failures on OCID clutter - object**
+
+![FastSAM automatic proposal failures on OCID clutter](figures/05_01_ocid_fastsam_x_automatic_object_iou_0.000.png)
+
 ## Interpretation
 
 - Small screws, connectors, cables, rubber parts, and sensor modules fail because their masks are small, thin, or visually similar to nearby fixtures. A minor boundary error can dominate IoU for these categories.

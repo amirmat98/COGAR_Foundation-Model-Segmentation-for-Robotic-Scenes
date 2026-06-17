@@ -9,6 +9,8 @@ Current decision:
 - No surrogate robot fallback for final data.
 - Run on AWS or another NVIDIA GPU machine.
 
+![Dataset examples](../../outputs/final_benchmark_assets/plots/dataset_examples.png)
+
 Main files:
 
 | Path | Purpose |

@@ -2,6 +2,12 @@
 
 Task 8 identifies where and why the segmentation models fail in robotic scenes.
 
+## Figures
+
+![Robotic challenge group performance](../../outputs/final_benchmark_assets/plots/challenge_group_weighted_iou.png)
+
+![Representative failure overlay](../../outputs/task8_failure_analysis/figures/04_02_blenderproc_cogar_sim_sam_vit_h_automatic_glass_object_iou_0.000.png)
+
 ## Inputs
 
 The analysis uses existing benchmark artifacts:

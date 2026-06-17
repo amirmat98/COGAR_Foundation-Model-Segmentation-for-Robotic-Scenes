@@ -30,10 +30,14 @@ deliverable is the [recommendation guide](outputs/final_benchmark_assets/recomme
 which summarizes model choices for quality, real-time feasibility, challenge
 robustness, and edge deployment.
 
+![GPU speed-quality trade-off](outputs/final_benchmark_assets/plots/cuda_speed_quality_scatter.png)
+
 ## Datasets
 
 Dataset paths are configured in [configs/datasets.yaml](configs/datasets.yaml).
 Raw datasets are not committed to Git.
+
+![Dataset examples](outputs/final_benchmark_assets/plots/dataset_examples.png)
 
 | Dataset | Default path | Details |
 | --- | --- | --- |

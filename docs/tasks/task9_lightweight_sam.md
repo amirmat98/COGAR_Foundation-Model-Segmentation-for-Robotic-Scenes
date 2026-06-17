@@ -8,6 +8,10 @@ Tasks 4-8.
 
 Status: complete.
 
+## Figure
+
+![Lightweight SAM CUDA speed-quality trade-off](../../outputs/final_benchmark_assets/plots/lightweight_sam_tradeoff_cuda.png)
+
 The evaluated lightweight models are:
 
 | Model | Source | Prompt modes |
