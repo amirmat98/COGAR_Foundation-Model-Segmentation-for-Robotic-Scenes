@@ -11,11 +11,32 @@ OCID is an external dataset. Do not re-host OCID unless its upstream license
 explicitly permits redistribution. Link to the upstream OCID project page
 instead: https://www.acin.tuwien.ac.at/object-clutter-indoor-dataset/
 
+## Published Release
+
+The generated Isaac and BlenderProc datasets are published in one Zenodo
+record:
+
+```text
+https://doi.org/10.5281/zenodo.20736993
+```
+
+Record page:
+
+```text
+https://zenodo.org/records/20736993
+```
+
+All-versions DOI:
+
+```text
+https://doi.org/10.5281/zenodo.20736992
+```
+
 ## Recommended Host
 
-Use Zenodo for the final public release because it provides a citable DOI and
-supports large dataset deposits. Zenodo's current documentation allows up to
-100 files and 50 GB per upload, which is enough for these two archives.
+Zenodo was used for the final public release because it provides a citable DOI
+and supports large dataset deposits. Zenodo's current documentation allows up
+to 100 files and 50 GB per upload, which is enough for these two archives.
 
 Official references:
 
@@ -109,17 +130,16 @@ Use one Zenodo record for both generated datasets.
   the release archives are intended for rendered images, annotations, and
   metadata.
 
-## After Publish
+## Documentation Update
 
-After Zenodo publishes the record:
+The public DOI is recorded in:
 
-1. Copy the public record URL or DOI.
-2. Replace `TODO_PUBLIC_URL` in `configs/datasets.yaml`.
-3. Replace the `TODO_PUBLIC_URL` sections in the Isaac and BlenderProc dataset
-   docs.
-4. Commit the documentation update.
+- `configs/datasets.yaml`
+- `docs/datasets/isaac_official_g1.md`
+- `docs/datasets/blenderproc_cogar_sim_1000.md`
+- `REPORT.md`
 
-Suggested commit message:
+Suggested commit message for this documentation update:
 
 ```text
 record public dataset release links

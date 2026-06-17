@@ -54,6 +54,6 @@ Validation date: 2026-06-13
 
 ## Release URL
 
-Pending public release. Package and upload this dataset using
-[public_release.md](public_release.md), then replace this section with the
-Zenodo record URL or DOI.
+Published in the Zenodo generated-dataset release:
+
+https://doi.org/10.5281/zenodo.20736993

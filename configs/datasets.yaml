@@ -1,11 +1,11 @@
 project:
   name: foundation_model_segmentation_for_robotic_scenes
   student_id: "5884715"
-  active_phase: dataset_preparation_tasks_1_to_3
+  active_phase: completed_with_public_dataset_release
 
 datasets:
   isaac_official_unitree_g1:
-    status: generated_locally
+    status: generated_and_published
     kind: synthetic_simulation
     simulator: isaac_sim
     target_images: 1000
@@ -15,7 +15,7 @@ datasets:
     runbook: Datasets/Isacc_dataset/docs/dataset_v3_official_g1_runbook.md
     repo_default_root: Datasets/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000
     local_root: /mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000
-    public_url: TODO_PUBLIC_URL
+    public_url: https://doi.org/10.5281/zenodo.20736993
     local_size: 3.7G
     local_scan_2026_06_13:
       images: 1000
@@ -30,7 +30,7 @@ datasets:
     gpu_machine_recommended: true
 
   blenderproc_cogar_sim:
-    status: available_locally
+    status: generated_and_published
     kind: synthetic_simulation
     simulator: blenderproc
     target_images: 1000
@@ -39,7 +39,7 @@ datasets:
     normalize_script: scripts/datasets/normalize_blenderproc_cogar_sim.py
     repo_default_root: Datasets/BlenderProc_cogar_sim_1000
     local_root: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000
-    public_url: TODO_PUBLIC_URL
+    public_url: https://doi.org/10.5281/zenodo.20736993
     smoke_test_2026_06_13:
       raw_dataset_name: smoke_5_clean
       images: 5
@@ -104,6 +104,9 @@ datasets:
 
 publishing:
   recommended_option: zenodo_for_final_dataset_release
+  public_record_url: https://zenodo.org/records/20736993
+  version_doi: https://doi.org/10.5281/zenodo.20736993
+  concept_doi: https://doi.org/10.5281/zenodo.20736992
   release_output_dir: /mnt/Info/COGAR_DATASETs/releases
   generated_dataset_release_files:
     isaac_official_unitree_g1:
@@ -119,6 +122,6 @@ publishing:
     - google_drive
     - university_storage
   notes:
-    - Replace TODO_PUBLIC_URL values after upload.
+    - Generated Isaac and BlenderProc datasets are published in the same Zenodo record.
     - Keep raw datasets out of Git.
     - Do not re-host OCID unless the upstream license explicitly permits redistribution.

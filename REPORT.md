@@ -47,15 +47,16 @@ root with 1000 images and 8768 COCO annotations.
 
 ## Public Release
 
-The generated Isaac and BlenderProc datasets are prepared for public release
-through Zenodo. The packaging workflow is documented in
-[docs/datasets/public_release.md](docs/datasets/public_release.md), and it
-creates tar.gz archives, SHA256 checksums, and release manifests outside the
-Git repository.
+The generated Isaac and BlenderProc datasets are publicly released through
+Zenodo:
 
-Public URLs are currently marked as `TODO_PUBLIC_URL` in
-[configs/datasets.yaml](configs/datasets.yaml). After the Zenodo record is
-published, those fields should be replaced with the record URL or DOI.
+https://doi.org/10.5281/zenodo.20736993
+
+The Zenodo record contains the generated dataset archives, SHA256 checksum
+files, and release manifests. The packaging workflow is documented in
+[docs/datasets/public_release.md](docs/datasets/public_release.md), and the
+configured release URLs are recorded in
+[configs/datasets.yaml](configs/datasets.yaml).
 
 OCID is not re-hosted by this project. The configured public source is the
 upstream OCID project page:
