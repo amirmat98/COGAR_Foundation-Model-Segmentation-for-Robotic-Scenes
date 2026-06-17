@@ -1,0 +1,59 @@
+nohup: ignoring input
+[SCAN] dataset_root=/mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000
+[SCAN] files=10003 bytes=3919747096 (3.7GiB)
+[PLAN] archive=/mnt/Info/COGAR_DATASETs/releases/robotic_sdg_v3_official_g1_1000.tar.gz
+[PLAN] checksum=/mnt/Info/COGAR_DATASETs/releases/robotic_sdg_v3_official_g1_1000.tar.gz.sha256
+[PLAN] manifest=/mnt/Info/COGAR_DATASETs/releases/robotic_sdg_v3_official_g1_1000_release_manifest.json
+[PROGRESS] 1/10003 files, 107.8MiB/3.7GiB, elapsed=5.0s
+[PROGRESS] 500/10003 files, 109.3MiB/3.7GiB, elapsed=5.5s
+[PROGRESS] 1000/10003 files, 110.9MiB/3.7GiB, elapsed=6.0s
+[PROGRESS] 1500/10003 files, 111.1MiB/3.7GiB, elapsed=6.3s
+[PROGRESS] 2000/10003 files, 111.3MiB/3.7GiB, elapsed=6.7s
+[PROGRESS] 2500/10003 files, 114.3MiB/3.7GiB, elapsed=7.2s
+[PROGRESS] 3000/10003 files, 117.4MiB/3.7GiB, elapsed=7.6s
+[PROGRESS] 3105/10003 files, 429.4MiB/3.7GiB, elapsed=27.8s
+[PROGRESS] 3201/10003 files, 717.4MiB/3.7GiB, elapsed=47.9s
+[PROGRESS] 3295/10003 files, 999.4MiB/3.7GiB, elapsed=67.9s
+[PROGRESS] 3398/10003 files, 1.3GiB/3.7GiB, elapsed=88.0s
+[PROGRESS] 3488/10003 files, 1.5GiB/3.7GiB, elapsed=108.2s
+[PROGRESS] 3500/10003 files, 1.6GiB/3.7GiB, elapsed=110.9s
+[PROGRESS] 3594/10003 files, 1.9GiB/3.7GiB, elapsed=131.1s
+[PROGRESS] 3683/10003 files, 2.1GiB/3.7GiB, elapsed=151.3s
+[PROGRESS] 3778/10003 files, 2.4GiB/3.7GiB, elapsed=171.3s
+[PROGRESS] 3878/10003 files, 2.7GiB/3.7GiB, elapsed=191.5s
+[PROGRESS] 3978/10003 files, 3.0GiB/3.7GiB, elapsed=211.6s
+[PROGRESS] 4000/10003 files, 3.0GiB/3.7GiB, elapsed=216.2s
+[PROGRESS] 4500/10003 files, 3.1GiB/3.7GiB, elapsed=218.0s
+[PROGRESS] 5000/10003 files, 3.1GiB/3.7GiB, elapsed=220.2s
+[PROGRESS] 5500/10003 files, 3.1GiB/3.7GiB, elapsed=220.7s
+[PROGRESS] 6000/10003 files, 3.1GiB/3.7GiB, elapsed=221.2s
+[PROGRESS] 6500/10003 files, 3.1GiB/3.7GiB, elapsed=221.6s
+[PROGRESS] 7000/10003 files, 3.1GiB/3.7GiB, elapsed=222.1s
+[PROGRESS] 7500/10003 files, 3.3GiB/3.7GiB, elapsed=234.3s
+[PROGRESS] 8000/10003 files, 3.6GiB/3.7GiB, elapsed=247.0s
+[PROGRESS] 8500/10003 files, 3.6GiB/3.7GiB, elapsed=248.3s
+[PROGRESS] 9000/10003 files, 3.6GiB/3.7GiB, elapsed=249.4s
+[PROGRESS] 9500/10003 files, 3.6GiB/3.7GiB, elapsed=249.9s
+[PROGRESS] 10000/10003 files, 3.6GiB/3.7GiB, elapsed=250.4s
+[PROGRESS] 10003/10003 files, 3.7GiB/3.7GiB, elapsed=250.8s
+[SHA256] start /mnt/Info/COGAR_DATASETs/releases/robotic_sdg_v3_official_g1_1000.tar.gz
+[SHA256] done 2.9GiB
+[OK] archive: /mnt/Info/COGAR_DATASETs/releases/robotic_sdg_v3_official_g1_1000.tar.gz (2.9GiB)
+[OK] sha256: /mnt/Info/COGAR_DATASETs/releases/robotic_sdg_v3_official_g1_1000.tar.gz.sha256
+[OK] manifest: /mnt/Info/COGAR_DATASETs/releases/robotic_sdg_v3_official_g1_1000_release_manifest.json
+[SCAN] dataset_root=/mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000
+[SCAN] files=2010 bytes=519326522 (495.3MiB)
+[PLAN] archive=/mnt/Info/COGAR_DATASETs/releases/BlenderProc_cogar_sim_1000.tar.gz
+[PLAN] checksum=/mnt/Info/COGAR_DATASETs/releases/BlenderProc_cogar_sim_1000.tar.gz.sha256
+[PLAN] manifest=/mnt/Info/COGAR_DATASETs/releases/BlenderProc_cogar_sim_1000_release_manifest.json
+[PROGRESS] 1/2010 files, 49.2MiB/495.3MiB, elapsed=1.0s
+[PROGRESS] 500/2010 files, 172.0MiB/495.3MiB, elapsed=8.6s
+[PROGRESS] 1000/2010 files, 279.3MiB/495.3MiB, elapsed=15.5s
+[PROGRESS] 1500/2010 files, 386.8MiB/495.3MiB, elapsed=22.5s
+[PROGRESS] 2000/2010 files, 494.1MiB/495.3MiB, elapsed=29.7s
+[PROGRESS] 2010/2010 files, 495.3MiB/495.3MiB, elapsed=29.8s
+[SHA256] start /mnt/Info/COGAR_DATASETs/releases/BlenderProc_cogar_sim_1000.tar.gz
+[SHA256] done 389.6MiB
+[OK] archive: /mnt/Info/COGAR_DATASETs/releases/BlenderProc_cogar_sim_1000.tar.gz (389.6MiB)
+[OK] sha256: /mnt/Info/COGAR_DATASETs/releases/BlenderProc_cogar_sim_1000.tar.gz.sha256
+[OK] manifest: /mnt/Info/COGAR_DATASETs/releases/BlenderProc_cogar_sim_1000_release_manifest.json

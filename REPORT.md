@@ -45,13 +45,19 @@ root with 1000 images and 8768 COCO annotations.
 
 ## Public Release
 
-The generated Isaac and BlenderProc datasets need public release URLs before
-final submission. The preferred release route is Zenodo because it provides a
-citable DOI. Hugging Face Datasets is also suitable for ML users. Google Drive
-is acceptable for private/supervisor sharing but is weaker for citation.
+The generated Isaac and BlenderProc datasets are prepared for public release
+through Zenodo. The packaging workflow is documented in
+[docs/datasets/public_release.md](docs/datasets/public_release.md), and it
+creates tar.gz archives, SHA256 checksums, and release manifests outside the
+Git repository.
 
 Public URLs are currently marked as `TODO_PUBLIC_URL` in
-[configs/datasets.yaml](configs/datasets.yaml).
+[configs/datasets.yaml](configs/datasets.yaml). After the Zenodo record is
+published, those fields should be replaced with the record URL or DOI.
+
+OCID is not re-hosted by this project. The configured public source is the
+upstream OCID project page:
+https://www.acin.tuwien.ac.at/object-clutter-indoor-dataset/
 
 ## Benchmark Artifact Summary
 

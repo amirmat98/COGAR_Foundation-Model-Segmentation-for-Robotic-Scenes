@@ -60,4 +60,6 @@ Validation date: 2026-06-13
 
 ## Release URL
 
-`TODO_PUBLIC_URL`
+Pending public release. Package and upload this dataset using
+[public_release.md](public_release.md), then replace this section with the
+Zenodo record URL or DOI.

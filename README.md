@@ -43,6 +43,10 @@ Raw datasets are not committed to Git.
 
 Users may place datasets elsewhere and edit [configs/datasets.yaml](configs/datasets.yaml).
 
+Generated dataset archives for public sharing are prepared with
+[docs/datasets/public_release.md](docs/datasets/public_release.md). OCID is an
+external dataset and should be obtained from its upstream source.
+
 ## Local Python
 
 ```text

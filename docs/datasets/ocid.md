@@ -42,10 +42,17 @@ Current local scan:
 
 ## Source
 
-Download OCID from the public distribution associated with:
+Download OCID from the upstream project distribution:
+
+https://www.acin.tuwien.ac.at/object-clutter-indoor-dataset/
+
+Associated paper:
 
 Markus Suchi, Timothy Patten, David Fischinger, Markus Vincze, "EasyLabel: A
 Semi-Automatic Pixel-wise Object Annotation Tool for Creating Robotic RGB-D
 Datasets", arXiv:1902.01626.
 
 https://arxiv.org/abs/1902.01626
+
+OCID is external to this project. The project documentation should link to the
+upstream source instead of re-hosting the dataset.

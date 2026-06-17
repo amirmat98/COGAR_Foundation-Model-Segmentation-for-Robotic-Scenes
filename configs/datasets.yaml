@@ -84,7 +84,7 @@ datasets:
     kind: real_world_rgbd
     repo_default_root: Datasets/OCID
     local_root: /mnt/Info/COGAR_DATASETs/OCID-dataset
-    public_url: TODO_UPSTREAM_OCID_PUBLIC_LINK
+    public_url: https://www.acin.tuwien.ac.at/object-clutter-indoor-dataset/
     expected_top_level_dirs:
       - ARID10
       - ARID20
@@ -104,6 +104,16 @@ datasets:
 
 publishing:
   recommended_option: zenodo_for_final_dataset_release
+  release_output_dir: /mnt/Info/COGAR_DATASETs/releases
+  generated_dataset_release_files:
+    isaac_official_unitree_g1:
+      archive: robotic_sdg_v3_official_g1_1000.tar.gz
+      checksum: robotic_sdg_v3_official_g1_1000.tar.gz.sha256
+      manifest: robotic_sdg_v3_official_g1_1000_release_manifest.json
+    blenderproc_cogar_sim:
+      archive: BlenderProc_cogar_sim_1000.tar.gz
+      checksum: BlenderProc_cogar_sim_1000.tar.gz.sha256
+      manifest: BlenderProc_cogar_sim_1000_release_manifest.json
   alternatives:
     - hugging_face_datasets
     - google_drive
@@ -111,3 +121,4 @@ publishing:
   notes:
     - Replace TODO_PUBLIC_URL values after upload.
     - Keep raw datasets out of Git.
+    - Do not re-host OCID unless the upstream license explicitly permits redistribution.
