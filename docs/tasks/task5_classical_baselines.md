@@ -112,6 +112,12 @@ Mask R-CNN is trained with TorchVision's `maskrcnn_resnet50_fpn` implementation
 initialized from COCO weights. It uses the COCO train/validation subset files
 prepared in Task 5A.
 
+This covers the requested Mask R-CNN baseline family while keeping the training
+pipeline in the same PyTorch/TorchVision environment used by the rest of the
+project. Detectron2 was not required for the final baseline because it would
+provide another implementation of the same Mask R-CNN model family rather than
+a distinct baseline category.
+
 Training outputs are written under:
 
 ```text

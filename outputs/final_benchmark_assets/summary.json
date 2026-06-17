@@ -1,0 +1,24 @@
+{
+  "plots": {
+    "Zero-shot mIoU heatmap": "outputs/final_benchmark_assets/plots/zero_shot_miou_heatmap.png",
+    "Baseline mIoU bars": "outputs/final_benchmark_assets/plots/baseline_miou_bars.png",
+    "CUDA speed-quality scatter": "outputs/final_benchmark_assets/plots/cuda_speed_quality_scatter.png",
+    "Lightweight SAM trade-off": "outputs/final_benchmark_assets/plots/lightweight_sam_tradeoff_cuda.png",
+    "Challenge group summary": "outputs/final_benchmark_assets/plots/challenge_group_weighted_iou.png",
+    "Zero-shot winners": "outputs/final_benchmark_assets/plots/zero_shot_dataset_prompt_winners.png"
+  },
+  "tables": {
+    "best_cuda_quality_by_dataset": "outputs/final_benchmark_assets/tables/best_cuda_quality_by_dataset.csv",
+    "best_cuda_tradeoff_by_dataset": "outputs/final_benchmark_assets/tables/best_cuda_tradeoff_by_dataset.csv",
+    "best_lightweight_cuda_tradeoff": "outputs/final_benchmark_assets/tables/best_lightweight_cuda_tradeoff.csv",
+    "best_zero_shot_by_dataset_prompt": "outputs/final_benchmark_assets/tables/best_zero_shot_by_dataset_prompt.csv"
+  },
+  "recommendation_guide": "outputs/final_benchmark_assets/recommendation_guide.md",
+  "source_rows": {
+    "zero_shot_heavy": 36,
+    "zero_shot_lightweight": 27,
+    "baselines": 9,
+    "speed_quality_tradeoff": 144,
+    "challenge_groups": 151
+  }
+}

@@ -63,6 +63,21 @@ Public URLs are currently marked as `TODO_PUBLIC_URL` in
 | Inference speed | `outputs/task7_inference_speed/summary.csv` contains 90 GPU/CPU timing rows. |
 | Failure analysis | `outputs/task8_failure_analysis/summary.json` records 10 representative failure visualizations and 151 challenge-group rows. |
 | Lightweight SAM | `outputs/task9_lightweight_sam/summary/summary.json` records 72 quality rows, 144 speed-quality trade-off rows, and 36 recommendation rows. |
+| Final recommendation guide | `outputs/final_benchmark_assets/recommendation_guide.md` summarizes model choices and links six aggregate plots. |
+
+## Final Recommendations
+
+The final recommendation guide is stored at
+`outputs/final_benchmark_assets/recommendation_guide.md`.
+
+The generated aggregate plots are:
+
+- `outputs/final_benchmark_assets/plots/zero_shot_miou_heatmap.png`
+- `outputs/final_benchmark_assets/plots/baseline_miou_bars.png`
+- `outputs/final_benchmark_assets/plots/cuda_speed_quality_scatter.png`
+- `outputs/final_benchmark_assets/plots/lightweight_sam_tradeoff_cuda.png`
+- `outputs/final_benchmark_assets/plots/challenge_group_weighted_iou.png`
+- `outputs/final_benchmark_assets/plots/zero_shot_dataset_prompt_winners.png`
 
 ## Task Reports
 

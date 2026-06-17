@@ -11,6 +11,7 @@ segmentation benchmark.
 ## Reports
 
 - [Main report](REPORT.md)
+- [Final recommendation guide](outputs/final_benchmark_assets/recommendation_guide.md)
 - [Task 1: Dataset creation and curation](docs/tasks/task1_dataset_creation.md)
 - [Task 2: Simulation environment](docs/tasks/task2_simulation_environment.md)
 - [Task 3: Robotic platform](docs/tasks/task3_robotic_platform.md)
@@ -20,6 +21,14 @@ segmentation benchmark.
 - [Task 7: Inference speed](docs/tasks/task7_inference_speed.md)
 - [Task 8: Failure mode analysis](docs/tasks/task8_failure_analysis.md)
 - [Task 9: Lightweight SAM edge-deployment trade-off](docs/tasks/task9_lightweight_sam.md)
+
+## Final Benchmark Assets
+
+Aggregate tables and plots are stored under
+[outputs/final_benchmark_assets](outputs/final_benchmark_assets). The main
+deliverable is the [recommendation guide](outputs/final_benchmark_assets/recommendation_guide.md),
+which summarizes model choices for quality, real-time feasibility, challenge
+robustness, and edge deployment.
 
 ## Datasets
 
