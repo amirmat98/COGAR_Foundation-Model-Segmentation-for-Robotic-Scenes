@@ -1,0 +1,67 @@
+{
+  "dataset": "blenderproc_cogar_sim",
+  "model": "efficient_sam_ti",
+  "prompt_mode": "point",
+  "status": "ok",
+  "records": 8768,
+  "prediction_file": "results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_ti/point_predictions.jsonl",
+  "annotation_file": "/mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/annotations/instances_all.json",
+  "evaluation_type": "prompted_instance",
+  "instance_metrics": {
+    "instances": 8768,
+    "mIoU": 0.7576928273501166,
+    "boundary_f1": 0.7463162903604211,
+    "per_category_iou": {
+      "box": 0.8189467847847012,
+      "cable": 0.7119806463808853,
+      "connector": 0.8450140382562081,
+      "glass_object": 0.6406135694299958,
+      "metal_part": 0.8137170271959935,
+      "plastic_object": 0.8422619772201227,
+      "robot_gripper": 0.6667916335849075,
+      "screw": 0.7845498562849834,
+      "table": 0.7459548809303056,
+      "tool": 0.7703790063917103
+    },
+    "per_category_boundary_f1": {
+      "box": 0.8019160747378731,
+      "cable": 0.763725883260315,
+      "connector": 0.8791484519428862,
+      "glass_object": 0.5795903227966288,
+      "metal_part": 0.818487170804352,
+      "plastic_object": 0.8570362059763901,
+      "robot_gripper": 0.6912152776059254,
+      "screw": 0.8752987207812768,
+      "table": 0.6139554871526944,
+      "tool": 0.779155128637439
+    },
+    "per_category_count": {
+      "box": 576,
+      "cable": 408,
+      "connector": 786,
+      "glass_object": 634,
+      "metal_part": 869,
+      "plastic_object": 995,
+      "robot_gripper": 1633,
+      "screw": 674,
+      "table": 1693,
+      "tool": 500
+    }
+  },
+  "mask_AP": {
+    "AP": 0.5826088902315941,
+    "AP50": 0.8175124225513029,
+    "AP75": 0.5873919325716119,
+    "AP_small": 0.49843613969907946,
+    "AP_medium": 0.6003206582340413,
+    "AP_large": 0.5592582028197134,
+    "AR1": 0.39776061203414115,
+    "AR10": 0.658691922732736,
+    "AR100": 0.658691922732736,
+    "AR_small": 0.565372527376269,
+    "AR_medium": 0.678423811177977,
+    "AR_large": 0.6899876730865234
+  },
+  "elapsed_s": 38.23589640700084,
+  "metrics_file": "outputs/task9_lightweight_sam/evaluation/zero_shot/blenderproc_cogar_sim/efficient_sam_ti/point_metrics.json"
+}

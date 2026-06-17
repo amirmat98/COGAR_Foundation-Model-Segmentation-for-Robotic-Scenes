@@ -1,0 +1,41 @@
+{
+  "dataset": "ocid",
+  "model": "mobile_sam_vit_t",
+  "prompt_mode": "automatic",
+  "status": "ok",
+  "records": 2390,
+  "prediction_file": "results/task9_lightweight_sam/ocid/mobile_sam_vit_t/automatic_predictions.jsonl",
+  "annotation_file": "/mnt/Info/COGAR_DATASETs/OCID-dataset/annotations/instances_all.json",
+  "evaluation_type": "automatic_class_agnostic_proposal",
+  "instance_metrics": {
+    "instances": 21487,
+    "mIoU": 0.8104633763931351,
+    "boundary_f1": 0.7310294123275562,
+    "per_category_iou": {
+      "object": 0.8104633763931351
+    },
+    "per_category_boundary_f1": {
+      "object": 0.7310294123275562
+    },
+    "per_category_count": {
+      "object": 21487
+    }
+  },
+  "mask_AP": {
+    "AP": 0.3761732058316651,
+    "AP50": 0.5327220661862131,
+    "AP75": 0.45264224819394433,
+    "AP_small": 0.2556667363785572,
+    "AP_medium": 0.41004245025789055,
+    "AP_large": 0.41864558820107795,
+    "AR1": 0.07015870060967097,
+    "AR10": 0.40737189928794154,
+    "AR100": 0.6931865779308418,
+    "AR_small": 0.6189703413542249,
+    "AR_medium": 0.7355006602967451,
+    "AR_large": 0.6328891492165764
+  },
+  "mask_AP_note": "class_agnostic_AP_all_categories_mapped_to_object",
+  "elapsed_s": 110.11968694100506,
+  "metrics_file": "outputs/task9_lightweight_sam/evaluation/zero_shot/ocid/mobile_sam_vit_t/automatic_metrics.json"
+}

@@ -1,0 +1,37 @@
+{
+  "dataset": "blenderproc_cogar_sim",
+  "model": "mobile_sam_vit_t",
+  "model_family": "zero_shot",
+  "prompt_mode": "automatic",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 1,
+  "selected_images_including_warmup": 4,
+  "requested_timed_images": 1,
+  "timing": {
+    "timed_units": 1,
+    "total_timed_s": 159.0546482619975,
+    "fps": 0.006287147285081434,
+    "latency_mean_ms": 159054.6482619975,
+    "latency_median_ms": 159054.6482619975,
+    "latency_p95_ms": 159054.6482619975,
+    "latency_min_ms": 159054.6482619975,
+    "latency_max_ms": 159054.6482619975,
+    "warmup_units": 3,
+    "output_count_mean": 36.0,
+    "output_count_min": 36,
+    "output_count_max": 36
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 629.4167485989892,
+  "metrics_file": "outputs/task9_lightweight_sam/inference_speed/cpu/blenderproc_cogar_sim/mobile_sam_vit_t/automatic_speed.json"
+}

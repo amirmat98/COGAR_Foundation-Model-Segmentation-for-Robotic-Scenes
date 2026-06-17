@@ -1,0 +1,39 @@
+{
+  "dataset": "isaac_official_unitree_g1",
+  "model": "mobile_sam_vit_t",
+  "model_family": "zero_shot",
+  "prompt_mode": "automatic",
+  "device": "cuda",
+  "status": "ok",
+  "sample_images": 20,
+  "selected_images_including_warmup": 23,
+  "requested_timed_images": 20,
+  "timing": {
+    "timed_units": 20,
+    "total_timed_s": 91.9821116339881,
+    "fps": 0.2174335818640833,
+    "latency_mean_ms": 4599.105581699405,
+    "latency_median_ms": 4579.202576496755,
+    "latency_p95_ms": 4927.297878406534,
+    "latency_min_ms": 4334.4015539914835,
+    "latency_max_ms": 5054.603851996944,
+    "warmup_units": 3,
+    "output_count_mean": 58.35,
+    "output_count_min": 45,
+    "output_count_max": 87
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true,
+    "cuda_device": "Tesla T4",
+    "cuda_total_memory_gb": 15.64
+  },
+  "elapsed_wall_s": 106.49966228299309,
+  "metrics_file": "outputs/task9_lightweight_sam/inference_speed/cuda/isaac_official_unitree_g1/mobile_sam_vit_t/automatic_speed.json"
+}

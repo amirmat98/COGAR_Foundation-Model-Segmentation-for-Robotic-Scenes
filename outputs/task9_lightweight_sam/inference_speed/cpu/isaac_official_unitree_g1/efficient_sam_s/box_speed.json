@@ -1,0 +1,37 @@
+{
+  "dataset": "isaac_official_unitree_g1",
+  "model": "efficient_sam_s",
+  "model_family": "zero_shot",
+  "prompt_mode": "box",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 10,
+  "selected_images_including_warmup": 13,
+  "requested_timed_images": 10,
+  "timing": {
+    "timed_units": 10,
+    "total_timed_s": 104.59632808201422,
+    "fps": 0.09560565063200858,
+    "latency_mean_ms": 10459.632808201422,
+    "latency_median_ms": 10469.767390510242,
+    "latency_p95_ms": 10503.203622751607,
+    "latency_min_ms": 10354.91804398771,
+    "latency_max_ms": 10507.26190500427,
+    "warmup_units": 3,
+    "output_count_mean": 3.0,
+    "output_count_min": 3,
+    "output_count_max": 3
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 136.6010061880079,
+  "metrics_file": "outputs/task9_lightweight_sam/inference_speed/cpu/isaac_official_unitree_g1/efficient_sam_s/box_speed.json"
+}

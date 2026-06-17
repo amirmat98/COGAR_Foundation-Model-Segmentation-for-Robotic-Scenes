@@ -1,0 +1,40 @@
+{
+  "dataset": "ocid",
+  "model": "efficient_sam_s",
+  "prompt_mode": "point",
+  "status": "ok",
+  "records": 21487,
+  "prediction_file": "results/task9_lightweight_sam/ocid/efficient_sam_s/point_predictions.jsonl",
+  "annotation_file": "/mnt/Info/COGAR_DATASETs/OCID-dataset/annotations/instances_all.json",
+  "evaluation_type": "prompted_instance",
+  "instance_metrics": {
+    "instances": 21487,
+    "mIoU": 0.6396902716624208,
+    "boundary_f1": 0.5936247679781099,
+    "per_category_iou": {
+      "object": 0.6396902716624208
+    },
+    "per_category_boundary_f1": {
+      "object": 0.5936247679781099
+    },
+    "per_category_count": {
+      "object": 21487
+    }
+  },
+  "mask_AP": {
+    "AP": 0.38424408484862593,
+    "AP50": 0.6021779085664937,
+    "AP75": 0.4530775296826351,
+    "AP_small": 0.4567341255174782,
+    "AP_medium": 0.4429885557758087,
+    "AP_large": 0.2773895149940864,
+    "AR1": 0.07412854283985666,
+    "AR10": 0.43888397635779774,
+    "AR100": 0.5221855075161725,
+    "AR_small": 0.5813654168998321,
+    "AR_medium": 0.5825992387166938,
+    "AR_large": 0.3929125787084493
+  },
+  "elapsed_s": 92.46662691200618,
+  "metrics_file": "outputs/task9_lightweight_sam/evaluation/zero_shot/ocid/efficient_sam_s/point_metrics.json"
+}

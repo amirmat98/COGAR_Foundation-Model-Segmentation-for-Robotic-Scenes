@@ -1,0 +1,1061 @@
+nohup: ignoring input
+===== TASK 9 DATASET START: blenderproc_cogar_sim =====
+[BATCH START] dataset=blenderproc_cogar_sim records=8768 images=1000 models=['mobile_sam_vit_t', 'efficient_sam_ti', 'efficient_sam_s'] prompt_modes=['point', 'box', 'automatic']
+[RUN] blenderproc_cogar_sim/mobile_sam_vit_t/point: expected_rows=8768
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset blenderproc_cogar_sim --model mobile_sam_vit_t --prompt-mode point --log-every 250
+[START] dataset=blenderproc_cogar_sim model=mobile_sam_vit_t prompt_mode=point device=cuda records=8768 run_units=8768 output=results/task9_lightweight_sam/blenderproc_cogar_sim/mobile_sam_vit_t/point_predictions.jsonl
+[LOAD] mobile_sam_vit_t: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_5m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_5m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_11m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_11m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_384 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_384. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_512 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_512. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/build_sam.py:91: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] mobile_sam_vit_t: ready in 4.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 1/8768 records, last=493.6ms, elapsed=0.5s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 250/8768 records, last=8.5ms, elapsed=6.0s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 500/8768 records, last=8.8ms, elapsed=11.5s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 750/8768 records, last=67.6ms, elapsed=17.1s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 1000/8768 records, last=8.6ms, elapsed=22.7s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 1250/8768 records, last=8.6ms, elapsed=28.5s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 1500/8768 records, last=8.5ms, elapsed=34.0s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 1750/8768 records, last=8.1ms, elapsed=39.4s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 2000/8768 records, last=8.4ms, elapsed=44.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 2250/8768 records, last=8.5ms, elapsed=50.6s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 2500/8768 records, last=65.7ms, elapsed=56.2s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 2750/8768 records, last=8.3ms, elapsed=61.6s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 3000/8768 records, last=8.0ms, elapsed=67.1s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 3250/8768 records, last=8.3ms, elapsed=72.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 3500/8768 records, last=8.3ms, elapsed=78.5s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 3750/8768 records, last=66.1ms, elapsed=84.0s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 4000/8768 records, last=8.4ms, elapsed=89.4s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 4250/8768 records, last=8.8ms, elapsed=94.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 4500/8768 records, last=8.2ms, elapsed=100.3s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 4750/8768 records, last=8.3ms, elapsed=106.0s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 5000/8768 records, last=66.3ms, elapsed=111.8s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 5250/8768 records, last=8.8ms, elapsed=117.3s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 5500/8768 records, last=8.6ms, elapsed=122.7s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 5750/8768 records, last=8.7ms, elapsed=128.4s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 6000/8768 records, last=8.7ms, elapsed=133.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 6250/8768 records, last=8.6ms, elapsed=139.4s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 6500/8768 records, last=8.8ms, elapsed=144.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 6750/8768 records, last=8.5ms, elapsed=150.5s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 7000/8768 records, last=8.5ms, elapsed=155.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 7250/8768 records, last=8.6ms, elapsed=161.3s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 7500/8768 records, last=8.8ms, elapsed=167.0s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 7750/8768 records, last=8.1ms, elapsed=172.4s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 8000/8768 records, last=8.5ms, elapsed=178.1s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 8250/8768 records, last=8.3ms, elapsed=183.6s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 8500/8768 records, last=8.7ms, elapsed=189.1s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 8750/8768 records, last=8.4ms, elapsed=194.5s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t point: 8768/8768 records, last=8.2ms, elapsed=194.8s
+[WRITE] wrote 8768 records to results/task9_lightweight_sam/blenderproc_cogar_sim/mobile_sam_vit_t/point_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/blenderproc_cogar_sim/mobile_sam_vit_t/point_predictions.jsonl
+[OK] blenderproc_cogar_sim/mobile_sam_vit_t/point: 8768 rows
+[RUN] blenderproc_cogar_sim/mobile_sam_vit_t/box: expected_rows=8768
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset blenderproc_cogar_sim --model mobile_sam_vit_t --prompt-mode box --log-every 250
+[START] dataset=blenderproc_cogar_sim model=mobile_sam_vit_t prompt_mode=box device=cuda records=8768 run_units=8768 output=results/task9_lightweight_sam/blenderproc_cogar_sim/mobile_sam_vit_t/box_predictions.jsonl
+[LOAD] mobile_sam_vit_t: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_5m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_5m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_11m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_11m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_384 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_384. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_512 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_512. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/build_sam.py:91: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] mobile_sam_vit_t: ready in 4.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 1/8768 records, last=385.5ms, elapsed=0.4s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 250/8768 records, last=8.2ms, elapsed=5.7s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 500/8768 records, last=7.6ms, elapsed=11.0s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 750/8768 records, last=65.9ms, elapsed=16.5s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 1000/8768 records, last=7.8ms, elapsed=21.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 1250/8768 records, last=7.7ms, elapsed=27.6s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 1500/8768 records, last=7.8ms, elapsed=32.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 1750/8768 records, last=7.6ms, elapsed=38.2s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 2000/8768 records, last=7.9ms, elapsed=43.5s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 2250/8768 records, last=8.3ms, elapsed=49.0s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 2500/8768 records, last=65.5ms, elapsed=54.4s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 2750/8768 records, last=7.6ms, elapsed=59.7s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 3000/8768 records, last=7.8ms, elapsed=64.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 3250/8768 records, last=7.6ms, elapsed=70.5s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 3500/8768 records, last=7.7ms, elapsed=75.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 3750/8768 records, last=65.4ms, elapsed=81.2s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 4000/8768 records, last=7.7ms, elapsed=86.3s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 4250/8768 records, last=7.7ms, elapsed=91.6s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 4500/8768 records, last=7.8ms, elapsed=96.8s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 4750/8768 records, last=7.7ms, elapsed=102.3s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 5000/8768 records, last=66.2ms, elapsed=107.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 5250/8768 records, last=7.7ms, elapsed=113.1s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 5500/8768 records, last=7.7ms, elapsed=118.4s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 5750/8768 records, last=8.2ms, elapsed=123.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 6000/8768 records, last=8.1ms, elapsed=129.2s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 6250/8768 records, last=8.0ms, elapsed=134.6s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 6500/8768 records, last=8.0ms, elapsed=139.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 6750/8768 records, last=7.8ms, elapsed=145.4s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 7000/8768 records, last=7.9ms, elapsed=150.7s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 7250/8768 records, last=7.9ms, elapsed=156.0s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 7500/8768 records, last=8.1ms, elapsed=161.5s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 7750/8768 records, last=8.1ms, elapsed=166.8s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 8000/8768 records, last=7.7ms, elapsed=172.3s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 8250/8768 records, last=7.9ms, elapsed=177.6s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 8500/8768 records, last=7.8ms, elapsed=182.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 8750/8768 records, last=7.6ms, elapsed=188.0s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t box: 8768/8768 records, last=7.7ms, elapsed=188.4s
+[WRITE] wrote 8768 records to results/task9_lightweight_sam/blenderproc_cogar_sim/mobile_sam_vit_t/box_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/blenderproc_cogar_sim/mobile_sam_vit_t/box_predictions.jsonl
+[OK] blenderproc_cogar_sim/mobile_sam_vit_t/box: 8768 rows
+[RUN] blenderproc_cogar_sim/mobile_sam_vit_t/automatic: expected_rows=1000
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset blenderproc_cogar_sim --model mobile_sam_vit_t --prompt-mode automatic --log-every 250
+[START] dataset=blenderproc_cogar_sim model=mobile_sam_vit_t prompt_mode=automatic device=cuda records=8768 run_units=1000 output=results/task9_lightweight_sam/blenderproc_cogar_sim/mobile_sam_vit_t/automatic_predictions.jsonl
+[LOAD] mobile_sam_vit_t: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_5m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_5m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_11m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_11m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_384 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_384. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_512 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_512. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/build_sam.py:91: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] mobile_sam_vit_t: ready in 4.9s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t automatic: 1/1000 images, last=5485.3ms, elapsed=5.5s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t automatic: 250/1000 images, last=5391.3ms, elapsed=1237.1s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t automatic: 500/1000 images, last=4558.7ms, elapsed=2467.8s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t automatic: 750/1000 images, last=4817.7ms, elapsed=3701.6s
+[PROGRESS] blenderproc_cogar_sim mobile_sam_vit_t automatic: 1000/1000 images, last=4677.6ms, elapsed=4933.0s
+[WRITE] wrote 1000 records to results/task9_lightweight_sam/blenderproc_cogar_sim/mobile_sam_vit_t/automatic_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/blenderproc_cogar_sim/mobile_sam_vit_t/automatic_predictions.jsonl
+[OK] blenderproc_cogar_sim/mobile_sam_vit_t/automatic: 1000 rows
+[RUN] blenderproc_cogar_sim/efficient_sam_ti/point: expected_rows=8768
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset blenderproc_cogar_sim --model efficient_sam_ti --prompt-mode point --log-every 250
+[START] dataset=blenderproc_cogar_sim model=efficient_sam_ti prompt_mode=point device=cuda records=8768 run_units=8768 output=results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_ti/point_predictions.jsonl
+[LOAD] efficient_sam_ti: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/efficient_sam/efficient_sam.py:303: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f, map_location="cpu")
+[LOAD] efficient_sam_ti: ready in 3.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 1/8768 records, last=490.2ms, elapsed=0.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 250/8768 records, last=8.2ms, elapsed=7.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 500/8768 records, last=8.3ms, elapsed=13.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 750/8768 records, last=110.6ms, elapsed=20.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 1000/8768 records, last=8.1ms, elapsed=27.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 1250/8768 records, last=8.1ms, elapsed=34.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 1500/8768 records, last=8.1ms, elapsed=41.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 1750/8768 records, last=8.3ms, elapsed=48.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 2000/8768 records, last=8.4ms, elapsed=54.9s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 2250/8768 records, last=8.9ms, elapsed=61.9s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 2500/8768 records, last=110.0ms, elapsed=68.7s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 2750/8768 records, last=8.3ms, elapsed=75.3s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 3000/8768 records, last=8.3ms, elapsed=81.9s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 3250/8768 records, last=8.4ms, elapsed=89.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 3500/8768 records, last=8.4ms, elapsed=96.0s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 3750/8768 records, last=109.2ms, elapsed=102.7s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 4000/8768 records, last=8.2ms, elapsed=109.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 4250/8768 records, last=8.0ms, elapsed=115.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 4500/8768 records, last=8.3ms, elapsed=122.3s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 4750/8768 records, last=8.2ms, elapsed=129.3s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 5000/8768 records, last=111.2ms, elapsed=136.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 5250/8768 records, last=8.1ms, elapsed=143.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 5500/8768 records, last=8.2ms, elapsed=149.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 5750/8768 records, last=9.2ms, elapsed=156.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 6000/8768 records, last=9.5ms, elapsed=163.3s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 6250/8768 records, last=8.2ms, elapsed=170.0s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 6500/8768 records, last=8.9ms, elapsed=176.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 6750/8768 records, last=8.5ms, elapsed=183.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 7000/8768 records, last=8.2ms, elapsed=190.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 7250/8768 records, last=8.2ms, elapsed=196.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 7500/8768 records, last=8.4ms, elapsed=203.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 7750/8768 records, last=7.9ms, elapsed=210.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 8000/8768 records, last=8.4ms, elapsed=217.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 8250/8768 records, last=8.1ms, elapsed=223.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 8500/8768 records, last=8.1ms, elapsed=230.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 8750/8768 records, last=8.2ms, elapsed=237.0s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti point: 8768/8768 records, last=8.2ms, elapsed=237.3s
+[WRITE] wrote 8768 records to results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_ti/point_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_ti/point_predictions.jsonl
+[OK] blenderproc_cogar_sim/efficient_sam_ti/point: 8768 rows
+[RUN] blenderproc_cogar_sim/efficient_sam_ti/box: expected_rows=8768
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset blenderproc_cogar_sim --model efficient_sam_ti --prompt-mode box --log-every 250
+[START] dataset=blenderproc_cogar_sim model=efficient_sam_ti prompt_mode=box device=cuda records=8768 run_units=8768 output=results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_ti/box_predictions.jsonl
+[LOAD] efficient_sam_ti: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/efficient_sam/efficient_sam.py:303: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f, map_location="cpu")
+[LOAD] efficient_sam_ti: ready in 3.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 1/8768 records, last=486.1ms, elapsed=0.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 250/8768 records, last=8.2ms, elapsed=7.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 500/8768 records, last=8.0ms, elapsed=13.7s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 750/8768 records, last=110.8ms, elapsed=20.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 1000/8768 records, last=7.9ms, elapsed=27.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 1250/8768 records, last=8.2ms, elapsed=34.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 1500/8768 records, last=8.1ms, elapsed=41.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 1750/8768 records, last=8.0ms, elapsed=47.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 2000/8768 records, last=8.0ms, elapsed=54.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 2250/8768 records, last=9.0ms, elapsed=61.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 2500/8768 records, last=111.1ms, elapsed=68.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 2750/8768 records, last=8.1ms, elapsed=74.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 3000/8768 records, last=8.2ms, elapsed=81.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 3250/8768 records, last=8.3ms, elapsed=88.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 3500/8768 records, last=8.1ms, elapsed=95.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 3750/8768 records, last=109.4ms, elapsed=102.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 4000/8768 records, last=8.2ms, elapsed=108.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 4250/8768 records, last=8.2ms, elapsed=115.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 4500/8768 records, last=8.0ms, elapsed=121.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 4750/8768 records, last=8.6ms, elapsed=128.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 5000/8768 records, last=110.9ms, elapsed=135.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 5250/8768 records, last=8.1ms, elapsed=142.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 5500/8768 records, last=8.1ms, elapsed=148.9s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 5750/8768 records, last=9.1ms, elapsed=155.9s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 6000/8768 records, last=9.0ms, elapsed=162.7s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 6250/8768 records, last=8.3ms, elapsed=169.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 6500/8768 records, last=9.4ms, elapsed=176.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 6750/8768 records, last=8.4ms, elapsed=183.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 7000/8768 records, last=8.3ms, elapsed=189.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 7250/8768 records, last=8.4ms, elapsed=196.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 7500/8768 records, last=8.1ms, elapsed=203.3s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 7750/8768 records, last=8.0ms, elapsed=209.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 8000/8768 records, last=7.9ms, elapsed=216.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 8250/8768 records, last=8.0ms, elapsed=223.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 8500/8768 records, last=8.0ms, elapsed=230.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 8750/8768 records, last=8.1ms, elapsed=236.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti box: 8768/8768 records, last=8.1ms, elapsed=237.0s
+[WRITE] wrote 8768 records to results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_ti/box_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_ti/box_predictions.jsonl
+[OK] blenderproc_cogar_sim/efficient_sam_ti/box: 8768 rows
+[RUN] blenderproc_cogar_sim/efficient_sam_ti/automatic: expected_rows=1000
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset blenderproc_cogar_sim --model efficient_sam_ti --prompt-mode automatic --log-every 250
+[START] dataset=blenderproc_cogar_sim model=efficient_sam_ti prompt_mode=automatic device=cuda records=8768 run_units=1000 output=results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_ti/automatic_predictions.jsonl
+[LOAD] efficient_sam_ti: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/efficient_sam/efficient_sam.py:303: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f, map_location="cpu")
+[LOAD] efficient_sam_ti: ready in 3.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti automatic: 1/1000 images, last=727.1ms, elapsed=0.7s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti automatic: 250/1000 images, last=393.3ms, elapsed=103.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti automatic: 500/1000 images, last=397.2ms, elapsed=205.3s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti automatic: 750/1000 images, last=391.8ms, elapsed=308.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_ti automatic: 1000/1000 images, last=392.4ms, elapsed=410.2s
+[WRITE] wrote 1000 records to results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_ti/automatic_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_ti/automatic_predictions.jsonl
+[OK] blenderproc_cogar_sim/efficient_sam_ti/automatic: 1000 rows
+[RUN] blenderproc_cogar_sim/efficient_sam_s/point: expected_rows=8768
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset blenderproc_cogar_sim --model efficient_sam_s --prompt-mode point --log-every 250
+[START] dataset=blenderproc_cogar_sim model=efficient_sam_s prompt_mode=point device=cuda records=8768 run_units=8768 output=results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_s/point_predictions.jsonl
+[LOAD] efficient_sam_s: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/efficient_sam/efficient_sam.py:303: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f, map_location="cpu")
+[LOAD] efficient_sam_s: ready in 3.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 1/8768 records, last=601.5ms, elapsed=0.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 250/8768 records, last=8.4ms, elapsed=10.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 500/8768 records, last=8.2ms, elapsed=20.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 750/8768 records, last=232.0ms, elapsed=31.3s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 1000/8768 records, last=8.5ms, elapsed=41.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 1250/8768 records, last=8.5ms, elapsed=52.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 1500/8768 records, last=8.2ms, elapsed=62.9s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 1750/8768 records, last=8.1ms, elapsed=72.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 2000/8768 records, last=8.2ms, elapsed=82.9s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 2250/8768 records, last=8.9ms, elapsed=93.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 2500/8768 records, last=229.7ms, elapsed=104.0s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 2750/8768 records, last=8.6ms, elapsed=113.9s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 3000/8768 records, last=8.6ms, elapsed=123.9s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 3250/8768 records, last=8.5ms, elapsed=135.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 3500/8768 records, last=8.5ms, elapsed=145.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 3750/8768 records, last=231.1ms, elapsed=155.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 4000/8768 records, last=8.4ms, elapsed=165.0s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 4250/8768 records, last=8.1ms, elapsed=175.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 4500/8768 records, last=8.3ms, elapsed=184.7s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 4750/8768 records, last=8.5ms, elapsed=195.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 5000/8768 records, last=231.9ms, elapsed=206.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 5250/8768 records, last=8.4ms, elapsed=216.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 5500/8768 records, last=8.2ms, elapsed=226.0s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 5750/8768 records, last=9.4ms, elapsed=236.7s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 6000/8768 records, last=9.0ms, elapsed=246.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 6250/8768 records, last=8.2ms, elapsed=256.9s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 6500/8768 records, last=9.0ms, elapsed=266.9s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 6750/8768 records, last=8.3ms, elapsed=277.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 7000/8768 records, last=8.3ms, elapsed=287.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 7250/8768 records, last=8.3ms, elapsed=296.9s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 7500/8768 records, last=8.7ms, elapsed=307.7s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 7750/8768 records, last=8.3ms, elapsed=317.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 8000/8768 records, last=8.5ms, elapsed=328.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 8250/8768 records, last=8.4ms, elapsed=338.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 8500/8768 records, last=8.3ms, elapsed=348.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 8750/8768 records, last=8.4ms, elapsed=357.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s point: 8768/8768 records, last=8.2ms, elapsed=358.3s
+[WRITE] wrote 8768 records to results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_s/point_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_s/point_predictions.jsonl
+[OK] blenderproc_cogar_sim/efficient_sam_s/point: 8768 rows
+[RUN] blenderproc_cogar_sim/efficient_sam_s/box: expected_rows=8768
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset blenderproc_cogar_sim --model efficient_sam_s --prompt-mode box --log-every 250
+[START] dataset=blenderproc_cogar_sim model=efficient_sam_s prompt_mode=box device=cuda records=8768 run_units=8768 output=results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_s/box_predictions.jsonl
+[LOAD] efficient_sam_s: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/efficient_sam/efficient_sam.py:303: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f, map_location="cpu")
+[LOAD] efficient_sam_s: ready in 3.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 1/8768 records, last=604.5ms, elapsed=0.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 250/8768 records, last=8.3ms, elapsed=10.7s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 500/8768 records, last=8.2ms, elapsed=20.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 750/8768 records, last=229.6ms, elapsed=31.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 1000/8768 records, last=8.2ms, elapsed=41.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 1250/8768 records, last=8.2ms, elapsed=52.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 1500/8768 records, last=8.4ms, elapsed=62.7s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 1750/8768 records, last=8.3ms, elapsed=72.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 2000/8768 records, last=8.3ms, elapsed=82.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 2250/8768 records, last=8.7ms, elapsed=93.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 2500/8768 records, last=231.6ms, elapsed=103.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 2750/8768 records, last=8.4ms, elapsed=113.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 3000/8768 records, last=8.1ms, elapsed=123.3s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 3250/8768 records, last=8.3ms, elapsed=134.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 3500/8768 records, last=8.3ms, elapsed=144.7s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 3750/8768 records, last=232.0ms, elapsed=154.7s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 4000/8768 records, last=8.3ms, elapsed=164.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 4250/8768 records, last=8.4ms, elapsed=174.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 4500/8768 records, last=8.3ms, elapsed=183.9s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 4750/8768 records, last=8.3ms, elapsed=194.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 5000/8768 records, last=229.3ms, elapsed=205.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 5250/8768 records, last=8.4ms, elapsed=215.7s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 5500/8768 records, last=8.2ms, elapsed=225.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 5750/8768 records, last=9.1ms, elapsed=236.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 6000/8768 records, last=9.1ms, elapsed=246.1s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 6250/8768 records, last=8.1ms, elapsed=256.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 6500/8768 records, last=8.9ms, elapsed=266.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 6750/8768 records, last=8.3ms, elapsed=276.9s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 7000/8768 records, last=8.2ms, elapsed=286.6s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 7250/8768 records, last=8.1ms, elapsed=296.2s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 7500/8768 records, last=8.3ms, elapsed=306.9s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 7750/8768 records, last=8.1ms, elapsed=316.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 8000/8768 records, last=8.2ms, elapsed=327.3s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 8250/8768 records, last=8.4ms, elapsed=337.3s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 8500/8768 records, last=8.3ms, elapsed=347.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 8750/8768 records, last=8.2ms, elapsed=356.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s box: 8768/8768 records, last=8.2ms, elapsed=357.3s
+[WRITE] wrote 8768 records to results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_s/box_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_s/box_predictions.jsonl
+[OK] blenderproc_cogar_sim/efficient_sam_s/box: 8768 rows
+[RUN] blenderproc_cogar_sim/efficient_sam_s/automatic: expected_rows=1000
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset blenderproc_cogar_sim --model efficient_sam_s --prompt-mode automatic --log-every 250
+[START] dataset=blenderproc_cogar_sim model=efficient_sam_s prompt_mode=automatic device=cuda records=8768 run_units=1000 output=results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_s/automatic_predictions.jsonl
+[LOAD] efficient_sam_s: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/efficient_sam/efficient_sam.py:303: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f, map_location="cpu")
+[LOAD] efficient_sam_s: ready in 3.4s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s automatic: 1/1000 images, last=833.8ms, elapsed=0.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s automatic: 250/1000 images, last=522.9ms, elapsed=133.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s automatic: 500/1000 images, last=527.5ms, elapsed=266.8s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s automatic: 750/1000 images, last=529.4ms, elapsed=400.5s
+[PROGRESS] blenderproc_cogar_sim efficient_sam_s automatic: 1000/1000 images, last=516.3ms, elapsed=533.7s
+[WRITE] wrote 1000 records to results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_s/automatic_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_s/automatic_predictions.jsonl
+[OK] blenderproc_cogar_sim/efficient_sam_s/automatic: 1000 rows
+[BATCH OK] dataset=blenderproc_cogar_sim
+===== TASK 9 DATASET DONE: blenderproc_cogar_sim =====
+===== TASK 9 DATASET START: ocid =====
+[BATCH START] dataset=ocid records=21487 images=2390 models=['mobile_sam_vit_t', 'efficient_sam_ti', 'efficient_sam_s'] prompt_modes=['point', 'box', 'automatic']
+[RUN] ocid/mobile_sam_vit_t/point: expected_rows=21487
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset ocid --model mobile_sam_vit_t --prompt-mode point --log-every 250
+[START] dataset=ocid model=mobile_sam_vit_t prompt_mode=point device=cuda records=21487 run_units=21487 output=results/task9_lightweight_sam/ocid/mobile_sam_vit_t/point_predictions.jsonl
+[LOAD] mobile_sam_vit_t: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_5m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_5m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_11m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_11m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_384 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_384. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_512 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_512. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/build_sam.py:91: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] mobile_sam_vit_t: ready in 4.8s
+[PROGRESS] ocid mobile_sam_vit_t point: 1/21487 records, last=502.3ms, elapsed=0.5s
+[PROGRESS] ocid mobile_sam_vit_t point: 250/21487 records, last=65.5ms, elapsed=7.1s
+[PROGRESS] ocid mobile_sam_vit_t point: 500/21487 records, last=66.4ms, elapsed=13.6s
+[PROGRESS] ocid mobile_sam_vit_t point: 750/21487 records, last=8.3ms, elapsed=20.2s
+[PROGRESS] ocid mobile_sam_vit_t point: 1000/21487 records, last=8.2ms, elapsed=26.8s
+[PROGRESS] ocid mobile_sam_vit_t point: 1250/21487 records, last=65.6ms, elapsed=33.4s
+[PROGRESS] ocid mobile_sam_vit_t point: 1500/21487 records, last=8.5ms, elapsed=40.0s
+[PROGRESS] ocid mobile_sam_vit_t point: 1750/21487 records, last=8.5ms, elapsed=46.5s
+[PROGRESS] ocid mobile_sam_vit_t point: 2000/21487 records, last=8.4ms, elapsed=53.2s
+[PROGRESS] ocid mobile_sam_vit_t point: 2250/21487 records, last=8.4ms, elapsed=59.9s
+[PROGRESS] ocid mobile_sam_vit_t point: 2500/21487 records, last=8.5ms, elapsed=66.5s
+[PROGRESS] ocid mobile_sam_vit_t point: 2750/21487 records, last=8.7ms, elapsed=72.7s
+[PROGRESS] ocid mobile_sam_vit_t point: 3000/21487 records, last=8.6ms, elapsed=79.0s
+[PROGRESS] ocid mobile_sam_vit_t point: 3250/21487 records, last=65.9ms, elapsed=85.4s
+[PROGRESS] ocid mobile_sam_vit_t point: 3500/21487 records, last=9.2ms, elapsed=91.7s
+[PROGRESS] ocid mobile_sam_vit_t point: 3750/21487 records, last=9.0ms, elapsed=98.1s
+[PROGRESS] ocid mobile_sam_vit_t point: 4000/21487 records, last=8.7ms, elapsed=104.4s
+[PROGRESS] ocid mobile_sam_vit_t point: 4250/21487 records, last=8.4ms, elapsed=110.8s
+[PROGRESS] ocid mobile_sam_vit_t point: 4500/21487 records, last=65.8ms, elapsed=117.2s
+[PROGRESS] ocid mobile_sam_vit_t point: 4750/21487 records, last=8.3ms, elapsed=123.5s
+[PROGRESS] ocid mobile_sam_vit_t point: 5000/21487 records, last=66.5ms, elapsed=129.9s
+[PROGRESS] ocid mobile_sam_vit_t point: 5250/21487 records, last=8.9ms, elapsed=136.3s
+[PROGRESS] ocid mobile_sam_vit_t point: 5500/21487 records, last=8.7ms, elapsed=142.8s
+[PROGRESS] ocid mobile_sam_vit_t point: 5750/21487 records, last=8.4ms, elapsed=148.4s
+[PROGRESS] ocid mobile_sam_vit_t point: 6000/21487 records, last=8.3ms, elapsed=153.9s
+[PROGRESS] ocid mobile_sam_vit_t point: 6250/21487 records, last=65.7ms, elapsed=159.6s
+[PROGRESS] ocid mobile_sam_vit_t point: 6500/21487 records, last=8.4ms, elapsed=165.2s
+[PROGRESS] ocid mobile_sam_vit_t point: 6750/21487 records, last=8.3ms, elapsed=170.7s
+[PROGRESS] ocid mobile_sam_vit_t point: 7000/21487 records, last=8.4ms, elapsed=176.1s
+[PROGRESS] ocid mobile_sam_vit_t point: 7250/21487 records, last=8.7ms, elapsed=181.6s
+[PROGRESS] ocid mobile_sam_vit_t point: 7500/21487 records, last=8.4ms, elapsed=187.1s
+[PROGRESS] ocid mobile_sam_vit_t point: 7750/21487 records, last=8.2ms, elapsed=192.5s
+[PROGRESS] ocid mobile_sam_vit_t point: 8000/21487 records, last=68.1ms, elapsed=198.0s
+[PROGRESS] ocid mobile_sam_vit_t point: 8250/21487 records, last=8.5ms, elapsed=203.5s
+[PROGRESS] ocid mobile_sam_vit_t point: 8500/21487 records, last=8.5ms, elapsed=208.9s
+[PROGRESS] ocid mobile_sam_vit_t point: 8750/21487 records, last=8.4ms, elapsed=214.4s
+[PROGRESS] ocid mobile_sam_vit_t point: 9000/21487 records, last=67.5ms, elapsed=219.9s
+[PROGRESS] ocid mobile_sam_vit_t point: 9250/21487 records, last=8.5ms, elapsed=225.5s
+[PROGRESS] ocid mobile_sam_vit_t point: 9500/21487 records, last=8.4ms, elapsed=231.0s
+[PROGRESS] ocid mobile_sam_vit_t point: 9750/21487 records, last=8.4ms, elapsed=236.5s
+[PROGRESS] ocid mobile_sam_vit_t point: 10000/21487 records, last=8.5ms, elapsed=242.0s
+[PROGRESS] ocid mobile_sam_vit_t point: 10250/21487 records, last=8.4ms, elapsed=247.4s
+[PROGRESS] ocid mobile_sam_vit_t point: 10500/21487 records, last=8.5ms, elapsed=252.8s
+[PROGRESS] ocid mobile_sam_vit_t point: 10750/21487 records, last=8.4ms, elapsed=258.3s
+[PROGRESS] ocid mobile_sam_vit_t point: 11000/21487 records, last=8.5ms, elapsed=263.8s
+[PROGRESS] ocid mobile_sam_vit_t point: 11250/21487 records, last=8.5ms, elapsed=269.2s
+[PROGRESS] ocid mobile_sam_vit_t point: 11500/21487 records, last=8.6ms, elapsed=274.7s
+[PROGRESS] ocid mobile_sam_vit_t point: 11750/21487 records, last=8.7ms, elapsed=280.2s
+[PROGRESS] ocid mobile_sam_vit_t point: 12000/21487 records, last=8.9ms, elapsed=285.8s
+[PROGRESS] ocid mobile_sam_vit_t point: 12250/21487 records, last=8.5ms, elapsed=291.3s
+[PROGRESS] ocid mobile_sam_vit_t point: 12500/21487 records, last=8.6ms, elapsed=296.8s
+[PROGRESS] ocid mobile_sam_vit_t point: 12750/21487 records, last=8.5ms, elapsed=302.3s
+[PROGRESS] ocid mobile_sam_vit_t point: 13000/21487 records, last=8.6ms, elapsed=307.8s
+[PROGRESS] ocid mobile_sam_vit_t point: 13250/21487 records, last=8.9ms, elapsed=313.3s
+[PROGRESS] ocid mobile_sam_vit_t point: 13500/21487 records, last=8.5ms, elapsed=318.8s
+[PROGRESS] ocid mobile_sam_vit_t point: 13750/21487 records, last=8.9ms, elapsed=324.3s
+[PROGRESS] ocid mobile_sam_vit_t point: 14000/21487 records, last=8.6ms, elapsed=329.8s
+[PROGRESS] ocid mobile_sam_vit_t point: 14250/21487 records, last=8.5ms, elapsed=335.3s
+[PROGRESS] ocid mobile_sam_vit_t point: 14500/21487 records, last=8.5ms, elapsed=340.7s
+[PROGRESS] ocid mobile_sam_vit_t point: 14750/21487 records, last=8.2ms, elapsed=346.1s
+[PROGRESS] ocid mobile_sam_vit_t point: 15000/21487 records, last=8.5ms, elapsed=351.6s
+[PROGRESS] ocid mobile_sam_vit_t point: 15250/21487 records, last=8.6ms, elapsed=357.0s
+[PROGRESS] ocid mobile_sam_vit_t point: 15500/21487 records, last=8.9ms, elapsed=362.5s
+[PROGRESS] ocid mobile_sam_vit_t point: 15750/21487 records, last=8.7ms, elapsed=368.0s
+[PROGRESS] ocid mobile_sam_vit_t point: 16000/21487 records, last=8.6ms, elapsed=373.4s
+[PROGRESS] ocid mobile_sam_vit_t point: 16250/21487 records, last=8.4ms, elapsed=378.8s
+[PROGRESS] ocid mobile_sam_vit_t point: 16500/21487 records, last=8.4ms, elapsed=384.2s
+[PROGRESS] ocid mobile_sam_vit_t point: 16750/21487 records, last=8.5ms, elapsed=389.7s
+[PROGRESS] ocid mobile_sam_vit_t point: 17000/21487 records, last=8.5ms, elapsed=395.1s
+[PROGRESS] ocid mobile_sam_vit_t point: 17250/21487 records, last=8.4ms, elapsed=400.5s
+[PROGRESS] ocid mobile_sam_vit_t point: 17500/21487 records, last=8.6ms, elapsed=406.0s
+[PROGRESS] ocid mobile_sam_vit_t point: 17750/21487 records, last=8.3ms, elapsed=411.4s
+[PROGRESS] ocid mobile_sam_vit_t point: 18000/21487 records, last=8.6ms, elapsed=416.9s
+[PROGRESS] ocid mobile_sam_vit_t point: 18250/21487 records, last=8.3ms, elapsed=423.0s
+[PROGRESS] ocid mobile_sam_vit_t point: 18500/21487 records, last=8.1ms, elapsed=429.5s
+[PROGRESS] ocid mobile_sam_vit_t point: 18750/21487 records, last=66.2ms, elapsed=436.1s
+[PROGRESS] ocid mobile_sam_vit_t point: 19000/21487 records, last=8.8ms, elapsed=442.6s
+[PROGRESS] ocid mobile_sam_vit_t point: 19250/21487 records, last=65.8ms, elapsed=449.1s
+[PROGRESS] ocid mobile_sam_vit_t point: 19500/21487 records, last=8.6ms, elapsed=455.7s
+[PROGRESS] ocid mobile_sam_vit_t point: 19750/21487 records, last=8.1ms, elapsed=462.1s
+[PROGRESS] ocid mobile_sam_vit_t point: 20000/21487 records, last=8.1ms, elapsed=468.3s
+[PROGRESS] ocid mobile_sam_vit_t point: 20250/21487 records, last=8.2ms, elapsed=474.5s
+[PROGRESS] ocid mobile_sam_vit_t point: 20500/21487 records, last=8.5ms, elapsed=480.9s
+[PROGRESS] ocid mobile_sam_vit_t point: 20750/21487 records, last=9.0ms, elapsed=487.2s
+[PROGRESS] ocid mobile_sam_vit_t point: 21000/21487 records, last=8.1ms, elapsed=493.4s
+[PROGRESS] ocid mobile_sam_vit_t point: 21250/21487 records, last=8.6ms, elapsed=499.7s
+[PROGRESS] ocid mobile_sam_vit_t point: 21487/21487 records, last=8.4ms, elapsed=505.6s
+[WRITE] wrote 21487 records to results/task9_lightweight_sam/ocid/mobile_sam_vit_t/point_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/ocid/mobile_sam_vit_t/point_predictions.jsonl
+[OK] ocid/mobile_sam_vit_t/point: 21487 rows
+[RUN] ocid/mobile_sam_vit_t/box: expected_rows=21487
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset ocid --model mobile_sam_vit_t --prompt-mode box --log-every 250
+[START] dataset=ocid model=mobile_sam_vit_t prompt_mode=box device=cuda records=21487 run_units=21487 output=results/task9_lightweight_sam/ocid/mobile_sam_vit_t/box_predictions.jsonl
+[LOAD] mobile_sam_vit_t: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_5m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_5m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_11m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_11m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_384 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_384. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_512 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_512. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/build_sam.py:91: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] mobile_sam_vit_t: ready in 4.8s
+[PROGRESS] ocid mobile_sam_vit_t box: 1/21487 records, last=381.4ms, elapsed=0.4s
+[PROGRESS] ocid mobile_sam_vit_t box: 250/21487 records, last=65.3ms, elapsed=6.8s
+[PROGRESS] ocid mobile_sam_vit_t box: 500/21487 records, last=65.4ms, elapsed=13.2s
+[PROGRESS] ocid mobile_sam_vit_t box: 750/21487 records, last=8.0ms, elapsed=19.5s
+[PROGRESS] ocid mobile_sam_vit_t box: 1000/21487 records, last=7.7ms, elapsed=25.9s
+[PROGRESS] ocid mobile_sam_vit_t box: 1250/21487 records, last=65.3ms, elapsed=32.3s
+[PROGRESS] ocid mobile_sam_vit_t box: 1500/21487 records, last=7.8ms, elapsed=38.6s
+[PROGRESS] ocid mobile_sam_vit_t box: 1750/21487 records, last=7.6ms, elapsed=44.9s
+[PROGRESS] ocid mobile_sam_vit_t box: 2000/21487 records, last=7.8ms, elapsed=51.4s
+[PROGRESS] ocid mobile_sam_vit_t box: 2250/21487 records, last=7.7ms, elapsed=57.8s
+[PROGRESS] ocid mobile_sam_vit_t box: 2500/21487 records, last=7.9ms, elapsed=64.2s
+[PROGRESS] ocid mobile_sam_vit_t box: 2750/21487 records, last=7.6ms, elapsed=70.3s
+[PROGRESS] ocid mobile_sam_vit_t box: 3000/21487 records, last=8.0ms, elapsed=76.3s
+[PROGRESS] ocid mobile_sam_vit_t box: 3250/21487 records, last=66.5ms, elapsed=82.4s
+[PROGRESS] ocid mobile_sam_vit_t box: 3500/21487 records, last=8.0ms, elapsed=88.5s
+[PROGRESS] ocid mobile_sam_vit_t box: 3750/21487 records, last=8.2ms, elapsed=94.6s
+[PROGRESS] ocid mobile_sam_vit_t box: 4000/21487 records, last=8.5ms, elapsed=100.8s
+[PROGRESS] ocid mobile_sam_vit_t box: 4250/21487 records, last=7.9ms, elapsed=107.0s
+[PROGRESS] ocid mobile_sam_vit_t box: 4500/21487 records, last=66.0ms, elapsed=113.3s
+[PROGRESS] ocid mobile_sam_vit_t box: 4750/21487 records, last=7.9ms, elapsed=119.5s
+[PROGRESS] ocid mobile_sam_vit_t box: 5000/21487 records, last=66.1ms, elapsed=125.6s
+[PROGRESS] ocid mobile_sam_vit_t box: 5250/21487 records, last=7.9ms, elapsed=131.8s
+[PROGRESS] ocid mobile_sam_vit_t box: 5500/21487 records, last=7.6ms, elapsed=138.0s
+[PROGRESS] ocid mobile_sam_vit_t box: 5750/21487 records, last=8.0ms, elapsed=143.5s
+[PROGRESS] ocid mobile_sam_vit_t box: 6000/21487 records, last=7.9ms, elapsed=148.8s
+[PROGRESS] ocid mobile_sam_vit_t box: 6250/21487 records, last=65.7ms, elapsed=154.3s
+[PROGRESS] ocid mobile_sam_vit_t box: 6500/21487 records, last=8.1ms, elapsed=159.7s
+[PROGRESS] ocid mobile_sam_vit_t box: 6750/21487 records, last=7.6ms, elapsed=165.1s
+[PROGRESS] ocid mobile_sam_vit_t box: 7000/21487 records, last=7.8ms, elapsed=170.4s
+[PROGRESS] ocid mobile_sam_vit_t box: 7250/21487 records, last=7.9ms, elapsed=175.8s
+[PROGRESS] ocid mobile_sam_vit_t box: 7500/21487 records, last=7.8ms, elapsed=181.1s
+[PROGRESS] ocid mobile_sam_vit_t box: 7750/21487 records, last=7.9ms, elapsed=186.3s
+[PROGRESS] ocid mobile_sam_vit_t box: 8000/21487 records, last=67.7ms, elapsed=191.7s
+[PROGRESS] ocid mobile_sam_vit_t box: 8250/21487 records, last=8.0ms, elapsed=197.0s
+[PROGRESS] ocid mobile_sam_vit_t box: 8500/21487 records, last=8.0ms, elapsed=202.3s
+[PROGRESS] ocid mobile_sam_vit_t box: 8750/21487 records, last=8.1ms, elapsed=207.6s
+[PROGRESS] ocid mobile_sam_vit_t box: 9000/21487 records, last=69.6ms, elapsed=213.1s
+[PROGRESS] ocid mobile_sam_vit_t box: 9250/21487 records, last=8.0ms, elapsed=218.6s
+[PROGRESS] ocid mobile_sam_vit_t box: 9500/21487 records, last=7.9ms, elapsed=224.1s
+[PROGRESS] ocid mobile_sam_vit_t box: 9750/21487 records, last=8.1ms, elapsed=229.5s
+[PROGRESS] ocid mobile_sam_vit_t box: 10000/21487 records, last=8.1ms, elapsed=234.9s
+[PROGRESS] ocid mobile_sam_vit_t box: 10250/21487 records, last=8.2ms, elapsed=240.3s
+[PROGRESS] ocid mobile_sam_vit_t box: 10500/21487 records, last=8.2ms, elapsed=245.7s
+[PROGRESS] ocid mobile_sam_vit_t box: 10750/21487 records, last=8.2ms, elapsed=251.1s
+[PROGRESS] ocid mobile_sam_vit_t box: 11000/21487 records, last=8.2ms, elapsed=256.5s
+[PROGRESS] ocid mobile_sam_vit_t box: 11250/21487 records, last=8.0ms, elapsed=261.8s
+[PROGRESS] ocid mobile_sam_vit_t box: 11500/21487 records, last=8.0ms, elapsed=267.1s
+[PROGRESS] ocid mobile_sam_vit_t box: 11750/21487 records, last=8.0ms, elapsed=272.4s
+[PROGRESS] ocid mobile_sam_vit_t box: 12000/21487 records, last=8.3ms, elapsed=277.8s
+[PROGRESS] ocid mobile_sam_vit_t box: 12250/21487 records, last=8.0ms, elapsed=283.1s
+[PROGRESS] ocid mobile_sam_vit_t box: 12500/21487 records, last=8.0ms, elapsed=288.4s
+[PROGRESS] ocid mobile_sam_vit_t box: 12750/21487 records, last=8.0ms, elapsed=293.7s
+[PROGRESS] ocid mobile_sam_vit_t box: 13000/21487 records, last=8.1ms, elapsed=299.0s
+[PROGRESS] ocid mobile_sam_vit_t box: 13250/21487 records, last=8.4ms, elapsed=304.3s
+[PROGRESS] ocid mobile_sam_vit_t box: 13500/21487 records, last=7.9ms, elapsed=309.5s
+[PROGRESS] ocid mobile_sam_vit_t box: 13750/21487 records, last=7.9ms, elapsed=314.7s
+[PROGRESS] ocid mobile_sam_vit_t box: 14000/21487 records, last=8.0ms, elapsed=320.0s
+[PROGRESS] ocid mobile_sam_vit_t box: 14250/21487 records, last=7.8ms, elapsed=325.3s
+[PROGRESS] ocid mobile_sam_vit_t box: 14500/21487 records, last=8.1ms, elapsed=330.7s
+[PROGRESS] ocid mobile_sam_vit_t box: 14750/21487 records, last=7.7ms, elapsed=336.0s
+[PROGRESS] ocid mobile_sam_vit_t box: 15000/21487 records, last=8.2ms, elapsed=341.4s
+[PROGRESS] ocid mobile_sam_vit_t box: 15250/21487 records, last=8.0ms, elapsed=346.8s
+[PROGRESS] ocid mobile_sam_vit_t box: 15500/21487 records, last=8.0ms, elapsed=352.1s
+[PROGRESS] ocid mobile_sam_vit_t box: 15750/21487 records, last=8.5ms, elapsed=357.4s
+[PROGRESS] ocid mobile_sam_vit_t box: 16000/21487 records, last=8.1ms, elapsed=362.7s
+[PROGRESS] ocid mobile_sam_vit_t box: 16250/21487 records, last=8.2ms, elapsed=368.0s
+[PROGRESS] ocid mobile_sam_vit_t box: 16500/21487 records, last=8.0ms, elapsed=373.4s
+[PROGRESS] ocid mobile_sam_vit_t box: 16750/21487 records, last=7.9ms, elapsed=378.6s
+[PROGRESS] ocid mobile_sam_vit_t box: 17000/21487 records, last=8.1ms, elapsed=383.9s
+[PROGRESS] ocid mobile_sam_vit_t box: 17250/21487 records, last=8.1ms, elapsed=389.3s
+[PROGRESS] ocid mobile_sam_vit_t box: 17500/21487 records, last=7.9ms, elapsed=394.6s
+[PROGRESS] ocid mobile_sam_vit_t box: 17750/21487 records, last=8.4ms, elapsed=399.9s
+[PROGRESS] ocid mobile_sam_vit_t box: 18000/21487 records, last=8.0ms, elapsed=405.3s
+[PROGRESS] ocid mobile_sam_vit_t box: 18250/21487 records, last=7.9ms, elapsed=411.3s
+[PROGRESS] ocid mobile_sam_vit_t box: 18500/21487 records, last=8.0ms, elapsed=417.7s
+[PROGRESS] ocid mobile_sam_vit_t box: 18750/21487 records, last=65.5ms, elapsed=424.2s
+[PROGRESS] ocid mobile_sam_vit_t box: 19000/21487 records, last=7.9ms, elapsed=430.6s
+[PROGRESS] ocid mobile_sam_vit_t box: 19250/21487 records, last=66.4ms, elapsed=436.9s
+[PROGRESS] ocid mobile_sam_vit_t box: 19500/21487 records, last=8.3ms, elapsed=443.4s
+[PROGRESS] ocid mobile_sam_vit_t box: 19750/21487 records, last=8.1ms, elapsed=449.7s
+[PROGRESS] ocid mobile_sam_vit_t box: 20000/21487 records, last=8.1ms, elapsed=455.9s
+[PROGRESS] ocid mobile_sam_vit_t box: 20250/21487 records, last=8.2ms, elapsed=462.0s
+[PROGRESS] ocid mobile_sam_vit_t box: 20500/21487 records, last=8.0ms, elapsed=468.3s
+[PROGRESS] ocid mobile_sam_vit_t box: 20750/21487 records, last=8.1ms, elapsed=474.5s
+[PROGRESS] ocid mobile_sam_vit_t box: 21000/21487 records, last=7.9ms, elapsed=480.6s
+[PROGRESS] ocid mobile_sam_vit_t box: 21250/21487 records, last=8.2ms, elapsed=486.8s
+[PROGRESS] ocid mobile_sam_vit_t box: 21487/21487 records, last=7.9ms, elapsed=492.6s
+[WRITE] wrote 21487 records to results/task9_lightweight_sam/ocid/mobile_sam_vit_t/box_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/ocid/mobile_sam_vit_t/box_predictions.jsonl
+[OK] ocid/mobile_sam_vit_t/box: 21487 rows
+[RUN] ocid/mobile_sam_vit_t/automatic: expected_rows=2390
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset ocid --model mobile_sam_vit_t --prompt-mode automatic --log-every 250
+[START] dataset=ocid model=mobile_sam_vit_t prompt_mode=automatic device=cuda records=21487 run_units=2390 output=results/task9_lightweight_sam/ocid/mobile_sam_vit_t/automatic_predictions.jsonl
+[LOAD] mobile_sam_vit_t: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/timm/models/registry.py:4: FutureWarning: Importing from timm.models.registry is deprecated, please import via timm.models
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.models", FutureWarning)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_5m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_5m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_11m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_11m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_224 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_224. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_384 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_384. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/modeling/tiny_vit_sam.py:656: UserWarning: Overwriting tiny_vit_21m_512 in registry with mobile_sam.modeling.tiny_vit_sam.tiny_vit_21m_512. This is because the name being registered conflicts with an existing name. Please check if this is not expected.
+  return register_model(fn_wrapper)
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/mobile_sam/build_sam.py:91: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f)
+[LOAD] mobile_sam_vit_t: ready in 4.9s
+[PROGRESS] ocid mobile_sam_vit_t automatic: 1/2390 images, last=5021.5ms, elapsed=5.0s
+[PROGRESS] ocid mobile_sam_vit_t automatic: 250/2390 images, last=4527.2ms, elapsed=1077.6s
+[PROGRESS] ocid mobile_sam_vit_t automatic: 500/2390 images, last=4090.9ms, elapsed=2189.0s
+[PROGRESS] ocid mobile_sam_vit_t automatic: 750/2390 images, last=4694.2ms, elapsed=3332.7s
+[PROGRESS] ocid mobile_sam_vit_t automatic: 1000/2390 images, last=5151.0ms, elapsed=4606.8s
+[PROGRESS] ocid mobile_sam_vit_t automatic: 1250/2390 images, last=5821.2ms, elapsed=5985.3s
+[PROGRESS] ocid mobile_sam_vit_t automatic: 1500/2390 images, last=4794.3ms, elapsed=7239.3s
+[PROGRESS] ocid mobile_sam_vit_t automatic: 1750/2390 images, last=5131.0ms, elapsed=8442.9s
+[PROGRESS] ocid mobile_sam_vit_t automatic: 2000/2390 images, last=4923.0ms, elapsed=9610.2s
+[PROGRESS] ocid mobile_sam_vit_t automatic: 2250/2390 images, last=4081.4ms, elapsed=10725.9s
+[PROGRESS] ocid mobile_sam_vit_t automatic: 2390/2390 images, last=4848.8ms, elapsed=11429.9s
+[WRITE] wrote 2390 records to results/task9_lightweight_sam/ocid/mobile_sam_vit_t/automatic_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/ocid/mobile_sam_vit_t/automatic_predictions.jsonl
+[OK] ocid/mobile_sam_vit_t/automatic: 2390 rows
+[RUN] ocid/efficient_sam_ti/point: expected_rows=21487
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset ocid --model efficient_sam_ti --prompt-mode point --log-every 250
+[START] dataset=ocid model=efficient_sam_ti prompt_mode=point device=cuda records=21487 run_units=21487 output=results/task9_lightweight_sam/ocid/efficient_sam_ti/point_predictions.jsonl
+[LOAD] efficient_sam_ti: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/efficient_sam/efficient_sam.py:303: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f, map_location="cpu")
+[LOAD] efficient_sam_ti: ready in 3.2s
+[PROGRESS] ocid efficient_sam_ti point: 1/21487 records, last=480.3ms, elapsed=0.5s
+[PROGRESS] ocid efficient_sam_ti point: 250/21487 records, last=110.9ms, elapsed=8.7s
+[PROGRESS] ocid efficient_sam_ti point: 500/21487 records, last=111.8ms, elapsed=16.9s
+[PROGRESS] ocid efficient_sam_ti point: 750/21487 records, last=8.1ms, elapsed=25.1s
+[PROGRESS] ocid efficient_sam_ti point: 1000/21487 records, last=8.2ms, elapsed=33.3s
+[PROGRESS] ocid efficient_sam_ti point: 1250/21487 records, last=111.2ms, elapsed=41.5s
+[PROGRESS] ocid efficient_sam_ti point: 1500/21487 records, last=8.4ms, elapsed=49.6s
+[PROGRESS] ocid efficient_sam_ti point: 1750/21487 records, last=8.2ms, elapsed=57.7s
+[PROGRESS] ocid efficient_sam_ti point: 2000/21487 records, last=8.2ms, elapsed=66.0s
+[PROGRESS] ocid efficient_sam_ti point: 2250/21487 records, last=8.3ms, elapsed=74.2s
+[PROGRESS] ocid efficient_sam_ti point: 2500/21487 records, last=8.5ms, elapsed=82.5s
+[PROGRESS] ocid efficient_sam_ti point: 2750/21487 records, last=8.1ms, elapsed=90.3s
+[PROGRESS] ocid efficient_sam_ti point: 3000/21487 records, last=8.3ms, elapsed=98.0s
+[PROGRESS] ocid efficient_sam_ti point: 3250/21487 records, last=109.8ms, elapsed=105.9s
+[PROGRESS] ocid efficient_sam_ti point: 3500/21487 records, last=9.8ms, elapsed=113.8s
+[PROGRESS] ocid efficient_sam_ti point: 3750/21487 records, last=8.3ms, elapsed=121.5s
+[PROGRESS] ocid efficient_sam_ti point: 4000/21487 records, last=8.9ms, elapsed=129.3s
+[PROGRESS] ocid efficient_sam_ti point: 4250/21487 records, last=8.2ms, elapsed=137.2s
+[PROGRESS] ocid efficient_sam_ti point: 4500/21487 records, last=111.5ms, elapsed=145.1s
+[PROGRESS] ocid efficient_sam_ti point: 4750/21487 records, last=8.3ms, elapsed=152.9s
+[PROGRESS] ocid efficient_sam_ti point: 5000/21487 records, last=112.0ms, elapsed=160.7s
+[PROGRESS] ocid efficient_sam_ti point: 5250/21487 records, last=9.1ms, elapsed=168.6s
+[PROGRESS] ocid efficient_sam_ti point: 5500/21487 records, last=8.0ms, elapsed=176.5s
+[PROGRESS] ocid efficient_sam_ti point: 5750/21487 records, last=8.0ms, elapsed=183.1s
+[PROGRESS] ocid efficient_sam_ti point: 6000/21487 records, last=7.9ms, elapsed=189.4s
+[PROGRESS] ocid efficient_sam_ti point: 6250/21487 records, last=111.8ms, elapsed=196.0s
+[PROGRESS] ocid efficient_sam_ti point: 6500/21487 records, last=8.2ms, elapsed=202.5s
+[PROGRESS] ocid efficient_sam_ti point: 6750/21487 records, last=8.1ms, elapsed=209.0s
+[PROGRESS] ocid efficient_sam_ti point: 7000/21487 records, last=8.2ms, elapsed=215.4s
+[PROGRESS] ocid efficient_sam_ti point: 7250/21487 records, last=8.7ms, elapsed=221.8s
+[PROGRESS] ocid efficient_sam_ti point: 7500/21487 records, last=8.3ms, elapsed=228.2s
+[PROGRESS] ocid efficient_sam_ti point: 7750/21487 records, last=8.5ms, elapsed=234.6s
+[PROGRESS] ocid efficient_sam_ti point: 8000/21487 records, last=110.3ms, elapsed=241.0s
+[PROGRESS] ocid efficient_sam_ti point: 8250/21487 records, last=8.5ms, elapsed=247.4s
+[PROGRESS] ocid efficient_sam_ti point: 8500/21487 records, last=8.6ms, elapsed=253.8s
+[PROGRESS] ocid efficient_sam_ti point: 8750/21487 records, last=8.6ms, elapsed=260.1s
+[PROGRESS] ocid efficient_sam_ti point: 9000/21487 records, last=111.0ms, elapsed=266.7s
+[PROGRESS] ocid efficient_sam_ti point: 9250/21487 records, last=8.8ms, elapsed=273.3s
+[PROGRESS] ocid efficient_sam_ti point: 9500/21487 records, last=8.5ms, elapsed=279.9s
+[PROGRESS] ocid efficient_sam_ti point: 9750/21487 records, last=8.2ms, elapsed=286.4s
+[PROGRESS] ocid efficient_sam_ti point: 10000/21487 records, last=8.3ms, elapsed=292.7s
+[PROGRESS] ocid efficient_sam_ti point: 10250/21487 records, last=8.1ms, elapsed=299.0s
+[PROGRESS] ocid efficient_sam_ti point: 10500/21487 records, last=8.5ms, elapsed=305.5s
+[PROGRESS] ocid efficient_sam_ti point: 10750/21487 records, last=8.1ms, elapsed=311.8s
+[PROGRESS] ocid efficient_sam_ti point: 11000/21487 records, last=8.2ms, elapsed=318.2s
+[PROGRESS] ocid efficient_sam_ti point: 11250/21487 records, last=8.0ms, elapsed=324.5s
+[PROGRESS] ocid efficient_sam_ti point: 11500/21487 records, last=8.2ms, elapsed=330.8s
+[PROGRESS] ocid efficient_sam_ti point: 11750/21487 records, last=8.5ms, elapsed=337.2s
+[PROGRESS] ocid efficient_sam_ti point: 12000/21487 records, last=8.1ms, elapsed=343.6s
+[PROGRESS] ocid efficient_sam_ti point: 12250/21487 records, last=8.2ms, elapsed=349.9s
+[PROGRESS] ocid efficient_sam_ti point: 12500/21487 records, last=8.2ms, elapsed=356.3s
+[PROGRESS] ocid efficient_sam_ti point: 12750/21487 records, last=8.3ms, elapsed=362.6s
+[PROGRESS] ocid efficient_sam_ti point: 13000/21487 records, last=8.4ms, elapsed=368.9s
+[PROGRESS] ocid efficient_sam_ti point: 13250/21487 records, last=8.9ms, elapsed=375.3s
+[PROGRESS] ocid efficient_sam_ti point: 13500/21487 records, last=8.2ms, elapsed=381.4s
+[PROGRESS] ocid efficient_sam_ti point: 13750/21487 records, last=8.2ms, elapsed=387.7s
+[PROGRESS] ocid efficient_sam_ti point: 14000/21487 records, last=8.2ms, elapsed=394.1s
+[PROGRESS] ocid efficient_sam_ti point: 14250/21487 records, last=8.1ms, elapsed=400.4s
+[PROGRESS] ocid efficient_sam_ti point: 14500/21487 records, last=8.1ms, elapsed=406.7s
+[PROGRESS] ocid efficient_sam_ti point: 14750/21487 records, last=8.0ms, elapsed=413.0s
+[PROGRESS] ocid efficient_sam_ti point: 15000/21487 records, last=8.0ms, elapsed=419.3s
+[PROGRESS] ocid efficient_sam_ti point: 15250/21487 records, last=8.0ms, elapsed=425.6s
+[PROGRESS] ocid efficient_sam_ti point: 15500/21487 records, last=8.3ms, elapsed=431.9s
+[PROGRESS] ocid efficient_sam_ti point: 15750/21487 records, last=9.2ms, elapsed=438.1s
+[PROGRESS] ocid efficient_sam_ti point: 16000/21487 records, last=8.0ms, elapsed=444.3s
+[PROGRESS] ocid efficient_sam_ti point: 16250/21487 records, last=8.3ms, elapsed=450.5s
+[PROGRESS] ocid efficient_sam_ti point: 16500/21487 records, last=7.9ms, elapsed=456.8s
+[PROGRESS] ocid efficient_sam_ti point: 16750/21487 records, last=8.0ms, elapsed=463.0s
+[PROGRESS] ocid efficient_sam_ti point: 17000/21487 records, last=8.0ms, elapsed=469.3s
+[PROGRESS] ocid efficient_sam_ti point: 17250/21487 records, last=8.4ms, elapsed=475.6s
+[PROGRESS] ocid efficient_sam_ti point: 17500/21487 records, last=8.0ms, elapsed=481.8s
+[PROGRESS] ocid efficient_sam_ti point: 17750/21487 records, last=8.1ms, elapsed=488.1s
+[PROGRESS] ocid efficient_sam_ti point: 18000/21487 records, last=8.3ms, elapsed=494.3s
+[PROGRESS] ocid efficient_sam_ti point: 18250/21487 records, last=7.9ms, elapsed=501.6s
+[PROGRESS] ocid efficient_sam_ti point: 18500/21487 records, last=8.0ms, elapsed=509.8s
+[PROGRESS] ocid efficient_sam_ti point: 18750/21487 records, last=110.7ms, elapsed=517.9s
+[PROGRESS] ocid efficient_sam_ti point: 19000/21487 records, last=9.1ms, elapsed=526.0s
+[PROGRESS] ocid efficient_sam_ti point: 19250/21487 records, last=110.3ms, elapsed=534.0s
+[PROGRESS] ocid efficient_sam_ti point: 19500/21487 records, last=9.0ms, elapsed=542.2s
+[PROGRESS] ocid efficient_sam_ti point: 19750/21487 records, last=7.8ms, elapsed=550.2s
+[PROGRESS] ocid efficient_sam_ti point: 20000/21487 records, last=8.0ms, elapsed=557.9s
+[PROGRESS] ocid efficient_sam_ti point: 20250/21487 records, last=8.1ms, elapsed=565.7s
+[PROGRESS] ocid efficient_sam_ti point: 20500/21487 records, last=8.1ms, elapsed=573.5s
+[PROGRESS] ocid efficient_sam_ti point: 20750/21487 records, last=7.9ms, elapsed=581.3s
+[PROGRESS] ocid efficient_sam_ti point: 21000/21487 records, last=8.1ms, elapsed=589.0s
+[PROGRESS] ocid efficient_sam_ti point: 21250/21487 records, last=8.0ms, elapsed=596.7s
+[PROGRESS] ocid efficient_sam_ti point: 21487/21487 records, last=8.0ms, elapsed=604.0s
+[WRITE] wrote 21487 records to results/task9_lightweight_sam/ocid/efficient_sam_ti/point_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/ocid/efficient_sam_ti/point_predictions.jsonl
+[OK] ocid/efficient_sam_ti/point: 21487 rows
+[RUN] ocid/efficient_sam_ti/box: expected_rows=21487
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset ocid --model efficient_sam_ti --prompt-mode box --log-every 250
+[START] dataset=ocid model=efficient_sam_ti prompt_mode=box device=cuda records=21487 run_units=21487 output=results/task9_lightweight_sam/ocid/efficient_sam_ti/box_predictions.jsonl
+[LOAD] efficient_sam_ti: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/efficient_sam/efficient_sam.py:303: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f, map_location="cpu")
+[LOAD] efficient_sam_ti: ready in 3.2s
+[PROGRESS] ocid efficient_sam_ti box: 1/21487 records, last=483.6ms, elapsed=0.5s
+[PROGRESS] ocid efficient_sam_ti box: 250/21487 records, last=112.2ms, elapsed=8.8s
+[PROGRESS] ocid efficient_sam_ti box: 500/21487 records, last=112.4ms, elapsed=17.1s
+[PROGRESS] ocid efficient_sam_ti box: 750/21487 records, last=8.4ms, elapsed=25.3s
+[PROGRESS] ocid efficient_sam_ti box: 1000/21487 records, last=8.1ms, elapsed=33.6s
+[PROGRESS] ocid efficient_sam_ti box: 1250/21487 records, last=111.6ms, elapsed=41.9s
+[PROGRESS] ocid efficient_sam_ti box: 1500/21487 records, last=8.2ms, elapsed=50.0s
+[PROGRESS] ocid efficient_sam_ti box: 1750/21487 records, last=8.1ms, elapsed=58.2s
+[PROGRESS] ocid efficient_sam_ti box: 2000/21487 records, last=8.0ms, elapsed=66.4s
+[PROGRESS] ocid efficient_sam_ti box: 2250/21487 records, last=8.1ms, elapsed=74.8s
+[PROGRESS] ocid efficient_sam_ti box: 2500/21487 records, last=8.3ms, elapsed=83.1s
+[PROGRESS] ocid efficient_sam_ti box: 2750/21487 records, last=8.0ms, elapsed=90.8s
+[PROGRESS] ocid efficient_sam_ti box: 3000/21487 records, last=8.7ms, elapsed=98.5s
+[PROGRESS] ocid efficient_sam_ti box: 3250/21487 records, last=110.1ms, elapsed=106.4s
+[PROGRESS] ocid efficient_sam_ti box: 3500/21487 records, last=9.2ms, elapsed=114.3s
+[PROGRESS] ocid efficient_sam_ti box: 3750/21487 records, last=8.2ms, elapsed=122.0s
+[PROGRESS] ocid efficient_sam_ti box: 4000/21487 records, last=9.5ms, elapsed=129.7s
+[PROGRESS] ocid efficient_sam_ti box: 4250/21487 records, last=8.2ms, elapsed=137.6s
+[PROGRESS] ocid efficient_sam_ti box: 4500/21487 records, last=110.8ms, elapsed=145.5s
+[PROGRESS] ocid efficient_sam_ti box: 4750/21487 records, last=8.3ms, elapsed=153.2s
+[PROGRESS] ocid efficient_sam_ti box: 5000/21487 records, last=110.6ms, elapsed=161.0s
+[PROGRESS] ocid efficient_sam_ti box: 5250/21487 records, last=8.8ms, elapsed=168.9s
+[PROGRESS] ocid efficient_sam_ti box: 5500/21487 records, last=8.0ms, elapsed=176.8s
+[PROGRESS] ocid efficient_sam_ti box: 5750/21487 records, last=8.2ms, elapsed=183.4s
+[PROGRESS] ocid efficient_sam_ti box: 6000/21487 records, last=8.1ms, elapsed=189.8s
+[PROGRESS] ocid efficient_sam_ti box: 6250/21487 records, last=110.2ms, elapsed=196.4s
+[PROGRESS] ocid efficient_sam_ti box: 6500/21487 records, last=8.1ms, elapsed=203.0s
+[PROGRESS] ocid efficient_sam_ti box: 6750/21487 records, last=8.3ms, elapsed=209.4s
+[PROGRESS] ocid efficient_sam_ti box: 7000/21487 records, last=8.4ms, elapsed=215.9s
+[PROGRESS] ocid efficient_sam_ti box: 7250/21487 records, last=8.6ms, elapsed=222.3s
+[PROGRESS] ocid efficient_sam_ti box: 7500/21487 records, last=8.1ms, elapsed=228.6s
+[PROGRESS] ocid efficient_sam_ti box: 7750/21487 records, last=8.0ms, elapsed=234.9s
+[PROGRESS] ocid efficient_sam_ti box: 8000/21487 records, last=110.7ms, elapsed=241.3s
+[PROGRESS] ocid efficient_sam_ti box: 8250/21487 records, last=8.2ms, elapsed=247.6s
+[PROGRESS] ocid efficient_sam_ti box: 8500/21487 records, last=8.4ms, elapsed=253.8s
+[PROGRESS] ocid efficient_sam_ti box: 8750/21487 records, last=8.4ms, elapsed=260.1s
+[PROGRESS] ocid efficient_sam_ti box: 9000/21487 records, last=111.2ms, elapsed=266.5s
+[PROGRESS] ocid efficient_sam_ti box: 9250/21487 records, last=8.4ms, elapsed=273.1s
+[PROGRESS] ocid efficient_sam_ti box: 9500/21487 records, last=8.1ms, elapsed=279.5s
+[PROGRESS] ocid efficient_sam_ti box: 9750/21487 records, last=8.0ms, elapsed=285.9s
+[PROGRESS] ocid efficient_sam_ti box: 10000/21487 records, last=8.1ms, elapsed=292.2s
+[PROGRESS] ocid efficient_sam_ti box: 10250/21487 records, last=7.9ms, elapsed=298.5s
+[PROGRESS] ocid efficient_sam_ti box: 10500/21487 records, last=8.2ms, elapsed=304.8s
+[PROGRESS] ocid efficient_sam_ti box: 10750/21487 records, last=8.0ms, elapsed=311.0s
+[PROGRESS] ocid efficient_sam_ti box: 11000/21487 records, last=7.9ms, elapsed=317.3s
+[PROGRESS] ocid efficient_sam_ti box: 11250/21487 records, last=8.0ms, elapsed=323.5s
+[PROGRESS] ocid efficient_sam_ti box: 11500/21487 records, last=7.9ms, elapsed=329.7s
+[PROGRESS] ocid efficient_sam_ti box: 11750/21487 records, last=7.9ms, elapsed=336.0s
+[PROGRESS] ocid efficient_sam_ti box: 12000/21487 records, last=8.0ms, elapsed=342.2s
+[PROGRESS] ocid efficient_sam_ti box: 12250/21487 records, last=8.1ms, elapsed=348.5s
+[PROGRESS] ocid efficient_sam_ti box: 12500/21487 records, last=8.1ms, elapsed=354.9s
+[PROGRESS] ocid efficient_sam_ti box: 12750/21487 records, last=8.0ms, elapsed=361.2s
+[PROGRESS] ocid efficient_sam_ti box: 13000/21487 records, last=8.1ms, elapsed=367.4s
+[PROGRESS] ocid efficient_sam_ti box: 13250/21487 records, last=9.3ms, elapsed=373.7s
+[PROGRESS] ocid efficient_sam_ti box: 13500/21487 records, last=8.1ms, elapsed=379.8s
+[PROGRESS] ocid efficient_sam_ti box: 13750/21487 records, last=7.9ms, elapsed=386.0s
+[PROGRESS] ocid efficient_sam_ti box: 14000/21487 records, last=8.1ms, elapsed=392.3s
+[PROGRESS] ocid efficient_sam_ti box: 14250/21487 records, last=7.9ms, elapsed=398.6s
+[PROGRESS] ocid efficient_sam_ti box: 14500/21487 records, last=7.8ms, elapsed=404.8s
+[PROGRESS] ocid efficient_sam_ti box: 14750/21487 records, last=7.9ms, elapsed=411.1s
+[PROGRESS] ocid efficient_sam_ti box: 15000/21487 records, last=8.2ms, elapsed=417.3s
+[PROGRESS] ocid efficient_sam_ti box: 15250/21487 records, last=8.1ms, elapsed=423.7s
+[PROGRESS] ocid efficient_sam_ti box: 15500/21487 records, last=8.5ms, elapsed=430.0s
+[PROGRESS] ocid efficient_sam_ti box: 15750/21487 records, last=9.6ms, elapsed=436.3s
+[PROGRESS] ocid efficient_sam_ti box: 16000/21487 records, last=8.5ms, elapsed=442.5s
+[PROGRESS] ocid efficient_sam_ti box: 16250/21487 records, last=8.3ms, elapsed=448.9s
+[PROGRESS] ocid efficient_sam_ti box: 16500/21487 records, last=7.9ms, elapsed=455.2s
+[PROGRESS] ocid efficient_sam_ti box: 16750/21487 records, last=8.1ms, elapsed=461.5s
+[PROGRESS] ocid efficient_sam_ti box: 17000/21487 records, last=8.1ms, elapsed=467.8s
+[PROGRESS] ocid efficient_sam_ti box: 17250/21487 records, last=8.3ms, elapsed=474.2s
+[PROGRESS] ocid efficient_sam_ti box: 17500/21487 records, last=8.3ms, elapsed=480.5s
+[PROGRESS] ocid efficient_sam_ti box: 17750/21487 records, last=8.2ms, elapsed=486.9s
+[PROGRESS] ocid efficient_sam_ti box: 18000/21487 records, last=8.7ms, elapsed=493.2s
+[PROGRESS] ocid efficient_sam_ti box: 18250/21487 records, last=8.3ms, elapsed=500.8s
+[PROGRESS] ocid efficient_sam_ti box: 18500/21487 records, last=8.6ms, elapsed=509.1s
+[PROGRESS] ocid efficient_sam_ti box: 18750/21487 records, last=112.1ms, elapsed=517.5s
+[PROGRESS] ocid efficient_sam_ti box: 19000/21487 records, last=9.3ms, elapsed=525.8s
+[PROGRESS] ocid efficient_sam_ti box: 19250/21487 records, last=110.2ms, elapsed=533.9s
+[PROGRESS] ocid efficient_sam_ti box: 19500/21487 records, last=9.6ms, elapsed=542.2s
+[PROGRESS] ocid efficient_sam_ti box: 19750/21487 records, last=8.0ms, elapsed=550.3s
+[PROGRESS] ocid efficient_sam_ti box: 20000/21487 records, last=8.0ms, elapsed=558.1s
+[PROGRESS] ocid efficient_sam_ti box: 20250/21487 records, last=8.1ms, elapsed=565.9s
+[PROGRESS] ocid efficient_sam_ti box: 20500/21487 records, last=8.5ms, elapsed=573.8s
+[PROGRESS] ocid efficient_sam_ti box: 20750/21487 records, last=8.0ms, elapsed=581.7s
+[PROGRESS] ocid efficient_sam_ti box: 21000/21487 records, last=7.9ms, elapsed=589.4s
+[PROGRESS] ocid efficient_sam_ti box: 21250/21487 records, last=8.3ms, elapsed=597.2s
+[PROGRESS] ocid efficient_sam_ti box: 21487/21487 records, last=8.0ms, elapsed=604.5s
+[WRITE] wrote 21487 records to results/task9_lightweight_sam/ocid/efficient_sam_ti/box_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/ocid/efficient_sam_ti/box_predictions.jsonl
+[OK] ocid/efficient_sam_ti/box: 21487 rows
+[RUN] ocid/efficient_sam_ti/automatic: expected_rows=2390
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset ocid --model efficient_sam_ti --prompt-mode automatic --log-every 250
+[START] dataset=ocid model=efficient_sam_ti prompt_mode=automatic device=cuda records=21487 run_units=2390 output=results/task9_lightweight_sam/ocid/efficient_sam_ti/automatic_predictions.jsonl
+[LOAD] efficient_sam_ti: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/efficient_sam/efficient_sam.py:303: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f, map_location="cpu")
+[LOAD] efficient_sam_ti: ready in 3.2s
+[PROGRESS] ocid efficient_sam_ti automatic: 1/2390 images, last=711.1ms, elapsed=0.7s
+[PROGRESS] ocid efficient_sam_ti automatic: 250/2390 images, last=392.5ms, elapsed=103.7s
+[PROGRESS] ocid efficient_sam_ti automatic: 500/2390 images, last=385.3ms, elapsed=206.6s
+[PROGRESS] ocid efficient_sam_ti automatic: 750/2390 images, last=396.8ms, elapsed=307.4s
+[PROGRESS] ocid efficient_sam_ti automatic: 1000/2390 images, last=389.4ms, elapsed=409.1s
+[PROGRESS] ocid efficient_sam_ti automatic: 1250/2390 images, last=396.6ms, elapsed=511.7s
+[PROGRESS] ocid efficient_sam_ti automatic: 1500/2390 images, last=405.9ms, elapsed=615.8s
+[PROGRESS] ocid efficient_sam_ti automatic: 1750/2390 images, last=393.5ms, elapsed=719.1s
+[PROGRESS] ocid efficient_sam_ti automatic: 2000/2390 images, last=393.2ms, elapsed=822.3s
+[PROGRESS] ocid efficient_sam_ti automatic: 2250/2390 images, last=376.4ms, elapsed=924.6s
+[PROGRESS] ocid efficient_sam_ti automatic: 2390/2390 images, last=391.1ms, elapsed=981.8s
+[WRITE] wrote 2390 records to results/task9_lightweight_sam/ocid/efficient_sam_ti/automatic_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/ocid/efficient_sam_ti/automatic_predictions.jsonl
+[OK] ocid/efficient_sam_ti/automatic: 2390 rows
+[RUN] ocid/efficient_sam_s/point: expected_rows=21487
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset ocid --model efficient_sam_s --prompt-mode point --log-every 250
+[START] dataset=ocid model=efficient_sam_s prompt_mode=point device=cuda records=21487 run_units=21487 output=results/task9_lightweight_sam/ocid/efficient_sam_s/point_predictions.jsonl
+[LOAD] efficient_sam_s: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/efficient_sam/efficient_sam.py:303: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f, map_location="cpu")
+[LOAD] efficient_sam_s: ready in 3.4s
+[PROGRESS] ocid efficient_sam_s point: 1/21487 records, last=590.1ms, elapsed=0.6s
+[PROGRESS] ocid efficient_sam_s point: 250/21487 records, last=229.3ms, elapsed=13.4s
+[PROGRESS] ocid efficient_sam_s point: 500/21487 records, last=230.6ms, elapsed=26.2s
+[PROGRESS] ocid efficient_sam_s point: 750/21487 records, last=8.0ms, elapsed=38.8s
+[PROGRESS] ocid efficient_sam_s point: 1000/21487 records, last=8.2ms, elapsed=51.7s
+[PROGRESS] ocid efficient_sam_s point: 1250/21487 records, last=232.4ms, elapsed=64.6s
+[PROGRESS] ocid efficient_sam_s point: 1500/21487 records, last=8.5ms, elapsed=77.1s
+[PROGRESS] ocid efficient_sam_s point: 1750/21487 records, last=8.0ms, elapsed=89.8s
+[PROGRESS] ocid efficient_sam_s point: 2000/21487 records, last=8.1ms, elapsed=102.8s
+[PROGRESS] ocid efficient_sam_s point: 2250/21487 records, last=8.4ms, elapsed=115.8s
+[PROGRESS] ocid efficient_sam_s point: 2500/21487 records, last=8.7ms, elapsed=128.8s
+[PROGRESS] ocid efficient_sam_s point: 2750/21487 records, last=8.2ms, elapsed=140.8s
+[PROGRESS] ocid efficient_sam_s point: 3000/21487 records, last=8.7ms, elapsed=152.7s
+[PROGRESS] ocid efficient_sam_s point: 3250/21487 records, last=232.4ms, elapsed=165.2s
+[PROGRESS] ocid efficient_sam_s point: 3500/21487 records, last=9.1ms, elapsed=177.4s
+[PROGRESS] ocid efficient_sam_s point: 3750/21487 records, last=8.6ms, elapsed=189.5s
+[PROGRESS] ocid efficient_sam_s point: 4000/21487 records, last=9.0ms, elapsed=201.5s
+[PROGRESS] ocid efficient_sam_s point: 4250/21487 records, last=8.5ms, elapsed=213.8s
+[PROGRESS] ocid efficient_sam_s point: 4500/21487 records, last=234.0ms, elapsed=226.3s
+[PROGRESS] ocid efficient_sam_s point: 4750/21487 records, last=8.4ms, elapsed=238.3s
+[PROGRESS] ocid efficient_sam_s point: 5000/21487 records, last=231.7ms, elapsed=250.3s
+[PROGRESS] ocid efficient_sam_s point: 5250/21487 records, last=8.2ms, elapsed=262.5s
+[PROGRESS] ocid efficient_sam_s point: 5500/21487 records, last=8.0ms, elapsed=274.7s
+[PROGRESS] ocid efficient_sam_s point: 5750/21487 records, last=7.9ms, elapsed=284.1s
+[PROGRESS] ocid efficient_sam_s point: 6000/21487 records, last=7.8ms, elapsed=292.9s
+[PROGRESS] ocid efficient_sam_s point: 6250/21487 records, last=230.5ms, elapsed=302.3s
+[PROGRESS] ocid efficient_sam_s point: 6500/21487 records, last=7.9ms, elapsed=311.4s
+[PROGRESS] ocid efficient_sam_s point: 6750/21487 records, last=7.8ms, elapsed=320.3s
+[PROGRESS] ocid efficient_sam_s point: 7000/21487 records, last=7.8ms, elapsed=329.2s
+[PROGRESS] ocid efficient_sam_s point: 7250/21487 records, last=8.6ms, elapsed=338.2s
+[PROGRESS] ocid efficient_sam_s point: 7500/21487 records, last=8.4ms, elapsed=347.0s
+[PROGRESS] ocid efficient_sam_s point: 7750/21487 records, last=8.5ms, elapsed=355.9s
+[PROGRESS] ocid efficient_sam_s point: 8000/21487 records, last=229.7ms, elapsed=365.1s
+[PROGRESS] ocid efficient_sam_s point: 8250/21487 records, last=8.5ms, elapsed=373.9s
+[PROGRESS] ocid efficient_sam_s point: 8500/21487 records, last=8.4ms, elapsed=382.7s
+[PROGRESS] ocid efficient_sam_s point: 8750/21487 records, last=8.4ms, elapsed=391.6s
+[PROGRESS] ocid efficient_sam_s point: 9000/21487 records, last=231.2ms, elapsed=400.8s
+[PROGRESS] ocid efficient_sam_s point: 9250/21487 records, last=8.6ms, elapsed=410.3s
+[PROGRESS] ocid efficient_sam_s point: 9500/21487 records, last=8.0ms, elapsed=419.4s
+[PROGRESS] ocid efficient_sam_s point: 9750/21487 records, last=8.0ms, elapsed=428.4s
+[PROGRESS] ocid efficient_sam_s point: 10000/21487 records, last=8.3ms, elapsed=437.4s
+[PROGRESS] ocid efficient_sam_s point: 10250/21487 records, last=8.3ms, elapsed=446.2s
+[PROGRESS] ocid efficient_sam_s point: 10500/21487 records, last=8.2ms, elapsed=455.1s
+[PROGRESS] ocid efficient_sam_s point: 10750/21487 records, last=8.0ms, elapsed=463.9s
+[PROGRESS] ocid efficient_sam_s point: 11000/21487 records, last=8.2ms, elapsed=472.7s
+[PROGRESS] ocid efficient_sam_s point: 11250/21487 records, last=7.9ms, elapsed=481.5s
+[PROGRESS] ocid efficient_sam_s point: 11500/21487 records, last=7.9ms, elapsed=490.2s
+[PROGRESS] ocid efficient_sam_s point: 11750/21487 records, last=7.9ms, elapsed=499.1s
+[PROGRESS] ocid efficient_sam_s point: 12000/21487 records, last=8.3ms, elapsed=507.9s
+[PROGRESS] ocid efficient_sam_s point: 12250/21487 records, last=8.5ms, elapsed=516.7s
+[PROGRESS] ocid efficient_sam_s point: 12500/21487 records, last=8.3ms, elapsed=525.6s
+[PROGRESS] ocid efficient_sam_s point: 12750/21487 records, last=8.0ms, elapsed=534.5s
+[PROGRESS] ocid efficient_sam_s point: 13000/21487 records, last=8.3ms, elapsed=543.3s
+[PROGRESS] ocid efficient_sam_s point: 13250/21487 records, last=8.5ms, elapsed=552.1s
+[PROGRESS] ocid efficient_sam_s point: 13500/21487 records, last=8.3ms, elapsed=560.6s
+[PROGRESS] ocid efficient_sam_s point: 13750/21487 records, last=7.9ms, elapsed=569.4s
+[PROGRESS] ocid efficient_sam_s point: 14000/21487 records, last=8.2ms, elapsed=578.1s
+[PROGRESS] ocid efficient_sam_s point: 14250/21487 records, last=7.9ms, elapsed=586.9s
+[PROGRESS] ocid efficient_sam_s point: 14500/21487 records, last=8.0ms, elapsed=595.7s
+[PROGRESS] ocid efficient_sam_s point: 14750/21487 records, last=7.9ms, elapsed=604.5s
+[PROGRESS] ocid efficient_sam_s point: 15000/21487 records, last=7.9ms, elapsed=613.3s
+[PROGRESS] ocid efficient_sam_s point: 15250/21487 records, last=8.0ms, elapsed=622.1s
+[PROGRESS] ocid efficient_sam_s point: 15500/21487 records, last=8.1ms, elapsed=630.9s
+[PROGRESS] ocid efficient_sam_s point: 15750/21487 records, last=8.9ms, elapsed=639.7s
+[PROGRESS] ocid efficient_sam_s point: 16000/21487 records, last=8.0ms, elapsed=648.2s
+[PROGRESS] ocid efficient_sam_s point: 16250/21487 records, last=7.9ms, elapsed=657.0s
+[PROGRESS] ocid efficient_sam_s point: 16500/21487 records, last=8.1ms, elapsed=665.8s
+[PROGRESS] ocid efficient_sam_s point: 16750/21487 records, last=8.0ms, elapsed=674.6s
+[PROGRESS] ocid efficient_sam_s point: 17000/21487 records, last=8.3ms, elapsed=683.4s
+[PROGRESS] ocid efficient_sam_s point: 17250/21487 records, last=8.4ms, elapsed=692.3s
+[PROGRESS] ocid efficient_sam_s point: 17500/21487 records, last=8.2ms, elapsed=701.2s
+[PROGRESS] ocid efficient_sam_s point: 17750/21487 records, last=8.0ms, elapsed=710.0s
+[PROGRESS] ocid efficient_sam_s point: 18000/21487 records, last=8.2ms, elapsed=718.8s
+[PROGRESS] ocid efficient_sam_s point: 18250/21487 records, last=8.1ms, elapsed=729.9s
+[PROGRESS] ocid efficient_sam_s point: 18500/21487 records, last=8.2ms, elapsed=742.7s
+[PROGRESS] ocid efficient_sam_s point: 18750/21487 records, last=232.7ms, elapsed=755.6s
+[PROGRESS] ocid efficient_sam_s point: 19000/21487 records, last=9.1ms, elapsed=768.3s
+[PROGRESS] ocid efficient_sam_s point: 19250/21487 records, last=230.2ms, elapsed=780.8s
+[PROGRESS] ocid efficient_sam_s point: 19500/21487 records, last=9.6ms, elapsed=793.7s
+[PROGRESS] ocid efficient_sam_s point: 19750/21487 records, last=7.9ms, elapsed=806.3s
+[PROGRESS] ocid efficient_sam_s point: 20000/21487 records, last=7.9ms, elapsed=818.2s
+[PROGRESS] ocid efficient_sam_s point: 20250/21487 records, last=7.9ms, elapsed=830.1s
+[PROGRESS] ocid efficient_sam_s point: 20500/21487 records, last=8.2ms, elapsed=842.5s
+[PROGRESS] ocid efficient_sam_s point: 20750/21487 records, last=8.0ms, elapsed=854.6s
+[PROGRESS] ocid efficient_sam_s point: 21000/21487 records, last=7.8ms, elapsed=866.5s
+[PROGRESS] ocid efficient_sam_s point: 21250/21487 records, last=8.1ms, elapsed=878.3s
+[PROGRESS] ocid efficient_sam_s point: 21487/21487 records, last=7.9ms, elapsed=889.5s
+[WRITE] wrote 21487 records to results/task9_lightweight_sam/ocid/efficient_sam_s/point_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/ocid/efficient_sam_s/point_predictions.jsonl
+[OK] ocid/efficient_sam_s/point: 21487 rows
+[RUN] ocid/efficient_sam_s/box: expected_rows=21487
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset ocid --model efficient_sam_s --prompt-mode box --log-every 250
+[START] dataset=ocid model=efficient_sam_s prompt_mode=box device=cuda records=21487 run_units=21487 output=results/task9_lightweight_sam/ocid/efficient_sam_s/box_predictions.jsonl
+[LOAD] efficient_sam_s: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/efficient_sam/efficient_sam.py:303: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f, map_location="cpu")
+[LOAD] efficient_sam_s: ready in 3.4s
+[PROGRESS] ocid efficient_sam_s box: 1/21487 records, last=591.1ms, elapsed=0.6s
+[PROGRESS] ocid efficient_sam_s box: 250/21487 records, last=230.1ms, elapsed=13.4s
+[PROGRESS] ocid efficient_sam_s box: 500/21487 records, last=231.7ms, elapsed=26.2s
+[PROGRESS] ocid efficient_sam_s box: 750/21487 records, last=7.9ms, elapsed=38.9s
+[PROGRESS] ocid efficient_sam_s box: 1000/21487 records, last=8.0ms, elapsed=51.8s
+[PROGRESS] ocid efficient_sam_s box: 1250/21487 records, last=233.0ms, elapsed=64.7s
+[PROGRESS] ocid efficient_sam_s box: 1500/21487 records, last=8.3ms, elapsed=77.2s
+[PROGRESS] ocid efficient_sam_s box: 1750/21487 records, last=8.1ms, elapsed=89.9s
+[PROGRESS] ocid efficient_sam_s box: 2000/21487 records, last=7.8ms, elapsed=102.9s
+[PROGRESS] ocid efficient_sam_s box: 2250/21487 records, last=7.9ms, elapsed=115.8s
+[PROGRESS] ocid efficient_sam_s box: 2500/21487 records, last=8.2ms, elapsed=128.7s
+[PROGRESS] ocid efficient_sam_s box: 2750/21487 records, last=8.2ms, elapsed=140.5s
+[PROGRESS] ocid efficient_sam_s box: 3000/21487 records, last=8.1ms, elapsed=152.4s
+[PROGRESS] ocid efficient_sam_s box: 3250/21487 records, last=229.2ms, elapsed=164.7s
+[PROGRESS] ocid efficient_sam_s box: 3500/21487 records, last=9.2ms, elapsed=176.7s
+[PROGRESS] ocid efficient_sam_s box: 3750/21487 records, last=8.1ms, elapsed=188.6s
+[PROGRESS] ocid efficient_sam_s box: 4000/21487 records, last=8.8ms, elapsed=200.4s
+[PROGRESS] ocid efficient_sam_s box: 4250/21487 records, last=8.1ms, elapsed=212.6s
+[PROGRESS] ocid efficient_sam_s box: 4500/21487 records, last=232.6ms, elapsed=224.9s
+[PROGRESS] ocid efficient_sam_s box: 4750/21487 records, last=8.5ms, elapsed=236.8s
+[PROGRESS] ocid efficient_sam_s box: 5000/21487 records, last=229.2ms, elapsed=248.7s
+[PROGRESS] ocid efficient_sam_s box: 5250/21487 records, last=8.4ms, elapsed=260.9s
+[PROGRESS] ocid efficient_sam_s box: 5500/21487 records, last=7.8ms, elapsed=273.0s
+[PROGRESS] ocid efficient_sam_s box: 5750/21487 records, last=7.9ms, elapsed=282.4s
+[PROGRESS] ocid efficient_sam_s box: 6000/21487 records, last=8.0ms, elapsed=291.2s
+[PROGRESS] ocid efficient_sam_s box: 6250/21487 records, last=228.1ms, elapsed=300.6s
+[PROGRESS] ocid efficient_sam_s box: 6500/21487 records, last=8.1ms, elapsed=309.8s
+[PROGRESS] ocid efficient_sam_s box: 6750/21487 records, last=7.8ms, elapsed=318.7s
+[PROGRESS] ocid efficient_sam_s box: 7000/21487 records, last=7.9ms, elapsed=327.6s
+[PROGRESS] ocid efficient_sam_s box: 7250/21487 records, last=8.5ms, elapsed=336.5s
+[PROGRESS] ocid efficient_sam_s box: 7500/21487 records, last=8.2ms, elapsed=345.2s
+[PROGRESS] ocid efficient_sam_s box: 7750/21487 records, last=7.9ms, elapsed=353.9s
+[PROGRESS] ocid efficient_sam_s box: 8000/21487 records, last=229.7ms, elapsed=362.9s
+[PROGRESS] ocid efficient_sam_s box: 8250/21487 records, last=8.2ms, elapsed=371.6s
+[PROGRESS] ocid efficient_sam_s box: 8500/21487 records, last=8.4ms, elapsed=380.3s
+[PROGRESS] ocid efficient_sam_s box: 8750/21487 records, last=8.1ms, elapsed=389.0s
+[PROGRESS] ocid efficient_sam_s box: 9000/21487 records, last=226.7ms, elapsed=398.0s
+[PROGRESS] ocid efficient_sam_s box: 9250/21487 records, last=8.4ms, elapsed=407.3s
+[PROGRESS] ocid efficient_sam_s box: 9500/21487 records, last=7.8ms, elapsed=416.3s
+[PROGRESS] ocid efficient_sam_s box: 9750/21487 records, last=7.9ms, elapsed=425.2s
+[PROGRESS] ocid efficient_sam_s box: 10000/21487 records, last=8.1ms, elapsed=434.1s
+[PROGRESS] ocid efficient_sam_s box: 10250/21487 records, last=7.9ms, elapsed=442.8s
+[PROGRESS] ocid efficient_sam_s box: 10500/21487 records, last=8.2ms, elapsed=451.7s
+[PROGRESS] ocid efficient_sam_s box: 10750/21487 records, last=7.9ms, elapsed=460.4s
+[PROGRESS] ocid efficient_sam_s box: 11000/21487 records, last=8.0ms, elapsed=469.2s
+[PROGRESS] ocid efficient_sam_s box: 11250/21487 records, last=8.1ms, elapsed=477.9s
+[PROGRESS] ocid efficient_sam_s box: 11500/21487 records, last=9.3ms, elapsed=486.6s
+[PROGRESS] ocid efficient_sam_s box: 11750/21487 records, last=8.1ms, elapsed=495.3s
+[PROGRESS] ocid efficient_sam_s box: 12000/21487 records, last=7.9ms, elapsed=504.0s
+[PROGRESS] ocid efficient_sam_s box: 12250/21487 records, last=8.0ms, elapsed=512.8s
+[PROGRESS] ocid efficient_sam_s box: 12500/21487 records, last=8.1ms, elapsed=521.5s
+[PROGRESS] ocid efficient_sam_s box: 12750/21487 records, last=7.8ms, elapsed=530.2s
+[PROGRESS] ocid efficient_sam_s box: 13000/21487 records, last=8.1ms, elapsed=538.9s
+[PROGRESS] ocid efficient_sam_s box: 13250/21487 records, last=8.8ms, elapsed=547.6s
+[PROGRESS] ocid efficient_sam_s box: 13500/21487 records, last=7.9ms, elapsed=556.0s
+[PROGRESS] ocid efficient_sam_s box: 13750/21487 records, last=7.9ms, elapsed=564.7s
+[PROGRESS] ocid efficient_sam_s box: 14000/21487 records, last=7.8ms, elapsed=573.4s
+[PROGRESS] ocid efficient_sam_s box: 14250/21487 records, last=8.2ms, elapsed=582.2s
+[PROGRESS] ocid efficient_sam_s box: 14500/21487 records, last=7.9ms, elapsed=590.9s
+[PROGRESS] ocid efficient_sam_s box: 14750/21487 records, last=7.9ms, elapsed=599.6s
+[PROGRESS] ocid efficient_sam_s box: 15000/21487 records, last=8.0ms, elapsed=608.3s
+[PROGRESS] ocid efficient_sam_s box: 15250/21487 records, last=7.9ms, elapsed=617.0s
+[PROGRESS] ocid efficient_sam_s box: 15500/21487 records, last=8.1ms, elapsed=625.7s
+[PROGRESS] ocid efficient_sam_s box: 15750/21487 records, last=9.5ms, elapsed=634.5s
+[PROGRESS] ocid efficient_sam_s box: 16000/21487 records, last=8.0ms, elapsed=643.0s
+[PROGRESS] ocid efficient_sam_s box: 16250/21487 records, last=8.0ms, elapsed=651.8s
+[PROGRESS] ocid efficient_sam_s box: 16500/21487 records, last=8.3ms, elapsed=660.6s
+[PROGRESS] ocid efficient_sam_s box: 16750/21487 records, last=8.6ms, elapsed=669.4s
+[PROGRESS] ocid efficient_sam_s box: 17000/21487 records, last=8.1ms, elapsed=678.2s
+[PROGRESS] ocid efficient_sam_s box: 17250/21487 records, last=8.1ms, elapsed=686.9s
+[PROGRESS] ocid efficient_sam_s box: 17500/21487 records, last=8.1ms, elapsed=695.7s
+[PROGRESS] ocid efficient_sam_s box: 17750/21487 records, last=8.5ms, elapsed=704.5s
+[PROGRESS] ocid efficient_sam_s box: 18000/21487 records, last=8.8ms, elapsed=713.4s
+[PROGRESS] ocid efficient_sam_s box: 18250/21487 records, last=8.5ms, elapsed=724.6s
+[PROGRESS] ocid efficient_sam_s box: 18500/21487 records, last=8.5ms, elapsed=737.5s
+[PROGRESS] ocid efficient_sam_s box: 18750/21487 records, last=228.7ms, elapsed=750.5s
+[PROGRESS] ocid efficient_sam_s box: 19000/21487 records, last=9.2ms, elapsed=763.3s
+[PROGRESS] ocid efficient_sam_s box: 19250/21487 records, last=229.0ms, elapsed=775.8s
+[PROGRESS] ocid efficient_sam_s box: 19500/21487 records, last=8.9ms, elapsed=788.7s
+[PROGRESS] ocid efficient_sam_s box: 19750/21487 records, last=8.5ms, elapsed=801.4s
+[PROGRESS] ocid efficient_sam_s box: 20000/21487 records, last=8.3ms, elapsed=813.4s
+[PROGRESS] ocid efficient_sam_s box: 20250/21487 records, last=8.4ms, elapsed=825.4s
+[PROGRESS] ocid efficient_sam_s box: 20500/21487 records, last=8.4ms, elapsed=837.8s
+[PROGRESS] ocid efficient_sam_s box: 20750/21487 records, last=8.3ms, elapsed=849.9s
+[PROGRESS] ocid efficient_sam_s box: 21000/21487 records, last=8.7ms, elapsed=861.9s
+[PROGRESS] ocid efficient_sam_s box: 21250/21487 records, last=8.5ms, elapsed=873.9s
+[PROGRESS] ocid efficient_sam_s box: 21487/21487 records, last=8.5ms, elapsed=885.3s
+[WRITE] wrote 21487 records to results/task9_lightweight_sam/ocid/efficient_sam_s/box_predictions.jsonl
+[OK] wrote results/task9_lightweight_sam/ocid/efficient_sam_s/box_predictions.jsonl
+[OK] ocid/efficient_sam_s/box: 21487 rows
+[RUN] ocid/efficient_sam_s/automatic: expected_rows=2390
++ /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/bin/python /home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py --config configs/task9_lightweight_sam.yaml --dataset ocid --model efficient_sam_s --prompt-mode automatic --log-every 250
+[START] dataset=ocid model=efficient_sam_s prompt_mode=automatic device=cuda records=21487 run_units=2390 output=results/task9_lightweight_sam/ocid/efficient_sam_s/automatic_predictions.jsonl
+[LOAD] efficient_sam_s: loading checkpoint/model
+/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/.venv/lib/python3.12/site-packages/efficient_sam/efficient_sam.py:303: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  state_dict = torch.load(f, map_location="cpu")
+[LOAD] efficient_sam_s: ready in 3.5s
+[PROGRESS] ocid efficient_sam_s automatic: 1/2390 images, last=835.2ms, elapsed=0.9s
+[PROGRESS] ocid efficient_sam_s automatic: 250/2390 images, last=499.5ms, elapsed=133.2s
+[ERROR] incomplete output kept at results/task9_lightweight_sam/ocid/efficient_sam_s/.automatic_predictions.jsonl.6182.tmp
+Traceback (most recent call last):
+  File "/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py", line 725, in <module>
+    main()
+  File "/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py", line 720, in main
+    write_jsonl(out_path, output_records)
+  File "/home/ubuntu/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/scripts/benchmarks/run_zero_shot_sam.py", line 75, in write_jsonl
+    f.write(json.dumps(record) + "\n")
+OSError: [Errno 28] No space left on device
+[FAILED] ocid/efficient_sam_s/automatic: returncode=1

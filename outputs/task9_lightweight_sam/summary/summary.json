@@ -1,0 +1,16 @@
+{
+  "quality_rows": 72,
+  "tradeoff_rows": 144,
+  "recommendation_rows": 36,
+  "lightweight_models": [
+    "efficient_sam_s",
+    "efficient_sam_ti",
+    "mobile_sam_vit_t"
+  ],
+  "outputs": {
+    "lightweight_quality": "outputs/task9_lightweight_sam/summary/lightweight_quality.csv",
+    "speed_quality_tradeoff": "outputs/task9_lightweight_sam/summary/speed_quality_tradeoff.csv",
+    "recommendations": "outputs/task9_lightweight_sam/summary/recommendations.csv",
+    "report": "outputs/task9_lightweight_sam/summary/task9_lightweight_sam_report.md"
+  }
+}

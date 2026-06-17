@@ -1,0 +1,39 @@
+{
+  "dataset": "ocid",
+  "model": "efficient_sam_ti",
+  "model_family": "zero_shot",
+  "prompt_mode": "automatic",
+  "device": "cuda",
+  "status": "ok",
+  "sample_images": 20,
+  "selected_images_including_warmup": 23,
+  "requested_timed_images": 20,
+  "timing": {
+    "timed_units": 20,
+    "total_timed_s": 7.94400418899022,
+    "fps": 2.517622035964994,
+    "latency_mean_ms": 397.200209449511,
+    "latency_median_ms": 395.463609995204,
+    "latency_p95_ms": 411.46833510283614,
+    "latency_min_ms": 385.1162209903123,
+    "latency_max_ms": 415.9630149952136,
+    "warmup_units": 3,
+    "output_count_mean": 64.0,
+    "output_count_min": 64,
+    "output_count_max": 64
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true,
+    "cuda_device": "Tesla T4",
+    "cuda_total_memory_gb": 15.64
+  },
+  "elapsed_wall_s": 9.441874992000521,
+  "metrics_file": "outputs/task9_lightweight_sam/inference_speed/cuda/ocid/efficient_sam_ti/automatic_speed.json"
+}

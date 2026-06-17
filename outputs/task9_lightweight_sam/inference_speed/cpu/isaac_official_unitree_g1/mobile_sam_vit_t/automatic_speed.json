@@ -1,0 +1,37 @@
+{
+  "dataset": "isaac_official_unitree_g1",
+  "model": "mobile_sam_vit_t",
+  "model_family": "zero_shot",
+  "prompt_mode": "automatic",
+  "device": "cpu",
+  "status": "ok",
+  "sample_images": 1,
+  "selected_images_including_warmup": 4,
+  "requested_timed_images": 1,
+  "timing": {
+    "timed_units": 1,
+    "total_timed_s": 169.42384315200616,
+    "fps": 0.005902356961073096,
+    "latency_mean_ms": 169423.84315200616,
+    "latency_median_ms": 169423.84315200616,
+    "latency_p95_ms": 169423.84315200616,
+    "latency_min_ms": 169423.84315200616,
+    "latency_max_ms": 169423.84315200616,
+    "warmup_units": 3,
+    "output_count_mean": 49.0,
+    "output_count_min": 49,
+    "output_count_max": 49
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true
+  },
+  "elapsed_wall_s": 678.8030437559937,
+  "metrics_file": "outputs/task9_lightweight_sam/inference_speed/cpu/isaac_official_unitree_g1/mobile_sam_vit_t/automatic_speed.json"
+}

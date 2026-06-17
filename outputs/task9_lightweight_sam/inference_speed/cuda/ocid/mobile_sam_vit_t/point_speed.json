@@ -1,0 +1,39 @@
+{
+  "dataset": "ocid",
+  "model": "mobile_sam_vit_t",
+  "model_family": "zero_shot",
+  "prompt_mode": "point",
+  "device": "cuda",
+  "status": "ok",
+  "sample_images": 50,
+  "selected_images_including_warmup": 53,
+  "requested_timed_images": 50,
+  "timing": {
+    "timed_units": 50,
+    "total_timed_s": 3.2140436769113876,
+    "fps": 15.55672698513192,
+    "latency_mean_ms": 64.28087353822775,
+    "latency_median_ms": 64.24115199479274,
+    "latency_p95_ms": 64.84636709938059,
+    "latency_min_ms": 63.42681001115125,
+    "latency_max_ms": 65.14034599240404,
+    "warmup_units": 3,
+    "output_count_mean": 3.0,
+    "output_count_min": 3,
+    "output_count_max": 3
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.17.0-1017-aws-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "cpu_count_logical": 4,
+    "cpu_count_physical": 2,
+    "memory_gb": 16.55,
+    "torch": "2.5.1+cu121",
+    "cuda_available": true,
+    "cuda_device": "Tesla T4",
+    "cuda_total_memory_gb": 15.64
+  },
+  "elapsed_wall_s": 4.26429891299631,
+  "metrics_file": "outputs/task9_lightweight_sam/inference_speed/cuda/ocid/mobile_sam_vit_t/point_speed.json"
+}

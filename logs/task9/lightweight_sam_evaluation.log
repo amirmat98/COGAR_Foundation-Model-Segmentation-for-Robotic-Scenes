@@ -1,0 +1,516 @@
+nohup: ignoring input
+[START] evaluating isaac_official_unitree_g1/mobile_sam_vit_t/point from results/task9_lightweight_sam/isaac_official_unitree_g1/mobile_sam_vit_t/point_predictions.jsonl
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/point: 5000 prompted records, elapsed=59.9s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/point: 10000 prompted records, elapsed=118.5s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/point: 15000 prompted records, elapsed=177.0s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/point: 20000 prompted records, elapsed=235.6s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/point: 25000 prompted records, elapsed=294.0s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/point: 30000 prompted records, elapsed=352.9s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/point: 35000 prompted records, elapsed=411.5s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/point: 40000 prompted records, elapsed=470.3s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/point: 45000 prompted records, elapsed=528.6s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/point: 50000 prompted records, elapsed=586.7s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/point: 55000 prompted records, elapsed=644.6s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/point: 60000 prompted records, elapsed=703.2s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/point: 65000 prompted records, elapsed=761.3s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/point: 70000 prompted records, elapsed=818.1s
+[AP] isaac_official_unitree_g1/mobile_sam_vit_t/point: evaluating COCO mask AP with 72695 detections on 1000 images
+loading annotations into memory...
+Done (t=2.69s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.06s)
+creating index...
+index created!
+[START] evaluating isaac_official_unitree_g1/mobile_sam_vit_t/box from results/task9_lightweight_sam/isaac_official_unitree_g1/mobile_sam_vit_t/box_predictions.jsonl
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/box: 5000 prompted records, elapsed=47.9s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/box: 10000 prompted records, elapsed=94.6s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/box: 15000 prompted records, elapsed=141.5s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/box: 20000 prompted records, elapsed=189.7s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/box: 25000 prompted records, elapsed=239.4s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/box: 30000 prompted records, elapsed=288.4s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/box: 35000 prompted records, elapsed=337.2s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/box: 40000 prompted records, elapsed=385.3s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/box: 45000 prompted records, elapsed=433.3s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/box: 50000 prompted records, elapsed=481.2s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/box: 55000 prompted records, elapsed=530.0s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/box: 60000 prompted records, elapsed=579.9s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/box: 65000 prompted records, elapsed=629.4s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/box: 70000 prompted records, elapsed=678.5s
+[AP] isaac_official_unitree_g1/mobile_sam_vit_t/box: evaluating COCO mask AP with 72695 detections on 1000 images
+loading annotations into memory...
+Done (t=2.67s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.07s)
+creating index...
+index created!
+[START] evaluating isaac_official_unitree_g1/mobile_sam_vit_t/automatic from results/task9_lightweight_sam/isaac_official_unitree_g1/mobile_sam_vit_t/automatic_predictions.jsonl
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/automatic: 100 automatic images, matches=7097, detections=6022, elapsed=70.7s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/automatic: 200 automatic images, matches=14377, detections=12019, elapsed=142.7s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/automatic: 300 automatic images, matches=21764, detections=18288, elapsed=214.4s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/automatic: 400 automatic images, matches=29026, detections=24277, elapsed=283.9s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/automatic: 500 automatic images, matches=36263, detections=30217, elapsed=354.4s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/automatic: 600 automatic images, matches=43583, detections=36069, elapsed=426.9s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/automatic: 700 automatic images, matches=50759, detections=42008, elapsed=496.5s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/automatic: 800 automatic images, matches=58056, detections=47944, elapsed=565.1s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/automatic: 900 automatic images, matches=65358, detections=53958, elapsed=633.1s
+[PROGRESS] isaac_official_unitree_g1/mobile_sam_vit_t/automatic: 1000 automatic images, matches=72695, detections=59997, elapsed=702.2s
+[AP] isaac_official_unitree_g1/mobile_sam_vit_t/automatic: evaluating class-agnostic COCO mask AP with 59997 detections on 1000 images
+loading annotations into memory...
+Done (t=2.67s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.04s)
+creating index...
+index created!
+[START] evaluating isaac_official_unitree_g1/efficient_sam_ti/point from results/task9_lightweight_sam/isaac_official_unitree_g1/efficient_sam_ti/point_predictions.jsonl
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/point: 5000 prompted records, elapsed=47.9s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/point: 10000 prompted records, elapsed=95.2s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/point: 15000 prompted records, elapsed=142.4s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/point: 20000 prompted records, elapsed=189.5s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/point: 25000 prompted records, elapsed=236.7s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/point: 30000 prompted records, elapsed=284.0s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/point: 35000 prompted records, elapsed=331.1s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/point: 40000 prompted records, elapsed=378.1s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/point: 45000 prompted records, elapsed=425.2s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/point: 50000 prompted records, elapsed=473.9s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/point: 55000 prompted records, elapsed=523.5s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/point: 60000 prompted records, elapsed=573.3s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/point: 65000 prompted records, elapsed=622.2s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/point: 70000 prompted records, elapsed=671.5s
+[AP] isaac_official_unitree_g1/efficient_sam_ti/point: evaluating COCO mask AP with 72695 detections on 1000 images
+loading annotations into memory...
+Done (t=2.71s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.06s)
+creating index...
+index created!
+[START] evaluating isaac_official_unitree_g1/efficient_sam_ti/box from results/task9_lightweight_sam/isaac_official_unitree_g1/efficient_sam_ti/box_predictions.jsonl
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/box: 5000 prompted records, elapsed=50.1s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/box: 10000 prompted records, elapsed=99.6s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/box: 15000 prompted records, elapsed=149.2s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/box: 20000 prompted records, elapsed=198.4s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/box: 25000 prompted records, elapsed=247.3s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/box: 30000 prompted records, elapsed=296.0s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/box: 35000 prompted records, elapsed=343.9s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/box: 40000 prompted records, elapsed=392.1s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/box: 45000 prompted records, elapsed=440.3s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/box: 50000 prompted records, elapsed=488.4s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/box: 55000 prompted records, elapsed=536.5s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/box: 60000 prompted records, elapsed=584.8s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/box: 65000 prompted records, elapsed=632.7s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/box: 70000 prompted records, elapsed=680.9s
+[AP] isaac_official_unitree_g1/efficient_sam_ti/box: evaluating COCO mask AP with 72695 detections on 1000 images
+loading annotations into memory...
+Done (t=2.70s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.06s)
+creating index...
+index created!
+[START] evaluating isaac_official_unitree_g1/efficient_sam_ti/automatic from results/task9_lightweight_sam/isaac_official_unitree_g1/efficient_sam_ti/automatic_predictions.jsonl
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/automatic: 100 automatic images, matches=7097, detections=6400, elapsed=145.5s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/automatic: 200 automatic images, matches=14377, detections=12800, elapsed=293.3s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/automatic: 300 automatic images, matches=21764, detections=19200, elapsed=440.6s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/automatic: 400 automatic images, matches=29026, detections=25600, elapsed=585.3s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/automatic: 500 automatic images, matches=36263, detections=32000, elapsed=731.4s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/automatic: 600 automatic images, matches=43583, detections=38400, elapsed=881.3s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/automatic: 700 automatic images, matches=50759, detections=44800, elapsed=1028.7s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/automatic: 800 automatic images, matches=58056, detections=51200, elapsed=1180.2s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/automatic: 900 automatic images, matches=65358, detections=57600, elapsed=1331.3s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_ti/automatic: 1000 automatic images, matches=72695, detections=64000, elapsed=1480.9s
+[AP] isaac_official_unitree_g1/efficient_sam_ti/automatic: evaluating class-agnostic COCO mask AP with 64000 detections on 1000 images
+loading annotations into memory...
+Done (t=2.79s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.04s)
+creating index...
+index created!
+[START] evaluating isaac_official_unitree_g1/efficient_sam_s/point from results/task9_lightweight_sam/isaac_official_unitree_g1/efficient_sam_s/point_predictions.jsonl
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/point: 5000 prompted records, elapsed=48.8s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/point: 10000 prompted records, elapsed=97.4s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/point: 15000 prompted records, elapsed=145.8s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/point: 20000 prompted records, elapsed=194.0s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/point: 25000 prompted records, elapsed=242.3s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/point: 30000 prompted records, elapsed=291.0s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/point: 35000 prompted records, elapsed=339.6s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/point: 40000 prompted records, elapsed=389.7s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/point: 45000 prompted records, elapsed=439.4s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/point: 50000 prompted records, elapsed=489.1s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/point: 55000 prompted records, elapsed=539.1s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/point: 60000 prompted records, elapsed=589.3s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/point: 65000 prompted records, elapsed=639.0s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/point: 70000 prompted records, elapsed=688.9s
+[AP] isaac_official_unitree_g1/efficient_sam_s/point: evaluating COCO mask AP with 72695 detections on 1000 images
+loading annotations into memory...
+Done (t=2.62s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.06s)
+creating index...
+index created!
+[START] evaluating isaac_official_unitree_g1/efficient_sam_s/box from results/task9_lightweight_sam/isaac_official_unitree_g1/efficient_sam_s/box_predictions.jsonl
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/box: 5000 prompted records, elapsed=49.7s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/box: 10000 prompted records, elapsed=98.9s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/box: 15000 prompted records, elapsed=147.6s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/box: 20000 prompted records, elapsed=196.3s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/box: 25000 prompted records, elapsed=246.4s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/box: 30000 prompted records, elapsed=296.4s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/box: 35000 prompted records, elapsed=346.7s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/box: 40000 prompted records, elapsed=396.6s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/box: 45000 prompted records, elapsed=446.0s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/box: 50000 prompted records, elapsed=495.5s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/box: 55000 prompted records, elapsed=545.4s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/box: 60000 prompted records, elapsed=595.7s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/box: 65000 prompted records, elapsed=645.3s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/box: 70000 prompted records, elapsed=695.0s
+[AP] isaac_official_unitree_g1/efficient_sam_s/box: evaluating COCO mask AP with 72695 detections on 1000 images
+loading annotations into memory...
+Done (t=2.64s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.06s)
+creating index...
+index created!
+[START] evaluating isaac_official_unitree_g1/efficient_sam_s/automatic from results/task9_lightweight_sam/isaac_official_unitree_g1/efficient_sam_s/automatic_predictions.jsonl
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/automatic: 100 automatic images, matches=7097, detections=6400, elapsed=161.0s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/automatic: 200 automatic images, matches=14377, detections=12800, elapsed=329.2s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/automatic: 300 automatic images, matches=21764, detections=19200, elapsed=499.6s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/automatic: 400 automatic images, matches=29026, detections=25600, elapsed=666.7s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/automatic: 500 automatic images, matches=36263, detections=32000, elapsed=832.9s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/automatic: 600 automatic images, matches=43583, detections=38400, elapsed=1001.7s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/automatic: 700 automatic images, matches=50759, detections=44800, elapsed=1167.4s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/automatic: 800 automatic images, matches=58056, detections=51200, elapsed=1334.1s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/automatic: 900 automatic images, matches=65358, detections=57600, elapsed=1498.6s
+[PROGRESS] isaac_official_unitree_g1/efficient_sam_s/automatic: 1000 automatic images, matches=72695, detections=64000, elapsed=1666.3s
+[AP] isaac_official_unitree_g1/efficient_sam_s/automatic: evaluating class-agnostic COCO mask AP with 64000 detections on 1000 images
+loading annotations into memory...
+Done (t=2.77s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.04s)
+creating index...
+index created!
+[START] evaluating blenderproc_cogar_sim/mobile_sam_vit_t/point from results/task9_lightweight_sam/blenderproc_cogar_sim/mobile_sam_vit_t/point_predictions.jsonl
+[PROGRESS] blenderproc_cogar_sim/mobile_sam_vit_t/point: 5000 prompted records, elapsed=20.0s
+[AP] blenderproc_cogar_sim/mobile_sam_vit_t/point: evaluating COCO mask AP with 8768 detections on 1000 images
+loading annotations into memory...
+Done (t=0.41s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.01s)
+creating index...
+index created!
+[START] evaluating blenderproc_cogar_sim/mobile_sam_vit_t/box from results/task9_lightweight_sam/blenderproc_cogar_sim/mobile_sam_vit_t/box_predictions.jsonl
+[PROGRESS] blenderproc_cogar_sim/mobile_sam_vit_t/box: 5000 prompted records, elapsed=19.9s
+[AP] blenderproc_cogar_sim/mobile_sam_vit_t/box: evaluating COCO mask AP with 8768 detections on 1000 images
+loading annotations into memory...
+Done (t=0.41s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.01s)
+creating index...
+index created!
+[START] evaluating blenderproc_cogar_sim/mobile_sam_vit_t/automatic from results/task9_lightweight_sam/blenderproc_cogar_sim/mobile_sam_vit_t/automatic_predictions.jsonl
+[PROGRESS] blenderproc_cogar_sim/mobile_sam_vit_t/automatic: 100 automatic images, matches=855, detections=1875, elapsed=3.4s
+[PROGRESS] blenderproc_cogar_sim/mobile_sam_vit_t/automatic: 200 automatic images, matches=1708, detections=3760, elapsed=6.7s
+[PROGRESS] blenderproc_cogar_sim/mobile_sam_vit_t/automatic: 300 automatic images, matches=2600, detections=5665, elapsed=10.3s
+[PROGRESS] blenderproc_cogar_sim/mobile_sam_vit_t/automatic: 400 automatic images, matches=3457, detections=7617, elapsed=13.6s
+[PROGRESS] blenderproc_cogar_sim/mobile_sam_vit_t/automatic: 500 automatic images, matches=4358, detections=9615, elapsed=17.2s
+[PROGRESS] blenderproc_cogar_sim/mobile_sam_vit_t/automatic: 600 automatic images, matches=5198, detections=11426, elapsed=20.5s
+[PROGRESS] blenderproc_cogar_sim/mobile_sam_vit_t/automatic: 700 automatic images, matches=6073, detections=13332, elapsed=23.9s
+[PROGRESS] blenderproc_cogar_sim/mobile_sam_vit_t/automatic: 800 automatic images, matches=6968, detections=15320, elapsed=27.4s
+[PROGRESS] blenderproc_cogar_sim/mobile_sam_vit_t/automatic: 900 automatic images, matches=7854, detections=17207, elapsed=30.9s
+[PROGRESS] blenderproc_cogar_sim/mobile_sam_vit_t/automatic: 1000 automatic images, matches=8768, detections=19294, elapsed=34.6s
+[AP] blenderproc_cogar_sim/mobile_sam_vit_t/automatic: evaluating class-agnostic COCO mask AP with 19294 detections on 1000 images
+loading annotations into memory...
+Done (t=0.35s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.01s)
+creating index...
+index created!
+[START] evaluating blenderproc_cogar_sim/efficient_sam_ti/point from results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_ti/point_predictions.jsonl
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_ti/point: 5000 prompted records, elapsed=20.0s
+[AP] blenderproc_cogar_sim/efficient_sam_ti/point: evaluating COCO mask AP with 8768 detections on 1000 images
+loading annotations into memory...
+Done (t=0.41s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.01s)
+creating index...
+index created!
+[START] evaluating blenderproc_cogar_sim/efficient_sam_ti/box from results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_ti/box_predictions.jsonl
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_ti/box: 5000 prompted records, elapsed=19.4s
+[AP] blenderproc_cogar_sim/efficient_sam_ti/box: evaluating COCO mask AP with 8768 detections on 1000 images
+loading annotations into memory...
+Done (t=0.41s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.01s)
+creating index...
+index created!
+[START] evaluating blenderproc_cogar_sim/efficient_sam_ti/automatic from results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_ti/automatic_predictions.jsonl
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_ti/automatic: 100 automatic images, matches=855, detections=6400, elapsed=13.6s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_ti/automatic: 200 automatic images, matches=1708, detections=12800, elapsed=27.2s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_ti/automatic: 300 automatic images, matches=2600, detections=19200, elapsed=41.1s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_ti/automatic: 400 automatic images, matches=3457, detections=25600, elapsed=54.5s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_ti/automatic: 500 automatic images, matches=4358, detections=32000, elapsed=68.1s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_ti/automatic: 600 automatic images, matches=5198, detections=38400, elapsed=81.6s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_ti/automatic: 700 automatic images, matches=6073, detections=44800, elapsed=95.5s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_ti/automatic: 800 automatic images, matches=6968, detections=51200, elapsed=109.2s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_ti/automatic: 900 automatic images, matches=7854, detections=57600, elapsed=122.4s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_ti/automatic: 1000 automatic images, matches=8768, detections=64000, elapsed=136.0s
+[AP] blenderproc_cogar_sim/efficient_sam_ti/automatic: evaluating class-agnostic COCO mask AP with 64000 detections on 1000 images
+loading annotations into memory...
+Done (t=0.36s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.05s)
+creating index...
+index created!
+[START] evaluating blenderproc_cogar_sim/efficient_sam_s/point from results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_s/point_predictions.jsonl
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_s/point: 5000 prompted records, elapsed=20.0s
+[AP] blenderproc_cogar_sim/efficient_sam_s/point: evaluating COCO mask AP with 8768 detections on 1000 images
+loading annotations into memory...
+Done (t=0.41s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.01s)
+creating index...
+index created!
+[START] evaluating blenderproc_cogar_sim/efficient_sam_s/box from results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_s/box_predictions.jsonl
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_s/box: 5000 prompted records, elapsed=20.0s
+[AP] blenderproc_cogar_sim/efficient_sam_s/box: evaluating COCO mask AP with 8768 detections on 1000 images
+loading annotations into memory...
+Done (t=0.41s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.01s)
+creating index...
+index created!
+[START] evaluating blenderproc_cogar_sim/efficient_sam_s/automatic from results/task9_lightweight_sam/blenderproc_cogar_sim/efficient_sam_s/automatic_predictions.jsonl
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_s/automatic: 100 automatic images, matches=855, detections=6400, elapsed=13.8s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_s/automatic: 200 automatic images, matches=1708, detections=12800, elapsed=27.7s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_s/automatic: 300 automatic images, matches=2600, detections=19200, elapsed=42.1s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_s/automatic: 400 automatic images, matches=3457, detections=25600, elapsed=56.1s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_s/automatic: 500 automatic images, matches=4358, detections=32000, elapsed=70.3s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_s/automatic: 600 automatic images, matches=5198, detections=38400, elapsed=84.4s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_s/automatic: 700 automatic images, matches=6073, detections=44800, elapsed=98.5s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_s/automatic: 800 automatic images, matches=6968, detections=51200, elapsed=113.1s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_s/automatic: 900 automatic images, matches=7854, detections=57600, elapsed=127.2s
+[PROGRESS] blenderproc_cogar_sim/efficient_sam_s/automatic: 1000 automatic images, matches=8768, detections=64000, elapsed=141.9s
+[AP] blenderproc_cogar_sim/efficient_sam_s/automatic: evaluating class-agnostic COCO mask AP with 64000 detections on 1000 images
+loading annotations into memory...
+Done (t=0.36s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.05s)
+creating index...
+index created!
+[START] evaluating ocid/mobile_sam_vit_t/point from results/task9_lightweight_sam/ocid/mobile_sam_vit_t/point_predictions.jsonl
+[PROGRESS] ocid/mobile_sam_vit_t/point: 5000 prompted records, elapsed=19.9s
+[PROGRESS] ocid/mobile_sam_vit_t/point: 10000 prompted records, elapsed=39.8s
+[PROGRESS] ocid/mobile_sam_vit_t/point: 15000 prompted records, elapsed=59.7s
+[PROGRESS] ocid/mobile_sam_vit_t/point: 20000 prompted records, elapsed=79.6s
+[AP] ocid/mobile_sam_vit_t/point: evaluating COCO mask AP with 21487 detections on 2390 images
+loading annotations into memory...
+Done (t=0.13s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.02s)
+creating index...
+index created!
+[START] evaluating ocid/mobile_sam_vit_t/box from results/task9_lightweight_sam/ocid/mobile_sam_vit_t/box_predictions.jsonl
+[PROGRESS] ocid/mobile_sam_vit_t/box: 5000 prompted records, elapsed=20.2s
+[PROGRESS] ocid/mobile_sam_vit_t/box: 10000 prompted records, elapsed=40.1s
+[PROGRESS] ocid/mobile_sam_vit_t/box: 15000 prompted records, elapsed=60.1s
+[PROGRESS] ocid/mobile_sam_vit_t/box: 20000 prompted records, elapsed=80.0s
+[AP] ocid/mobile_sam_vit_t/box: evaluating COCO mask AP with 21487 detections on 2390 images
+loading annotations into memory...
+Done (t=0.13s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.02s)
+creating index...
+index created!
+[START] evaluating ocid/mobile_sam_vit_t/automatic from results/task9_lightweight_sam/ocid/mobile_sam_vit_t/automatic_predictions.jsonl
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 100 automatic images, matches=650, detections=9625, elapsed=2.8s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 200 automatic images, matches=1300, detections=19104, elapsed=5.6s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 300 automatic images, matches=1950, detections=30209, elapsed=8.3s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 400 automatic images, matches=2601, detections=39321, elapsed=11.1s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 500 automatic images, matches=3305, detections=42486, elapsed=14.0s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 600 automatic images, matches=4010, detections=45891, elapsed=16.9s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 700 automatic images, matches=4705, detections=49641, elapsed=19.7s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 800 automatic images, matches=5401, detections=52952, elapsed=22.5s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 900 automatic images, matches=6467, detections=57939, elapsed=26.8s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 1000 automatic images, matches=7617, detections=62585, elapsed=31.5s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 1100 automatic images, matches=8767, detections=67258, elapsed=36.1s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 1200 automatic images, matches=9917, detections=71163, elapsed=40.7s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 1300 automatic images, matches=11067, detections=75071, elapsed=45.2s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 1400 automatic images, matches=12220, detections=79983, elapsed=49.9s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 1500 automatic images, matches=13395, detections=85900, elapsed=54.7s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 1600 automatic images, matches=14595, detections=91802, elapsed=59.6s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 1700 automatic images, matches=15820, detections=97057, elapsed=64.6s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 1800 automatic images, matches=17028, detections=101480, elapsed=69.5s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 1900 automatic images, matches=18158, detections=107786, elapsed=74.1s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 2000 automatic images, matches=18808, detections=115335, elapsed=76.9s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 2100 automatic images, matches=19458, detections=125044, elapsed=79.6s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 2200 automatic images, matches=20145, detections=128352, elapsed=82.3s
+[PROGRESS] ocid/mobile_sam_vit_t/automatic: 2300 automatic images, matches=20848, detections=130447, elapsed=85.1s
+[AP] ocid/mobile_sam_vit_t/automatic: evaluating class-agnostic COCO mask AP with 132136 detections on 2390 images
+loading annotations into memory...
+Done (t=0.13s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.10s)
+creating index...
+index created!
+[START] evaluating ocid/efficient_sam_ti/point from results/task9_lightweight_sam/ocid/efficient_sam_ti/point_predictions.jsonl
+[PROGRESS] ocid/efficient_sam_ti/point: 5000 prompted records, elapsed=19.9s
+[PROGRESS] ocid/efficient_sam_ti/point: 10000 prompted records, elapsed=39.8s
+[PROGRESS] ocid/efficient_sam_ti/point: 15000 prompted records, elapsed=59.7s
+[PROGRESS] ocid/efficient_sam_ti/point: 20000 prompted records, elapsed=79.7s
+[AP] ocid/efficient_sam_ti/point: evaluating COCO mask AP with 21487 detections on 2390 images
+loading annotations into memory...
+Done (t=0.13s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.02s)
+creating index...
+index created!
+[START] evaluating ocid/efficient_sam_ti/box from results/task9_lightweight_sam/ocid/efficient_sam_ti/box_predictions.jsonl
+[PROGRESS] ocid/efficient_sam_ti/box: 5000 prompted records, elapsed=20.4s
+[PROGRESS] ocid/efficient_sam_ti/box: 10000 prompted records, elapsed=40.4s
+[PROGRESS] ocid/efficient_sam_ti/box: 15000 prompted records, elapsed=60.6s
+[PROGRESS] ocid/efficient_sam_ti/box: 20000 prompted records, elapsed=80.7s
+[AP] ocid/efficient_sam_ti/box: evaluating COCO mask AP with 21487 detections on 2390 images
+loading annotations into memory...
+Done (t=0.13s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.02s)
+creating index...
+index created!
+[START] evaluating ocid/efficient_sam_ti/automatic from results/task9_lightweight_sam/ocid/efficient_sam_ti/automatic_predictions.jsonl
+[PROGRESS] ocid/efficient_sam_ti/automatic: 100 automatic images, matches=650, detections=6400, elapsed=11.0s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 200 automatic images, matches=1300, detections=12800, elapsed=22.1s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 300 automatic images, matches=1950, detections=19200, elapsed=33.4s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 400 automatic images, matches=2601, detections=25600, elapsed=44.8s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 500 automatic images, matches=3305, detections=32000, elapsed=55.4s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 600 automatic images, matches=4010, detections=38400, elapsed=66.5s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 700 automatic images, matches=4705, detections=44800, elapsed=76.3s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 800 automatic images, matches=5401, detections=51200, elapsed=87.0s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 900 automatic images, matches=6467, detections=57600, elapsed=101.3s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 1000 automatic images, matches=7617, detections=64000, elapsed=115.6s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 1100 automatic images, matches=8767, detections=70400, elapsed=130.3s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 1200 automatic images, matches=9917, detections=76800, elapsed=146.0s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 1300 automatic images, matches=11067, detections=83200, elapsed=161.3s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 1400 automatic images, matches=12220, detections=89600, elapsed=178.0s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 1500 automatic images, matches=13395, detections=96000, elapsed=196.2s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 1600 automatic images, matches=14595, detections=102400, elapsed=213.7s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 1700 automatic images, matches=15820, detections=108800, elapsed=229.4s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 1800 automatic images, matches=17028, detections=115200, elapsed=245.2s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 1900 automatic images, matches=18158, detections=121600, elapsed=260.7s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 2000 automatic images, matches=18808, detections=128000, elapsed=271.2s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 2100 automatic images, matches=19458, detections=134400, elapsed=281.6s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 2200 automatic images, matches=20145, detections=140800, elapsed=292.5s
+[PROGRESS] ocid/efficient_sam_ti/automatic: 2300 automatic images, matches=20848, detections=147200, elapsed=303.7s
+[AP] ocid/efficient_sam_ti/automatic: evaluating class-agnostic COCO mask AP with 152960 detections on 2390 images
+loading annotations into memory...
+Done (t=0.13s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.11s)
+creating index...
+index created!
+[START] evaluating ocid/efficient_sam_s/point from results/task9_lightweight_sam/ocid/efficient_sam_s/point_predictions.jsonl
+[PROGRESS] ocid/efficient_sam_s/point: 5000 prompted records, elapsed=20.0s
+[PROGRESS] ocid/efficient_sam_s/point: 10000 prompted records, elapsed=39.9s
+[PROGRESS] ocid/efficient_sam_s/point: 15000 prompted records, elapsed=59.7s
+[PROGRESS] ocid/efficient_sam_s/point: 20000 prompted records, elapsed=79.6s
+[AP] ocid/efficient_sam_s/point: evaluating COCO mask AP with 21487 detections on 2390 images
+loading annotations into memory...
+Done (t=0.13s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.02s)
+creating index...
+index created!
+[START] evaluating ocid/efficient_sam_s/box from results/task9_lightweight_sam/ocid/efficient_sam_s/box_predictions.jsonl
+[PROGRESS] ocid/efficient_sam_s/box: 5000 prompted records, elapsed=20.2s
+[PROGRESS] ocid/efficient_sam_s/box: 10000 prompted records, elapsed=40.2s
+[PROGRESS] ocid/efficient_sam_s/box: 15000 prompted records, elapsed=60.1s
+[PROGRESS] ocid/efficient_sam_s/box: 20000 prompted records, elapsed=80.2s
+[AP] ocid/efficient_sam_s/box: evaluating COCO mask AP with 21487 detections on 2390 images
+loading annotations into memory...
+Done (t=0.13s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.02s)
+creating index...
+index created!
+[START] evaluating ocid/efficient_sam_s/automatic from results/task9_lightweight_sam/ocid/efficient_sam_s/automatic_predictions.jsonl
+[PROGRESS] ocid/efficient_sam_s/automatic: 100 automatic images, matches=650, detections=6400, elapsed=10.9s
+[PROGRESS] ocid/efficient_sam_s/automatic: 200 automatic images, matches=1300, detections=12800, elapsed=22.0s
+[PROGRESS] ocid/efficient_sam_s/automatic: 300 automatic images, matches=1950, detections=19200, elapsed=32.6s
+[PROGRESS] ocid/efficient_sam_s/automatic: 400 automatic images, matches=2601, detections=25600, elapsed=43.7s
+[PROGRESS] ocid/efficient_sam_s/automatic: 500 automatic images, matches=3305, detections=32000, elapsed=57.0s
+[PROGRESS] ocid/efficient_sam_s/automatic: 600 automatic images, matches=4010, detections=38400, elapsed=71.0s
+[PROGRESS] ocid/efficient_sam_s/automatic: 700 automatic images, matches=4705, detections=44800, elapsed=83.8s
+[PROGRESS] ocid/efficient_sam_s/automatic: 800 automatic images, matches=5401, detections=51200, elapsed=97.1s
+[PROGRESS] ocid/efficient_sam_s/automatic: 900 automatic images, matches=6467, detections=57600, elapsed=115.3s
+[PROGRESS] ocid/efficient_sam_s/automatic: 1000 automatic images, matches=7617, detections=64000, elapsed=134.9s
+[PROGRESS] ocid/efficient_sam_s/automatic: 1100 automatic images, matches=8767, detections=70400, elapsed=154.2s
+[PROGRESS] ocid/efficient_sam_s/automatic: 1200 automatic images, matches=9917, detections=76800, elapsed=173.4s
+[PROGRESS] ocid/efficient_sam_s/automatic: 1300 automatic images, matches=11067, detections=83200, elapsed=192.6s
+[PROGRESS] ocid/efficient_sam_s/automatic: 1400 automatic images, matches=12220, detections=89600, elapsed=213.2s
+[PROGRESS] ocid/efficient_sam_s/automatic: 1500 automatic images, matches=13395, detections=96000, elapsed=235.4s
+[PROGRESS] ocid/efficient_sam_s/automatic: 1600 automatic images, matches=14595, detections=102400, elapsed=257.3s
+[PROGRESS] ocid/efficient_sam_s/automatic: 1700 automatic images, matches=15820, detections=108800, elapsed=276.8s
+[PROGRESS] ocid/efficient_sam_s/automatic: 1800 automatic images, matches=17028, detections=115200, elapsed=296.6s
+[PROGRESS] ocid/efficient_sam_s/automatic: 1900 automatic images, matches=18158, detections=121600, elapsed=315.4s
+[PROGRESS] ocid/efficient_sam_s/automatic: 2000 automatic images, matches=18808, detections=128000, elapsed=327.8s
+[PROGRESS] ocid/efficient_sam_s/automatic: 2100 automatic images, matches=19458, detections=134400, elapsed=339.0s
+[PROGRESS] ocid/efficient_sam_s/automatic: 2200 automatic images, matches=20145, detections=140800, elapsed=353.3s
+[PROGRESS] ocid/efficient_sam_s/automatic: 2300 automatic images, matches=20848, detections=147200, elapsed=369.3s
+[AP] ocid/efficient_sam_s/automatic: evaluating class-agnostic COCO mask AP with 152960 detections on 2390 images
+loading annotations into memory...
+Done (t=0.15s)
+creating index...
+index created!
+Loading and preparing results...
+DONE (t=0.11s)
+creating index...
+index created!
+[DONE] wrote outputs/task9_lightweight_sam/evaluation/zero_shot/summary.csv
+[DONE] Task 6 zero-shot evaluation
