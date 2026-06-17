@@ -6,6 +6,8 @@ Task 9 tests whether lightweight SAM variants can give a useful accuracy and
 speed trade-off for robotic perception on the same benchmark datasets used in
 Tasks 4-8.
 
+Status: complete.
+
 The evaluated lightweight models are:
 
 | Model | Source | Prompt modes |
@@ -29,6 +31,19 @@ Task 9 keeps all generated files separate from completed Task 4 outputs:
 | Evaluation metrics | `outputs/task9_lightweight_sam/evaluation/` |
 | Speed metrics | `outputs/task9_lightweight_sam/inference_speed/` |
 | Trade-off report | `outputs/task9_lightweight_sam/summary/task9_lightweight_sam_report.md` |
+
+The completed summary contains:
+
+- 72 quality rows.
+- 144 speed-quality trade-off rows.
+- 36 recommendation rows.
+- 3 lightweight models: `mobile_sam_vit_t`, `efficient_sam_ti`, and
+  `efficient_sam_s`.
+
+Raw Task 9 prediction files under `results/task9_lightweight_sam/` are
+temporary working artifacts. They are not committed to Git and do not need to
+be retained after evaluation, speed measurement, and summary generation are
+complete.
 
 ## Setup
 

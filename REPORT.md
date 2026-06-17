@@ -11,8 +11,8 @@ edge-deployment comparison.
 
 ## Closure Status
 
-Tasks 1-8 are complete. Task 9 is prepared and ready to run with MobileSAM and
-EfficientSAM variants.
+Tasks 1-9 are complete as of 2026-06-17. The remaining non-benchmark project
+item is publishing external download links for the generated datasets.
 
 | Task | Status | Evidence |
 | --- | --- | --- |
@@ -24,7 +24,7 @@ EfficientSAM variants.
 | Task 6: Evaluation metrics | Complete | mIoU, boundary F1, mask AP, and per-category/challenge metrics were produced. |
 | Task 7: Inference speed | Complete | GPU and CPU speed summaries were produced for zero-shot and baseline models. |
 | Task 8: Failure modes | Complete | Qualitative failure examples and failure-mode summaries were generated. |
-| Task 9: Lightweight SAM variants | Ready to run | MobileSAM and EfficientSAM configs, adapters, speed/evaluation setup, and summary tooling are prepared. |
+| Task 9: Lightweight SAM variants | Complete | MobileSAM and EfficientSAM variants were evaluated and joined with speed/checkpoint-size trade-off summaries. |
 
 ## Dataset Summary
 
@@ -52,6 +52,17 @@ is acceptable for private/supervisor sharing but is weaker for citation.
 
 Public URLs are currently marked as `TODO_PUBLIC_URL` in
 [configs/datasets.yaml](configs/datasets.yaml).
+
+## Benchmark Artifact Summary
+
+| Stage | Compact artifact evidence |
+| --- | --- |
+| Prompt manifests | `outputs/task4_zero_shot_sam/prompts/summary.json` lists 1000 Isaac images, 1000 BlenderProc images, and 2390 OCID images. |
+| Zero-shot evaluation | `outputs/task6_evaluation/zero_shot/summary.csv` contains 36 SAM/SAM2/FastSAM metric rows. |
+| Baseline evaluation | `outputs/task6_evaluation/baselines/summary.csv` contains 9 YOLOv8-seg, Mask R-CNN, and DeepLabV3+ rows. |
+| Inference speed | `outputs/task7_inference_speed/summary.csv` contains 90 GPU/CPU timing rows. |
+| Failure analysis | `outputs/task8_failure_analysis/summary.json` records 10 representative failure visualizations and 151 challenge-group rows. |
+| Lightweight SAM | `outputs/task9_lightweight_sam/summary/summary.json` records 72 quality rows, 144 speed-quality trade-off rows, and 36 recommendation rows. |
 
 ## Task Reports
 

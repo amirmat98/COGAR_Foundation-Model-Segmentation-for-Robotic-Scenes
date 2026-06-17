@@ -4,7 +4,7 @@ Task 4 runs promptable segmentation models without dataset-specific training.
 The goal is to produce prediction files for later evaluation, not to fine-tune
 the models.
 
-Status: started.
+Status: complete.
 
 ## Models
 
@@ -31,15 +31,15 @@ whether the model can discover object masks without prompts.
 
 ## Active Datasets
 
-The first Task 4 runner uses datasets that already have COCO instance
-annotations:
+The Task 4 runner uses datasets that have COCO-style instance annotations:
 
 - Isaac official Unitree G1
 - BlenderProc COGAR-SimRobotics-1000
+- OCID
 
-OCID uses integer instance-label PNG files. It is converted to COCO-style
-instance annotations with `scripts/datasets/convert_ocid_to_coco.py` before
-using the same prompt runner.
+OCID originally uses integer instance-label PNG files. It is converted to
+COCO-style instance annotations with `scripts/datasets/convert_ocid_to_coco.py`
+before using the same prompt runner.
 
 ## Outputs
 
@@ -49,7 +49,7 @@ Prompt manifests are written to:
 outputs/task4_zero_shot_sam/prompts
 ```
 
-Model predictions will be written to:
+Model predictions were written to:
 
 ```text
 results/task4_zero_shot_sam
@@ -69,3 +69,7 @@ installing the matching PyTorch and TorchVision CUDA wheels.
 Task 4 is complete when prediction files exist for each enabled model, dataset,
 and prompt mode, and each run records the model checkpoint, dataset version,
 device, prompt mode, and runtime metadata.
+
+The completed benchmark produced predictions for 4 zero-shot model variants,
+3 prompt modes, and 3 datasets. Compact prompt manifest summaries are stored in
+`outputs/task4_zero_shot_sam/prompts/summary.json`.

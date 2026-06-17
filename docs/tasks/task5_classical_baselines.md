@@ -3,7 +3,7 @@
 Task 5 compares zero-shot SAM-family models with supervised classical
 segmentation baselines trained on small labeled subsets.
 
-Status: preparation started.
+Status: complete.
 
 ## Baselines
 
@@ -171,3 +171,14 @@ python scripts/baselines/train_deeplabv3plus.py
 Task 5 is complete when YOLOv8-seg, Mask R-CNN, and DeepLabV3+ have trained on
 the small subsets and produced prediction files for the benchmark evaluation
 stage.
+
+The completed baseline runs produced compact summaries under:
+
+```text
+outputs/task5_baselines/yolo8_seg_training
+outputs/task5_baselines/mask_rcnn_training
+outputs/task5_baselines/deeplabv3plus_training
+```
+
+Task 6 evaluates the saved baseline checkpoints against the shared validation
+sets.
