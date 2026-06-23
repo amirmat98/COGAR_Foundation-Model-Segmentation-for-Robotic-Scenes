@@ -185,7 +185,7 @@ presentation/02_state_of_the_art.md
 presentation/03_research_formulation.md
 presentation/04_cognitive_approach.md
 presentation/05_results_congruence_and_conclusions.md
-presentation/06_slide_deck_outline.md
+report/06_slide_deck_outline.md
 report/final_report.md
 report/references.md
 ```

@@ -14,7 +14,7 @@ This file drafts the **Research Problem** section for the final presentation and
 
 ```text
 report/final_report.md
-presentation/06_slide_deck_outline.md
+report/06_slide_deck_outline.md
 ```
 
 ---

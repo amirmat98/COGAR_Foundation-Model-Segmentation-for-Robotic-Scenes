@@ -7,7 +7,7 @@ Student id: **5884715**
 Recommended repo path:
 
 ```text
-presentation/06_slide_deck_outline.md
+report/06_slide_deck_outline.md
 ```
 
 This file defines a practical slide-by-slide structure for the final COGAR presentation. It is designed for a **10–12 minute presentation** and can also be used as the skeleton for the written report.
