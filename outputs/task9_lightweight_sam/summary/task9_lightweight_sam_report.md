@@ -10,10 +10,6 @@ EfficientSAM automatic mode is evaluated as grid-prompt automatic proposal gener
 - `speed_quality_tradeoff.csv`: quality joined with GPU/CPU speed and checkpoint size.
 - `recommendations.csv`: best lightweight model per dataset, prompt mode, and device by mIoU and by mIoU-FPS product.
 
-## Figure
-
-![Lightweight SAM CUDA speed-quality trade-off](../../final_benchmark_assets/plots/lightweight_sam_tradeoff_cuda.png)
-
 ## Compact Summary
 
 - Joined lightweight rows: 54
