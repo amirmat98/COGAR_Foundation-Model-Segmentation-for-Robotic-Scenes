@@ -4,13 +4,9 @@ Project: **Foundation Model Segmentation for Robotic Scenes**
 Assignment: **Zero-Shot Segmentation Benchmark for Robotic Perception (Simulation)**  
 Student id: **5884715**
 
-Recommended repo path:
-
-```text
-report/references.md
-```
-
-This file collects the main references used to frame the final report and presentation. It is organized as a source map rather than only a bibliography, so each reference also explains why it matters for this project.
+This file collects the main references used to frame the final report and
+presentation. It is organized as a source map rather than only a bibliography,
+so each reference also explains why it matters for this project.
 
 ---
 
@@ -31,7 +27,7 @@ This is the core foundation model behind the benchmark. SAM introduced promptabl
 - Supports the use of point, box, and automatic mask-generation prompting.
 - Provides the baseline idea of a general-purpose segmentation module that may be reused in robotic perception without task-specific training.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > SAM introduced promptable segmentation as a general-purpose task and demonstrated that a model trained on large-scale mask data can transfer zero-shot to new segmentation settings.
 
@@ -52,7 +48,7 @@ SAM2 extends promptable segmentation from static images to images and videos. Th
 - Connects segmentation to temporal robotic perception.
 - Strengthens the argument that foundation segmentation is moving toward interactive, streaming perception.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > SAM2 extends the segment-anything paradigm to images and videos using a transformer architecture with streaming memory, which is especially relevant for dynamic robotic perception.
 
@@ -73,7 +69,7 @@ FastSAM addresses the runtime cost of SAM by reformulating the segment-anything 
 - Provides a faster zero-shot-style segmentation alternative.
 - Helps evaluate whether a SAM-like approach can move closer to real-time robotic constraints.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > FastSAM attempts to reduce the computational burden of segment-anything-style segmentation by converting the task into segment generation followed by prompt-guided selection.
 
@@ -94,7 +90,7 @@ MobileSAM is a lightweight SAM variant designed for smaller deployment settings.
 - Helps evaluate whether a small SAM-like model can provide a useful speed-quality trade-off.
 - Connects foundation segmentation to robotic platforms with limited compute.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > MobileSAM keeps the SAM-style prompting pipeline but replaces the heavyweight image encoder with a much smaller encoder, making it relevant for edge and mobile deployment.
 
@@ -115,7 +111,7 @@ EfficientSAM directly addresses the computational complexity of SAM by building 
 - Helps discuss the trade-off between segmentation quality, model size, and inference speed.
 - Connects the benchmark to model-distillation and efficient foundation-model deployment.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > EfficientSAM proposes lightweight SAM-style models that reduce complexity while preserving useful segment-anything behavior.
 
@@ -138,7 +134,7 @@ Mask R-CNN is a standard instance-segmentation baseline. It detects object insta
 - Helps compare zero-shot foundation models with models trained on a small labeled subset.
 - Offers a familiar reference point for object-level robotic perception.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > Mask R-CNN is used as a classical supervised instance-segmentation baseline because it jointly detects objects and predicts instance masks.
 
@@ -159,7 +155,7 @@ DeepLabV3+ is a strong semantic segmentation architecture that combines atrous s
 - Supports the boundary-quality comparison.
 - Offers a contrast to object-instance models such as Mask R-CNN and YOLOv8-seg.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > DeepLabV3+ is included as a supervised semantic-segmentation baseline because its encoder-decoder design is intended to recover sharper object boundaries.
 
@@ -180,7 +176,7 @@ YOLOv8-seg is a practical real-time instance-segmentation baseline. It is releva
 - Supports real-time feasibility comparisons.
 - Helps compare zero-shot generalization against small-subset fine-tuning.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > YOLOv8-seg is used as a practical supervised instance-segmentation baseline for comparing zero-shot foundation models with a real-time-oriented trained model.
 
@@ -203,7 +199,7 @@ Isaac Sim supports synthetic data generation workflows for robotics, including p
 - Provides justification for simulation-based annotation and controlled challenge generation.
 - Connects the benchmark to robotics-oriented synthetic data generation.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > Isaac Sim provides robotics-oriented synthetic data generation tools, making it suitable for producing annotated robot-centered perception scenes.
 
@@ -224,7 +220,7 @@ BlenderProc is a procedural pipeline for generating realistic synthetic images a
 - Provides a controlled environment for generating annotation-rich segmentation data.
 - Helps diversify the simulation source beyond Isaac Sim.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > BlenderProc is used as a procedural synthetic-data pipeline because it can generate realistic images together with segmentation and other ground-truth annotations.
 
@@ -245,7 +241,7 @@ Kubric is not directly used in this project, but it is a useful background refer
 - Helps explain why synthetic data is attractive for segmentation benchmarks.
 - Provides context for domain-gap discussion.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > Synthetic data generation is attractive for segmentation benchmarks because it provides scalable, controllable scenes with rich ground-truth annotations, although sim-to-real transfer remains a limitation.
 
@@ -268,7 +264,7 @@ OCID provides pixel-wise annotated RGB-D clutter scenes for robot vision tasks s
 - Complements the synthetic Isaac and BlenderProc datasets.
 - Helps test whether simulation conclusions generalize toward real cluttered scenes.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > OCID is used as a real RGB-D clutter dataset to evaluate whether conclusions from synthetic robotic scenes remain plausible under real-world clutter conditions.
 
@@ -289,7 +285,7 @@ This paper is a useful robotics-specific reference showing how synthetic data ca
 - Connects segmentation to downstream grasping and object tracking.
 - Strengthens the argument that synthetic robotic scenes are meaningful for perception benchmarking.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > Prior robotic perception work has shown that synthetic segmentation data can support unknown-object segmentation and downstream grasping pipelines.
 
@@ -312,7 +308,7 @@ The course page frames COGAR around cognition in humans and robots, software and
 - Connects the benchmark to embodiment, attention, perception-action loops, and robotic decision-making.
 - Helps justify why the presentation should discuss more than technical scores.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > Within the COGAR framing, segmentation can be interpreted as a perceptual module that supports object attention, scene representation, and action selection inside a cognitive robotic architecture.
 
@@ -333,7 +329,7 @@ This reference can be used for broader background on cognitive robotic systems a
 - Helps explain why perception quality alone is not sufficient: the robot must use perception for action.
 - Provides theoretical grounding for the COGAR section.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > Cognitive robotic systems require the integration of perception, representation, learning, and action rather than isolated optimization of individual modules.
 
@@ -356,7 +352,7 @@ COCO is a standard benchmark framework for object detection and segmentation. Ma
 - Provides standard evaluation context for instance segmentation.
 - Helps justify using COCO-format annotations.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > Mask AP, AP50, and AP75 follow the standard object-instance segmentation evaluation style popularized by COCO.
 
@@ -377,7 +373,7 @@ Boundary-aware metrics are useful because segmentation masks can have good area 
 - Helps explain why boundary quality matters for small parts and object edges.
 - Connects segmentation evaluation to robotic manipulation reliability.
 
-**Suggested citation sentence**
+**Citation sentence**
 
 > Boundary-sensitive evaluation is important because area overlap alone may hide errors near object edges, which can be critical for robotic grasping and manipulation.
 

@@ -1,22 +1,16 @@
-# 04 Cognitive Approach
+# Cognitive Approach
 
 Project: **Foundation Model Segmentation for Robotic Scenes**  
 Assignment: **Zero-Shot Segmentation Benchmark for Robotic Perception (Simulation)**  
 Student id: **5884715**
 
-Recommended repo path:
-
-```text
-presentation/04_cognitive_approach.md
-```
-
-This file explains how the project connects to **Cognitive Architectures for Robotics (COGAR)**. It can be reused in the final presentation and in the final written report.
+This section explains how the project connects to **Cognitive Architectures for Robotics (COGAR)**.
 
 ---
 
 ## 1. Purpose of This Section
 
-This project should not be presented as a pure computer-vision benchmark only. The COGAR interpretation is:
+This project is not only a computer-vision benchmark. The COGAR interpretation is:
 
 > Segmentation is treated as a cognitive interface between raw sensory input and robot-level decision making.
 
@@ -26,9 +20,9 @@ The benchmark therefore asks whether foundation segmentation models can act as r
 
 ---
 
-## 2. Short Slide Version
+## 2. Slide Version
 
-Use this on the slide titled **Cognitive Approach**.
+Slide title: **Cognitive Approach**.
 
 ### Main Idea
 
@@ -127,7 +121,7 @@ The prompt modes are not only technical settings. They correspond to different c
 | Box prompt | A bounding box is given around the target object. | Stronger attention cue from a detector, tracker, human, or planner. |
 | Automatic mask generation | The model proposes masks without a target cue. | Open-ended scene parsing or bottom-up object discovery. |
 
-This distinction should be stated clearly in the presentation:
+The key distinction is:
 
 > Point and box prompts evaluate segmentation quality when a target cue is available. Automatic mask generation evaluates whether the model can discover object regions without such a cue.
 
@@ -145,7 +139,7 @@ In a cognitive robotic system, prompts could come from:
 
 ## 7. Cognitive Interpretation of Failure Modes
 
-Failure analysis should be presented as part of the cognitive approach, not only as a visual-error section.
+Failure analysis is part of the cognitive approach, not only a visual-error section.
 
 | Failure Mode | Why It Matters for Robotic Cognition |
 |---|---|
@@ -177,7 +171,7 @@ Use these notes when presenting the cognitive approach slide.
 
 ---
 
-## 9. Suggested Slide Text
+## 9. Slide Text
 
 ### Slide Title
 
@@ -198,7 +192,7 @@ A cognitive robot needs:
 In this project, segmentation masks are evaluated as object-level interfaces between perception and action.
 ```
 
-### Visual Suggestion
+### Visual
 
 Use a simple pipeline diagram:
 

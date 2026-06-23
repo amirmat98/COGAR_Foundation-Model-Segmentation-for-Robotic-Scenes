@@ -1,25 +1,14 @@
-# 01 — Research Problem
+# Research Problem
 
 Project: **Foundation Model Segmentation for Robotic Scenes**  
 Assignment: **Zero-Shot Segmentation Benchmark for Robotic Perception (Simulation)**  
 Student id: **5884715**
 
-Recommended repo path:
-
-```text
-presentation/01_research_problem.md
-```
-
-This file drafts the **Research Problem** section for the final presentation and report. It can be reused in:
-
-```text
-report/final_report.md
-report/06_slide_deck_outline.md
-```
+This section defines the research problem used in the final report and presentation.
 
 ---
 
-## 1. Short Version for the Slide
+## 1. Slide Summary
 
 Robots need reliable object-level perception to interact with the world. However, robotic scenes are harder than normal image-segmentation benchmarks because they contain transparent objects, reflective surfaces, partial occlusions, small parts, moving objects, clutter, and sometimes the robot body itself.
 
@@ -135,15 +124,15 @@ This design allows the project to compare not only which model performs best, bu
 
 ---
 
-## 7. Research Problem as Slide Speaker Notes
+## 7. Research Problem Explanation
 
-Use this as the spoken explanation for the Research Problem slide:
+Spoken explanation for the Research Problem slide:
 
 > The problem I address is not simply object segmentation in images. In robotics, segmentation is part of the perception-action loop. If the robot receives a wrong object mask, this can affect grasping, tracking, navigation, and decision-making. Foundation models such as SAM are attractive because they can segment objects without retraining, but robotic scenes contain difficult cases such as transparent glass, reflective metal, partial occlusion, small connectors, moving objects, and the robot body itself. Therefore, my research question is whether zero-shot foundation segmentation models are reliable enough to support robotic scene understanding, and how their accuracy, robustness, and speed compare with lightweight and supervised alternatives.
 
 ---
 
-## 8. Suggested Slide Content
+## 8. Slide Content
 
 ### Slide Title
 
@@ -163,9 +152,9 @@ Use this as the spoken explanation for the Research Problem slide:
 - Foundation models promise zero-shot segmentation, but their robotic reliability must be tested.
 - The key question: **Which segmentation model is reliable enough, fast enough, and robust enough for robotic perception?**
 
-### Suggested Visual
+### Visual
 
-Use one image grid from the project dataset:
+One useful image grid from the project dataset is:
 
 ```text
 outputs/final_benchmark_assets/plots/dataset_examples.png
@@ -188,7 +177,7 @@ End this section with:
 This transition leads directly into:
 
 ```text
-presentation/02_state_of_the_art.md
+report/02_state_of_the_art.md
 ```
 
 ---

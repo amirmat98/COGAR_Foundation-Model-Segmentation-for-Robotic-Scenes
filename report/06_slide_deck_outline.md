@@ -4,13 +4,9 @@ Project: **Foundation Model Segmentation for Robotic Scenes**
 Assignment: **Zero-Shot Segmentation Benchmark for Robotic Perception (Simulation)**  
 Student id: **5884715**
 
-Recommended repo path:
-
-```text
-report/06_slide_deck_outline.md
-```
-
-This file defines a practical slide-by-slide structure for the final COGAR presentation. It is designed for a **10–12 minute presentation** and can also be used as the skeleton for the written report.
+This file gives a practical slide-by-slide structure for the final COGAR
+presentation. It is designed for a **10–12 minute presentation** and can also
+be used as a compact skeleton for the written report.
 
 ---
 
@@ -30,7 +26,7 @@ The audience should understand five things by the end:
 
 ---
 
-## Recommended 11-Slide Structure
+## 11-Slide Structure
 
 | Slide | Title | Main role |
 |---:|---|---|
@@ -62,7 +58,7 @@ The audience should understand five things by the end:
 
 > Can promptable foundation segmentation models provide reliable zero-shot object masks for robotic perception in challenging simulated scenes?
 
-## Visual suggestion
+## Visual
 
 Use one strong image or montage from the benchmark:
 
@@ -101,7 +97,7 @@ Start with the robotic motivation, not the model names. A robot needs to know wh
   - cluttered backgrounds.
 - The problem is to test whether zero-shot foundation models remain reliable under these conditions.
 
-## Visual suggestion
+## Visual
 
 Use a compact grid of challenge examples:
 
@@ -129,7 +125,7 @@ Make clear that the benchmark is not about normal internet images. The problem i
 - **MobileSAM / EfficientSAM**: lightweight SAM-style models for constrained deployment.
 - **Mask R-CNN, DeepLabV3+, YOLOv8-seg**: supervised baselines for instance/semantic segmentation.
 
-## Visual suggestion
+## Visual
 
 Use a model-family diagram:
 
@@ -163,7 +159,7 @@ Do not spend too much time explaining each architecture. The purpose of this sli
   - Are foundation models fast enough for closed-loop use?
   - Do lightweight variants preserve enough quality for edge deployment?
 
-## Visual suggestion
+## Visual
 
 Use a contrast diagram:
 
@@ -201,7 +197,7 @@ Benchmark zero-shot foundation segmentation models for robotic scene understandi
 4. Supervised baselines can be competitive when small labeled subsets are available.
 5. Transparent, reflective, occluded, small, and dynamic objects will cause frequent failures.
 
-## Visual suggestion
+## Visual
 
 Use a simple experimental pipeline:
 
@@ -521,9 +517,9 @@ If time is limited, use this compressed structure:
 
 ---
 
-## What to Avoid
+## Wording Boundaries
 
-Avoid these weak or risky statements:
+Weak or risky statement:
 
 ```text
 SAM solves robotic perception.
@@ -535,7 +531,7 @@ Better:
 SAM-family models can support robotic perception when prompts, validation, and deployment constraints are handled carefully.
 ```
 
-Avoid:
+Weak or risky statement:
 
 ```text
 Box-prompted performance means the model is fully autonomous.
@@ -547,7 +543,7 @@ Better:
 Box-prompted performance measures mask quality when a target cue is available from an upstream robotic module or oracle evaluation.
 ```
 
-Avoid:
+Weak or risky statement:
 
 ```text
 The fastest model is the best model.
@@ -599,10 +595,10 @@ Use these sources in slide speaker notes and the final report:
 
 ## Next Development Step
 
-After this outline, the next file should be the report skeleton:
+The final written report is:
 
 ```text
-report/final_report.md
+REPORT.md
 ```
 
-That file should combine the previous section files into one coherent written report.
+That file combines the section material into one coherent written report.

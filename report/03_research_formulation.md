@@ -1,16 +1,11 @@
 # Research Formulation
 
-Recommended repo path:
-
-```text
-presentation/03_research_formulation.md
-```
-
-This file defines the research formulation for the final presentation and report. It turns the project from a technical benchmark into a research study with a clear question, objectives, hypotheses, methodology, variables, evaluation logic, and limitations.
+This section defines the research question, objectives, hypotheses,
+methodology, variables, evaluation logic, and limitations.
 
 ---
 
-## 1. Slide Version
+## 1. Presentation Version
 
 ### Research Question
 
@@ -316,19 +311,19 @@ Avoid claims such as:
 - Box-prompt results are equivalent to fully autonomous perception.
 - Lightweight models are always better for robotics.
 
-### Correct wording
+### Careful wording
 
-Use this:
+Appropriate:
 
 > The benchmark suggests that foundation segmentation models can support robotic perception when prompt generation, robustness validation, speed constraints, and failure modes are explicitly considered.
 
-Avoid this:
+Overclaim to avoid:
 
 > Foundation models replace the perception system of a robot.
 
 ---
 
-## 8. Suggested Slide Content
+## 8. Slide Content
 
 ### Slide title
 
@@ -342,13 +337,13 @@ Research Formulation
 - **Method:** simulate/categorize robotic scenes, run zero-shot inference, train small supervised baselines, evaluate quality + speed + failures.
 - **COGAR link:** segmentation is evaluated as a perception module inside a robot's perception-action loop.
 
-### Speaker notes
+### Explanation
 
 The research is formulated as a benchmark because the goal is not to propose a new segmentation model, but to evaluate whether existing foundation models are suitable for robotic perception. The important point is that robotic perception has different requirements from ordinary image segmentation. A robot needs masks that are accurate enough for downstream actions, fast enough for control, and robust enough under difficult physical conditions. Therefore, the benchmark combines segmentation metrics, speed measurements, and failure analysis.
 
 ---
 
-## 9. Report-Ready Paragraph
+## 9. Report Paragraph
 
 The research is formulated as a systematic benchmark of promptable foundation segmentation models for robotic scene understanding. The central question is whether models such as SAM, SAM2, FastSAM, MobileSAM, and EfficientSAM can provide reliable zero-shot masks in challenging robotic scenes, and how they compare with supervised baselines trained on small labeled subsets. The study evaluates performance across simulated and real cluttered datasets, prompt modes, model families, challenge groups, and hardware settings. The formulation is intentionally multi-dimensional: segmentation quality is measured with mIoU, boundary F1, mask AP, and per-category IoU; deployment feasibility is measured with GPU and CPU inference speed; and reliability is studied through qualitative failure analysis. This structure allows the conclusions to remain congruent with the evidence: foundation models are evaluated not only by average mask quality, but also by whether they can support embodied robotic perception under real-time and robustness constraints.
 

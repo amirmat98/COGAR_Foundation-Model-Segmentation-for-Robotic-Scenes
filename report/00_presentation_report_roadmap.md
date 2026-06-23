@@ -4,19 +4,14 @@ Project: **Foundation Model Segmentation for Robotic Scenes**
 Assignment: **Zero-Shot Segmentation Benchmark for Robotic Perception (Simulation)**  
 Student id: **5884715**
 
-Recommended repo path:
-
-```text
-presentation/00_presentation_report_roadmap.md
-```
-
-This file defines the story, structure, and grading logic for the final presentation and written report. It is not meant to replace the technical benchmark files. It is meant to help the project read as a research project for **Cognitive Architectures for Robotics (COGAR)**.
+This roadmap organizes the final presentation and written report around the
+required COGAR research structure. It complements the technical benchmark files.
 
 ---
 
 ## 1. Main Research Story
 
-The project should not be presented only as “I benchmarked SAM models.” The stronger research story is:
+The project is stronger when framed as a robotic perception study rather than only as a SAM benchmark:
 
 > This project evaluates whether promptable foundation segmentation models can serve as reliable perception modules for embodied robotic scene understanding, especially under robotic challenges such as transparent objects, reflective surfaces, partial occlusion, small parts, dynamic objects, robot-body visibility, and real-time deployment constraints.
 
@@ -39,7 +34,7 @@ The presentation must include these required elements:
 4. Cognitive Approach
 5. Congruence of Results and Conclusions
 
-The following sections should be added around them to make the presentation coherent:
+Additional supporting sections make the presentation coherent:
 
 6. Dataset and Simulation Design
 7. Benchmark Protocol
@@ -49,7 +44,7 @@ The following sections should be added around them to make the presentation cohe
 
 ---
 
-## 3. Recommended Slide Deck Structure
+## 3. Slide Deck Structure
 
 For a 10–12 minute presentation, use **11 slides**.
 
@@ -69,15 +64,15 @@ For a 10–12 minute presentation, use **11 slides**.
 
 ---
 
-## 4. Recommended Report Structure
+## 4. Report Structure
 
-Create the final report as:
+The final report is:
 
 ```text
-report/final_report.md
+REPORT.md
 ```
 
-Suggested structure:
+Structure:
 
 ```text
 1. Introduction
@@ -98,13 +93,15 @@ Suggested structure:
 13. References
 ```
 
-The report should be written as a research document, not as a task checklist. The task checklist can stay in `REPORT.md`; the final report should explain the scientific motivation, method, evidence, and conclusions.
+`REPORT.md` is written as the final research document. The task files in
+`docs/tasks/` and compact artifacts in `outputs/` preserve the technical
+implementation record.
 
 ---
 
 ## 5. Core Research Question
 
-Use this as the central research question:
+Central research question:
 
 > Can promptable foundation segmentation models provide reliable zero-shot object masks for robotic perception in challenging simulated scenes, and how do they compare with lightweight and supervised segmentation models in terms of accuracy, robustness, and real-time feasibility?
 
@@ -112,7 +109,7 @@ Use this as the central research question:
 
 ## 6. Main Claim
 
-Use this as the main claim throughout the presentation and report:
+Main claim:
 
 > SAM-family models are strong general-purpose segmentation modules, especially when a robot or upstream system can provide a box prompt. However, robotic perception introduces domain-specific challenges that reduce reliability, including transparent and reflective surfaces, occlusion, small parts, robot-body visibility, clutter, and dynamic scenes. Therefore, model selection should depend on the robotic use case: high-quality offline perception, prompt-guided manipulation, real-time closed-loop control, or edge deployment.
 
@@ -168,29 +165,29 @@ Avoid overclaiming:
 
 > Foundation models solve robotic perception.
 
-Better wording:
+Final wording:
 
 > Foundation segmentation models can support robotic perception, but they do not remove the need for prompt generation, domain-specific validation, speed analysis, and failure-mode awareness.
 
 ---
 
-## 10. File Plan for Step-by-Step Development
+## 10. Report File Map
 
-The following files should be created one by one:
+Report support files:
 
 ```text
-presentation/00_presentation_report_roadmap.md
-presentation/01_research_problem.md
-presentation/02_state_of_the_art.md
-presentation/03_research_formulation.md
-presentation/04_cognitive_approach.md
-presentation/05_results_congruence_and_conclusions.md
+report/00_presentation_report_roadmap.md
+report/01_research_problem.md
+report/02_state_of_the_art.md
+report/03_research_formulation.md
+report/04_cognitive_approach.md
+report/05_results_congruence_and_conclusions.md
 report/06_slide_deck_outline.md
-report/final_report.md
+REPORT.md
 report/references.md
 ```
 
-Each section file can later be reused directly in the final report and converted into slides.
+Each section file supports either the final written report or the slide deck.
 
 ---
 

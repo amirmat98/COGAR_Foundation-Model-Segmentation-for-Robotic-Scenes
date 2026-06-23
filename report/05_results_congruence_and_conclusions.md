@@ -1,12 +1,7 @@
-# 05 — Results Congruence and Conclusions
+# Results Congruence and Conclusions
 
-Recommended repo path:
-
-```text
-presentation/05_results_congruence_and_conclusions.md
-```
-
-This file explains how to present the results honestly and how to make sure that the final conclusions are consistent with the evidence. It is designed for both the slide deck and the final written report.
+This section connects the results to the final conclusions and keeps the claims
+consistent with the evidence.
 
 ---
 
@@ -16,17 +11,19 @@ The required presentation structure asks for:
 
 > Congruence of Results and Conclusions
 
-This means that the presentation should not only show benchmark numbers. It must also demonstrate that the final conclusions follow logically from the obtained results.
+The presentation should not only show benchmark numbers. It must also
+demonstrate that the final conclusions follow logically from the obtained
+results.
 
 For this project, the key idea is:
 
 > The results should support a conditional recommendation, not a universal claim that one segmentation model is always best.
 
-The correct conclusion is not:
+Overclaim to avoid:
 
 > Foundation models solve robotic perception.
 
-The correct conclusion is:
+Supported conclusion:
 
 > Foundation segmentation models can support robotic perception, especially when a useful prompt is available, but their reliability depends on scene conditions, prompt type, runtime constraints, and the downstream robotic task.
 
@@ -194,11 +191,11 @@ If failure examples and challenge-group metrics show weaker results on these cas
 
 ## 6. Slide Version
 
-Suggested slide title:
+Slide title:
 
 > Congruence of Results and Conclusions
 
-Suggested slide bullets:
+Slide bullets:
 
 ```text
 - The conclusions are conditional, not universal.
@@ -209,15 +206,15 @@ Suggested slide bullets:
 - Failure modes show why robotic validation is necessary: transparency, reflection, occlusion, small parts, motion.
 ```
 
-Suggested final slide message:
+Final slide message:
 
 > The benchmark supports using foundation segmentation as a cognitive perception module, but not as a complete replacement for robotic perception pipelines.
 
 ---
 
-## 7. Report-Ready Text
+## 7. Report Text
 
-The following text can be inserted into `report/final_report.md`.
+The following text supports the final discussion in `REPORT.md`.
 
 ### Congruence of Results and Conclusions
 
@@ -376,7 +373,7 @@ The following limitations make the conclusions more credible.
 
 ## 12. Final Conclusion Paragraph
 
-Use this as the final paragraph of the report or final slide notes.
+Final paragraph:
 
 > This project shows that foundation segmentation models can be valuable perception modules for robotic scene understanding, but their usefulness is conditional. Prompted SAM-family models are appropriate when segmentation quality is the priority and a target cue can be provided. Supervised baselines remain important when real-time robotic control is required and labeled data is available. Lightweight SAM variants offer a possible route toward edge deployment, but require explicit speed-quality evaluation. The failure analysis shows that transparent objects, reflective surfaces, occlusion, small parts, and dynamic scenes remain difficult. Therefore, the best robotic perception system is not a single universal model, but a task-dependent integration of segmentation quality, prompting strategy, runtime feasibility, and failure awareness.
 
@@ -384,7 +381,7 @@ Use this as the final paragraph of the report or final slide notes.
 
 ## 13. Reference Anchors
 
-Use these sources in the final report and slide speaker notes:
+Core sources:
 
 - Current project report:
   - https://github.com/amirmat98/COGAR_Foundation-Model-Segmentation-for-Robotic-Scenes/blob/main/REPORT.md

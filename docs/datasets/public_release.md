@@ -139,7 +139,7 @@ The public DOI is recorded in:
 - `docs/datasets/blenderproc_cogar_sim_1000.md`
 - `REPORT.md`
 
-Suggested commit message for this documentation update:
+Commit message for this documentation update:
 
 ```text
 record public dataset release links

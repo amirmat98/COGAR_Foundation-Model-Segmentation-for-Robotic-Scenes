@@ -4,17 +4,13 @@ Project: **Foundation Model Segmentation for Robotic Scenes**
 Assignment: **Zero-Shot Segmentation Benchmark for Robotic Perception (Simulation)**  
 Student id: **5884715**
 
-Recommended repo path:
-
-```text
-presentation/02_state_of_the_art.md
-```
-
-This file provides the state-of-the-art section for the final presentation and written report. It explains the research context behind promptable foundation segmentation models, lightweight SAM variants, classical segmentation baselines, simulation-based robotic datasets, and robotic perception challenges.
+This section summarizes the research context behind promptable foundation
+segmentation models, lightweight SAM variants, classical segmentation baselines,
+simulation-based robotic datasets, and robotic perception challenges.
 
 ---
 
-## 1. Slide-Ready Summary
+## 1. Summary
 
 The current state of the art in segmentation has moved from task-specific supervised models toward **promptable foundation models**. The most important example is **Segment Anything Model (SAM)**, which introduced a general segmentation model trained on the large SA-1B dataset and designed to transfer zero-shot to new images and tasks through prompts such as points and boxes.
 
@@ -296,11 +292,11 @@ A strong COGAR interpretation is therefore:
 
 ---
 
-## 9. Suggested Slide Content
+## 9. Slide Content
 
 ### Slide 3: State of the Art
 
-Suggested bullets:
+Bullets:
 
 - Segmentation research has shifted from task-specific supervised models to promptable foundation models.
 - SAM introduced zero-shot promptable segmentation using point, box, and mask prompts.
@@ -308,7 +304,7 @@ Suggested bullets:
 - FastSAM, MobileSAM, and EfficientSAM target faster or lighter deployment.
 - Mask R-CNN, DeepLabV3+, and YOLOv8-seg remain important supervised baselines for robotics.
 
-Suggested visual:
+Visual:
 
 ```text
 Supervised segmentation  ->  Promptable foundation segmentation  ->  Robotic deployment trade-offs
@@ -319,7 +315,7 @@ Mask R-CNN / DeepLab / YOLO     SAM / SAM2 / FastSAM                 MobileSAM /
 
 ### Slide 4: Research Gap
 
-Suggested bullets:
+Bullets:
 
 - High benchmark performance on general images does not guarantee robotic reliability.
 - Robotic scenes contain transparent, reflective, occluded, small, and moving objects.
@@ -327,13 +323,13 @@ Suggested bullets:
 - Robots need masks that are not only accurate, but also fast, stable, and useful for action.
 - Therefore, segmentation models must be evaluated as robotic perception modules, not only as image-processing models.
 
-Suggested one-line takeaway:
+One-line takeaway:
 
 > The open question is not whether SAM can segment images, but whether SAM-style models can support robust embodied perception.
 
 ---
 
-## 10. Speaker Notes
+## 10. Presentation Explanation
 
 Segmentation is a central perception problem because a robot needs to separate objects from the background before it can reason about them or interact with them. Traditional segmentation systems, such as Mask R-CNN, DeepLabV3+, and YOLOv8-seg, usually require task-specific training. They can be effective and fast, but their performance depends heavily on the training domain.
 
@@ -345,7 +341,7 @@ The project therefore evaluates both heavy foundation models and lightweight var
 
 ---
 
-## 11. Report-Ready Version
+## 11. Report Version
 
 ### State of the Art
 
@@ -365,7 +361,7 @@ The remaining gap is that segmentation models are often evaluated as image-proce
 
 ## 12. References
 
-Use these references in the final report and slide speaker notes.
+Core references:
 
 1. Kirillov et al., **Segment Anything**, 2023.  
    https://arxiv.org/abs/2304.02643
