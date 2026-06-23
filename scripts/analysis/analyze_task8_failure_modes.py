@@ -88,6 +88,54 @@ def iter_jsonl(path: str | Path):
                 yield json.loads(line)
 
 
+def load_split_image_ids(config: dict[str, Any], dataset: str) -> set[int] | None:
+    evaluation = config.get("evaluation", {})
+    split = evaluation.get("split", "full")
+    if split == "full":
+        return None
+    split_root = resolve_repo_path(evaluation.get("split_root", "outputs/task5_baselines/splits"))
+    split_file = split_root / dataset / f"{split}_image_ids.txt"
+    with split_file.open("r", encoding="utf-8") as handle:
+        return {int(line.strip()) for line in handle if line.strip()}
+
+
+def validate_split_rows(rows: list[dict[str, str]], label: str, expected_split: str) -> None:
+    if expected_split == "full":
+        return
+    if not rows:
+        raise ValueError(f"{label} summary is empty")
+    observed = {row.get("split", "") for row in rows}
+    if observed != {expected_split}:
+        raise ValueError(
+            f"{label} summary must contain only split={expected_split} rows; observed={sorted(observed)}"
+        )
+    for column in ("evaluation_images", "split_sha256"):
+        missing = [row for row in rows if not row.get(column)]
+        if missing:
+            raise ValueError(f"{label} summary is missing required {column} metadata")
+
+
+def validate_common_split(
+    zero_shot_rows: list[dict[str, str]],
+    baseline_rows: list[dict[str, str]],
+) -> None:
+    signatures: dict[str, set[tuple[str, str]]] = defaultdict(set)
+    for row in [*zero_shot_rows, *baseline_rows]:
+        dataset = row.get("dataset", "")
+        signatures[dataset].add((row.get("evaluation_images", ""), row.get("split_sha256", "")))
+    bad = {dataset: values for dataset, values in signatures.items() if len(values) > 1}
+    if bad:
+        raise ValueError(f"Task 8 inputs do not share the same held-out split metadata: {bad}")
+
+
+def split_metadata(row: dict[str, str]) -> dict[str, str]:
+    return {
+        "split": row.get("split", ""),
+        "evaluation_images": row.get("evaluation_images", ""),
+        "split_sha256": row.get("split_sha256", ""),
+    }
+
+
 def metric_float(row: dict[str, Any], key: str) -> float | None:
     value = row.get(key)
     if value in {None, "", "None"}:
@@ -119,6 +167,7 @@ def expand_category_rows(
             prompt_mode=summary_row["prompt_mode"],
             evaluation_type=metric["evaluation_type"],
             metric_block=instance_metrics,
+            metadata=split_metadata(summary_row),
         )
 
     for summary_row in baseline_rows:
@@ -139,6 +188,7 @@ def expand_category_rows(
             prompt_mode="inference",
             evaluation_type=metric["evaluation_type"],
             metric_block=metric_block,
+            metadata=split_metadata(summary_row),
         )
     return rows
 
@@ -151,6 +201,7 @@ def append_category_rows(
     prompt_mode: str,
     evaluation_type: str,
     metric_block: dict[str, Any],
+    metadata: dict[str, str],
 ) -> None:
     per_iou = metric_block.get("per_category_iou", {})
     per_bf1 = metric_block.get("per_category_boundary_f1", {})
@@ -169,6 +220,7 @@ def append_category_rows(
                 "iou": float(iou),
                 "boundary_f1": per_bf1.get(category),
                 "count": per_count.get(category),
+                **metadata,
             }
         )
 
@@ -184,7 +236,7 @@ def challenge_summary_rows(
     category_rows: list[dict[str, Any]],
     challenge_groups: dict[str, list[str]],
 ) -> list[dict[str, Any]]:
-    grouped: dict[tuple[str, str, str, str, str], list[dict[str, Any]]] = defaultdict(list)
+    grouped: dict[tuple[str, str, str, str, str, str, str, str], list[dict[str, Any]]] = defaultdict(list)
     for row in category_rows:
         challenge = challenge_for_category(row["category"], challenge_groups)
         key = (
@@ -192,12 +244,24 @@ def challenge_summary_rows(
             row["dataset"],
             row["model"],
             row["prompt_mode"],
+            row.get("split", ""),
+            row.get("evaluation_images", ""),
+            row.get("split_sha256", ""),
             challenge,
         )
         grouped[key].append(row)
 
     summaries = []
-    for (run_type, dataset, model, prompt_mode, challenge), rows in sorted(grouped.items()):
+    for (
+        run_type,
+        dataset,
+        model,
+        prompt_mode,
+        split,
+        evaluation_images,
+        split_sha256,
+        challenge,
+    ), rows in sorted(grouped.items()):
         weights = np.asarray([float(row.get("count") or 1.0) for row in rows], dtype=np.float64)
         ious = np.asarray([float(row["iou"]) for row in rows], dtype=np.float64)
         bf1_values = [
@@ -211,6 +275,9 @@ def challenge_summary_rows(
                 "dataset": dataset,
                 "model": model,
                 "prompt_mode": prompt_mode,
+                "split": split,
+                "evaluation_images": evaluation_images,
+                "split_sha256": split_sha256,
                 "challenge_group": challenge,
                 "categories": ", ".join(row["category"] for row in rows),
                 "weighted_iou": float(np.average(ious, weights=weights)),
@@ -233,10 +300,12 @@ def prompt_comparison_rows(zero_shot_rows: list[dict[str, str]]) -> list[dict[st
         point = metric_float(by_prompt.get("point", {}), "mIoU")
         box = metric_float(by_prompt.get("box", {}), "mIoU")
         automatic = metric_float(by_prompt.get("automatic", {}), "mIoU")
+        reference = next(iter(by_prompt.values()))
         rows.append(
             {
                 "dataset": dataset,
                 "model": model,
+                **split_metadata(reference),
                 "point_mIoU": point,
                 "box_mIoU": box,
                 "automatic_mIoU": automatic,
@@ -258,12 +327,14 @@ def speed_quality_rows(
             "run_type": "zero_shot",
             "mIoU": metric_float(row, "mIoU"),
             "mask_AP": metric_float(row, "mask_AP"),
+            **split_metadata(row),
         }
     for row in baseline_rows:
         quality[(row["dataset"], row["baseline"], "inference")] = {
             "run_type": "baseline",
             "mIoU": metric_float(row, "mIoU"),
             "mask_AP": metric_float(row, "mask_AP"),
+            **split_metadata(row),
         }
 
     rows = []
@@ -282,6 +353,9 @@ def speed_quality_rows(
                 "mIoU": quality[key]["mIoU"],
                 "mask_AP": quality[key]["mask_AP"],
                 "run_type": quality[key]["run_type"],
+                "split": quality[key]["split"],
+                "evaluation_images": quality[key]["evaluation_images"],
+                "split_sha256": quality[key]["split_sha256"],
             }
         )
     return rows
@@ -299,6 +373,7 @@ def task4_prediction_path(task4_config: dict[str, Any], dataset: str, model: str
 def find_candidate_failures(
     case: dict[str, Any],
     task4_config: dict[str, Any],
+    allowed_image_ids: set[int] | None,
     max_records: int,
     max_examples: int,
     default_score: float,
@@ -323,6 +398,8 @@ def find_candidate_failures(
     for index, row in enumerate(iter_jsonl(pred_path), start=1):
         if max_records and index > max_records:
             break
+        if allowed_image_ids is not None and int(row["image_id"]) not in allowed_image_ids:
+            continue
         if prompt_mode == "automatic":
             image_candidates = automatic_candidates(
                 row,
@@ -503,7 +580,15 @@ def generate_visual_failures(config: dict[str, Any], task4_config: dict[str, Any
             flush=True,
         )
         try:
-            candidates = find_candidate_failures(case, task4_config, max_records, max_examples, default_score)
+            allowed_image_ids = load_split_image_ids(config, case["dataset"])
+            candidates = find_candidate_failures(
+                case,
+                task4_config,
+                allowed_image_ids,
+                max_records,
+                max_examples,
+                default_score,
+            )
         except FileNotFoundError as exc:
             print(f"[WARN] skipping visual case {case_index}: {exc}", flush=True)
             continue
@@ -752,6 +837,10 @@ def main() -> None:
     zero_shot_rows = read_csv(config["inputs"]["task6_zero_shot_summary"])
     baseline_rows = read_csv(config["inputs"]["task6_baseline_summary"])
     task7_rows = read_csv(config["inputs"]["task7_speed_summary"])
+    expected_split = config.get("evaluation", {}).get("split", "full")
+    validate_split_rows(zero_shot_rows, "zero-shot", expected_split)
+    validate_split_rows(baseline_rows, "baseline", expected_split)
+    validate_common_split(zero_shot_rows, baseline_rows)
 
     print("[START] expanding category metrics", flush=True)
     category_rows = expand_category_rows(zero_shot_rows, baseline_rows)
@@ -776,6 +865,9 @@ def main() -> None:
             "iou",
             "boundary_f1",
             "count",
+            "split",
+            "evaluation_images",
+            "split_sha256",
         ],
     )
     write_csv(
@@ -786,6 +878,9 @@ def main() -> None:
             "dataset",
             "model",
             "prompt_mode",
+            "split",
+            "evaluation_images",
+            "split_sha256",
             "challenge_group",
             "categories",
             "weighted_iou",
@@ -798,12 +893,36 @@ def main() -> None:
     write_csv(
         output_root / "prompt_mode_comparison.csv",
         prompt_rows,
-        ["dataset", "model", "point_mIoU", "box_mIoU", "automatic_mIoU", "box_minus_point", "automatic_minus_box"],
+        [
+            "dataset",
+            "model",
+            "split",
+            "evaluation_images",
+            "split_sha256",
+            "point_mIoU",
+            "box_mIoU",
+            "automatic_mIoU",
+            "box_minus_point",
+            "automatic_minus_box",
+        ],
     )
     write_csv(
         output_root / "speed_quality_tradeoff.csv",
         speed_quality,
-        ["dataset", "model", "prompt_mode", "device", "fps", "latency_mean_ms", "mIoU", "mask_AP", "run_type"],
+        [
+            "dataset",
+            "model",
+            "prompt_mode",
+            "device",
+            "fps",
+            "latency_mean_ms",
+            "mIoU",
+            "mask_AP",
+            "run_type",
+            "split",
+            "evaluation_images",
+            "split_sha256",
+        ],
     )
 
     visual_rows = generate_visual_failures(config, task4_config, args)
@@ -827,6 +946,7 @@ def main() -> None:
     write_json(
         output_root / "summary.json",
         {
+            "split": expected_split,
             "category_rows": len(category_rows),
             "challenge_rows": len(challenge_rows),
             "prompt_rows": len(prompt_rows),

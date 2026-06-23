@@ -72,7 +72,8 @@ https://www.acin.tuwien.ac.at/object-clutter-indoor-dataset/
 | Legacy baseline evaluation | `outputs/task6_evaluation/baselines/summary.csv` contains the archived validation run and is not used for corrected final comparisons. |
 | Corrected common-test evaluation | New summaries are written to `outputs/task6_evaluation/zero_shot/test/summary.csv` and `outputs/task6_evaluation/baselines/test/summary.csv`. |
 | Inference speed | `outputs/task7_inference_speed/summary.csv` contains 90 GPU/CPU timing rows. |
-| Failure analysis | `outputs/task8_failure_analysis/summary.json` records 10 representative failure visualizations and 151 challenge-group rows. |
+| Legacy failure analysis | `outputs/task8_failure_analysis/summary.json` records the archived full/validation-derived failure tables and is not used for corrected final comparisons. |
+| Corrected failure analysis | New held-out-test failure tables are written to `outputs/task8_failure_analysis/test/summary.json`. |
 | Lightweight SAM | `outputs/task9_lightweight_sam/summary/summary.json` records 72 quality rows, 144 speed-quality trade-off rows, and 36 recommendation rows. |
 | Final recommendation guide | `outputs/final_benchmark_assets/recommendation_guide.md` summarizes model choices and links six aggregate plots. |
 

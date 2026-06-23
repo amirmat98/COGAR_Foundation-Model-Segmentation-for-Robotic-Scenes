@@ -624,9 +624,26 @@ def main() -> None:
         ],
     )
     challenge = numeric_columns(
-        read_csv("outputs/task8_failure_analysis/challenge_group_summary.csv"),
+        read_csv("outputs/task8_failure_analysis/test/challenge_group_summary.csv"),
         ["weighted_iou", "mean_iou", "mean_boundary_f1", "category_count", "instance_count"],
     )
+    if "split" not in challenge.columns or set(challenge["split"].dropna()) != {"test"}:
+        raise ValueError("challenge-group inputs must contain only split=test rows")
+    for dataset, group in challenge.groupby("dataset"):
+        observed_counts = {int(value) for value in group["evaluation_images"].dropna()}
+        expected_count = expected_split_sizes.get(dataset)
+        if expected_count is None or observed_counts != {expected_count}:
+            raise ValueError(
+                f"challenge/{dataset} does not use the common test image count: "
+                f"expected={expected_count}, observed={sorted(observed_counts)}"
+            )
+        observed_hashes = set(group["split_sha256"].dropna().astype(str))
+        expected_hash = expected_split_hashes.get(dataset)
+        if expected_hash is None or observed_hashes != {expected_hash}:
+            raise ValueError(
+                f"challenge/{dataset} does not use the identical test ID file: "
+                f"expected={expected_hash}, observed={sorted(observed_hashes)}"
+            )
 
     plots = {
         "Dataset examples": rel(plot_root / "dataset_examples.png"),

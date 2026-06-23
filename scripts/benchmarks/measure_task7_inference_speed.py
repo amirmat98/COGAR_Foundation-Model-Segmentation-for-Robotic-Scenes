@@ -638,6 +638,15 @@ def write_summary_csv(path: Path, rows: list[dict[str, Any]]) -> None:
         "latency_max_ms",
         "output_count_mean",
         "elapsed_wall_s",
+        "python",
+        "platform",
+        "processor",
+        "cpu_count_logical",
+        "cpu_count_physical",
+        "memory_gb",
+        "torch",
+        "cuda_device",
+        "cuda_total_memory_gb",
         "metrics_file",
         "error",
     ]
@@ -651,6 +660,7 @@ def write_summary_csv(path: Path, rows: list[dict[str, Any]]) -> None:
 
 def compact_row(summary: dict[str, Any]) -> dict[str, Any]:
     timing = summary.get("timing", {})
+    environment = summary.get("environment", {})
     return {
         "dataset": summary.get("dataset"),
         "model": summary.get("model"),
@@ -669,6 +679,15 @@ def compact_row(summary: dict[str, Any]) -> dict[str, Any]:
         "latency_max_ms": timing.get("latency_max_ms"),
         "output_count_mean": timing.get("output_count_mean"),
         "elapsed_wall_s": summary.get("elapsed_wall_s"),
+        "python": environment.get("python"),
+        "platform": environment.get("platform"),
+        "processor": environment.get("processor"),
+        "cpu_count_logical": environment.get("cpu_count_logical"),
+        "cpu_count_physical": environment.get("cpu_count_physical"),
+        "memory_gb": environment.get("memory_gb"),
+        "torch": environment.get("torch"),
+        "cuda_device": environment.get("cuda_device"),
+        "cuda_total_memory_gb": environment.get("cuda_total_memory_gb"),
         "metrics_file": summary.get("metrics_file"),
         "error": summary.get("error"),
     }

@@ -15,7 +15,11 @@ The benchmark covers:
 - FastSAM-X with point, box, and automatic mask generation modes.
 - YOLOv8-seg, Mask R-CNN, and DeepLabV3+ supervised baselines from Task 5.
 
-The script records FPS, mean latency, median latency, P95 latency, min/max latency, sample count, device metadata, and output count statistics.
+The script records FPS, mean latency, median latency, P95 latency, min/max
+latency, sample count, hardware/software metadata, and output count statistics.
+Per-run JSON files always store the full environment block. Regenerated compact
+CSV summaries also include Python, PyTorch, CPU, memory, CUDA device, and CUDA
+memory columns.
 
 ## Protocol
 
