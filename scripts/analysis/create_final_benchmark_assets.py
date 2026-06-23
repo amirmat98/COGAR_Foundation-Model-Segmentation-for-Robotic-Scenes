@@ -542,7 +542,7 @@ def main() -> None:
     table_root.mkdir(parents=True, exist_ok=True)
 
     zero_shot = numeric_columns(
-        read_csv("outputs/task6_evaluation/zero_shot/summary.csv"),
+        read_csv("outputs/task6_evaluation/zero_shot/test/summary.csv"),
         ["mIoU", "boundary_f1", "mask_AP", "mask_AP50", "mask_AP75", "elapsed_s"],
     )
     task9_quality = numeric_columns(
@@ -550,11 +550,20 @@ def main() -> None:
         ["mIoU", "boundary_f1", "mask_AP", "mask_AP50", "mask_AP75"],
     )
     task9_quality = task9_quality[task9_quality["model_group"] == "lightweight_sam"].copy()
+    for label, frame in {
+        "heavy zero-shot": zero_shot,
+        "lightweight zero-shot": task9_quality,
+    }.items():
+        if "split" not in frame.columns or set(frame["split"].dropna()) != {"test"}:
+            raise ValueError(f"{label} inputs must contain only split=test rows")
     task9_quality = task9_quality[
         [
             "dataset",
             "model",
             "prompt_mode",
+            "split",
+            "evaluation_images",
+            "split_sha256",
             "status",
             "mIoU",
             "boundary_f1",
@@ -565,9 +574,39 @@ def main() -> None:
     ]
     zero_shot_all = pd.concat([zero_shot, task9_quality], ignore_index=True, sort=False)
     baseline = numeric_columns(
-        read_csv("outputs/task6_evaluation/baselines/summary.csv"),
+        read_csv("outputs/task6_evaluation/baselines/test/summary.csv"),
         ["mIoU", "boundary_f1", "mask_AP", "mask_AP50", "mask_AP75", "elapsed_s"],
     )
+    if "split" not in baseline.columns or set(baseline["split"].dropna()) != {"test"}:
+        raise ValueError("baseline inputs must contain only split=test rows")
+    expected_images = {
+        dataset: int(group["evaluation_images"].iloc[0])
+        for dataset, group in zero_shot.groupby("dataset")
+    }
+    expected_split_hashes = {
+        dataset: str(group["split_sha256"].iloc[0])
+        for dataset, group in zero_shot.groupby("dataset")
+    }
+    for label, frame in {
+        "heavy zero-shot": zero_shot,
+        "lightweight zero-shot": task9_quality,
+        "baselines": baseline,
+    }.items():
+        for dataset, group in frame.groupby("dataset"):
+            observed = {int(value) for value in group["evaluation_images"].dropna()}
+            expected = expected_images.get(dataset)
+            if expected is None or observed != {expected}:
+                raise ValueError(
+                    f"{label}/{dataset} does not use the common test image count: "
+                    f"expected={expected}, observed={sorted(observed)}"
+                )
+            observed_hashes = set(group["split_sha256"].dropna().astype(str))
+            expected_hash = expected_split_hashes.get(dataset)
+            if expected_hash is None or observed_hashes != {expected_hash}:
+                raise ValueError(
+                    f"{label}/{dataset} does not use the identical test ID file: "
+                    f"expected={expected_hash}, observed={sorted(observed_hashes)}"
+                )
     tradeoff = numeric_columns(
         read_csv("outputs/task9_lightweight_sam/summary/speed_quality_tradeoff.csv"),
         [

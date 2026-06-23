@@ -5,6 +5,12 @@ task:
   results_root: results/task6_evaluation
   seed: 5884715
 
+# Final comparisons use the held-out test IDs created before baseline training.
+# Validation remains reserved for checkpoint selection only.
+evaluation:
+  split: test
+  split_root: outputs/task5_baselines/splits
+
 metrics:
   boundary_tolerance_px: 2
   prediction_selection: highest_score
@@ -34,9 +40,14 @@ baselines:
 
   mask_rcnn:
     enabled: true
+    config: configs/task5_mask_rcnn.yaml
     summary: outputs/task5_baselines/mask_rcnn_training/summary.json
+    prediction_output_root: results/task6_evaluation/baselines/mask_rcnn_predictions
+    workers: 2
 
   deeplabv3plus:
     enabled: true
+    config: configs/task5_deeplabv3plus.yaml
     summary: outputs/task5_baselines/deeplabv3plus_training/summary.json
     data_config_dir: outputs/task5_baselines/deeplabv3plus
+    prediction_output_root: results/task6_evaluation/baselines/deeplabv3plus_predictions

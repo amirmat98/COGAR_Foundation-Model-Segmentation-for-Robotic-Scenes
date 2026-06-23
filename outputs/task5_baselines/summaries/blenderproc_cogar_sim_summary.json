@@ -3,6 +3,7 @@
   "seed": 5884715,
   "train_images": 100,
   "val_images": 50,
+  "test_images": 850,
   "test_remaining_images": 850,
   "split_files": {
     "train": "outputs/task5_baselines/splits/blenderproc_cogar_sim/train_image_ids.txt",
@@ -22,6 +23,11 @@
           "path": "outputs/task5_baselines/coco/blenderproc_cogar_sim/instances_val_small.json",
           "images": 50,
           "annotations": 366
+        },
+        "test": {
+          "path": "outputs/task5_baselines/coco/blenderproc_cogar_sim/instances_test.json",
+          "images": 850,
+          "annotations": 7508
         }
       }
     },

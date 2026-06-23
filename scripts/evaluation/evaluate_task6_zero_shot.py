@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import sys
 import tempfile
@@ -46,6 +47,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--datasets", nargs="*", default=None)
     parser.add_argument("--models", nargs="*", default=None)
     parser.add_argument("--prompt-modes", nargs="*", default=None)
+    parser.add_argument(
+        "--split",
+        choices=("full", "train", "val", "test"),
+        default=None,
+        help="Evaluation split. Defaults to evaluation.split in the config.",
+    )
     parser.add_argument("--max-records", type=int, default=None)
     parser.add_argument("--log-every", type=int, default=1000)
     parser.add_argument("--rerun-complete", action="store_true")
@@ -95,13 +102,75 @@ def prediction_path(task4_config: dict[str, Any], dataset: str, model: str, prom
 
 
 def evaluation_output_path(config: dict[str, Any], dataset: str, model: str, prompt_mode: str) -> Path:
-    return (
-        resolve_repo_path(config["task"]["output_root"])
-        / "zero_shot"
-        / dataset
-        / model
-        / f"{prompt_mode}_metrics.json"
+    split = str(config.get("evaluation", {}).get("split", "full"))
+    root = resolve_repo_path(config["task"]["output_root"]) / "zero_shot"
+    if split != "full":
+        root = root / split
+    return root / dataset / model / f"{prompt_mode}_metrics.json"
+
+
+def evaluation_split(config: dict[str, Any], args: argparse.Namespace) -> str:
+    return str(args.split or config.get("evaluation", {}).get("split", "full"))
+
+
+def split_image_ids_path(config: dict[str, Any], dataset: str, split: str) -> Path | None:
+    if split == "full":
+        return None
+    split_root = resolve_repo_path(
+        config.get("evaluation", {}).get(
+            "split_root",
+            "outputs/task5_baselines/splits",
+        )
     )
+    return split_root / dataset / f"{split}_image_ids.txt"
+
+
+def load_evaluation_image_ids(
+    config: dict[str, Any],
+    dataset: str,
+    split: str,
+) -> tuple[set[int] | None, Path | None]:
+    path = split_image_ids_path(config, dataset, split)
+    if path is None:
+        return None, None
+    if not path.exists():
+        raise FileNotFoundError(f"Missing {split} split file: {path}")
+    image_ids = {
+        int(line.strip())
+        for line in path.read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    }
+    if not image_ids:
+        raise ValueError(f"Empty {split} split file: {path}")
+    return image_ids, path
+
+
+def sha256_file(path: Path | None) -> str | None:
+    if path is None:
+        return None
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def validate_observed_images(
+    observed: set[int],
+    expected: set[int] | None,
+    args: argparse.Namespace,
+    run_name: str,
+) -> None:
+    if expected is None or args.max_records is not None:
+        return
+    if observed != expected:
+        missing = sorted(expected - observed)
+        extra = sorted(observed - expected)
+        raise ValueError(
+            f"{run_name} does not cover the configured test split: "
+            f"missing={len(missing)} extra={len(extra)} "
+            f"missing_sample={missing[:10]} extra_sample={extra[:10]}"
+        )
 
 
 def compact_row(record: dict[str, Any]) -> dict[str, Any]:
@@ -110,6 +179,9 @@ def compact_row(record: dict[str, Any]) -> dict[str, Any]:
         "dataset": record["dataset"],
         "model": record["model"],
         "prompt_mode": record["prompt_mode"],
+        "split": record.get("split", "full"),
+        "evaluation_images": record.get("evaluation_images"),
+        "split_sha256": record.get("split_sha256"),
         "status": record["status"],
         "records": record["records"],
         "instances": record["instance_metrics"]["instances"],
@@ -130,6 +202,9 @@ def write_summary_csv(path: str | Path, rows: list[dict[str, Any]]) -> None:
         "dataset",
         "model",
         "prompt_mode",
+        "split",
+        "evaluation_images",
+        "split_sha256",
         "status",
         "records",
         "instances",
@@ -170,6 +245,7 @@ def evaluate_prompted(
     metadata: dict[str, Any],
     args: argparse.Namespace,
     output_path: Path,
+    allowed_image_ids: set[int] | None,
 ) -> dict[str, Any]:
     gt_by_id = annotations_by_id(coco)
     image_sizes = image_size_by_id(coco)
@@ -184,6 +260,9 @@ def evaluate_prompted(
     progress_every = args.log_every or 1000
 
     for row in iter_jsonl(prediction_file):
+        image_id = int(row["image_id"])
+        if allowed_image_ids is not None and image_id not in allowed_image_ids:
+            continue
         if args.max_records is not None and processed >= args.max_records:
             break
         processed += 1
@@ -220,6 +299,7 @@ def evaluate_prompted(
             )
 
     image_ids = sorted({item["image_id"] for item in matches})
+    validate_observed_images(set(image_ids), allowed_image_ids, args, metadata["run_name"])
     print(
         f"[AP] {metadata['run_name']}: evaluating COCO mask AP with "
         f"{len(detections)} detections on {len(image_ids)} images",
@@ -251,6 +331,7 @@ def evaluate_automatic(
     metadata: dict[str, Any],
     args: argparse.Namespace,
     output_path: Path,
+    allowed_image_ids: set[int] | None,
 ) -> dict[str, Any]:
     gt_by_image = annotations_by_image(coco)
     image_sizes = image_size_by_id(coco)
@@ -265,10 +346,12 @@ def evaluate_automatic(
     progress_every = min(args.log_every, 100) if args.log_every else 100
 
     for row in iter_jsonl(prediction_file):
+        image_id = int(row["image_id"])
+        if allowed_image_ids is not None and image_id not in allowed_image_ids:
+            continue
         if args.max_records is not None and processed >= args.max_records:
             break
         processed += 1
-        image_id = int(row["image_id"])
         gt_annotations = gt_by_image.get(image_id, [])
         if not gt_annotations:
             continue
@@ -318,6 +401,7 @@ def evaluate_automatic(
             )
 
     image_ids = sorted({item["image_id"] for item in matches})
+    validate_observed_images(set(image_ids), allowed_image_ids, args, metadata["run_name"])
     class_agnostic = class_agnostic_coco(coco)
     for detection in detections:
         detection["category_id"] = 1
@@ -362,6 +446,9 @@ def evaluate_run(
     prompt_mode: str,
     args: argparse.Namespace,
 ) -> dict[str, Any]:
+    split = evaluation_split(config, args)
+    config = dict(config)
+    config["evaluation"] = dict(config.get("evaluation", {}), split=split)
     pred_path = prediction_path(task4_config, dataset, model, prompt_mode)
     out_path = evaluation_output_path(config, dataset, model, prompt_mode)
     if out_path.exists() and not args.rerun_complete:
@@ -370,6 +457,7 @@ def evaluate_run(
 
     dataset_config = task4_config["datasets"][dataset]
     annotation_file = Path(dataset_config["annotation_file"])
+    allowed_image_ids, split_file = load_evaluation_image_ids(config, dataset, split)
     metadata = {
         "dataset": dataset,
         "model": model,
@@ -377,6 +465,10 @@ def evaluate_run(
         "run_name": f"{dataset}/{model}/{prompt_mode}",
         "boundary_tolerance_px": config["metrics"]["boundary_tolerance_px"],
         "score_default": config["metrics"]["score_default"],
+        "split": split,
+        "split_file": None if split_file is None else relative_to_repo(split_file),
+        "split_sha256": sha256_file(split_file),
+        "evaluation_images": None if allowed_image_ids is None else len(allowed_image_ids),
     }
     print(f"[START] evaluating {metadata['run_name']} from {relative_to_repo(pred_path)}", flush=True)
     if args.dry_run:
@@ -385,6 +477,9 @@ def evaluate_run(
             "model": model,
             "prompt_mode": prompt_mode,
             "status": "dry_run",
+            "split": split,
+            "evaluation_images": None if allowed_image_ids is None else len(allowed_image_ids),
+            "split_sha256": metadata["split_sha256"],
             "prediction_file": relative_to_repo(pred_path),
             "metrics_file": relative_to_repo(out_path),
         }
@@ -392,8 +487,21 @@ def evaluate_run(
         raise FileNotFoundError(f"Missing prediction file: {pred_path}")
     coco = load_json(annotation_file)
     if prompt_mode == "automatic":
-        return evaluate_automatic(pred_path, coco, annotation_file, metadata, args, out_path)
-    return evaluate_prompted(pred_path, coco, annotation_file, metadata, args, out_path)
+        summary = evaluate_automatic(
+            pred_path, coco, annotation_file, metadata, args, out_path, allowed_image_ids
+        )
+    else:
+        summary = evaluate_prompted(
+            pred_path, coco, annotation_file, metadata, args, out_path, allowed_image_ids
+        )
+    summary["split"] = split
+    summary["split_file"] = metadata["split_file"]
+    summary["split_sha256"] = metadata["split_sha256"]
+    summary["evaluation_images"] = (
+        len(allowed_image_ids) if allowed_image_ids is not None else len(coco.get("images", []))
+    )
+    write_json(out_path, summary)
+    return summary
 
 
 def main() -> None:
@@ -416,7 +524,10 @@ def main() -> None:
                 rows.append(compact_row(summary) if not args.dry_run else summary)
 
     if not args.dry_run:
+        split = evaluation_split(config, args)
         output_root = resolve_repo_path(config["task"]["output_root"]) / "zero_shot"
+        if split != "full":
+            output_root = output_root / split
         write_json(output_root / "summary.json", rows)
         write_summary_csv(output_root / "summary.csv", rows)
         print(f"[DONE] wrote {relative_to_repo(output_root / 'summary.csv')}", flush=True)

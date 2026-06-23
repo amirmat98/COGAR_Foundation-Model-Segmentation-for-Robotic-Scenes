@@ -24,7 +24,7 @@ datasets:
   ocid:
     enabled: true
     root: /mnt/Info/COGAR_DATASETs/OCID-dataset
-    annotation_file: /mnt/Info/COGAR_DATASETs/OCID-dataset/annotations/instances_all.json
+    annotation_file: outputs/datasets/ocid/instances_all.json
     image_path:
       mode: coco_file_name_relative_to_root
 

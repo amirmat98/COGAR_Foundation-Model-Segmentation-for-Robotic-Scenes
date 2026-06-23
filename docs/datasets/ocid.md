@@ -25,6 +25,21 @@ Datasets/OCID
 
 Users may store it elsewhere and update `configs/datasets.yaml`.
 
+The project-local COCO conversion used by the benchmark is stored at:
+
+```text
+outputs/datasets/ocid/instances_all.json
+```
+
+Regenerate it from the raw OCID labels with:
+
+```bash
+python scripts/datasets/convert_ocid_to_coco.py \
+  --output-file outputs/datasets/ocid/instances_all.json \
+  --metadata-file outputs/datasets/ocid/frame_index.csv \
+  --splits-dir outputs/datasets/ocid/splits
+```
+
 ## Contents
 
 Expected top-level folders:

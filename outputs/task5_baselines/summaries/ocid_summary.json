@@ -3,6 +3,7 @@
   "seed": 5884715,
   "train_images": 100,
   "val_images": 50,
+  "test_images": 2240,
   "test_remaining_images": 2240,
   "split_files": {
     "train": "outputs/task5_baselines/splits/ocid/train_image_ids.txt",
@@ -22,6 +23,11 @@
           "path": "outputs/task5_baselines/coco/ocid/instances_val_small.json",
           "images": 50,
           "annotations": 531
+        },
+        "test": {
+          "path": "outputs/task5_baselines/coco/ocid/instances_test.json",
+          "images": 2240,
+          "annotations": 20093
         }
       }
     },

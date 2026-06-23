@@ -1,5 +1,10 @@
 # Final Recommendation Guide
 
+> **Legacy results:** this generated guide combines the original full-dataset
+> zero-shot run with 50-image baseline validation results. It is retained for
+> provenance but must not be used as the final model comparison. Regenerate it
+> after the common held-out test summaries are complete.
+
 This guide summarizes which segmentation model to use under the benchmark conditions. It uses the compact Task 6, Task 7, Task 8, and Task 9 outputs.
 
 ## High-Level Recommendations

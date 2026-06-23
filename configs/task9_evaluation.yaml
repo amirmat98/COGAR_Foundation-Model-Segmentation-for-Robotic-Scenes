@@ -5,6 +5,10 @@ task:
   results_root: results/task9_lightweight_sam/evaluation
   seed: 5884715
 
+evaluation:
+  split: test
+  split_root: outputs/task5_baselines/splits
+
 metrics:
   boundary_tolerance_px: 2
   prediction_selection: highest_score

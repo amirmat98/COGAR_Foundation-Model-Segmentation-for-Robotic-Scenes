@@ -35,7 +35,8 @@ The split seed is `5884715`.
 
 The preparation script writes:
 
-- COCO train/validation subset JSON files for Mask R-CNN.
+- COCO train/validation files for training plus a held-out test COCO file used
+  only by Task 6 evaluation.
 - YOLOv8-seg image/label folders and dataset YAML files.
 - DeepLabV3+ image folders, semantic mask folders, and dataset YAML files.
 
@@ -190,5 +191,5 @@ outputs/task5_baselines/mask_rcnn_training
 outputs/task5_baselines/deeplabv3plus_training
 ```
 
-Task 6 evaluates the saved baseline checkpoints against the shared validation
-sets.
+Task 6 selects checkpoints using validation metrics, then performs fresh
+inference on the held-out test IDs shared with every zero-shot model.

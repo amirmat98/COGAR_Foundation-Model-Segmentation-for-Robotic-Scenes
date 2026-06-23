@@ -32,7 +32,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--task4-config", default="configs/task4_zero_shot_sam.yaml")
     parser.add_argument(
         "--task9-eval",
-        default="outputs/task9_lightweight_sam/evaluation/zero_shot/summary.csv",
+        default="outputs/task9_lightweight_sam/evaluation/zero_shot/test/summary.csv",
     )
     parser.add_argument(
         "--task9-speed",
@@ -40,11 +40,11 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--task6-zero-shot",
-        default="outputs/task6_evaluation/zero_shot/summary.csv",
+        default="outputs/task6_evaluation/zero_shot/test/summary.csv",
     )
     parser.add_argument(
         "--task6-baselines",
-        default="outputs/task6_evaluation/baselines/summary.csv",
+        default="outputs/task6_evaluation/baselines/test/summary.csv",
     )
     parser.add_argument("--task7-speed", default="outputs/task7_inference_speed/summary.csv")
     parser.add_argument("--output-root", default="outputs/task9_lightweight_sam/summary")
@@ -137,6 +137,9 @@ def normalize_zero_shot_quality(
                 "model": model,
                 "model_group": "lightweight_sam" if model in lightweight_models else source_group,
                 "prompt_mode": row.get("prompt_mode", ""),
+                "split": row.get("split", ""),
+                "evaluation_images": row.get("evaluation_images", ""),
+                "split_sha256": row.get("split_sha256", ""),
                 "status": row.get("status", ""),
                 "evaluation_type": "zero_shot",
                 "mIoU": as_float(row.get("mIoU")),
@@ -160,6 +163,9 @@ def normalize_baseline_quality(rows: list[dict[str, str]]) -> list[dict[str, Any
                 "model": model,
                 "model_group": "baseline",
                 "prompt_mode": "inference",
+                "split": row.get("split", ""),
+                "evaluation_images": row.get("evaluation_images", ""),
+                "split_sha256": row.get("split_sha256", ""),
                 "status": row.get("status", ""),
                 "evaluation_type": row.get("evaluation_type", "baseline"),
                 "mIoU": as_float(row.get("mIoU")),
@@ -336,6 +342,13 @@ def main() -> None:
     )
     quality_rows.extend(normalize_baseline_quality(read_csv(args.task6_baselines, required=False)))
 
+    invalid_splits = sorted({row.get("split", "") for row in quality_rows if row.get("split") != "test"})
+    if invalid_splits:
+        raise ValueError(
+            "Final speed-quality comparisons require test-only quality rows; "
+            f"found splits: {invalid_splits}"
+        )
+
     speed_rows = read_csv(args.task9_speed)
     speed_rows.extend(read_csv(args.task7_speed, required=False))
     speed_by_key = normalize_speed(speed_rows)
@@ -352,6 +365,9 @@ def main() -> None:
         "model",
         "model_group",
         "prompt_mode",
+        "split",
+        "evaluation_images",
+        "split_sha256",
         "status",
         "evaluation_type",
         "mIoU",

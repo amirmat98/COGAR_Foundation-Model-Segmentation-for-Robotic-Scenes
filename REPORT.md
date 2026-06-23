@@ -11,8 +11,9 @@ edge-deployment comparison.
 
 ## Closure Status
 
-Tasks 1-9 are complete as of 2026-06-17. The remaining non-benchmark project
-item is publishing external download links for the generated datasets.
+The original Tasks 1-9 run completed on 2026-06-17. Task 6 is being rerun under
+a corrected common held-out test protocol; legacy validation/full-dataset
+metrics remain archived but are not final comparative evidence.
 
 | Task | Status | Evidence |
 | --- | --- | --- |
@@ -21,7 +22,7 @@ item is publishing external download links for the generated datasets.
 | Task 3: Robotic platform | Complete | The main Isaac dataset uses the official Unitree G1 USD asset for all 1000 frames. |
 | Task 4: Zero-shot SAM inference | Complete | SAM ViT-H, SAM ViT-B, SAM2, and FastSAM predictions were generated for point, box, and automatic prompts. |
 | Task 5: Classical baselines | Complete | YOLOv8-seg, Mask R-CNN, and DeepLabV3+ were trained on small subsets. |
-| Task 6: Evaluation metrics | Complete | mIoU, boundary F1, mask AP, and per-category/challenge metrics were produced. |
+| Task 6: Evaluation metrics | Corrected rerun required | Both zero-shot and supervised models now target the same held-out test IDs; new GPU inference and summaries are pending. |
 | Task 7: Inference speed | Complete | GPU and CPU speed summaries were produced for zero-shot and baseline models. |
 | Task 8: Failure modes | Complete | Qualitative failure examples and failure-mode summaries were generated. |
 | Task 9: Lightweight SAM variants | Complete | MobileSAM and EfficientSAM variants were evaluated and joined with speed/checkpoint-size trade-off summaries. |
@@ -67,8 +68,9 @@ https://www.acin.tuwien.ac.at/object-clutter-indoor-dataset/
 | Stage | Compact artifact evidence |
 | --- | --- |
 | Prompt manifests | `outputs/task4_zero_shot_sam/prompts/summary.json` lists 1000 Isaac images, 1000 BlenderProc images, and 2390 OCID images. |
-| Zero-shot evaluation | `outputs/task6_evaluation/zero_shot/summary.csv` contains 36 SAM/SAM2/FastSAM metric rows. |
-| Baseline evaluation | `outputs/task6_evaluation/baselines/summary.csv` contains 9 YOLOv8-seg, Mask R-CNN, and DeepLabV3+ rows. |
+| Legacy zero-shot evaluation | `outputs/task6_evaluation/zero_shot/summary.csv` contains the archived full-dataset run and is not used for corrected final comparisons. |
+| Legacy baseline evaluation | `outputs/task6_evaluation/baselines/summary.csv` contains the archived validation run and is not used for corrected final comparisons. |
+| Corrected common-test evaluation | New summaries are written to `outputs/task6_evaluation/zero_shot/test/summary.csv` and `outputs/task6_evaluation/baselines/test/summary.csv`. |
 | Inference speed | `outputs/task7_inference_speed/summary.csv` contains 90 GPU/CPU timing rows. |
 | Failure analysis | `outputs/task8_failure_analysis/summary.json` records 10 representative failure visualizations and 151 challenge-group rows. |
 | Lightweight SAM | `outputs/task9_lightweight_sam/summary/summary.json` records 72 quality rows, 144 speed-quality trade-off rows, and 36 recommendation rows. |

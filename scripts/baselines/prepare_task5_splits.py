@@ -22,7 +22,8 @@ SRC_DIR = REPO_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-SPLITS = ("train", "val")
+TRAINING_SPLITS = ("train", "val")
+ALL_SPLITS = ("train", "val", "test")
 FORMATS = ("coco", "yolo", "deeplab")
 
 
@@ -247,7 +248,7 @@ def write_yolo_dataset(
 
     counts = {"images": 0, "labels": 0, "skipped_annotations": 0}
     if not dry_run:
-        for split in SPLITS:
+        for split in TRAINING_SPLITS:
             for image_id in splits[split]:
                 image = images_by_id[image_id]
                 source = resolve_image_path(dataset_config, image["file_name"])
@@ -319,7 +320,7 @@ def write_deeplab_dataset(
 
     counts = {"images": 0, "masks": 0}
     if not dry_run:
-        for split in SPLITS:
+        for split in TRAINING_SPLITS:
             for image_id in splits[split]:
                 image = images_by_id[image_id]
                 source = resolve_image_path(dataset_config, image["file_name"])
@@ -374,9 +375,10 @@ def write_coco_subsets(
 ) -> dict[str, Any]:
     subset_dir = output_root / "coco" / dataset_name
     counts: dict[str, Any] = {"format": "coco_instance", "files": {}}
-    for split in SPLITS:
+    for split in ALL_SPLITS:
         subset = subset_coco(coco, splits[split], min_area)
-        path = subset_dir / f"instances_{split}_small.json"
+        filename = f"instances_{split}_small.json" if split in TRAINING_SPLITS else "instances_test.json"
+        path = subset_dir / filename
         counts["files"][split] = {
             "path": str(path),
             "images": len(subset["images"]),
@@ -480,18 +482,27 @@ def prepare_dataset(
             )
         )
 
+    summary_path = output_root / "summaries" / f"{dataset_name}_summary.json"
+    if set(args.formats) != set(FORMATS) and summary_path.exists():
+        existing_summary = load_json(summary_path)
+        updated_by_format = {item["format"]: item for item in outputs}
+        for item in existing_summary.get("formats", []):
+            updated_by_format.setdefault(item["format"], item)
+        outputs = [updated_by_format[name] for name in ("coco_instance", "yolo8_seg", "deeplabv3plus") if name in updated_by_format]
+
     summary = {
         "dataset": dataset_name,
         "seed": seed,
         "train_images": len(splits["train"]),
         "val_images": len(splits["val"]),
+        "test_images": len(splits["test"]),
         "test_remaining_images": len(splits["test"]),
         "split_files": split_paths,
         "formats": outputs,
         "dry_run": args.dry_run,
     }
     if not args.dry_run:
-        write_json(output_root / "summaries" / f"{dataset_name}_summary.json", summary)
+        write_json(summary_path, summary)
     print(f"[OK] {dataset_name}", flush=True)
     return summary
 
@@ -504,7 +515,16 @@ def main() -> None:
         summaries.append(prepare_dataset(dataset_name, dataset_config, config, args))
 
     if not args.dry_run:
-        write_json(Path(config["task"]["output_root"]) / "summaries" / "summary.json", summaries)
+        summary_path = Path(config["task"]["output_root"]) / "summaries" / "summary.json"
+        if (args.datasets is not None or set(args.formats) != set(FORMATS)) and summary_path.exists():
+            merged = {item["dataset"]: item for item in load_json(summary_path)}
+            merged.update({item["dataset"]: item for item in summaries})
+            summaries = [
+                merged[name]
+                for name in config["datasets"]
+                if name in merged
+            ]
+        write_json(summary_path, summaries)
     print("[DONE] Task 5A split preparation", flush=True)
 
 

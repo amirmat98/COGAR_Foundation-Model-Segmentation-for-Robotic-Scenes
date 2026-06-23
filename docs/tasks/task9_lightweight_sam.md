@@ -32,7 +32,7 @@ Task 9 keeps all generated files separate from completed Task 4 outputs:
 | Output | Path |
 | --- | --- |
 | Predictions | `results/task9_lightweight_sam/` |
-| Evaluation metrics | `outputs/task9_lightweight_sam/evaluation/` |
+| Evaluation metrics | `outputs/task9_lightweight_sam/evaluation/zero_shot/test/` |
 | Speed metrics | `outputs/task9_lightweight_sam/inference_speed/` |
 | Trade-off report | `outputs/task9_lightweight_sam/summary/task9_lightweight_sam_report.md` |
 
@@ -137,6 +137,7 @@ export PYTHONUNBUFFERED=1
 
 python scripts/evaluation/evaluate_task6_zero_shot.py \
   --config configs/task9_evaluation.yaml \
+  --split test \
   --rerun-complete \
   --log-every 5000
 ' > logs/task9/lightweight_sam_evaluation.log 2>&1 &

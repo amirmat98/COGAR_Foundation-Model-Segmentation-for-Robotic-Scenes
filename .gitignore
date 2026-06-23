@@ -47,3 +47,8 @@ configs/local_paths.yaml
 
 # Large raw benchmark outputs are kept local / release assets.
 results/
+
+# Deterministic COCO derivatives used by the common held-out test protocol.
+# Regenerate them with the commands documented in docs/tasks/task6_evaluation.md.
+outputs/datasets/ocid/
+outputs/task5_baselines/coco/*/instances_test.json

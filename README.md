@@ -8,6 +8,10 @@ This repository contains the dataset preparation, model benchmarking, baseline
 training, metric evaluation, and inference-speed tooling for the robotic
 segmentation benchmark.
 
+The original quality tables are archived preliminary results. The final Task 6
+comparison now requires every model to use the same held-out test IDs; see the
+[Task 6 protocol](docs/tasks/task6_evaluation.md).
+
 ## Reports
 
 - [Main report](REPORT.md)
