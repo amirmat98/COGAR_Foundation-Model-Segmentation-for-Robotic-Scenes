@@ -211,6 +211,22 @@ Final comparative evaluation uses a common held-out test protocol so that
 zero-shot models and supervised baselines are compared on the same reserved
 image IDs.
 
+### 3.6 Alignment with the assignment specification
+
+The project covers the nine requested assignment components as follows:
+
+| Assignment item | Coverage in this project |
+| --- | --- |
+| Simulated annotated robotic scenes | Isaac Unitree G1 and BlenderProc datasets exceed the requested 500-image scale; OCID is added as a real clutter reference. |
+| Robotic simulation environment | Isaac Sim is the primary simulator; BlenderProc is used as a secondary controlled synthetic-data pipeline. |
+| Simulated robotic platform | Unitree G1 is used in the main Isaac dataset to create robot-centered scenes. |
+| SAM/SAM2/FastSAM zero-shot benchmark | SAM ViT-H, SAM ViT-B, SAM2, and FastSAM are evaluated with point, box, and automatic prompts. |
+| Classical baselines | YOLOv8-seg, Mask R-CNN, and DeepLabV3+ are trained on small labeled subsets. |
+| Standard metrics | mIoU, boundary F1, mask AP, AP50/AP75, per-category IoU, and challenge-group IoU are reported. |
+| Inference speed | GPU and CPU FPS/latency are measured to assess real-time feasibility. |
+| Failure analysis | Qualitative overlays and challenge-group summaries identify failures on transparent, reflective, occluded, small, dynamic, and cluttered cases. |
+| Lightweight SAM variants | MobileSAM and EfficientSAM variants are evaluated as edge-deployment trade-offs. |
+
 ---
 
 ## 4. Cognitive Approach

@@ -53,6 +53,27 @@ Metrics:
 - GPU and CPU FPS,
 - qualitative failure modes.
 
+## Assignment Compliance Matrix
+
+| Requirement | Repository coverage |
+| --- | --- |
+| 1. Simulated/curated robotic dataset with reflective metal, transparent glass, occlusion, small parts, and moving objects | Isaac Unitree G1 and BlenderProc synthetic datasets exceed the requested scale, with 1000 images each; OCID adds a real clutter reference. |
+| 2. Simulation environment | Isaac Sim is the primary simulator; BlenderProc is used as a secondary synthetic generation pipeline. |
+| 3. Simulated robotic platform | The main Isaac dataset uses the official Unitree G1 asset for robot-centered scenes. |
+| 4. SAM, SAM2, FastSAM zero-shot evaluation | SAM ViT-H, SAM ViT-B, SAM2 Hiera-Large, and FastSAM-X are evaluated with point, box, and automatic modes. |
+| 5. Classical baselines | YOLOv8-seg, Mask R-CNN, and DeepLabV3+ are trained on small labeled subsets. |
+| 6. Standard metrics | mIoU, boundary F1, mask AP/AP50/AP75, per-category IoU, and challenge-group summaries are implemented. |
+| 7. Inference speed | GPU and CPU FPS/latency benchmarks are stored under `outputs/task7_inference_speed/` and Task 9 speed outputs. |
+| 8. Failure modes | Failure analysis and challenge-group summaries are documented in Task 8 and used in the final report. |
+| 9. Lightweight SAM variants | MobileSAM and EfficientSAM-Ti/S are evaluated for speed-quality and edge-deployment trade-offs. |
+
+Main software stack:
+
+- Python, PyTorch, OpenCV, COCO-style evaluation tools,
+- SAM, SAM2, FastSAM, MobileSAM, EfficientSAM,
+- Ultralytics YOLOv8, Mask R-CNN tooling, DeepLabV3+ tooling,
+- Isaac Sim and BlenderProc for simulation/synthetic data generation.
+
 ---
 
 ## Repository Layout
