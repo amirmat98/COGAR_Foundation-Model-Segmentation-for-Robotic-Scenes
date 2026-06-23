@@ -21,14 +21,7 @@ zero_shot:
 baselines: {}
 
 sampling:
-  max_images_per_dataset: 50
-  automatic_max_images_per_dataset: 20
-  cpu_max_images_per_dataset: 10
-  cpu_automatic_max_images_per_dataset: 1
-  warmup_images: 3
+  $ref: common.yaml#/speed/sampling
 
 runtime:
-  devices:
-    - cuda
-    - cpu
-  log_every: 5
+  $ref: common.yaml#/speed/runtime

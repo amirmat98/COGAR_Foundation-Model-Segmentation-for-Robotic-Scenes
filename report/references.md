@@ -54,7 +54,49 @@ SAM2 extends promptable segmentation from static images to images and videos. Th
 
 ---
 
-### 1.3 FastSAM
+### 1.3 SAM 3 and concept-prompted segmentation
+
+**Reference**  
+Carion, N., Gustafson, L., Hu, Y.-T., Debnath, S., Hu, R., Suris, D., Ryali, C., Alwala, K. V., Khedr, H., Ma, T., et al. (2025). *SAM 3: Segment Anything with Concepts*. arXiv:2511.16719.  
+https://arxiv.org/abs/2511.16719
+
+**Why it is used**  
+SAM 3 is not part of the benchmark implementation, but it is useful state-of-the-art context because it moves the SAM family from point/box prompting toward concept prompts, instance identities, and image/video tracking.
+
+**Use in this project**
+
+- Supports the statement that the field is moving beyond pure geometric prompts.
+- Helps explain why concept grounding is relevant for future robotic perception.
+- Clarifies that this project intentionally keeps the experimental scope fixed to the assignment models.
+
+**Citation sentence**
+
+> Recent SAM-family work extends promptable segmentation toward concept prompts and tracking, but this project keeps the experiment focused on the specified 2D models.
+
+---
+
+### 1.4 SAM 3D and physical-world reconstruction
+
+**Reference**  
+SAM 3D Team, Chen, X., Chu, F.-J., Gleize, P., Liang, K. J., Sax, A., Tang, H., Wang, W., Guo, M., Hardin, T., et al. (2025). *SAM 3D: 3Dfy Anything in Images*. arXiv:2511.16624.  
+https://arxiv.org/abs/2511.16624
+
+**Why it is used**  
+SAM 3D is not evaluated in this project, but it shows the broader direction of segment-anything research toward 3D physical-world structure, which is relevant to robotics.
+
+**Use in this project**
+
+- Provides background for future work beyond 2D segmentation.
+- Connects segmentation to 3D object structure and embodied perception.
+- Supports the limitation that this benchmark evaluates 2D masks rather than full 3D scene understanding.
+
+**Citation sentence**
+
+> SAM 3D-style work shows that segmentation research is moving toward physical-world 3D reconstruction, a direction relevant for future robotic scene understanding.
+
+---
+
+### 1.5 FastSAM
 
 **Reference**  
 Zhao, X., Ding, W., An, Y., Du, Y., Yu, T., Li, M., Tang, M., & Wang, J. (2023). *Fast Segment Anything*. arXiv:2306.12156.  
@@ -75,11 +117,11 @@ FastSAM addresses the runtime cost of SAM by reformulating the segment-anything 
 
 ---
 
-### 1.4 MobileSAM
+### 1.6 MobileSAM
 
 **Reference**  
-Zhang, C., Han, D., Qiao, Y., Kim, J. U., Bae, S.-H., Lee, S., & Hong, C. S. (2023). *Faster Segment Anything: Towards Lightweight SAM for Mobile Applications*. Project repository.  
-https://github.com/ChaoningZhang/MobileSAM
+Zhang, C., Han, D., Qiao, Y., Kim, J. U., Bae, S.-H., Lee, S., & Hong, C. S. (2023). *Faster Segment Anything: Towards Lightweight SAM for Mobile Applications*. arXiv:2306.14289.  
+https://arxiv.org/abs/2306.14289
 
 **Why it is used**  
 MobileSAM is a lightweight SAM variant designed for smaller deployment settings. It replaces the large SAM image encoder with a much smaller encoder while keeping the SAM-style prompt-and-mask-decoder pipeline.
@@ -96,7 +138,7 @@ MobileSAM is a lightweight SAM variant designed for smaller deployment settings.
 
 ---
 
-### 1.5 EfficientSAM
+### 1.7 EfficientSAM
 
 **Reference**  
 Xiong, Y., Varadarajan, B., Wu, L., Xiang, X., Xiao, F., Zhu, C., Dai, X., Wang, D., Sun, F., Iandola, F., Krishnamoorthi, R., & Chandra, V. (2023). *EfficientSAM: Leveraged Masked Image Pretraining for Efficient Segment Anything*. arXiv:2312.00863.  
@@ -335,6 +377,51 @@ This reference can be used for broader background on cognitive robotic systems a
 
 ---
 
+### 5.3 Cognitive Architecture Survey
+
+**Reference**  
+Kotseruba, I., & Tsotsos, J. K. (2016). *A Review of 40 Years of Cognitive Architecture Research: Core Cognitive Abilities and Practical Applications*. arXiv:1610.08602.  
+https://arxiv.org/abs/1610.08602
+
+**Why it is used**  
+This survey gives broader context for cognitive architectures and the core
+abilities commonly associated with them, including perception, attention,
+memory, reasoning, and action.
+
+**Use in this project**
+
+- Supports the framing of segmentation as one module inside a larger cognitive
+  architecture.
+- Helps justify why perception should be discussed together with attention,
+  action, timing, and failure monitoring.
+
+**Citation sentence**
+
+> Cognitive architecture research frames perception as one component among attention, memory, reasoning, and action, which supports evaluating segmentation as part of a larger robot system.
+
+---
+
+### 5.4 Active Perception
+
+**Reference**  
+Lee, E. S. (2021). *Active Perception with Neural Networks*. arXiv:2109.02744.  
+https://arxiv.org/abs/2109.02744
+
+**Why it is used**  
+Active perception is relevant because robotic perception is often guided by
+goals, attention, and action rather than passive image processing.
+
+**Use in this project**
+
+- Supports interpreting point and box prompts as task-driven attention.
+- Helps explain why prompt availability must be separated from mask quality.
+
+**Citation sentence**
+
+> Active perception motivates treating prompts as task-driven attention cues rather than purely technical model inputs.
+
+---
+
 ## 6. Metrics and Evaluation Concepts
 
 ### 6.1 COCO Evaluation and Mask AP
@@ -401,16 +488,16 @@ This is the project implementation repository containing scripts, configs, task 
 ### 7.2 Technical Benchmark Report
 
 **Reference**  
-Amirmat98. *Main Report: Foundation Model Segmentation Benchmark*. `REPORT.md` in the project repository.
+Amirmat98. *Foundation Model Segmentation for Robotic Scenes*. `REPORT.md` in the project repository.
 
 **Why it is used**  
-This is the technical evidence tracker for the project. It records the closure status of Tasks 1-9, dataset summaries, public release information, artifact paths, evaluation notes, and final recommendation assets.
+This is the final research report for the project. It connects the benchmark outputs to the required research structure and summarizes the numerical evidence.
 
 **Use in this project**
 
-- Source for project-specific implementation status.
+- Source for project-specific research framing and implementation status.
 - Source for dataset sizes and artifact paths.
-- Source for the warning that legacy validation/full-dataset metrics are archived and corrected common-test evaluation should be used for final comparisons.
+- Source for the numerical summaries, final tables, figures, and recommendations.
 
 ---
 
@@ -421,7 +508,7 @@ Use the references in the final report approximately like this:
 | Report section | Most useful references |
 |---|---|
 | Research Problem | SAM, SAM2, OCID, COGAR course page |
-| State of the Art | SAM, SAM2, FastSAM, MobileSAM, EfficientSAM, Mask R-CNN, DeepLabV3+, YOLOv8-seg |
+| State of the Art | SAM, SAM2, SAM3 context, SAM3D context, FastSAM, MobileSAM, EfficientSAM, Mask R-CNN, DeepLabV3+, YOLOv8-seg |
 | Research Formulation | Project `REPORT.md`, Task 4, Task 6, COCO |
 | Cognitive Approach | COGAR course page, cognitive architectures background, SAM/SAM2 prompting |
 | Dataset and Simulation | Isaac Sim documentation, BlenderProc, OCID, project `REPORT.md` |
@@ -439,6 +526,8 @@ For slides, do not overload the audience with full citations. Use short labels:
 
 - SAM, Kirillov et al., 2023
 - SAM2, Ravi et al., 2024
+- SAM3 / concept prompting, Carion et al., 2025
+- SAM3D / 3D reconstruction, SAM 3D Team et al., 2025
 - FastSAM, Zhao et al., 2023
 - MobileSAM, Zhang et al., 2023
 - EfficientSAM, Xiong et al., 2023

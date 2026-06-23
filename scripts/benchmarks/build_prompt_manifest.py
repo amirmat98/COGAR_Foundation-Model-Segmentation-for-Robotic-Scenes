@@ -19,6 +19,8 @@ SRC_DIR = REPO_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
+from cogar_seg.config import load_config  # noqa: E402
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
@@ -219,7 +221,7 @@ def build_dataset_manifest(
 
 def main() -> None:
     args = parse_args()
-    config = yaml.safe_load(Path(args.config).read_text(encoding="utf-8"))
+    config = load_config(args.config)
     output_dir = Path(config["task"]["prompt_manifest_dir"])
     summaries = []
 

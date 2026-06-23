@@ -11,9 +11,15 @@ The repository is organized around two top-level deliverables:
 | `README.md` | GitHub-facing technical guide for datasets, scripts, configs, artifacts, and reproduction. |
 | `REPORT.md` | Final research report following the required lecture structure. |
 
-All files under `report/` are supporting material for the root `REPORT.md`.
-They contain section drafts, slide planning, source mapping, and wording notes.
-They are not separate final deliverables.
+Files under `report/` are supporting material for the root `REPORT.md`. They
+are concise companion pages, not duplicated final reports. Reusable figures and
+CSV evidence are centralized in `report/figures_and_tables.md` to avoid
+repeating the same plots in every section file.
+
+`REPORT.md` now acts as the hub: each required report section includes a direct
+link to the relevant detailed supporting file below. The supporting files are
+therefore dependencies for explanation depth, while `REPORT.md` remains the
+single final research report.
 
 ## Required Research Structure
 
@@ -36,7 +42,23 @@ The final report and presentation are organized around:
 | `report/04_cognitive_approach.md` | COGAR connection and cognitive interpretation. |
 | `report/05_results_congruence_and_conclusions.md` | Evidence-to-conclusion discipline. |
 | `report/06_slide_deck_outline.md` | Slide-by-slide presentation outline. |
+| `report/figures_and_tables.md` | Shared catalog of plots, summary tables, and representative failure images. |
 | `report/references.md` | Detailed bibliography and source map. |
+
+## Repository-Local Wiki
+
+The folder `docs/wiki/` provides a GitHub-wiki-style version of the report:
+
+- `docs/wiki/README.md`
+- `docs/wiki/Research-Problem.md`
+- `docs/wiki/State-of-the-Art.md`
+- `docs/wiki/Methodology.md`
+- `docs/wiki/Cognitive-Approach.md`
+- `docs/wiki/Results-and-Recommendations.md`
+- `docs/wiki/Artifacts.md`
+
+These files can be kept in the repository or copied into GitHub's separate wiki
+repository if a hosted Wiki tab is required.
 
 ## Evidence Sources
 

@@ -14,6 +14,11 @@ import yaml
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+SRC_DIR = REPO_ROOT / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from cogar_seg.config import load_config as load_project_config  # noqa: E402
 
 CHECKPOINT_SIZE_MB_FALLBACK = {
     "sam_vit_h": 2564.55,
@@ -67,7 +72,7 @@ def relative(path: str | Path) -> str:
 
 
 def load_yaml(path: str | Path) -> dict[str, Any]:
-    return yaml.safe_load(resolve(path).read_text(encoding="utf-8"))
+    return load_project_config(resolve(path))
 
 
 def read_csv(path: str | Path, required: bool = True) -> list[dict[str, str]]:

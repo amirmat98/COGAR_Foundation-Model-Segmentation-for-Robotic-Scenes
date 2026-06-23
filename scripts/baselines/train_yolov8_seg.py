@@ -13,6 +13,11 @@ import yaml
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+SRC_DIR = REPO_ROOT / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from cogar_seg.config import load_config as load_project_config  # noqa: E402
 
 
 def parse_args() -> argparse.Namespace:
@@ -31,7 +36,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def load_yaml(path: str | Path) -> dict[str, Any]:
-    return yaml.safe_load(Path(path).read_text(encoding="utf-8"))
+    return load_project_config(path)
 
 
 def write_json(path: str | Path, data: Any) -> None:
@@ -146,9 +151,7 @@ def train_dataset(
     try:
         from ultralytics import YOLO  # type: ignore[import-not-found]
     except ImportError as exc:
-        raise ImportError(
-            "Missing ultralytics. Install Task 5 GPU requirements before training."
-        ) from exc
+        raise ImportError("Missing ultralytics. Install requirements.txt before training.") from exc
 
     started_at = time.perf_counter()
     model = YOLO(checkpoint)

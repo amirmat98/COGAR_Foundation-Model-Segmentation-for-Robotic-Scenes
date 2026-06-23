@@ -23,14 +23,4 @@ training:
   cache: false
 
 datasets:
-  isaac_official_unitree_g1:
-    enabled: true
-    data_yaml: outputs/task5_baselines/yolo8_seg/isaac_official_unitree_g1.yaml
-
-  blenderproc_cogar_sim:
-    enabled: true
-    data_yaml: outputs/task5_baselines/yolo8_seg/blenderproc_cogar_sim.yaml
-
-  ocid:
-    enabled: true
-    data_yaml: outputs/task5_baselines/yolo8_seg/ocid.yaml
+  $ref: common.yaml#/task5/training_datasets/yolo8_seg

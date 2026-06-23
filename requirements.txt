@@ -1,8 +1,59 @@
-blenderproc==2.8.0
+# Unified dependency file for the COGAR foundation-model segmentation benchmark.
+#
+# PyTorch note:
+# For GPU runs, install the CUDA wheel matching the machine first if needed, for
+# example:
+#
+#   python -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+#
+# Then install this file:
+#
+#   python -m pip install -r requirements.txt
+#
+# The minimum torch/torchvision versions are kept here so CPU/local checks also
+# have a complete dependency declaration.
+
+# Core numeric / data stack
 numpy
-opencv-python
 pandas
+scipy
 Pillow
-pycocotools
 PyYAML
 tqdm
+psutil
+
+# Plotting and report assets
+matplotlib
+
+# Computer vision and COCO evaluation
+opencv-python-headless
+pycocotools>=2.0.8
+
+# PyTorch stack
+torch>=2.5.1
+torchvision>=0.20.1
+
+# Synthetic data generation
+blenderproc==2.8.0
+
+# Dataset/checkpoint helpers
+gdown
+
+# Supervised baseline models
+segmentation-models-pytorch
+ultralytics
+
+# Foundation segmentation models
+git+https://github.com/facebookresearch/segment-anything.git
+git+https://github.com/facebookresearch/sam2.git
+git+https://github.com/ChaoningZhang/MobileSAM.git
+git+https://github.com/yformer/EfficientSAM.git
+
+# FastSAM is used from a local source checkout because its official repository
+# is imported directly by scripts/benchmarks/run_zero_shot_sam.py:
+#
+#   git clone https://github.com/CASIA-IVA-Lab/FastSAM.git external/FastSAM
+#   python -m pip install -r external/FastSAM/requirements.txt
+#
+# Detectron2 is not required by the current code path; the Mask R-CNN baseline
+# is implemented with torchvision.

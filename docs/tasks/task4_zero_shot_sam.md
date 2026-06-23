@@ -66,9 +66,10 @@ Git.
 
 ## Environment
 
-Use `requirements.txt` for lightweight local setup and prompt-manifest
-validation. Use `requirements-task4-gpu.txt` on the GPU machine after
-installing the matching PyTorch and TorchVision CUDA wheels.
+Use the unified `requirements.txt` for local setup, prompt-manifest validation,
+and GPU benchmark dependencies. On GPU machines, install the matching
+PyTorch/TorchVision CUDA wheels first if the default wheel does not match the
+system.
 
 ## Closure Criteria
 

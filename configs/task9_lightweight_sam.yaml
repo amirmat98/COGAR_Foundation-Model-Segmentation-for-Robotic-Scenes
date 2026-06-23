@@ -6,41 +6,10 @@ task:
   seed: 5884715
 
 datasets:
-  isaac_official_unitree_g1:
-    enabled: true
-    root: /mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000
-    annotation_file: /mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000/annotations/instances_coco.json
-    image_path:
-      mode: coco_file_name_relative_to_root
-
-  blenderproc_cogar_sim:
-    enabled: true
-    root: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000
-    annotation_file: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/annotations/instances_all.json
-    image_path:
-      mode: basename_in_image_dir
-      image_dir: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/rgb
-
-  ocid:
-    enabled: true
-    root: /mnt/Info/COGAR_DATASETs/OCID-dataset
-    annotation_file: outputs/datasets/ocid/instances_all.json
-    image_path:
-      mode: coco_file_name_relative_to_root
+  $ref: common.yaml#/datasets
 
 prompt_modes:
-  point:
-    enabled: true
-    source: mask_pixel_nearest_centroid
-    point_labels:
-      - 1
-  box:
-    enabled: true
-    source: coco_bbox_xywh
-    output_format: xyxy
-  automatic:
-    enabled: true
-    source: no_prompt
+  $ref: common.yaml#/prompt_modes
 
 models:
   mobile_sam_vit_t:
@@ -68,7 +37,4 @@ models:
     automatic_multimask_output: false
 
 runtime:
-  device: cuda
-  smoke_images_per_dataset: 5
-  prediction_format: coco_rle_jsonl
-  keep_multimask_candidates: true
+  $ref: common.yaml#/runtime/zero_shot

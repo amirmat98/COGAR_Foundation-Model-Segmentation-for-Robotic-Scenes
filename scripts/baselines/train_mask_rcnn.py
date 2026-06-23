@@ -21,6 +21,9 @@ from pycocotools import mask as mask_utils
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+SRC_DIR = REPO_ROOT / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
 
 COCO_STATS = (
     "AP",
@@ -36,6 +39,8 @@ COCO_STATS = (
     "AR_medium",
     "AR_large",
 )
+
+from cogar_seg.config import load_config as load_project_config  # noqa: E402
 
 
 def parse_args() -> argparse.Namespace:
@@ -73,7 +78,7 @@ def load_json(path: str | Path) -> Any:
 
 
 def load_yaml(path: str | Path) -> dict[str, Any]:
-    return yaml.safe_load(resolve_repo_path(path).read_text(encoding="utf-8"))
+    return load_project_config(resolve_repo_path(path))
 
 
 def write_json(path: str | Path, data: Any) -> None:

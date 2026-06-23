@@ -26,14 +26,4 @@ training:
   log_every: 10
 
 datasets:
-  isaac_official_unitree_g1:
-    enabled: true
-    data_yaml: outputs/task5_baselines/deeplabv3plus/isaac_official_unitree_g1.yaml
-
-  blenderproc_cogar_sim:
-    enabled: true
-    data_yaml: outputs/task5_baselines/deeplabv3plus/blenderproc_cogar_sim.yaml
-
-  ocid:
-    enabled: true
-    data_yaml: outputs/task5_baselines/deeplabv3plus/ocid.yaml
+  $ref: common.yaml#/task5/training_datasets/deeplabv3plus

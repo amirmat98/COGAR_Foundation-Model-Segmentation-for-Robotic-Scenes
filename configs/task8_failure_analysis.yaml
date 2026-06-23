@@ -11,8 +11,7 @@ inputs:
   task7_speed_summary: outputs/task7_inference_speed/summary.csv
 
 evaluation:
-  split: test
-  split_root: outputs/task5_baselines/splits
+  $ref: common.yaml#/evaluation/held_out_test
 
 challenge_groups:
   small_parts_thin_structures:

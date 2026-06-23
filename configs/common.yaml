@@ -1,0 +1,114 @@
+# Shared fragments for benchmark task configs.
+# Loaded by src/cogar_seg/config.py through local $ref references.
+
+datasets:
+  isaac_official_unitree_g1:
+    enabled: true
+    root: /mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000
+    annotation_file: /mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000/annotations/instances_coco.json
+    image_path:
+      mode: coco_file_name_relative_to_root
+
+  blenderproc_cogar_sim:
+    enabled: true
+    root: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000
+    annotation_file: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/annotations/instances_all.json
+    image_path:
+      mode: basename_in_image_dir
+      image_dir: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000/rgb
+
+  ocid:
+    enabled: true
+    root: /mnt/Info/COGAR_DATASETs/OCID-dataset
+    annotation_file: outputs/datasets/ocid/instances_all.json
+    image_path:
+      mode: coco_file_name_relative_to_root
+
+prompt_modes:
+  point:
+    enabled: true
+    source: mask_pixel_nearest_centroid
+    point_labels:
+      - 1
+  box:
+    enabled: true
+    source: coco_bbox_xywh
+    output_format: xyxy
+  automatic:
+    enabled: true
+    source: no_prompt
+
+runtime:
+  zero_shot:
+    device: cuda
+    smoke_images_per_dataset: 5
+    prediction_format: coco_rle_jsonl
+    keep_multimask_candidates: true
+
+evaluation:
+  held_out_test:
+    split: test
+    split_root: outputs/task5_baselines/splits
+
+metrics:
+  segmentation:
+    boundary_tolerance_px: 2
+    prediction_selection: highest_score
+    score_default: 1.0
+
+speed:
+  sampling:
+    max_images_per_dataset: 50
+    automatic_max_images_per_dataset: 20
+    cpu_max_images_per_dataset: 10
+    cpu_automatic_max_images_per_dataset: 1
+    warmup_images: 3
+  runtime:
+    devices:
+      - cuda
+      - cpu
+    log_every: 5
+
+task5:
+  split_policy:
+    train_images: 100
+    val_images: 50
+    min_area: 1.0
+    require_annotations: true
+
+  training_datasets:
+    yolo8_seg:
+      isaac_official_unitree_g1:
+        enabled: true
+        data_yaml: outputs/task5_baselines/yolo8_seg/isaac_official_unitree_g1.yaml
+      blenderproc_cogar_sim:
+        enabled: true
+        data_yaml: outputs/task5_baselines/yolo8_seg/blenderproc_cogar_sim.yaml
+      ocid:
+        enabled: true
+        data_yaml: outputs/task5_baselines/yolo8_seg/ocid.yaml
+
+    deeplabv3plus:
+      isaac_official_unitree_g1:
+        enabled: true
+        data_yaml: outputs/task5_baselines/deeplabv3plus/isaac_official_unitree_g1.yaml
+      blenderproc_cogar_sim:
+        enabled: true
+        data_yaml: outputs/task5_baselines/deeplabv3plus/blenderproc_cogar_sim.yaml
+      ocid:
+        enabled: true
+        data_yaml: outputs/task5_baselines/deeplabv3plus/ocid.yaml
+
+    mask_rcnn:
+      isaac_official_unitree_g1:
+        enabled: true
+        train_annotations: outputs/task5_baselines/coco/isaac_official_unitree_g1/instances_train_small.json
+        val_annotations: outputs/task5_baselines/coco/isaac_official_unitree_g1/instances_val_small.json
+      blenderproc_cogar_sim:
+        enabled: true
+        train_annotations: outputs/task5_baselines/coco/blenderproc_cogar_sim/instances_train_small.json
+        val_annotations: outputs/task5_baselines/coco/blenderproc_cogar_sim/instances_val_small.json
+      ocid:
+        enabled: true
+        train_annotations: outputs/task5_baselines/coco/ocid/instances_train_small.json
+        val_annotations: outputs/task5_baselines/coco/ocid/instances_val_small.json

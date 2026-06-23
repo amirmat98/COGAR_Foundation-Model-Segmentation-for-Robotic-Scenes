@@ -18,10 +18,14 @@ from pycocotools import mask as mask_utils
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+SRC_DIR = REPO_ROOT / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
 SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
+from cogar_seg.config import load_config as load_project_config  # noqa: E402
 from segmentation_metrics import (  # noqa: E402
     annotation_to_rle,
     annotations_by_id,
@@ -76,7 +80,7 @@ def relative_to_repo(path: str | Path) -> str:
 
 
 def load_yaml(path: str | Path) -> dict[str, Any]:
-    return yaml.safe_load(resolve_repo_path(path).read_text(encoding="utf-8"))
+    return load_project_config(resolve_repo_path(path))
 
 
 def iter_jsonl(path: str | Path):

@@ -31,6 +31,8 @@ EFFICIENT_SAM_SRC_DIR = REPO_ROOT / "external" / "EfficientSAM"
 if EFFICIENT_SAM_SRC_DIR.exists() and str(EFFICIENT_SAM_SRC_DIR) not in sys.path:
     sys.path.insert(0, str(EFFICIENT_SAM_SRC_DIR))
 
+from cogar_seg.config import load_config  # noqa: E402
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
@@ -655,7 +657,7 @@ def run_automatic(
 
 def main() -> None:
     args = parse_args()
-    config = yaml.safe_load(Path(args.config).read_text(encoding="utf-8"))
+    config = load_config(args.config)
     device = args.device or config["runtime"].get("device", "cuda")
 
     if args.dataset not in config["datasets"]:

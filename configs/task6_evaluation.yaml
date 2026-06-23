@@ -8,13 +8,10 @@ task:
 # Final comparisons use the held-out test IDs created before baseline training.
 # Validation remains reserved for checkpoint selection only.
 evaluation:
-  split: test
-  split_root: outputs/task5_baselines/splits
+  $ref: common.yaml#/evaluation/held_out_test
 
 metrics:
-  boundary_tolerance_px: 2
-  prediction_selection: highest_score
-  score_default: 1.0
+  $ref: common.yaml#/metrics/segmentation
 
 zero_shot:
   config: configs/task4_zero_shot_sam.yaml

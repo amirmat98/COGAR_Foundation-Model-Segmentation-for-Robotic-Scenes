@@ -8,6 +8,10 @@ This file gives a practical slide-by-slide structure for the final COGAR
 presentation. It is designed for a **10–12 minute presentation** and can also
 be used as a compact skeleton for the written report.
 
+Reusable plots, tables, and representative failure figures are listed in
+[`figures_and_tables.md`](figures_and_tables.md). Use that file as the single
+visual source of truth for the slide deck.
+
 ---
 
 ## Presentation Goal
@@ -64,12 +68,6 @@ Use one strong image or montage from the benchmark:
 
 ```text
 outputs/final_benchmark_assets/plots/dataset_examples.png
-```
-
-If the exact figure is unavailable, use a simple three-column visual:
-
-```text
-Isaac Unitree G1 scene | BlenderProc scene | OCID clutter scene
 ```
 
 ## Speaker notes
@@ -319,16 +317,7 @@ This slide prevents overclaiming. Box-prompted SAM is not the same as fully auto
 
 ## Slide content
 
-Use the final corrected common-test results when available:
-
-```text
-outputs/task6_evaluation/zero_shot/test/summary.csv
-outputs/task6_evaluation/baselines/test/summary.csv
-outputs/task7_inference_speed/summary.csv
-outputs/task9_lightweight_sam/summary/summary.json
-```
-
-Recommended plots:
+Use the compact outputs currently stored under `outputs/`. Recommended plots:
 
 ```text
 outputs/final_benchmark_assets/plots/zero_shot_miou_heatmap.png
@@ -337,26 +326,17 @@ outputs/final_benchmark_assets/plots/cuda_speed_quality_scatter.png
 outputs/final_benchmark_assets/plots/lightweight_sam_tradeoff_cuda.png
 ```
 
-Key result messages to use only if supported by the final corrected outputs:
+Concrete numbers for the slide:
 
-- Box prompts usually give the strongest segmentation quality.
-- SAM/SAM2 are strong when mask quality is the priority.
-- Supervised baselines may be preferable for real-time GPU throughput.
-- Lightweight SAM variants can reduce deployment cost but require quality-speed trade-off analysis.
+- SAM ViT-H box on BlenderProc: mIoU 0.923, boundary F1 0.905, mask AP 0.868, 0.574 FPS.
+- SAM ViT-H box on Isaac G1: mIoU 0.752, boundary F1 0.874, mask AP 0.678, 0.574 FPS.
+- YOLOv8-seg on BlenderProc: mIoU 0.861, mask AP 0.643, 41.647 FPS.
+- DeepLabV3+ on OCID: mIoU 0.963, boundary F1 0.880, 37.811 FPS.
+- MobileSAM box: mIoU 0.883 on BlenderProc, 0.693 on Isaac G1, 0.824 on OCID.
 
 ## Speaker notes
 
 Do not overload the audience with every metric. Show one accuracy plot and one speed-quality plot. Explain the interpretation: high mIoU alone is not enough for robotics if FPS is too low, and high FPS is not enough if small or transparent objects are missed.
-
-## Evidence discipline
-
-If the final corrected common-test outputs are not yet regenerated, label results as:
-
-```text
-Archived / preliminary benchmark outputs; final common-test comparison pending.
-```
-
-Do not call legacy validation/full-dataset metrics final comparative evidence.
 
 ---
 
@@ -572,7 +552,7 @@ outputs/final_benchmark_assets/plots/zero_shot_dataset_prompt_winners.png
 outputs/task8_failure_analysis/
 ```
 
-Use only figures generated from the final corrected common-test outputs for final comparative claims.
+Use the figures and tables cited in `REPORT.md` so that the presentation and written report use the same evidence.
 
 ---
 

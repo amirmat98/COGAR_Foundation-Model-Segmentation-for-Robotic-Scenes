@@ -1,127 +1,59 @@
 project:
   name: foundation_model_segmentation_for_robotic_scenes
   student_id: "5884715"
-  active_phase: completed_with_public_dataset_release
+  phase: completed_benchmark
 
 datasets:
   isaac_official_unitree_g1:
-    status: generated_and_published
     kind: synthetic_simulation
     simulator: isaac_sim
-    target_images: 1000
     robot: unitree_g1_official_usd_only
+    images: 1000
+    annotations: 72695
+    categories: 16
     generator_root: Datasets/Isacc_dataset
     config: Datasets/Isacc_dataset/configs/dataset_config_v3_official_g1.json
-    runbook: Datasets/Isacc_dataset/docs/dataset_v3_official_g1_runbook.md
     repo_default_root: Datasets/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000
     local_root: /mnt/Info/COGAR_DATASETs/Isacc_dataset/datasets/robotic_sdg_v3_official_g1_1000
+    annotation_file: annotations/instances_coco.json
     public_url: https://doi.org/10.5281/zenodo.20736993
-    local_size: 3.7G
-    local_scan_2026_06_13:
-      images: 1000
-      manifest_rows: 1000
-      semantic_masks: 1000
-      instance_masks: 1000
-      coco_instances: annotations/instances_coco.json
-      coco_annotations: 72695
-      coco_categories: 16
-      validation: PASS
     requires_gpu: true
-    gpu_machine_recommended: true
 
   blenderproc_cogar_sim:
-    status: generated_and_published
     kind: synthetic_simulation
     simulator: blenderproc
-    target_images: 1000
+    images: 1000
+    annotations: 8768
+    categories: 10
     config: configs/blenderproc_dataset.yaml
     generator_script: scripts/blenderproc/generate_cogar_sim.py
     normalize_script: scripts/datasets/normalize_blenderproc_cogar_sim.py
     repo_default_root: Datasets/BlenderProc_cogar_sim_1000
     local_root: /mnt/Info/COGAR_DATASETs/BlenderProc_cogar_sim_1000
+    annotation_file: annotations/instances_all.json
+    metadata_file: metadata/frame_index.csv
     public_url: https://doi.org/10.5281/zenodo.20736993
-    smoke_test_2026_06_13:
-      raw_dataset_name: smoke_5_clean
-      images: 5
-      coco_images: 5
-      coco_annotations: 53
-      coco_categories: 10
-      metadata_rows: 5
-      challenge_families:
-        - dynamic_scene
-        - partial_occlusion
-        - reflective_metal
-        - small_parts
-        - transparent_glass
-      validation: PASS
-    final_target:
-      images: 1000
-      split_train: 700
-      split_val: 150
-      split_test: 150
-      challenge_families:
-        dynamic_scene: 200
-        partial_occlusion: 200
-        reflective_metal: 200
-        small_parts: 200
-        transparent_glass: 200
-    normalized_2026_06_13:
-      images: 1000
-      coco_annotations: 8768
-      annotations_file: annotations/instances_all.json
-      metadata_file: metadata/frame_index.csv
-      validation: PASS
-      local_copy: PASS
-      local_rgb_images: 1000
-      split_train: 700
-      split_val: 150
-      split_test: 150
     requires_gpu: false
-    external_generation_machine_recommended: true
+    split:
+      train: 700
+      val: 150
+      test: 150
 
   ocid:
-    status: external_available_locally
     kind: real_world_rgbd
+    images: 2390
     repo_default_root: Datasets/OCID
     local_root: /mnt/Info/COGAR_DATASETs/OCID-dataset
+    annotation_file: outputs/datasets/ocid/instances_all.json
     public_url: https://www.acin.tuwien.ac.at/object-clutter-indoor-dataset/
-    expected_top_level_dirs:
-      - ARID10
-      - ARID20
-      - YCB10
-    expected_modalities:
-      - rgb
-      - label
-      - depth
-      - pcd
-    local_scan_2026_06_13:
-      rgb_frames: 2390
-      label_frames: 2390
-      depth_frames: 2390
-      pcd_frames: 2380
     requires_gpu: false
-    external_generation_machine_recommended: false
+    note: external_dataset_not_redistributed
 
 publishing:
-  recommended_option: zenodo_for_final_dataset_release
-  public_record_url: https://zenodo.org/records/20736993
+  record_url: https://zenodo.org/records/20736993
   version_doi: https://doi.org/10.5281/zenodo.20736993
   concept_doi: https://doi.org/10.5281/zenodo.20736992
   release_output_dir: /mnt/Info/COGAR_DATASETs/releases
-  generated_dataset_release_files:
-    isaac_official_unitree_g1:
-      archive: robotic_sdg_v3_official_g1_1000.tar.gz
-      checksum: robotic_sdg_v3_official_g1_1000.tar.gz.sha256
-      manifest: robotic_sdg_v3_official_g1_1000_release_manifest.json
-    blenderproc_cogar_sim:
-      archive: BlenderProc_cogar_sim_1000.tar.gz
-      checksum: BlenderProc_cogar_sim_1000.tar.gz.sha256
-      manifest: BlenderProc_cogar_sim_1000_release_manifest.json
-  alternatives:
-    - hugging_face_datasets
-    - google_drive
-    - university_storage
-  notes:
-    - Generated Isaac and BlenderProc datasets are published in the same Zenodo record.
-    - Keep raw datasets out of Git.
-    - Do not re-host OCID unless the upstream license explicitly permits redistribution.
+  generated_dataset_archives:
+    - robotic_sdg_v3_official_g1_1000.tar.gz
+    - BlenderProc_cogar_sim_1000.tar.gz

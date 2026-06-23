@@ -24,9 +24,12 @@ from PIL import Image
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+SRC_DIR = REPO_ROOT / "src"
 SCRIPT_DIR = Path(__file__).resolve().parent
 BASELINE_DIR = REPO_ROOT / "scripts" / "baselines"
 FASTSAM_SRC_DIR = REPO_ROOT / "external" / "FastSAM"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 if str(BASELINE_DIR) not in sys.path:
@@ -35,6 +38,8 @@ if str(BASELINE_DIR) not in sys.path:
 
 IMAGENET_MEAN = np.asarray([0.485, 0.456, 0.406], dtype=np.float32)
 IMAGENET_STD = np.asarray([0.229, 0.224, 0.225], dtype=np.float32)
+
+from cogar_seg.config import load_config as load_project_config  # noqa: E402
 
 
 def parse_args() -> argparse.Namespace:
@@ -72,7 +77,7 @@ def relative_to_repo(path: str | Path) -> str:
 
 
 def load_yaml(path: str | Path) -> dict[str, Any]:
-    return yaml.safe_load(resolve_repo_path(path).read_text(encoding="utf-8"))
+    return load_project_config(resolve_repo_path(path))
 
 
 def load_json(path: str | Path) -> Any:
@@ -461,7 +466,7 @@ def build_yolo_runner(
     try:
         from ultralytics import YOLO
     except ImportError as exc:
-        raise ImportError("Missing ultralytics. Install requirements-task5-gpu.txt.") from exc
+        raise ImportError("Missing ultralytics. Install requirements.txt.") from exc
     print(f"[LOAD] yolo8_seg/{dataset_name}: ultralytics={module_file('ultralytics')}", flush=True)
 
     baseline_config = config["baselines"]["yolo8_seg"]

@@ -22,6 +22,8 @@ SRC_DIR = REPO_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
+from cogar_seg.config import load_config  # noqa: E402
+
 TRAINING_SPLITS = ("train", "val")
 ALL_SPLITS = ("train", "val", "test")
 FORMATS = ("coco", "yolo", "deeplab")
@@ -509,7 +511,7 @@ def prepare_dataset(
 
 def main() -> None:
     args = parse_args()
-    config = yaml.safe_load(Path(args.config).read_text(encoding="utf-8"))
+    config = load_config(args.config)
     summaries = []
     for dataset_name, dataset_config in iter_enabled_datasets(config, args.datasets):
         summaries.append(prepare_dataset(dataset_name, dataset_config, config, args))

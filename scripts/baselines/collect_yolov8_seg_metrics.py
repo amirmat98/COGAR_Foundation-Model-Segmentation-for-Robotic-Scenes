@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -12,7 +13,11 @@ import yaml
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+SRC_DIR = REPO_ROOT / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
 
+from cogar_seg.config import load_config as load_project_config  # noqa: E402
 
 METRIC_PRIORITY = (
     "metrics/mAP50-95(M)",
@@ -64,7 +69,7 @@ def relative_to_repo(path: str | Path) -> str:
 
 
 def load_yaml(path: str | Path) -> dict[str, Any]:
-    return yaml.safe_load(resolve_repo_path(path).read_text(encoding="utf-8"))
+    return load_project_config(resolve_repo_path(path))
 
 
 def load_json(path: str | Path) -> Any:

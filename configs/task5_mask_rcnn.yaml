@@ -32,17 +32,4 @@ training:
   log_every: 10
 
 datasets:
-  isaac_official_unitree_g1:
-    enabled: true
-    train_annotations: outputs/task5_baselines/coco/isaac_official_unitree_g1/instances_train_small.json
-    val_annotations: outputs/task5_baselines/coco/isaac_official_unitree_g1/instances_val_small.json
-
-  blenderproc_cogar_sim:
-    enabled: true
-    train_annotations: outputs/task5_baselines/coco/blenderproc_cogar_sim/instances_train_small.json
-    val_annotations: outputs/task5_baselines/coco/blenderproc_cogar_sim/instances_val_small.json
-
-  ocid:
-    enabled: true
-    train_annotations: outputs/task5_baselines/coco/ocid/instances_train_small.json
-    val_annotations: outputs/task5_baselines/coco/ocid/instances_val_small.json
+  $ref: common.yaml#/task5/training_datasets/mask_rcnn

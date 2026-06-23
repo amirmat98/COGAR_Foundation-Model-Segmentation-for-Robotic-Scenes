@@ -38,21 +38,7 @@ baselines:
     summary: outputs/task5_baselines/deeplabv3plus_training/summary.json
 
 sampling:
-  # Full GPU timing is measured on a moderate image subset so all models are
-  # comparable without repeating the full Task 4 prediction workload.
-  max_images_per_dataset: 50
-  automatic_max_images_per_dataset: 20
-
-  # CPU runs are intentionally smaller. Large SAM automatic-mask generators on
-  # CPU are not expected to be real-time, and the sample count is recorded in
-  # every output row.
-  cpu_max_images_per_dataset: 10
-  cpu_automatic_max_images_per_dataset: 1
-
-  warmup_images: 3
+  $ref: common.yaml#/speed/sampling
 
 runtime:
-  devices:
-    - cuda
-    - cpu
-  log_every: 5
+  $ref: common.yaml#/speed/runtime

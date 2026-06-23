@@ -20,6 +20,9 @@ from pycocotools import mask as mask_utils
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+SRC_DIR = REPO_ROOT / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
 SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
@@ -27,6 +30,7 @@ BASELINE_DIR = REPO_ROOT / "scripts" / "baselines"
 if str(BASELINE_DIR) not in sys.path:
     sys.path.insert(0, str(BASELINE_DIR))
 
+from cogar_seg.config import load_config as load_project_config  # noqa: E402
 from segmentation_metrics import (  # noqa: E402
     annotation_to_rle,
     annotations_by_image,
@@ -94,7 +98,7 @@ def relative_to_repo(path: str | Path) -> str:
 
 
 def load_yaml(path: str | Path) -> dict[str, Any]:
-    return yaml.safe_load(resolve_repo_path(path).read_text(encoding="utf-8"))
+    return load_project_config(resolve_repo_path(path))
 
 
 def selected_names(all_names: list[str], selected: list[str] | None) -> list[str]:
@@ -343,7 +347,7 @@ def generate_yolo_predictions(
     try:
         from ultralytics import YOLO
     except ImportError as exc:
-        raise ImportError("Missing ultralytics. Install requirements-task5-gpu.txt.") from exc
+        raise ImportError("Missing ultralytics. Install requirements.txt.") from exc
 
     coco = load_json(annotation_file)
     category_by_yolo_class = yolo_category_map(dataset_name, config)

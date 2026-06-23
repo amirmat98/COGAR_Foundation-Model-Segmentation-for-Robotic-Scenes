@@ -55,7 +55,7 @@ Use the same Python virtual environment and dataset paths as Tasks 4-8.
 
 ```bash
 source .venv/bin/activate
-python -m pip install -r requirements-task9-gpu.txt
+python -m pip install -r requirements.txt
 ```
 
 Download the lightweight checkpoints:

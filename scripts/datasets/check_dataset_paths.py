@@ -3,9 +3,18 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 
 import yaml
+
+
+REPO_ROOT = Path(__file__).resolve().parents[2]
+SRC_DIR = REPO_ROOT / "src"
+if str(SRC_DIR) not in sys.path:
+    sys.path.insert(0, str(SRC_DIR))
+
+from cogar_seg.config import load_config  # noqa: E402
 
 
 def parse_args() -> argparse.Namespace:
@@ -23,7 +32,7 @@ def path_status(path_value: str | None) -> str:
 
 def main() -> None:
     args = parse_args()
-    config = yaml.safe_load(Path(args.config).read_text(encoding="utf-8"))
+    config = load_config(args.config)
     for name, dataset in config["datasets"].items():
         print(f"[{name}]")
         for key in ["repo_default_root", "local_root"]:
@@ -33,4 +42,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
