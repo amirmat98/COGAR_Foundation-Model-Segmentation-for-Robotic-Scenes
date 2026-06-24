@@ -16,6 +16,11 @@ are concise companion pages, not duplicated final reports. Reusable figures and
 CSV evidence are centralized in `report/figures_and_tables.md` to avoid
 repeating the same plots in every section file.
 
+> **Storage note:** The complete `results/` folder could not be included in Git
+> because its raw predictions and checkpoints are too large. Git contains the
+> compact evidence under `outputs/`; full raw results remain on the benchmark
+> machine/AWS storage.
+
 `REPORT.md` now acts as the hub: each required report section includes a direct
 link to the relevant detailed supporting file below. The supporting files are
 therefore dependencies for explanation depth, while `REPORT.md` remains the
@@ -69,5 +74,6 @@ The final report draws evidence from:
 - `outputs/final_benchmark_assets/` for plots and compact result tables,
 - `outputs/task*_*/` for intermediate benchmark artifacts.
 
-Raw checkpoints and prediction JSONL files are kept under `results/` when
-available, but they are not committed to Git because of size.
+Raw checkpoints and prediction JSONL files are kept under `results/` on the
+benchmark machine, but the complete folder could not be committed to Git
+because it is too large.

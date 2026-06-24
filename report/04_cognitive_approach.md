@@ -11,6 +11,11 @@ Cognitive Architectures for Robotics (COGAR).
 For reusable plots and result tables, use
 [`figures_and_tables.md`](figures_and_tables.md).
 
+> **Evidence storage:** The complete raw `results/` folder could not be
+> included in Git because it is too large. Compact evaluated evidence remains
+> available under `outputs/`; full raw results are retained on the benchmark
+> machine/AWS storage.
+
 ---
 
 ## 1. Core Idea

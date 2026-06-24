@@ -122,8 +122,10 @@ written under:
 results/task6_evaluation
 ```
 
-The `results` directory is ignored by Git and should be treated as a local or
-release artifact.
+The complete `results/` directory could not be included in Git because its raw
+predictions and checkpoints are too large. It remains on the benchmark
+machine/AWS storage, while the compact evaluation summaries above are
+committed.
 
 ## Smoke Checks
 

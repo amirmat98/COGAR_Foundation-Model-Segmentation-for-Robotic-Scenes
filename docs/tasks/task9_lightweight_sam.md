@@ -44,10 +44,10 @@ The completed summary contains:
 - 3 lightweight models: `mobile_sam_vit_t`, `efficient_sam_ti`, and
   `efficient_sam_s`.
 
-Raw Task 9 prediction files under `results/task9_lightweight_sam/` are
-temporary working artifacts. They are not committed to Git and do not need to
-be retained after evaluation, speed measurement, and summary generation are
-complete.
+Raw Task 9 prediction files under `results/task9_lightweight_sam/` are too
+large for Git. The complete `results/` folder therefore remains on the
+benchmark machine/AWS storage, while the compact evaluation, speed, and
+recommendation summaries are committed under `outputs/`.
 
 ## Setup
 

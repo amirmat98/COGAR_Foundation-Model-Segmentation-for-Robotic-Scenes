@@ -3,6 +3,11 @@
 This folder is a repository-local wiki for the benchmark. It mirrors the final
 report structure but keeps the pages short and navigable.
 
+> **Result storage notice:** The complete `results/` folder could not be
+> included in Git because its raw predictions and checkpoints are too large.
+> Compact evaluated summaries, plots, and tables are available under
+> `outputs/`; full raw results remain on the benchmark machine/AWS storage.
+
 Main documents:
 
 | Page | Purpose |

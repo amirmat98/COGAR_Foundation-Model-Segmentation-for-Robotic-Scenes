@@ -1,5 +1,10 @@
 # Final Recommendation Guide
 
+> The complete raw `results/` folder could not be included in Git because its
+> prediction files and checkpoints are too large. This guide and the compact
+> evaluated summaries, tables, and plots under `outputs/` are committed; full
+> raw results remain on the benchmark machine/AWS storage.
+
 > **Legacy results:** this generated guide combines the original full-dataset
 > zero-shot run with 50-image baseline validation results. It is retained for
 > provenance but must not be used as the final model comparison. Regenerate it

@@ -52,8 +52,9 @@ Generated training folders are written under:
 data/task5_baselines
 ```
 
-The generated training folders are local artifacts and are not committed to
-Git.
+The generated training folders and complete raw `results/` folder could not be
+included in Git because the datasets, predictions, and checkpoints are too
+large. Compact evaluated baseline summaries remain committed under `outputs/`.
 
 ## Preparation Command
 

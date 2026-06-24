@@ -61,8 +61,10 @@ Model predictions were written to:
 results/task4_zero_shot_sam
 ```
 
-Large prediction files, model checkpoints, and generated outputs stay outside
-Git.
+The complete `results/` folder could not be included in Git because these raw
+prediction files and model checkpoints are too large. They remain on the
+benchmark machine/AWS storage; compact evaluated outputs are committed under
+`outputs/`.
 
 ## Environment
 

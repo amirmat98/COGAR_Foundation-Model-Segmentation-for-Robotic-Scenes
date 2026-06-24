@@ -11,6 +11,11 @@ experimental variables, methodology, fairness rules, and evidence mapping.
 For reusable plots and summary tables, use
 [`figures_and_tables.md`](figures_and_tables.md).
 
+> **Evidence storage:** The complete raw `results/` folder could not be
+> included in Git because its predictions and checkpoints are too large.
+> Reproducible configs and compact evaluated evidence are committed; full raw
+> results remain on the benchmark machine/AWS storage.
+
 ---
 
 ## 1. Research Question

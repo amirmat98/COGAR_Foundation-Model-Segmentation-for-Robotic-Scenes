@@ -27,6 +27,13 @@ themselves. Deployment still requires prompt generation, temporal consistency,
 domain validation, inference-speed analysis, and explicit handling of failure
 cases.
 
+**Result storage statement.** The complete `results/` folder could not be
+included in Git because the raw predictions and checkpoints are too large for
+practical repository storage. The repository therefore contains the evaluated
+summaries, tables, plots, and selected qualitative examples under `outputs/`;
+the full raw results remain on the benchmark machine/AWS storage and can be
+transferred separately when required.
+
 ## Report Structure and Supporting Files
 
 This root report is the final research report. The supporting files under
@@ -72,6 +79,10 @@ Dataset scale:
 | OCID | 2390 | 21,487 |
 
 Available output artifacts:
+
+The entries below are the compact, Git-compatible evidence derived from the
+larger raw `results/` folder, which could not be uploaded to Git because of its
+size.
 
 | Artifact group | Rows / files | Evidence path |
 | --- | ---: | --- |
@@ -673,7 +684,7 @@ validity are summarized explicitly below.
 | Construct validity | mIoU, boundary F1, and mask AP measure segmentation quality, not complete robotic task success. | Recommendations are limited to perception-module selection; grasping, pose estimation, tracking, and task success require additional evaluation. |
 | Construct validity | Automatic mask generation produces proposals rather than task-selected objects. | Automatic results are interpreted as object-discovery behavior and not as direct closed-loop manipulation output. |
 | Reproducibility validity | FPS depends on GPU, CPU, PyTorch/CUDA versions, checkpoint implementation, prompt mode, image resolution, preprocessing, and post-processing. | Hardware/software metadata and timing sample counts are reported in Section 3.5 and stored in each `*_speed.json` file. |
-| Reproducibility validity | Some large artifacts, such as raw prediction files and checkpoints, are stored outside Git. | Compact summaries, plots, config files, and artifact paths are kept in the repository; raw `results/` files are retrieved from the benchmark machine when needed. |
+| Reproducibility validity | The complete `results/` folder could not be included in Git because its raw prediction files and checkpoints are too large. | Compact summaries, plots, config files, and artifact paths are kept in the repository; full raw results remain on the benchmark machine/AWS storage and are transferred separately when needed. |
 
 These threats do not invalidate the benchmark, but they define the correct
 scope of the conclusions. The results support model-selection recommendations

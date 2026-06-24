@@ -11,6 +11,11 @@ subquestions, scope, and the evidence used to motivate the benchmark.
 For reusable plots and CSV sources, use the shared catalog:
 [`figures_and_tables.md`](figures_and_tables.md).
 
+> **Evidence storage:** The complete raw `results/` folder could not be
+> included in Git because it is too large. Compact evaluated evidence is
+> available under `outputs/`, while the full raw results remain on the
+> benchmark machine/AWS storage.
+
 ---
 
 ## 1. Problem Statement

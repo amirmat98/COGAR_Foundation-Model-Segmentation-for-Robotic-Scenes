@@ -60,6 +60,10 @@ Compact outputs are written to:
 outputs/task8_failure_analysis/test/
 ```
 
+The complete raw `results/` folder used as analysis input could not be included
+in Git because it is too large. The derived failure tables and selected visual
+examples are committed under `outputs/`.
+
 Important files:
 
 ```text

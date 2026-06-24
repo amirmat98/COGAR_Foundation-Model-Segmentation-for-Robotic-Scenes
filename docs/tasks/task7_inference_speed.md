@@ -37,6 +37,10 @@ Compact outputs are written to:
 outputs/task7_inference_speed/
 ```
 
+The complete raw `results/` folder could not be included in Git because it is
+too large. The compact timing summaries needed for the reported FPS and latency
+comparisons are committed under `outputs/task7_inference_speed/`.
+
 The main files are:
 
 ```text

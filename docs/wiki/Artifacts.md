@@ -3,6 +3,11 @@
 This page lists the main files needed to inspect or reproduce the benchmark
 summary.
 
+> **Storage limitation:** The complete `results/` folder could not be included
+> in Git because the raw prediction files and checkpoints are too large. The
+> committed `outputs/` folder contains compact derived evidence; full raw
+> results remain on the benchmark machine/AWS storage.
+
 ## Reports
 
 | File | Purpose |
@@ -34,4 +39,5 @@ summary.
 | Best lightweight CUDA trade-off | [../../outputs/final_benchmark_assets/tables/best_lightweight_cuda_tradeoff.csv](../../outputs/final_benchmark_assets/tables/best_lightweight_cuda_tradeoff.csv) |
 
 Raw prediction files and checkpoints are stored under `results/` on the
-benchmark machine and are intentionally not committed to Git.
+benchmark machine. The folder could not be committed to Git because it is too
+large and must be transferred separately when raw-result inspection is needed.

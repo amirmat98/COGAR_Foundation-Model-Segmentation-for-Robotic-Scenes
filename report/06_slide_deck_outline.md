@@ -12,6 +12,11 @@ Reusable plots, tables, and representative failure figures are listed in
 [`figures_and_tables.md`](figures_and_tables.md). Use that file as the single
 visual source of truth for the slide deck.
 
+> **Presentation disclosure:** State that the complete `results/` folder could
+> not be included in Git because the raw predictions and checkpoints are too
+> large. The repository includes the compact summaries, plots, tables, and
+> selected examples used in the presentation.
+
 ---
 
 ## Presentation Goal

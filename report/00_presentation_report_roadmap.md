@@ -7,6 +7,10 @@ Student id: **5884715**
 This roadmap explains how the final report, support files, and slide outline
 fit together.
 
+> **Storage note:** The complete raw `results/` folder could not be included in
+> Git because it is too large. The repository includes compact evaluated
+> summaries, tables, plots, and selected failure examples under `outputs/`.
+
 ## Main Deliverables
 
 | File | Role |

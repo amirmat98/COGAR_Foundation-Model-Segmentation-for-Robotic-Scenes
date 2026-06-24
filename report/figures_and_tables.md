@@ -4,6 +4,11 @@ This file is the shared visual/evidence catalog for the report package. The
 main report embeds the most important figures. Supporting report files should
 link here instead of repeating the same figures many times.
 
+> The complete raw `results/` folder could not be included in Git because it is
+> too large. This catalog points to the compact evaluated figures and tables
+> committed under `outputs/`; full raw predictions and checkpoints remain on
+> the benchmark machine/AWS storage.
+
 ## Core Figures
 
 | ID | Figure | File | Primary use |

@@ -4,6 +4,10 @@ Robotic scene segmentation is not only an image-processing problem. A robot
 uses object masks to support manipulation, tracking, inspection, navigation,
 planning, and safety checks.
 
+> Repository note: the complete raw `results/` folder could not be included in
+> Git because it is too large. Compact evaluated evidence is committed under
+> `outputs/`.
+
 The benchmark asks:
 
 > To what extent can promptable foundation segmentation models provide reliable

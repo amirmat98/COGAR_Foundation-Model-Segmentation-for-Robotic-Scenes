@@ -3,6 +3,10 @@
 The benchmark is positioned between general-purpose segmentation research and
 robotic deployment requirements.
 
+> Repository note: the complete raw `results/` folder could not be included in
+> Git because its predictions and checkpoints are too large. Compact evaluated
+> evidence is committed under `outputs/`.
+
 | Stream | Methods | Role |
 |---|---|---|
 | Promptable foundation segmentation | SAM, SAM ViT-H, SAM ViT-B | Zero-shot segmentation from prompts. |

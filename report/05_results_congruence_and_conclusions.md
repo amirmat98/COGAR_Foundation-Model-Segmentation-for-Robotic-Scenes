@@ -11,6 +11,12 @@ available evidence and avoids overclaiming.
 For reusable plots and CSV sources, use
 [`figures_and_tables.md`](figures_and_tables.md).
 
+> **Result storage:** The complete raw `results/` folder could not be included
+> in Git because its predictions and checkpoints are too large. The numerical
+> conclusions below are backed by committed summaries, tables, plots, and
+> selected failure examples under `outputs/`; full raw results remain on the
+> benchmark machine/AWS storage.
+
 ---
 
 ## 1. Main Congruence Principle
@@ -93,7 +99,7 @@ Figure/table IDs refer to [`figures_and_tables.md`](figures_and_tables.md).
 | Supervised vs zero-shot settings | These are different learning regimes; final comparisons use held-out test data. |
 | Metrics vs task success | mIoU/AP/FPS do not directly measure grasping, navigation, or manipulation success. |
 | Runtime dependence | FPS depends on hardware, implementation, preprocessing, image size, and prompt mode. |
-| Artifact storage | Large raw predictions/checkpoints are outside Git; compact outputs and plots are committed. |
+| Artifact storage | The complete raw `results/` folder could not be included in Git because it is too large; compact evaluated outputs and plots are committed, and full raw files remain on the benchmark machine/AWS storage. |
 
 ---
 

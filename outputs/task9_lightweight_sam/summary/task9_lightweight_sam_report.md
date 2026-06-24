@@ -1,5 +1,10 @@
 # Task 9: Lightweight SAM Edge-Deployment Trade-Off
 
+> The complete raw `results/` folder could not be included in Git because its
+> predictions are too large. This committed report contains the derived
+> quality, speed, and recommendation summaries; full raw files remain on the
+> benchmark machine/AWS storage.
+
 This report compares MobileSAM and EfficientSAM variants against the heavier Task 4 models and the supervised Task 5 baselines where matching quality/speed rows are available.
 
 EfficientSAM automatic mode is evaluated as grid-prompt automatic proposal generation, because the official EfficientSAM API exposes direct point/box tensor inference rather than the same automatic-mask-generator class used by SAM and MobileSAM.

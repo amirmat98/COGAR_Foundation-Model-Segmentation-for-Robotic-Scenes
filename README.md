@@ -21,6 +21,13 @@ The main entry points are:
 Supporting task notes, slide outlines, shared figure references, and source
 material are kept under [docs/](docs) and [report/](report).
 
+> **Result storage notice:** The complete `results/` folder could not be
+> included in Git because its raw predictions and model checkpoints are too
+> large for practical repository storage. The compact numerical summaries,
+> tables, plots, and failure examples needed to inspect the reported findings
+> are included under `outputs/`. The full raw folder remains on the benchmark
+> machine/AWS storage and can be transferred separately when required.
+
 ---
 
 ## Benchmark Overview
@@ -110,9 +117,10 @@ Main software stack:
 └── results/                          # raw predictions/checkpoints; ignored by Git
 ```
 
-`results/` is intentionally not committed. It stores large raw prediction files
-and trained checkpoints. Compact summaries and final plots are stored under
-`outputs/`.
+The complete `results/` folder could not be committed to Git because the raw
+prediction files and trained checkpoints are too large. Compact summaries,
+tables, and final plots are stored under `outputs/`; the full raw results remain
+on the benchmark machine/AWS storage.
 
 ---
 

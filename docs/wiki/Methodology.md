@@ -3,6 +3,10 @@
 The project is formulated as a benchmark over datasets, model families, prompt
 modes, metrics, challenge groups, and hardware.
 
+> The complete raw `results/` folder could not be included in Git because it is
+> too large. The repository retains the configs and compact evaluated outputs
+> required to understand the protocol and reported comparisons.
+
 ```mermaid
 flowchart LR
     A[Datasets] --> B[Zero-shot SAM models]

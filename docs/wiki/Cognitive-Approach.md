@@ -3,6 +3,10 @@
 The COGAR interpretation is that segmentation is a perception module inside a
 robotic cognitive architecture.
 
+> Repository note: the complete raw `results/` folder could not be included in
+> Git because it is too large. Compact evidence for the perception-module
+> analysis is available under `outputs/`.
+
 ```mermaid
 flowchart TD
     A[Camera input] --> B[Attention / prompt]

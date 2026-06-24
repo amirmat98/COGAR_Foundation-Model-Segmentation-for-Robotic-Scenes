@@ -3,6 +3,12 @@
 The conclusions are conditional. No single model is best for all robotic
 scenarios.
 
+> **Result storage notice:** The complete raw `results/` folder could not be
+> included in Git because its predictions and checkpoints are too large. The
+> findings below use committed summaries, tables, plots, and selected failure
+> examples under `outputs/`; full raw results remain on the benchmark
+> machine/AWS storage.
+
 ## Key Results
 
 | Scenario | Best setting | Main result |

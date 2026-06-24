@@ -1,5 +1,10 @@
 # Task 8 - Failure Mode Analysis
 
+> The complete raw `results/` folder could not be included in Git because it is
+> too large. This committed analysis contains the derived metrics and selected
+> visual failures; full prediction files remain on the benchmark machine/AWS
+> storage.
+
 This report summarizes where the segmentation models fail in the robotic scenes, using Task 6 metrics and representative visual overlays mined from Task 4 predictions.
 
 ## Key Findings
